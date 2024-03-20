@@ -82,7 +82,7 @@ body {
     display: inline-block;
     line-height: 1;
     user-select: none;
-    webkit-user-select: none;
+    -webkit-user-select: none;
     transform: skewX(calc(-1*var(--skew)));
     transition: 
       padding var(--t-time) ease-in-out, 
@@ -96,7 +96,7 @@ body {
       transform: skewX(var(--skew));
     }
   }
-  &:not([open], :has(:is(input, textarea, select):focus)) .label {
+  &:is(:not([open], :has(:is(input, textarea, select):focus)), :has(.hasInput)) .label {
     translate: 0 -50%;
     font-size: inherit;
     border-color: transparent;

@@ -9,11 +9,20 @@ window.addEventListener('DOMContentLoaded', function(e) {
 
 document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').forEach(function(e, i) {
   e.onkeyup = function(event) {
-    if (event.target.value) event.target.parentNode.setAttribute('open', '')
-    else event.target.parentNode.removeAttribute('open')
-}
+    checkIfValue(event.target)
+  }
 })
-  
+
+document.querySelectorAll('.input-parent').forEach(function(e, i) {
+  e = e.querySelector('> :not(label)')
+  checkIfValue(e)
+})
+
+function checkIfValue(element) {
+  if (element.value) event.target.parentNode.setAttribute('open', '')
+  else element.parentNode.removeAttribute('open')
+}
+
 function goToPage(name) {
   location.href = `/${name}`
 }
