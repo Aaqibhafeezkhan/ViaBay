@@ -8,15 +8,10 @@ window.addEventListener('DOMContentLoaded', function(e) {
 })
 
 document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').forEach(function(e, i) {
+  checkIfValue(e)
   e.onkeyup = function(event) {
     checkIfValue(event.target)
   }
-})
-
-document.querySelectorAll('.input-parent').forEach(function(e, i) {
-  document.querySelectorAll(`.input-parent > :not(label)`)[i]
-  alert(e)
-  checkIfValue(e)
 })
 
 function checkIfValue(element) {
