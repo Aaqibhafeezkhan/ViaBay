@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Login</title>
+    <link href="/styles/page.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/login.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="page">
+    <section class="main">
+      <div class="login">
+        <img class="logo" src="/assets/logo.svg">
+        <div class="inputs">
+          <div class="input-parent">
+            <label for="email" class="label">
+              <span>Email <span class="star">*</span></span>
+            </label>
+            <input type="text" id="email" required pattern="*@*.*">
+          </div>
+          <div class="input-parent">
+            <label for="password" class="label">
+              <span>Password <span class="star">*</span></span>
+            </label>
+            <input type="password" id="password" required>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn">Login Help</button>
+          <button class="btn" id="login" onclick="login()">Sign In</button>
+        </div>
+      </div>
+    </section>
+    <script src="/scripts/page.js"></script>
+    <script src="/scripts/login.js"></script>
+    <script src="/scripts/eruda.js"></script>
+  </body>
+</html>
