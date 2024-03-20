@@ -59,17 +59,25 @@ body {
   --s-w: calc(100% - var(--p-i)*2 - 3px);
   --b-r: 10px;
   --b-w: 3px;
+
+  position: relative;
   box-sizing: border-box;
+
   height: calc(12vw + var(--b-w)*2);
   width: 100%;
+
   background-color: black;
+  color: white;
+
   border-radius: var(--b-r);
   border: solid var(--b-w) white;
   outline: none;
-  color: white;
+
   font-size: 4vh;
-  position: relative;
+  
   z-index: 1;
+  overflow-x: hidden;
+
   .label {
     --t-time: 0.5s;
     --skew: 10deg;
@@ -130,7 +138,7 @@ body {
     line-height: calc(1vh*8);
   }
   & :is(input, textarea, select) {
-    border-radius: calc(var(--b-r) - var(--b-w));
+    border-radius: calc(var(--b-r));
     width: calc(var(--s-w) + var(--b-w));
     height: calc(100% - var(--b-w)/2);
     padding-inline: var(--p-i);
