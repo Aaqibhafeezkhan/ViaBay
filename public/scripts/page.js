@@ -14,7 +14,7 @@ document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').for
 
   var element = ''
   classes.forEach(function(c, i) {
-    if (c.endsWith('-parent')) element = c.slice(0, -7)
+    if (c.endsWith('-parent')) element = c.splice(0, -7)
   })
   alert(element)
 
