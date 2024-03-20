@@ -130,7 +130,7 @@ body {
     line-height: calc(1vh*8);
   }
   & :is(input, textarea, select) {
-    border-radius: calc(var(--b-r) - var(--b-w));
+    border-radius: calc(var(--b-r) - var(--b-w)*2);
     width: calc(var(--s-w) + var(--b-w));
     height: calc(100% - var(--b-w)/2);
     padding-inline: var(--p-i);
