@@ -8,7 +8,18 @@ window.addEventListener('DOMContentLoaded', function(e) {
 })
 
 document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').forEach(function(e, i) {
-  checkIfValue(e.querySelector(':not(label, label *)'))
+  var classes = e.className
+  if (classes.includes(' ')) classes = classes.split(' ')
+  else classes = [classes]
+  
+  var element = ''
+  classes.forEach(function(c, i) {
+    if (c.endsWith('-parent')) element = c
+  })
+  element = element.substring(0, -7)
+  alert(element)
+
+  checkIfValue(e.querySelector(element))
   e.onkeyup = function(event) {
     checkIfValue(event.target)
   }
