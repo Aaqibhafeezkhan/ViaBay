@@ -15,6 +15,7 @@ document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').for
 
 document.querySelectorAll('.input-parent').forEach(function(e, i) {
   e = e.querySelector('> :not(label)')
+  alert(e)
   checkIfValue(e)
 })
 
