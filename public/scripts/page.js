@@ -14,11 +14,9 @@ document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').for
 
   var element = ''
   classes.forEach(function(c, i) {
-    if (c.endsWith('-parent')) element = c
-    alert(element)
+    if (c.endsWith('-parent')) element = c.substring(0, -7)
   })
-  element = element.substring(0, -7)
-  // alert(element)
+  alert(element)
 
   checkIfValue(e.querySelector(element))
   e.onkeyup = function(event) {
