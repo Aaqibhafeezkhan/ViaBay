@@ -3,22 +3,16 @@ import '../styles/page.scss'
 import '../styles/directions.scss'
 
 import Layout from '../layouts/Layout.astro'
+
+var classItems = ['page']
 ---
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Map / Directions</title>
-  </head>
-  <body class="page">
-    <section class="main">
-      <div class="img"></div>
-      <div class="info"></div>
-    </section>
-    <script src="/scripts/page.js"></script>
-    <script src="/scripts/tracker.js"></script>
-    <script src="/scripts/directions.js"></script>
-    <script src="/scripts/eruda.js"></script>
-  </body>
-</html>
+<Layout title="Map / Directions" classItems={classItems}>
+  <section class="main">
+    <div class="img"></div>
+    <div class="info"></div>
+  </section>
+  <script src="/scripts/page.js"></script>
+  <script src="/scripts/tracker.js"></script>
+  <script src="/scripts/directions.js"></script>
+  <script src="/scripts/eruda.js"></script>
+</Layout>
