@@ -12,10 +12,9 @@ document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').for
   if (classes.includes(' ')) classes = classes.split(' ')
   else classes = [classes]
 
-  alert(JSON.stringify(classes))
-  
   var element = ''
   classes.forEach(function(c, i) {
+    alert(c)
     if (c.endsWith('-parent')) element = c
   })
   element = element.substring(0, -7)
