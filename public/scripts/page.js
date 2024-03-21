@@ -2,7 +2,8 @@ window.addEventListener('DOMContentLoaded', function(e) {
   var title = document.title
   if (title.includes(' | ')) {
     title = title.split(' | ')
-    title = title.pop()
+    title.pop()
+    title = title.join(' | ')
   }
   parent.document.querySelector('.header').textContent = title
   top.document.title = `${title} | ${top.data.document.title}`
