@@ -13,6 +13,7 @@ var data = {
   }
 }
 
+// alert(JSON.stringify(data))
 localStorage.setItem('data', JSON.stringify(data))
 
 var appEle = document.getElementById('app')
