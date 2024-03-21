@@ -1,4 +1,4 @@
- data = {
+var data = {
   document: {
     title: document.title, 
   }, 
