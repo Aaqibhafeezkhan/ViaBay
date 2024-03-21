@@ -3,11 +3,12 @@ var data = {
     title: document.title, 
   }, 
   queryString: window.location.search, 
-  params: {
-    page: data.urlParms.get('page') || 'tracker',
-  }
 }
 data.urlParams = new URLSearchParams(data.queryString)
+data.params = {
+  page: data.urlParms.get('page') || 'tracker',
+}
+
 
 // localStorage.setItem('data', JSON.stringify(data))
 
