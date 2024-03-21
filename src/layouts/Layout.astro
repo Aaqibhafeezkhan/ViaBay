@@ -37,7 +37,7 @@ classItems.forEach(function(c, i) {
     <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
     {
-      return !!headItems ? '' : <div set:html={headItems}></div>
+      !!headItems ? '' : <div set:html={headItems}></div>
     }
   </head>
   <body class={classStr}>
