@@ -6,7 +6,8 @@
   // background-repeat: no-repeat;
 }
 
-/* Always set the map height explicitly to define the size of the div element that contains the map. */
- #map {
-  height: 100%;
+#myMap {
+  position: relative;
+  width: 600px;
+  height: 400px;
 }

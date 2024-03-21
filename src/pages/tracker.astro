@@ -8,9 +8,17 @@ var classItems = ['page']
 ---
 <Layout title="Map / Live Tracker" classItems={classItems}>
   <section class="main">
-    <div id="map"></div>
+    <div id="myMap"></div>
   </section>
   <script src="/scripts/page.js" is:inline></script>
-  <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[YOUR_BING_MAPS_KEY]' async defer></script>
+  <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[YOUR_BING_MAPS_KEY]' async defer></script>
+  <script>
+  <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', GetMap)
+    function GetMap() {
+      var map = new Microsoft.Maps.Map('#myMap');
+    }
+  </script>
+  </script>
   <script src="/scripts/eruda.js" is:inline></script>
 </Layout>
