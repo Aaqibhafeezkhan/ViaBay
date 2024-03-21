@@ -7,38 +7,38 @@ import Layout from '../layouts/Layout.astro'
 var classItems = ['page']
 ---
 <Layout title="Login" classItems={classItems}>
-<section class="main">
-  <div class="login">
-    <img class="logo" src="/assets/logo.svg">
-    <div class="inputs">
-      <div class="input-parent">
-        <label for="email" class="label">
-          <span>Email <span class="star">*</span></span>
-        </label>
-        <input type="text" id="email" required pattern="*@*.*">
+  <section class="main">
+    <div class="login">
+      <img class="logo" src="/assets/logo.svg">
+      <div class="inputs">
+        <div class="input-parent">
+          <label for="email" class="label">
+            <span>Email <span class="star">*</span></span>
+          </label>
+          <input type="text" id="email" required pattern="*@*.*">
+        </div>
+        <div class="input-parent">
+          <label for="password" class="label">
+            <span>Password <span class="star">*</span></span>
+          </label>
+          <input type="password" id="password" required>
+        </div>
       </div>
-      <div class="input-parent">
-        <label for="password" class="label">
-          <span>Password <span class="star">*</span></span>
-        </label>
-        <input type="password" id="password" required>
+      <div class="btns">
+        <button class="btn">Login Help</button>
+        <button class="btn" id="login" onclick="login()">Sign In</button>
       </div>
     </div>
-    <div class="btns">
-      <button class="btn">Login Help</button>
-      <button class="btn" id="login" onclick="login()">Sign In</button>
-    </div>
-  </div>
-</section>
-<script src="/scripts/page.js" is:inline></script>
-<script is:inline>
-  var queryString = window.location.search
-  var urlParms = new URLSearchParams(queryString)
-  var page = urlParms.get('page') || 'tracker'
+  </section>
+  <script src="/scripts/page.js" is:inline></script>
+  <script is:inline>
+    var queryString = window.location.search
+    var urlParms = new URLSearchParams(queryString)
+    var page = urlParms.get('page') || 'tracker'
 
-  function login() {
-    goToPage(page)
-  }
-</script>
-<script src="/scripts/eruda.js" is:inline></script>
+    function login() {
+      goToPage(page)
+    }
+  </script>
+  <!-- <script src="/scripts/eruda.js" is:inline></script> -->
 </Layout>

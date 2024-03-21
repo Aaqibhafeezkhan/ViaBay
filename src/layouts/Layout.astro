@@ -6,26 +6,26 @@ var { title, classItems, headItems } = Astro.props
 
 var docTitle = ''
 if (
-    title === 'Home' || title === '' || 
-    !!title === false || title === null
+  title === 'Home' || title === '' || 
+  !!title === false || title === null
 ) {
-    docTitle = sTitle
+  docTitle = sTitle
 }
 else {
-    docTitle = `${title} | ${sTitle}`
+  docTitle = `${title} | ${sTitle}`
 }
 
 if (!!classItems === false || classItems === null) {
-    classItems = []
+  classItems = []
 }
 if (classItems.length < 0) {
-    classItems = []
+  classItems = []
 }
 
 var classStr = ''
 classItems.forEach(function(c, i) {
-    if (i !== 0) classStr += ' '
-    classStr += c
+  if (i !== 0) classStr += ' '
+  classStr += c
 })
 
 ---
