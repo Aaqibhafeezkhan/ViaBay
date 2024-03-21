@@ -11,22 +11,23 @@ window.addEventListener('DOMContentLoaded', function(e) {
   if (!location.pathname.startsWith('/login')) {
     parent.document.querySelector('.nav').removeAttribute('hidden')
   }
-})
 
-document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').forEach(function(e, i) {
-  var classes = e.className
-  if (classes.includes(' ')) classes = classes.split(' ')
-  else classes = [classes]
-
-  var element = ''
-  classes.forEach(function(c, i) {
-    if (c.endsWith('-parent')) element = c.slice(0, -7)
+  document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').forEach(function(e, i) {
+    var classes = e.className
+    if (classes.includes(' ')) classes = classes.split(' ')
+    else classes = [classes]
+  
+    var element = ''
+    classes.forEach(function(c, i) {
+      if (c.endsWith('-parent')) element = c.slice(0, -7)
+    })
+  
+    checkIfValue(e.querySelector(element))
+    e.onkeyup = function(event) {
+      checkIfValue(event.target)
+    }
   })
-
-  checkIfValue(e.querySelector(element))
-  e.onkeyup = function(event) {
-    checkIfValue(event.target)
-  }
+  
 })
 
 function checkIfValue(element) {
