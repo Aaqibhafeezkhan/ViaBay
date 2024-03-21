@@ -1,14 +1,17 @@
+var queryString = window.location.search
+var urlParams = new URLSearchParams(queryString)
+var page = urlParams.get('page')
+
 var data = {
   document: {
     title: document.title, 
   }, 
-  queryString: window.location.search, 
+  queryString: queryString, 
+  urlParams: urlParams,
+  params = {
+    page: page || 'tracker',
+  }
 }
-data.urlParams = new URLSearchParams(data.queryString)
-data.params = {
-  page: data.urlParms.get('page') || 'tracker',
-}
-
 
 // localStorage.setItem('data', JSON.stringify(data))
 
