@@ -5,11 +5,8 @@ import '../styles/tracker.scss'
 import Layout from '../layouts/Layout.astro'
 
 var classItems = ['page']
-
-var headItems = `<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script type="module" src="/scripts/tracker.js"></script>`
 ---
-<Layout title="Map / Live Tracker" classItems={classItems} headItems={headItems}>
+<Layout title="Map / Live Tracker" classItems={classItems}>
   <section class="main">
     <div id="map"></div>
   </section>

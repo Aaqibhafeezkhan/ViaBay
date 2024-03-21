@@ -36,7 +36,9 @@ classItems.forEach(function(c, i) {
     <meta name="viewport" content="width=device-width;initial-scale=1.0">
     <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
-    <div set:html={headItems}></div>
+    {
+      if (!!headItems) return <div set:html={headItems}></div>
+    }
   </head>
   <body class={classStr}>
     <slot />
