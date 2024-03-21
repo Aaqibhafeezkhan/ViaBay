@@ -4,11 +4,11 @@ window.addEventListener('DOMContentLoaded', function(e) {
     title = title.split(' | ')
     title = title.pop()
   }
-  window.parent.document.querySelector('.header').textContent = title
-  window.top.document.title = `${title} | ${window.top.data.document.title}`
+  parent.document.querySelector('.header').textContent = title
+  top.document.title = `${title} | ${top.data.document.title}`
 
   if (!location.pathname.startsWith('/login')) {
-    window.parent.document.querySelector('.nav').removeAttribute('hidden')
+    parent.document.querySelector('.nav').removeAttribute('hidden')
   }
 })
 
