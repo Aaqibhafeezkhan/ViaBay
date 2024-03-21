@@ -31,6 +31,14 @@ var classItems = ['page']
   </div>
 </section>
 <script src="/scripts/page.js" is:inline></script>
-<script src="/scripts/login.js" is:inline></script>
+<script is:inline>
+  var queryString = window.location.search
+  var urlParms = new URLSearchParams(queryString)
+  var page = urlParms.get('page') || 'tracker'
+
+  function login() {
+    goToPage(page)
+  }
+</script>
 <script src="/scripts/eruda.js" is:inline></script>
 </Layout>
