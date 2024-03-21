@@ -9,5 +9,7 @@ var data = {
   }
 }
 
+localStorage.setItem('data', JSON.stringify(data))
+
 var appEle = document.getElementById('app')
 appEle.src = `${appEle.src}?page=${data.params.page}`
