@@ -2,7 +2,7 @@
 import '../styles/modal.scss'
 
 var sTitle = 'Transit Tracker'
-var { title, classItems } = Astro.props
+var { title, classItems, headItems } = Astro.props
 
 var docTitle = ''
 if (
@@ -36,6 +36,7 @@ classItems.forEach(function(c, i) {
     <meta name="viewport" content="width=device-width;initial-scale=1.0">
     <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
+    <div set:html={headItems}></div>
   </head>
   <body>
     <slot />
