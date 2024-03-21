@@ -1,3 +1,4 @@
+alert(!!document.querySelector('[eruda], .eruda'))
 if (!!document.querySelector('[eruda], .eruda')) {
   var script = document.createElement('script'); 
   script.src="//cdn.jsdelivr.net/npm/eruda"; 
