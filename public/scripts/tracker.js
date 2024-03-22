@@ -74,7 +74,7 @@ newPlaces.forEach(function(p, i) {
 wayPointStr += `waypoint.${places.length}=${places.slice(-1)}&`
 
 var xhr = new XMLHttpRequest()
-xhr.open('GET', `http://dev.virtualearth.net/REST/v1/Routes/${options.travelMode}?${wayPointStr}${/*&optimize={optimize}*/''}&timeType=${options.timeType}&dateTime=${options.dateTime}&maxSolutions=${options.maxSolutions}&distanceUnit=${option.distanceUnit}&key=${BingMapsKey}`)
+xhr.open('GET', `http://dev.virtualearth.net/REST/v1/Routes/${options.travelMode}?${wayPointStr}${/*&optimize={optimize}*/''}&timeType=${options.timeType}&dateTime=${options.dateTime}&maxSolutions=${options.maxSolutions}&distanceUnit=${options.distanceUnit}&key=${BingMapsKey}`)
 xhr.addEventListener('load', function() {
     var res = this.responseText
     if (res.startsWith('{') || res.startsWith('[') && typeof res === 'object') res = JSON.stringify(res)
