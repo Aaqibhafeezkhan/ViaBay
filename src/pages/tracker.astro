@@ -11,12 +11,7 @@ var classItems = ['page']
     <div id="myMap"></div>
   </section>
   <script src="/scripts/page.js" is:inline></script>
-  <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS' async defer is:inline></script>
-  <script type="text/javascript" is:inline>
-    window.addEventListener('DOMContentLoaded', GetMap)
-    function GetMap() {
-      var map = new Microsoft.Maps.Map('#myMap');
-    }
-  </script>
+  <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS' async defer is:inline></script>
+  <script src="/scripts/tracker.js" is:inline></script>
   <script src="/scripts/eruda.js" is:inline></script>
 </Layout>
