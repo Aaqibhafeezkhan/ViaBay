@@ -52,6 +52,13 @@ if (sec < 10) sec = `0${sec}`
 
 var time = `${hur}:${min}:${sec}`
 
+var places = [
+    '200 Demi Lane, Redwood City CA', 
+    'Milbrae BART', 
+    'Fishermans Wharf', 
+]
+var newPlaces = places.slice(1, -1)
+
 var options = {
     travelMode: 'Transit', 
     timeType: 'Departure', 
@@ -59,6 +66,23 @@ var options = {
     maxSolutions: 3,
     distanceUnit: 'Mile',
 }
+var wayPointStr = ''
+wayPointStr += `wayPoint.1=${places[0]}&`
+newPlaces.forEach(function(p, i) {
+    wayPointStr += `viaWaypoint.${i+2}=${p}&`
+})
+wayPointStr += `waypoint.${places.length}=${places.slice(-1)}&`
 
 var xhr = new XMLHttpRequest()
-xhr.open('GET', `http://dev.virtualearth.net/REST/v1/Routes/${options.travelMode}?wayPoint.1={wayPoint1}&viaWaypoint.2={viaWaypoint2}&waypoint.3={waypoint3}&optimize={optimize}&timeType=${options.timeType}&dateTime=${options.dateTime}&maxSolutions=${options.maxSolutions}&distanceUnit=${option.distanceUnit}&key=${BingMapsKey}`)
+xhr.open('GET', `http://dev.virtualearth.net/REST/v1/Routes/${options.travelMode}?${wayPointStr}${/*&optimize={optimize}*/''}&timeType=${options.timeType}&dateTime=${options.dateTime}&maxSolutions=${options.maxSolutions}&distanceUnit=${option.distanceUnit}&key=${BingMapsKey}`)
+xhr.addEventListener('load', function() {
+    var res = this.responseText
+    if (res.startsWith('{') || res.startsWith('[') && typeof res === 'object') res = JSON.stringify(res)
+    alert(res)
+    console.log(res)
+})
+xhr.addEventListener('error', function() {
+    alert(`Error: ${this.responseText}`)
+    console.error(this.responseText)
+})
+xhr.send()
