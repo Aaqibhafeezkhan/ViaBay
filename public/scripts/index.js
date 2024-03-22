@@ -8,7 +8,7 @@ var data = {
   }, 
   queryString: queryString, 
   urlParams: urlParams,
-  params = {
+  params: {
     page: page || 'tracker',
   }
 }
