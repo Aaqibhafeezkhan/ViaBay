@@ -43,7 +43,7 @@ if (hur > 12) {
 }
 var min = d.getMinutes()
 var sec = d.getSeconds()
-var time = `${hur}:${min}${time}`
+var time = `${hur}:${min}:${sec}${time}`
 
 var places = [
     '220 Demi Lane, Redwood City CA', 
@@ -66,12 +66,13 @@ var options = [
 var optionData = {
     travelMode: 'Transit', 
     timeType: 'Departure', 
-    dateTime: `${date} ${time}`, 
+    dateTime: `${/*${date} */''}${time}`, 
     maxSolutions: 3,
     distanceUnit: 'Mile',
 }
 options.forEach(function(o, i) {
     optionData[o] = encodeURIComponent(optionData[o])
+    alert(optionData[o])
 })
 var wayPointStr = ''
 wayPointStr += `wayPoint.1=${places[0]}&`
