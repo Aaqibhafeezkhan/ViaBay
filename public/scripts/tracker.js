@@ -66,7 +66,7 @@ var options = [
 var optionData = {
     travelMode: 'Transit', 
     timeType: 'Departure', 
-    dateTime: `${/*${date} */''}${time}`, 
+    dateTime: `${date}${''/* ${time}*/}`, 
     maxSolutions: 3,
     distanceUnit: 'Mile',
 }
