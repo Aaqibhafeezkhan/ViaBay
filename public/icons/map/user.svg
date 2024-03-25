@@ -1,11 +1,11 @@
-<svg version="1.1" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg version="1.1" width="64" height="64" viewBox="0 0 32 32" fill="none" stroke="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
     <clipPath id="p.0">
         <path d="m0 0l32.0 0l0 32.0l-32.0 0l0 -32.0z" clip-rule="nonzero"/>
     </clipPath>
     <g clip-path="url(#p.0)">
         <path fill="#000000" fill-opacity="0.0" d="m0 0l32.0 0l0 32.0l-32.0 0z" fill-rule="evenodd"/>
         <g filter="url(#shadowFilter-p.1)">
-            <use xlink:href="#p.1" transform=""/>
+            <use xlink:href="#p.1" />
         </g>
         <defs>
             <filter id="shadowFilter-p.1" filterUnits="userSpaceOnUse">
