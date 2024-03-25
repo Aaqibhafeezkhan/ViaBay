@@ -1,26 +1,26 @@
-<svg version="1.1" width="64" height="64" viewBox="0 0 32 32" fill="none" stroke="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg version="1.1" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
     <clipPath id="p.0">
-        <path d="m0 0l32.0 0l0 32.0l-32.0 0l0 -32.0z" clip-rule="nonzero"/>
+        <path d="m0 0l64.0 0l0 64.0l-64.0 0l0 -64.0z" clip-rule="nonzero"/>
     </clipPath>
     <g clip-path="url(#p.0)">
-        <path fill="#000000" fill-opacity="0.0" d="m0 0l32.0 0l0 32.0l-32.0 0z" fill-rule="evenodd"/>
+        <path fill="#000000" fill-opacity="0.0" d="m0 0l64.0 0l0 64.0l-64.0 0z" fill-rule="evenodd"/>
         <g filter="url(#shadowFilter-p.1)">
-            <use xlink:href="#p.1" />
+            <use xlink:href="#p.1" transform=""/>
         </g>
         <defs>
             <filter id="shadowFilter-p.1" filterUnits="userSpaceOnUse">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="6.25" result="blur"/>
+                <feGaussianBlur in="SourceAlpha" stdDeviation="12.5" result="blur"/>
                 <feComponentTransfer in="blur" color-interpolation-filters="sRGB">
                     <feFuncR type="linear" slope="0" intercept="0.2901961"/>
                     <feFuncG type="linear" slope="0" intercept="0.5254902"/>
                     <feFuncB type="linear" slope="0" intercept="0.9098039"/>
-                    <feFuncA type="linear" slope="0.125" intercept="0"/>
+                    <feFuncA type="linear" slope="0.25" intercept="0"/>
                 </feComponentTransfer>
             </filter>
         </defs>
         <g id="p.1">
-            <path fill="#4a86e8" d="m8.0 32.0l0 0c0 -13.254833 10.745167 -24.0 24.0 -24.0l0 0c6.365196 0 12.469688 2.5285325 16.970562 7.029437c4.5008736 4.5008726 7.029438 10.605367 7.029438 16.970562l0 0c0 13.254833 -10.745167 24.0 -24.0 24.0l0 0c-13.254833 0 -24.0 -10.745167 -24.0 -24.0z" fill-rule="evenodd"/>
-            <path stroke="#ffffff" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="butt" d="m8.0 32.0l0 0c0 -13.254833 10.745167 -24.0 24.0 -24.0l0 0c6.365196 0 12.469688 2.5285325 16.970562 7.029437c4.5008736 4.5008726 7.029438 10.605367 7.029438 16.970562l0 0c0 13.254833 -10.745167 24.0 -24.0 24.0l0 0c-13.254833 0 -24.0 -10.745167 -24.0 -24.0z" fill-rule="evenodd"/>
+            <path fill="#4a86e8" d="m8.0 32.0l0 0c0 -13.254833 10.745167 -24.0 24.0 -24.0l0 0c6.365196 0 12.469688 2.5285645 16.970562 7.029437c4.5008736 4.5008726 7.029438 10.605367 7.029438 16.970562l0 0c0 13.254833 -10.745167 24.0 -24.0 24.0l0 0c-13.254833 0 -24.0 -10.745167 -24.0 -24.0z" fill-rule="evenodd"/>
+            <path stroke="#ffffff" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="butt" d="m8.0 32.0l0 0c0 -13.254833 10.745167 -24.0 24.0 -24.0l0 0c6.365196 0 12.469688 2.5285645 16.970562 7.029437c4.5008736 4.5008726 7.029438 10.605367 7.029438 16.970562l0 0c0 13.254833 -10.745167 24.0 -24.0 24.0l0 0c-13.254833 0 -24.0 -10.745167 -24.0 -24.0z" fill-rule="evenodd"/>
         </g>
     </g>
 </svg>
