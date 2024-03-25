@@ -79,15 +79,12 @@ xhr.addEventListener('load', function() {
     console.log(res)
 })
 xhr.addEventListener('error', function() {
-    var error = this.responseText
-    error = JSON.parse(error)
-    if (typeof error === 'object') {
-        if (!!error.authenticationResultCode) {
-            error = error.authenticationResultCode
-            if (error.errorDetails) {
-                error = error.errorDetails
-                erorr = error.join(', ')
-            }
+    var error = JSON.parse(this.responseText)
+    if (!!error.authenticationResultCode) {
+        error = error.authenticationResultCode
+        if (error.errorDetails) {
+            error = error.errorDetails
+            erorr = error.join(', ')
         }
     }
     alert(`Error: ${error}`)
