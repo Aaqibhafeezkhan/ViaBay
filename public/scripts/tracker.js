@@ -62,7 +62,7 @@ newPlaces.forEach(function(p, i) {
 wayPointStr += `waypoint.${places.length}=${places.slice(-1)}`
 
 var url = `https://dev.virtualearth.net/REST/v1/Routes/${options.travelMode}?${wayPointStr}${/*&optimize={optimize}*/''}&timeType=${options.timeType}&dateTime=${options.dateTime}&maxSolutions=${options.maxSolutions}&distanceUnit=${options.distanceUnit}&key=${BingMapsKey}`
-console.log(url)
+prompt('', url)
 
 var xhr = new XMLHttpRequest()
 xhr.open('GET', url)
