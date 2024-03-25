@@ -1,4 +1,5 @@
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
+var watchID = null
 var map = null
 
 function assertError(err, name) {
@@ -14,11 +15,13 @@ function GetMap() {
 
 if ("geolocation" in navigator) {
     /* geolocation is available */
-    const watchID = navigator.geolocation.watchPosition((position) => {
-        setMapPosition('user', {lat: position.coords.latitude, lon: position.coords.longitude});
-    }, function(err) {
-        assertError(err, 'Current Location')
-    }, { enableHighAccuracy: true });
+    window.addEventListener('DOMContentLoaded', function(e) {
+        watchID = navigator.geolocation.watchPosition((position) => {
+            setMapPosition('user', {lat: position.coords.latitude, lon: position.coords.longitude});
+        }, function(err) {
+            assertError(err, 'Current Location')
+        }, { enableHighAccuracy: true });
+    })
 }
 
 function setMapPosition(entity, position) {
