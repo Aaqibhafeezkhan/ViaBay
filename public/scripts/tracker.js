@@ -27,9 +27,13 @@ function setMapPosition(entity, position) {
         case 'user': 
             icon += 'user.svg'
     }
+    var center = map.getCenter();
+    console.log(center)
+    var pHeight = 0
+    var pWidth = 0
     var pin = new Microsoft.Maps.Pushpin(center, {
         icon: icon,
-        anchor: new Microsoft.Maps.Point(position.lat, position.lon)
+        anchor: new Microsoft.Maps.Point(pHeight, pWidth)
     });
 
     //Add the pushpin to the map
@@ -89,7 +93,8 @@ newPlaces.forEach(function(p, i) {
 wayPointStr += `waypoint.${places.length}=${places.slice(-1)}`
 
 var url = `https://dev.virtualearth.net/REST/v1/Routes/${optionData.travelMode}?${wayPointStr}${/*&optimize={optimize}*/''}&timeType=${optionData.timeType}&dateTime=${optionData.dateTime}${/*&maxSolutions=${optionData.maxSolutions}*/''}&distanceUnit=${optionData.distanceUnit}&key=${BingMapsKey}`
-prompt('', url)
+
+var routes = []
 
 var xhr = new XMLHttpRequest()
 xhr.open('GET', url)
@@ -102,8 +107,23 @@ xhr.addEventListener('load', function() {
     }
     if (!!res.resourceSets) {
         res = res.resourceSets
+        res.forEach(function(s, i) {
+            if (!!s.resources) {
+                s = s.resources
+                s.forEach(function(r, i2) {
+                    routes.push(r)
+                    addRouteItems(routes);
+                })
+            }
+        })
     }
-    alert(res)
-    console.log(res)
+    else {
+        alert(res)
+        console.log(res)
+    }
 })
 xhr.send()
+
+function addRouteItems(rS) {
+
+}
