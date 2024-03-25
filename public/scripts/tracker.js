@@ -100,6 +100,9 @@ xhr.addEventListener('load', function() {
         assertError(res.errorDetails, 'Transit Route')
         return
     }
+    if (!!res.resourceSets) {
+        res = res.resourceSets
+    }
     alert(res)
     console.log(res)
 })
