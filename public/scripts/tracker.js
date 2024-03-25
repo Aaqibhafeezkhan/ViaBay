@@ -27,10 +27,15 @@ var day = d.getDate()
 var yea = d.getFullYear()
 var date = `${mon}/${day}/${yea}`
 
+var time = 'AM'
 var hur = d.getHours()
+if (hur > 12) {
+    hur -= 12
+    time = 'PM'
+}
 var min = d.getMinutes()
 var sec = d.getSeconds()
-var time = `${hur}:${min}:${sec}`
+var time = `${hur}:${min}${time}`
 
 var places = [
     '220 Demi Lane, Redwood City CA', 
