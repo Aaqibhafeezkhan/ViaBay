@@ -72,7 +72,6 @@ var optionData = {
 }
 options.forEach(function(o, i) {
     optionData[o] = encodeURIComponent(optionData[o])
-    alert(optionData[o])
 })
 var wayPointStr = ''
 wayPointStr += `wayPoint.1=${places[0]}&`
