@@ -38,7 +38,7 @@ function setMapPosition(entity, position) {
     }
     var center = map.getCenter();
     console.log(position)
-    var pSize = 20
+    var pSize = 64
     var pin = new Microsoft.Maps.Pushpin(position, {
         icon: icon,
         anchor: new Microsoft.Maps.Point(pSize, pSize)
