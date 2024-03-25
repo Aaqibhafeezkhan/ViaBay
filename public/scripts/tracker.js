@@ -80,7 +80,7 @@ xhr.addEventListener('load', function() {
 })
 xhr.addEventListener('error', function() {
     var error = this.responseText
-    if (error.startsWith('{') || error.startsWith('[')) error = JSON.parse(error)
+    if ((error.startsWith('{') || error.startsWith('[')) && typeof error === 'string') error = JSON.parse(error)
     if (typeof error === 'object') {
         if (!!error.authenticationResultCode) {
             error = error.authenticationResultCode
