@@ -2,7 +2,9 @@ var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7
 var map = null
 
 function assertError(err, name) {
-    alert(`${name} Error: ${err}`)
+    err = `${name} Error: ${err}`
+    alert(err)
+    console.error(err)
 }
 
 window.addEventListener('DOMContentLoaded', GetMap)
@@ -76,7 +78,8 @@ xhr.addEventListener('load', function() {
     var res = this.responseText
     if ((res.startsWith('{') || res.startsWith('[')) && typeof res === 'string') res = JSON.parse(res)
     if (!!res.errorDetails) {
-        res = `Error: ${res.errorDetails}`
+        assertError(res.errorDetails, 'Transit Route')
+        return
     }
     alert(res)
     console.log(res)
