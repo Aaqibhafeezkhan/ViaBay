@@ -55,7 +55,15 @@ places.forEach(function(p, i) {
 })
 var newPlaces = places.slice(1, -1)
 
-var options = {
+var options = [
+    'travelMode', 
+    'timeType', 
+    'dateTime', 
+    'maxSolutions',
+    'distanceUnit',
+]
+
+var optionData = {
     travelMode: 'Transit', 
     timeType: 'Departure', 
     dateTime: `${date} ${time}`, 
@@ -63,7 +71,7 @@ var options = {
     distanceUnit: 'Mile',
 }
 options.forEach(function(o, i) {
-    options[i] = encodeURIComponent(o)
+    optionData[o] = encodeURIComponent(optionData[o])
 })
 var wayPointStr = ''
 wayPointStr += `wayPoint.1=${places[0]}&`
@@ -72,7 +80,7 @@ newPlaces.forEach(function(p, i) {
 })
 wayPointStr += `waypoint.${places.length}=${places.slice(-1)}`
 
-var url = `https://dev.virtualearth.net/REST/v1/Routes/${options.travelMode}?${wayPointStr}${/*&optimize={optimize}*/''}&timeType=${options.timeType}&dateTime=${options.dateTime}&maxSolutions=${options.maxSolutions}&distanceUnit=${options.distanceUnit}&key=${BingMapsKey}`
+var url = `https://dev.virtualearth.net/REST/v1/Routes/${optionData.travelMode}?${wayPointStr}${/*&optimize={optimize}*/''}&timeType=${optionData.timeType}&dateTime=${optionData.dateTime}&maxSolutions=${optionData.maxSolutions}&distanceUnit=${optionData.distanceUnit}&key=${BingMapsKey}`
 prompt('', url)
 
 var xhr = new XMLHttpRequest()
