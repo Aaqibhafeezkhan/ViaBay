@@ -37,12 +37,10 @@ function setMapPosition(entity, position) {
             icon += 'user.svg'
     }
     var center = map.getCenter();
-    console.log(center)
-    var pHeight = 0
-    var pWidth = 0
-    var pin = new Microsoft.Maps.Pushpin(center, {
+    var pSize = 20
+    var pin = new Microsoft.Maps.Pushpin(position, {
         icon: icon,
-        anchor: new Microsoft.Maps.Point(pHeight, pWidth)
+        anchor: new Microsoft.Maps.Point(pSize, pSize)
     });
 
     //Add the pushpin to the map
