@@ -31,7 +31,7 @@ if ("geolocation" in navigator) {
 }
 
 function setMapPosition(entity, position) {
-    var icon = `/assets/icons/map/`
+    var icon = `/icons/map/`
     switch(entity) {
         case 'user': 
             icon += 'user.svg'
