@@ -17,7 +17,13 @@ if ("geolocation" in navigator) {
     /* geolocation is available */
     window.addEventListener('DOMContentLoaded', function(e) {
         watchID = navigator.geolocation.watchPosition((position) => {
-            setMapPosition('user', {lat: position.coords.latitude, lon: position.coords.longitude});
+            var obj = {
+                latitude: position.coords.latitude, 
+                longitude: position.coords.longitude, 
+                altitude: 0, 
+                altitudeReference: -1
+            }
+            setMapPosition('user', obj);
         }, function(err) {
             assertError(err, 'Current Location')
         }, { enableHighAccuracy: true });
