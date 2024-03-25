@@ -62,6 +62,9 @@ var options = {
     maxSolutions: 3,
     distanceUnit: 'Mile',
 }
+options.forEach(function(o, i) {
+    options[i] = encodeURIComponent(o)
+})
 var wayPointStr = ''
 wayPointStr += `wayPoint.1=${places[0]}&`
 newPlaces.forEach(function(p, i) {
