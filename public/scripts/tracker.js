@@ -46,7 +46,7 @@ var sec = d.getSeconds()
 var time = `${hur}:${min}:${sec}${time}`
 
 var places = [
-    '220 Demi Lane, Redwood City CA', 
+    // '220 Demi Lane, Redwood City CA', 
     'Milbrae BART', 
     'Fishermans Wharf', 
 ]
