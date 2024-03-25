@@ -22,10 +22,18 @@ if ("geolocation" in navigator) {
 }
 
 function setMapPosition(entity, position) {
+    var icon = `/assets/icons/map/`
     switch(entity) {
         case 'user': 
-
+            icon += 'user.svg'
     }
+    var pin = new Microsoft.Maps.Pushpin(center, {
+        icon: icon,
+        anchor: new Microsoft.Maps.Point(position.lat, position.lon)
+    });
+
+    //Add the pushpin to the map
+    map.entities.push(pin);
 }
 
 var d = new Date();
