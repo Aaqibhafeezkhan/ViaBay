@@ -74,7 +74,7 @@ var xhr = new XMLHttpRequest()
 xhr.open('GET', url)
 xhr.addEventListener('load', function() {
     var res = this.responseText
-    if (res.startsWith('{') || res.startsWith('[') && typeof res === 'object') res = JSON.stringify(res)
+    if ((res.startsWith('{') || res.startsWith('[')) && typeof res === 'string') res = JSON.parse(res)
     if (!!res.authenticationResultCode) {
         res = res.authenticationResultCode
     }
