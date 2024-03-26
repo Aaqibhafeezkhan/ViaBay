@@ -1,5 +1,6 @@
 ---
 import '../styles/page.scss'
+import '../styles/tracker.scss'
 import '../styles/directions.scss'
 
 import Layout from '../layouts/Layout.astro'
@@ -8,10 +9,11 @@ var classItems = ['page']
 ---
 <Layout title="Map / Directions" classItems={classItems}>
   <section class="main">
-    <div class="img"></div>
-    <div class="info"></div>
+    <div id="myMap"></div>
+    <div id="directions"></div>
   </section>
   <script src="/scripts/page.js" is:inline></script>
+  <script src="/scripts/tracker.js" is:inline></script>
   <script src="/scripts/directions.js" is:inline></script>
   <!-- <script src="/scripts/eruda.js" is:inline></script> -->
 </Layout>

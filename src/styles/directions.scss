@@ -1,13 +1,6 @@
 .main {
-  border-radius: 10px;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  overflow: hidden;
-  background-image: url('/assets/gMaps.png');
-  background-size: cover;
-  background-position-x: 97%;
-  background-position-y: -8vh;
-  background-repeat: no-repeat;
+  grid-template-columns: 2fr 1fr;
 }
 
 .info {
