@@ -50,18 +50,6 @@ function setMapPosition(entity, position) {
     <filter id='shadow' color-interpolation-filters="sRGB">
         <feDropShadow dx="0" dy="0" stdDeviation="40" flood-opacity="1" flood-color="#bcd2f7"/>
     </filter>
-    <foreignObject>
-        <style>
-            .map-icon.user .outer-group .outer {
-                animation: userIconOuter 5s ease-in-out infinite;
-            }
-            @keyframes userIconOuter {
-                to {
-                    r: 364px;
-                }
-            }
-        </style>
-    </foreignObject>
 </svg>`
     }
     var center = map.getCenter();
