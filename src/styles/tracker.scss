@@ -13,13 +13,3 @@ body {
   width: 100%;
   height: 100%;
 }
-
-.map-icon.user .outer-group .outer {
-  animation: userIconOuter 5s ease-in-out infinite;
-
-  @keyframes userIconOuter {
-    to {
-      r: 364px;
-    }
-  }
-}
