@@ -31,10 +31,26 @@ if ("geolocation" in navigator) {
 }
 
 function setMapPosition(entity, position) {
-    var icon = `/icons/map/`
+    var icon = ''
     switch(entity) {
         case 'user': 
-            icon += 'user.svg'
+            icon += `<svg class="map-icon user" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864" preserveAspectRatio="xMidYMid meet">
+    <g class="outer-group" fill="#4a86e8" style="filter: url(#shadow)">
+        <circle class="outer" cx="432" cy="432" r="340"/>
+    </g>
+    <g fill="#ffffff">
+        <circle cx="432" cy="432" r="332"/>
+    </g>
+    <g fill="#4a86e8">
+        <circle cx="432" cy="432" r="300"/>
+    </g>
+    <g fill="#4a86e8">
+        <circle cx="432" cy="432" r="296"/>
+    </g>
+    <filter id='shadow' color-interpolation-filters="sRGB">
+        <feDropShadow dx="0" dy="0" stdDeviation="40" flood-opacity="1" flood-color="#bcd2f7"/>
+    </filter>
+</svg>`
     }
     var center = map.getCenter();
     console.log(position)
