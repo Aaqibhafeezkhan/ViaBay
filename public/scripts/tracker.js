@@ -17,7 +17,7 @@ if ("geolocation" in navigator) {
     /* geolocation is available */
     window.addEventListener('DOMContentLoaded', function(e) {
         watchID = navigator.geolocation.watchPosition((position) => {
-            var errorMargin = 10;
+            var errorMargin = 0;
             var obj = {
                 latitude: position.coords.latitude - errorMargin, 
                 longitude: position.coords.longitude - errorMargin, 
