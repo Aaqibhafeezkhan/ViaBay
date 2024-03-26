@@ -21,8 +21,8 @@ if ("geolocation" in navigator) {
             var obj = {
                 latitude: position.coords.latitude - errorMargin, 
                 longitude: position.coords.longitude - errorMargin, 
-                altitude: position.coords.altitude, 
-                altitudeReference: position.coords.altitudeReference
+                altitude: 0, 
+                altitudeReference: -1
             }
             setMapPosition('user', obj);
         }, function(err) {
