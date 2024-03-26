@@ -12,18 +12,23 @@ function assertError(err, name) {
     console.error(err)
 }
 
-window.addEventListener('DOMContentLoaded', GetMap)
 
 var isOtherPage = false
 pagesWithDifferentGetMap.forEach(function(p, i) {
     if (location.pathname === p) isOtherPage = true
 })
 
+function GetMap() {
+
+}
+
 if (!isOtherPage) {
-    function GetMap() {
+    GetMap = function() {
         map = new Microsoft.Maps.Map('#myMap');
     }
 }
+
+window.addEventListener('DOMContentLoaded', GetMap)
 
 if ("geolocation" in navigator) {
     /* geolocation is available */
