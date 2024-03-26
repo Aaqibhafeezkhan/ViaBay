@@ -34,7 +34,7 @@ function setMapPosition(entity, position) {
     var icon = ''
     switch(entity) {
         case 'user': 
-            icon += `<svg class="map-icon user" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864" width="50" height="50">
+            icon += `<svg class="map-icon user" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864" width="25" height="25">
     <g class="outer-group" fill="#4a86e8" style="filter: url(#shadow)">
         <circle class="outer" cx="432" cy="432" r="340"/>
     </g>
