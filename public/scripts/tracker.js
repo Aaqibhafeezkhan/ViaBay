@@ -20,10 +20,10 @@ if ("geolocation" in navigator) {
             var obj = {
                 latitude: position.coords.latitude, 
                 longitude: position.coords.longitude, 
-                altitude: 0, 
-                altitudeReference: -1
+                altitude: position.coords.altitude, 
+                altitudeReference: position.coords.altitudeReference
             }
-            setMapPosition('user', position.coords);
+            setMapPosition('user', obj);
         }, function(err) {
             assertError(err, 'Current Location')
         }, { enableHighAccuracy: true });
@@ -34,7 +34,7 @@ function setMapPosition(entity, position) {
     var icon = ''
     switch(entity) {
         case 'user': 
-            icon += `<svg class="map-icon user" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864" width="25" height="25">
+            icon += `<svg class="map-icon user" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864" width="64" height="64">
     <g class="outer-group" fill="#4a86e8" style="filter: url(#shadow)">
         <circle class="outer" cx="432" cy="432" r="340"/>
     </g>
