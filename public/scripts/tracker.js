@@ -23,7 +23,7 @@ if ("geolocation" in navigator) {
                 altitude: 0, 
                 altitudeReference: -1
             }
-            setMapPosition('user', obj);
+            setMapPosition('user', position.coords);
         }, function(err) {
             assertError(err, 'Current Location')
         }, { enableHighAccuracy: true });
@@ -52,7 +52,6 @@ function setMapPosition(entity, position) {
     </filter>
 </svg>`
     }
-    var center = map.getCenter();
     console.log(position)
     var pSize = 17
     var pin = new Microsoft.Maps.Pushpin(position, {
