@@ -1,3 +1,7 @@
+var pagesWithDifferentGetMap = [
+    '/directions'
+]
+
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
 var watchID = null
 var map = null
@@ -9,8 +13,16 @@ function assertError(err, name) {
 }
 
 window.addEventListener('DOMContentLoaded', GetMap)
-function GetMap() {
-    map = new Microsoft.Maps.Map('#myMap');
+
+var isOtherPage = false
+pagesWithDifferentGetMap.forEach(function(p, i) {
+    if (location.pathname === p) isOtherPage = true
+})
+
+if (!isOtherPage) {
+    function GetMap() {
+        map = new Microsoft.Maps.Map('#myMap');
+    }
 }
 
 if ("geolocation" in navigator) {
