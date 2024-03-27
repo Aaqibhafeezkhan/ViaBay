@@ -1,3 +1,7 @@
+html {
+  container-type: size;
+}
+
 .main {
   display: grid;
   #myMap {
@@ -12,7 +16,7 @@
   }
 }
 
-@media (width < 915) {
+@container (width < 915) {
   .main * {
     height: 50%;
   }
