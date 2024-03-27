@@ -16,7 +16,7 @@ html {
   }
 }
 
-@container (width < 915) {
+@container (min-width: 915) {
   .main * {
     height: 50%;
   }
