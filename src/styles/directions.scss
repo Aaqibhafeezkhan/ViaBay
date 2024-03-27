@@ -3,7 +3,7 @@ html {
 }
 
 .main {
-  display: grid;
+  --columns: 1fr 2fr;
   #myMap {
     width: 75%;
   }
@@ -17,7 +17,14 @@ html {
 }
 
 @container (max-width: 915px) {
-  .main * {
-    height: 50%;
+  .main {
+    --columns: 1fr;
+    --rows: 1fr 1fr;
+    > * {
+      height: 50%;
+      &.directions-container {
+        grid-row: 1 / 2;
+      }
+    }
   }
 }

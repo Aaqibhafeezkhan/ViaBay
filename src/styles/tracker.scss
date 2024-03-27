@@ -2,9 +2,11 @@ body {
   padding: 0;
 }
 
-// .main {
-//   border-radius: 10px;
-// }
+.main {
+  display: grid;
+  grid-template-columns: var(--cols, 1fr);
+  grid-template-rows: var(--rows, 1fr);
+}
 
 #myMap {
   width: 100%;
