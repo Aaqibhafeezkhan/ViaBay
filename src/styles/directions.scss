@@ -16,10 +16,8 @@ html {
   .main {
     --columns: 1fr;
     --rows: 1fr 1fr;
-    > * {
-      &.directions-container {
-        grid-row: 1 / 2;
-      }
+    .directions-container {
+      grid-row: 1 / 2;
     }
   }
 }
