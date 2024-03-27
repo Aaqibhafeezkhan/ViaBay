@@ -1,12 +1,19 @@
 .main {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr;
+  #myMap {
+    width: 75%;
+  }
+  .directions-container {
+    width: 25%;
+    #directions {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
 @media (width < 915) {
-  .main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+  .main * {
+    height: 50%;
   }
 }
