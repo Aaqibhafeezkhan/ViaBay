@@ -24,7 +24,16 @@ function GetMap() {
 
 window.addEventListener('DOMContentLoaded', function(e) {
     GetMap()
-    additionalFunctions()
+    if (!!additionalFunctions) {
+        additionalFunctions()
+    }
+    else {
+        setTimeout(function() {
+            if (!!additionalFunctions) {
+                additionalFunctions()
+            }
+        }, 1000)
+    }
 })
 
 if ("geolocation" in navigator) {
