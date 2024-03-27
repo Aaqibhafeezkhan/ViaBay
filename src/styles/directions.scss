@@ -1,7 +1,12 @@
 .main {
-  // display: grid;
-  // grid-template-columns: 2fr 1fr;
-  > * {
-    height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+}
+
+@media (width < 915) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 }
