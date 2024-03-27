@@ -4,11 +4,7 @@ html {
 
 .main {
   --columns: 1fr 2fr;
-  #myMap {
-    width: 75%;
-  }
   .directions-container {
-    width: 25%;
     #directions {
       height: 100%;
       width: 100%;
@@ -21,7 +17,6 @@ html {
     --columns: 1fr;
     --rows: 1fr 1fr;
     > * {
-      height: 50%;
       &.directions-container {
         grid-row: 1 / 2;
       }
