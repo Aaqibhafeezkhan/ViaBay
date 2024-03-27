@@ -7,10 +7,12 @@ var places = [
     'Fishermans Wharf', 
 ]
 
+function additionalFunctions() {
+    addDirections()
+}
 
-function getMap() {
-    map = new Microsoft.Maps.Map('#myMap', {});
 
+function addDirections() {
     //Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
         //Create an instance of the directions manager.
