@@ -1,4 +1,3 @@
-var map
 var directionsElement = document.querySelector('#directions')
 
 var places = [
@@ -6,11 +5,6 @@ var places = [
     'Milbrae BART', 
     'Fishermans Wharf', 
 ]
-
-function additionalFunctions() {
-    addDirections()
-}
-
 
 function addDirections() {
     //Load the directions module.

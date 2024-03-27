@@ -22,19 +22,7 @@ function GetMap() {
     map = new Microsoft.Maps.Map('#myMap');
 }
 
-window.addEventListener('DOMContentLoaded', function(e) {
-    GetMap()
-    if (!!additionalFunctions) {
-        additionalFunctions()
-    }
-    else {
-        setTimeout(function() {
-            if (!!additionalFunctions) {
-                additionalFunctions()
-            }
-        }, 1000)
-    }
-})
+window.addEventListener('DOMContentLoaded', GetMap)
 
 if ("geolocation" in navigator) {
     /* geolocation is available */
