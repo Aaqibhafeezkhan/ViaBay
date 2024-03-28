@@ -145,7 +145,8 @@ body {
   & :is(input, textarea, select) {
     border-radius: calc(var(--b-r) - var(--b-w));
     width: calc(var(--s-w) + var(--b-w));
-    height: calc(100% - var(--b-w)/2);
+    aspect-ratio: 2 / 1;
+    // height: calc(100% - var(--b-w)/2);
     padding-inline: var(--p-i);
     background-color: inherit;
     border: none;
