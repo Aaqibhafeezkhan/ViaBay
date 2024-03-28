@@ -4,11 +4,9 @@ html {
 }
 
 body {
-  --p: 0.305in;
   margin: 0;
-  box-sizing: border-box;
-  padding: var(--p);
   min-height: 100dvh;
+
   display: flex;
   flex-direction: column;
 }
@@ -19,10 +17,18 @@ body {
 
 .main {
   --bg: #3d85c6ff;
+  --p: 0.305in;
+
   flex: 1;
-  /* background-color: #0005; */
+
+  box-sizing: border-box;
+  padding: var(--p);
+
   width: 100%;
   height: 100%;
+
+  /* background-color: #0005; */
+
   z-index: 1;
 }
 
