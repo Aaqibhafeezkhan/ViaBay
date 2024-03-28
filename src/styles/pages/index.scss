@@ -40,6 +40,11 @@ body {
 
 
   font-size: 20pt;
+
+  .title {
+    height: fit-content;
+    font-size: inherit;
+  }
 }
 
 .page-content {
