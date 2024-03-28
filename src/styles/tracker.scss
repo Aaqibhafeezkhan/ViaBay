@@ -1,8 +1,5 @@
-body {
-  padding: 0;
-}
-
 .main {
+  padding: 0;
   display: grid;
   grid-template-columns: var(--cols, 1fr);
   grid-template-rows: var(--rows, 1fr);
