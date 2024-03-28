@@ -1,43 +1,36 @@
 ---
-import '../styles/page.scss'
 import '../styles/book.scss'
 
-import Layout from '../layouts/Layout.astro'
+import Page from '../layouts/Page.astro'
 
-var classItems = ['page']
 ---
-<Layout title="Book Online" classItems={classItems}>
-  <section class="main">
-    <div class="select normal" onclick="openSelection(this)">
-      <select-options>
-        <select-option disabled selected>Choose an agency</select-option>
-        <select-option type="bus">SamTrans</select-option>
-        <select-option type="train">Caltrain</select-option>
-        <select-option type="bus">VTA</select-option>
-        <select-option type="bus">Muni</select-option>
-        <select-option type="train">BART</select-option>
-        <select-option type="bus">AC Transit</select-option>
-        <select-option type="bus">County Connection</select-option>
-        <select-option type="bus">Tri Delta Transit</select-option>
-        <select-option type="bus">Golden Gate Transit</select-option>
-      </select-options>
-    </div>
-    <div class="select normal" type="fare" for="bus" onclick="openSelection(this)" hidden>
-      <select-options>
-        <select-option disabled selected>Choose an fare</select-option>
-        <select-option>Student Fare: $1.50</select-option>
-        <select-option>Regular Fare: $2.50</select-option>
-      </select-options>
-    </div>
-    <div class="select normal" type="fare"] for="train"onclick="openSelection(this)" hidden>
-      <select-options>
-        <select-option disabled selected>Choose an fare</select-option>
-        <select-option>Student Fare: $5.00</select-option>
-        <select-option>Regular Fare: $7.50</select-option>
-      </select-options>
-    </div>
-  </section>
-  <script src="/scripts/page.js" is:inline></script>
-  <script src="/scripts/select.js" is:inline></script>
-  <!-- <script src="/scripts/eruda.js" is:inline></script> -->
-</Layout>
+<Page title="Book Online">
+  <div class="select normal" onclick="openSelection(this)">
+    <select-options>
+      <select-option disabled selected>Choose an agency</select-option>
+      <select-option type="bus">SamTrans</select-option>
+      <select-option type="train">Caltrain</select-option>
+      <select-option type="bus">VTA</select-option>
+      <select-option type="bus">Muni</select-option>
+      <select-option type="train">BART</select-option>
+      <select-option type="bus">AC Transit</select-option>
+      <select-option type="bus">County Connection</select-option>
+      <select-option type="bus">Tri Delta Transit</select-option>
+      <select-option type="bus">Golden Gate Transit</select-option>
+    </select-options>
+  </div>
+  <div class="select normal" type="fare" for="bus" onclick="openSelection(this)" hidden>
+    <select-options>
+      <select-option disabled selected>Choose an fare</select-option>
+      <select-option>Student Fare: $1.50</select-option>
+      <select-option>Regular Fare: $2.50</select-option>
+    </select-options>
+  </div>
+  <div class="select normal" type="fare"] for="train"onclick="openSelection(this)" hidden>
+    <select-options>
+      <select-option disabled selected>Choose an fare</select-option>
+      <select-option>Student Fare: $5.00</select-option>
+      <select-option>Regular Fare: $7.50</select-option>
+    </select-options>
+  </div>
+</Page>

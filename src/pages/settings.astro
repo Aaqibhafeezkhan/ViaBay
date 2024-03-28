@@ -1,13 +1,10 @@
 ---
-import '../styles/page.scss'
 import '../styles/menu.scss'
 import '../styles/settings.scss'
 
-import Layout from '../layouts/Layout.astro'
-
-var classItems = ['page']
+import Page from '../layouts/Page.astro'
 ---
-<Layout title="Settings" classItems={classItems}>
+<Page title="Settings">
   <section class="main">
     <nav class="menu">
       <item>Change Language</item>
@@ -18,6 +15,4 @@ var classItems = ['page']
       <item>Your Data</item>
     </nav>
   </section>
-  <script src="/scripts/page.js" is:inline></script>
-  <!-- <script src="/scripts/eruda.js" is:inline></script> -->
-</Layout>
+</Page>

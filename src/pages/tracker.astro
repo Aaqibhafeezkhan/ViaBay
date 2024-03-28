@@ -1,17 +1,12 @@
 ---
-import '../styles/page.scss'
 import '../styles/tracker.scss'
 
-import Layout from '../layouts/Layout.astro'
-
-var classItems = ['page']
+import Page from '../layouts/Page.astro'
 ---
-<Layout title="Map / Live Tracker" classItems={classItems}>
+<Page title="Map / Live Tracker">
   <section class="main">
     <div id="myMap"></div>
   </section>
-  <script src="/scripts/page.js" is:inline></script>
   <script src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS" async defer is:inline></script>
   <script src="/scripts/tracker.js" is:inline></script>
-  <!-- <script src="/scripts/eruda.js" is:inline></script> -->
-</Layout>
+</Page>

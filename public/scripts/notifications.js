@@ -1,3 +1,6 @@
+var nGroup = document.querySelector('.notifications')
+
+
 function getNotifications(module, title, description, content, attatchmentInfo) {
     var notificationList = localStorage.getItem('notifications')
     if (!!notificationList === false) notificationList = []
@@ -14,34 +17,28 @@ function getNotifications(module, title, description, content, attatchmentInfo) 
     localStorage.setItem('notifications', notificationList)
 }
 
-function addNotification() {
+function addNotification(notification) {
+    var nIcon = notification.icon
+    var nTitle = notification.title
+    var nContent = notification.content
 
+    var nEle = document.createElement('item')
+
+    var nEleIcon = document.createElement('img')
+    nEleIcon.classList.add('icon')
+    nEleIcon.src = `/icons/${nIcon}.svg`
+    nEle.appendChild(nEleIcon)
+    
+    var nEleContent = document.createElement('item-content')
+    nEleContent.textContent = nTitle
+    nEle.appendChild(nEleContent)
+    
+    nGroup.appendChild(nEle)
+
+    nEle.onclick = function(e) {
+      if (!!nContent) {
+        parent.showModal(nTitle, nContent)
+      }
+    }
 }
 
-/*
-    var nGroup = document.querySelector('.notifications')
-    notifications.forEach(function(n, i) {
-      var nIcon = n.icon
-      var nTitle = n.title
-      var nContent = n.content
-
-      var nEle = document.createElement('item')
-
-      var nEleIcon = document.createElement('img')
-      nEleIcon.classList.add('icon')
-      nEleIcon.src = `/icons/${nIcon}.svg`
-      nEle.appendChild(nEleIcon)
-      
-      var nEleContent = document.createElement('item-content')
-      nEleContent.textContent = nTitle
-      nEle.appendChild(nEleContent)
-      
-      nGroup.appendChild(nEle)
-
-      nEle.onclick = function(e) {
-        if (!!nContent) {
-          parent.showModal(nTitle, nContent)
-        }
-      }
-    })
-*/

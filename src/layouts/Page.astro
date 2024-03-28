@@ -1,0 +1,20 @@
+---
+import '../styles/page.scss'
+
+import Layout from '../layouts/Layout.astro'
+
+var { title, classItems } = Astro.props
+
+if (!!classItems === false) classItems = []
+
+classItems.unshift('page')
+---
+<Layout title={title} classItems={classItems}>
+  <section class="main">
+    <slot />
+  </section>
+  <script src="/scripts/page.js" is:inline></script>
+  <script src="/scripts/select.js" is:inline></script>
+  <script src="/scripts/notificationManager.js"></script>
+  <!-- <script src="/scripts/eruda.js" is:inline></script> -->
+</Layout>

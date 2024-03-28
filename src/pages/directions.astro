@@ -1,25 +1,19 @@
 ---
-import '../styles/page.scss'
 import '../styles/tracker.scss'
 import '../styles/directions.scss'
 
-import Layout from '../layouts/Layout.astro'
+import Page from '../layouts/Page.astro'
 
-var classItems = ['page']
 ---
-<Layout title="Map / Directions" classItems={classItems}>
-  <section class="main">
-    <section class="directions-container">
-      <button style="margin-inline: auto; margin-block: 5px;" onclick="addDirections()">
-        <b>Go</b>
-      </button>
-      <div id="directions"></div>
-    </section>
-    <div id="myMap"></div>
+<Page title="Map / Directions">
+  <section class="directions-container">
+    <button style="margin-inline: auto; margin-block: 5px;" onclick="addDirections()">
+      <b>Go</b>
+    </button>
+    <div id="directions"></div>
   </section>
-  <script src="/scripts/page.js" is:inline></script>
+  <div id="myMap"></div>
   <script src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS" async defer is:inline></script>
   <script src="/scripts/tracker.js" is:inline></script>
   <script src="/scripts/directions.js" is:inline></script>
-  <script src="/scripts/eruda.js" is:inline></script>
-</Layout>
+</Page>

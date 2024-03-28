@@ -1,17 +1,12 @@
 ---
-import '../styles/page.scss'
 import '../styles/menu.scss'
 import '../styles/notifications.scss'
 
-import Layout from '../layouts/Layout.astro'
-
-var classItems = ['page']
+import Page from '../layouts/Page.astro'
 ---
-<Layout title="Notifications" classItems={classItems}>
+<Page title="Notifications">
   <section class="main">
     <div class="notifications"></div>
   </section>
-  <script src="/scripts/page.js" is:inline></script>
-  <script src="/scripts/notifications.js"></script>
-  <!-- <script src="/scripts/eruda.js" is:inline></script> -->
-</Layout>
+  <script src="/scripts/notifications.js" is:inline></script>
+</Page>
