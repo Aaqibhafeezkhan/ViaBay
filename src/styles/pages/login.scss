@@ -1,18 +1,14 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  max-width: 1000px;
-}
+  margin: 10vw auto;
 
-.login {
-  margin: 10vw 0 18vw 0;
-  flex: 1;
+  max-width: 1000px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.login > * {
+.main > * {
   margin-inline: auto;
 }
 
