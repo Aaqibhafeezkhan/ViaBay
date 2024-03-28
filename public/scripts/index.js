@@ -3,9 +3,6 @@ var urlParams = new URLSearchParams(queryString)
 var page = urlParams.get('page')
 
 var data = {
-  document: {
-    title: document.title, 
-  }, 
   queryString: queryString, 
   urlParams: urlParams,
   params: {
