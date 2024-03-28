@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
     title.pop()
     title = title.join(' | ')
   }
+  console.log(parent.document.querySelector('.header'))
   parent.document.querySelector('.header').textContent = title
   top.document.title = `${title} | ${JSON.parse(localStorage.getItem('data')).document.title}`
 
