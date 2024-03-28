@@ -69,8 +69,8 @@ body {
   position: relative;
   box-sizing: border-box;
 
-  height: calc(12vw + var(--b-w)*2);
   width: 100%;
+  aspect-ratio: 2 / 1;
 
   background-color: black;
   color: white;
@@ -145,8 +145,7 @@ body {
   & :is(input, textarea, select) {
     border-radius: calc(var(--b-r) - var(--b-w));
     width: calc(var(--s-w) + var(--b-w));
-    aspect-ratio: 2 / 1;
-    // height: calc(100% - var(--b-w)/2);
+    height: calc(100% - var(--b-w)/2);
     padding-inline: var(--p-i);
     background-color: inherit;
     border: none;
