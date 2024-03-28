@@ -9,7 +9,9 @@ window.addEventListener('DOMContentLoaded', function(e) {
   top.document.title = `${title} | ${JSON.parse(localStorage.getItem('data')).document.title}`
 
   if (!location.pathname.startsWith('/login')) {
-    parent.document.querySelector('.nav').removeAttribute('hidden')
+    parent.document.querySelectorAll('.nav').forEach(function(n, i) {
+      n.removeAttribute('hidden')
+    })
   }
 
   document.querySelectorAll('.input-parent, .textarea-parent, .select-parent').forEach(function(e, i) {
