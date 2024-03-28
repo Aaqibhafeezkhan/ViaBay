@@ -1,12 +1,48 @@
 ---
-import '../styles/index.scss'
+import '../styles/pages/index.scss'
+import '../styles/modal.scss'
 
 import Layout from '../layouts/Layout.astro'
-
-var classItems = ['page']
 ---
-<Layout title="Home" classItems={classItems}>
-  <iframe id="app" src="/app"></iframe>
+<Layout title="Home">
+  <div class="app">
+    <header class="header"></header>
+    <span class="separator"></span>
+    <main id="content" class="main">
+      <iframe class="page-content" name="page" src="/login"></iframe>
+    </main>
+    <span class="separator"></span>
+    <footer class="footer">
+      <nav class="nav" hidden>
+        <a class="link" href="/tracker" target="page">
+          <img class="icon" src="/icons/map.svg">
+        </a>
+        <a class="link" href="/directions" target="page">
+          <img class="icon" src="/icons/location.svg">
+        </a>
+        <a class="link" href="/book" target="page">
+          <img class="icon" src="/icons/book-online.svg">
+        </a>
+        <a class="link" href="/notifications" target="page">
+          <img class="icon" src="/icons/notification.svg">
+        </a>
+        <a class="link" href="/more" target="page">
+          <img class="icon" src="/icons/more-horiz.svg">
+        </a>
+        <a class="link" href="/settings" target="page">
+          <img class="icon" src="/icons/settings.svg">
+        </a>
+      </nav>
+    </footer>
+  </div>
+  <dialog class="modal">
+    <content>
+      <h1 class="title"></h1>
+      <section class="message"></section>
+      <button class="btn">OK</button>
+    </content>
+  </dialog>
   <script src="/scripts/index.js" is:inline></script>
-  <!-- <script src="/scripts/eruda.js" is:inline></script> -->
+  <script src="/scripts/modal.js" is:inline></script>
+  <script src="/scripts/eruda.js" is:inline></script>
 </Layout>
