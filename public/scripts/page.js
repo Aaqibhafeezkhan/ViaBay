@@ -6,7 +6,6 @@ window.addEventListener('DOMContentLoaded', function(e) {
     title = title.join(' | ')
   }
   parent.document.querySelector('.header').textContent = title
-  top.document.title = `${title}`
 
   if (!location.pathname.startsWith('/login')) {
     parent.document.querySelector('.nav').removeAttribute('hidden')
