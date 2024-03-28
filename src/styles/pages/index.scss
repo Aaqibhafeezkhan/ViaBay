@@ -31,9 +31,15 @@ body {
 }
 
 .header {
-  font-size: 20pt;
   margin-block: auto;
-  margin-left: 15pt;
+  margin: 15pt;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+
+
+  font-size: 20pt;
 }
 
 .page-content {
