@@ -107,17 +107,22 @@ body {
 }
 
 .input, .textarea, .select {
+  position: relative;
   --p-i: 2vw;
-  --s-w: calc(100% - var(--p-i)*2) - 3px;
-  height: 12vw;
-  width: var(--s-w);
   padding-inline: var(--p-i);
+
+  width: 100%;
+  &:not(:is(.input-parent, .textarea-parent, .select-parent) > :is(.input, .textarea, .select)) {
+    aspect-ratio: 8 / 1;
+  }
+
   background-color: black;
+  color: white;
+
   border-radius: 10px;
   border: solid 3px white;
   outline: none;
-  color: white;
-  position: relative;
+
   .label {
     position: absolute;
     top: 1.5vh;
