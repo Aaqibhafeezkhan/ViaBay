@@ -54,16 +54,6 @@ var year = d.getFullYear()
 var startingYear = 2024
 if (year === startingYear) year === ''
 else year = `-${year}`
-
-let age = ''
-if (
-  (currentDate.month < dob.month) || 
-  (
-    currentDate.month === dob.month && 
-    currentDate.day <= 28
-  )
-) age = currentDate.year - dob.year - 1
-else age = currentDate.year - dob.year
 ---
 <!DOCTYPE html>
 <html>
@@ -85,7 +75,7 @@ else age = currentDate.year - dob.year
         <slot />
       </main>
       <span class="separator"></span>
-      <footer class="footer" site-title={sTitle}>
+      <footer class="footer" site-title={sTitle} current-year={year}>
         <nav class="nav mobile" hidden set:html={navHTML}></nav>
       </footer>
     </div>
