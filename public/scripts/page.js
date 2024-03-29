@@ -1,3 +1,10 @@
+var queryString = window.location.search
+var urlParams = new URLSearchParams(queryString)
+var page = urlParams.get('page')
+
+var appEle = document.getElementById('app')
+appEle.src = `${appEle.src}?page=${page}`
+
 window.addEventListener('DOMContentLoaded', function(e) {
   var title = document.title
   if (title.includes(' | ')) {
@@ -6,7 +13,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
     title = title.join(' | ')
   }
   document.querySelector('.header > .text').textContent = title
-  document.title = `${title} | ${JSON.parse(localStorage.getItem('data')).document.title}`
+  document.title = `${title} | ${document.title}`
 
   if (!location.pathname.startsWith('/login')) {
     document.querySelectorAll('.nav').forEach(function(n, i) {

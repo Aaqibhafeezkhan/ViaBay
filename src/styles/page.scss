@@ -1,18 +1,89 @@
-html {
+:root {
+  color: white;
+  background-color: #3d85c6ff;
   font-family: 'Open Sans', sans-serif;
+}
+
+html {
   min-height: 100%;
 }
 
 body {
   margin: 0;
-  height: 100%;
+  min-height: 100%;
 
   display: flex;
   flex-direction: column;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 [onclick] {
   cursor: pointer;
+}
+
+.app {
+  --areas-h: 0.61in;
+  --separ-h: 2px;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: var(--areas-h) var(--separ-h) 1fr var(--separ-h) var(--areas-h);
+}
+
+.separator {
+  height: var(--separ-h);
+  background-color: white;
+}
+
+.header {
+  margin-block: auto;
+  margin-inline: 15pt;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+
+  font-size: 20pt;
+}
+
+.nav {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav .link {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.nav .link .icon {
+  height: 25pt;
+  aspect-ratio: 1;
+}
+
+.footer {
+  isolation: isolate;
+  position: relative;
+  &::after {
+    content: '© 2024 ' attr(site-title);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+  }
+  &:not(:has([hidden]))::after {
+    display: none;
+  }
 }
 
 .main {
