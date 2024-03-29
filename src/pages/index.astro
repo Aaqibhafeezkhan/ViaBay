@@ -2,6 +2,6 @@
 var url = '/login'
 ---
 <script src="/scripts/eruda.js" is:inline></script>
-<script>
-  location.href = `${{url}}`
+<script url={url}>
+  location.href = document.currentScript.getAttribute('url')
 </script>
