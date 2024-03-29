@@ -37,7 +37,7 @@ function addNotification(notification) {
 
     nEle.onclick = function(e) {
       if (!!nContent) {
-        parent.showModal(nTitle, nContent)
+        showModal(nTitle, nContent)
       }
     }
 }

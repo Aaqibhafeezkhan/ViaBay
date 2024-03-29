@@ -5,11 +5,11 @@ window.addEventListener('DOMContentLoaded', function(e) {
     title.pop()
     title = title.join(' | ')
   }
-  parent.document.querySelector('.header > .text').textContent = title
-  top.document.title = `${title} | ${JSON.parse(localStorage.getItem('data')).document.title}`
+  document.querySelector('.header > .text').textContent = title
+  document.title = `${title} | ${JSON.parse(localStorage.getItem('data')).document.title}`
 
   if (!location.pathname.startsWith('/login')) {
-    parent.document.querySelectorAll('.nav').forEach(function(n, i) {
+    document.querySelectorAll('.nav').forEach(function(n, i) {
       n.removeAttribute('hidden')
     })
   }
