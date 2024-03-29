@@ -2,10 +2,10 @@
 import '../styles/pages/tracker.scss'
 import '../styles/pages/directions.scss'
 
-import Page from '../layouts/Page.astro'
+import Layout from '../layouts/Layout.astro'
 
 ---
-<Page title="Map / Directions">
+<Layout title="Map / Directions">
   <section class="directions-container">
     <button style="margin-inline: auto; margin-block: 5px;" onclick="addDirections()">
       <b>Go</b>
@@ -16,4 +16,4 @@ import Page from '../layouts/Page.astro'
   <script src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS" async defer is:inline></script>
   <script src="/scripts/tracker.js" is:inline></script>
   <script src="/scripts/directions.js" is:inline></script>
-</Page>
+</Layout>

@@ -1,10 +1,10 @@
 ---
 import '../styles/pages/book.scss'
 
-import Page from '../layouts/Page.astro'
+import Layout from '../layouts/Layout.astro'
 
 ---
-<Page title="Book Online">
+<Layout title="Book Online">
   <div class="select normal" onclick="openSelection(this)">
     <select-options>
       <select-option disabled selected>Choose an agency</select-option>
@@ -33,4 +33,4 @@ import Page from '../layouts/Page.astro'
       <select-option>Regular Fare: $7.50</select-option>
     </select-options>
   </div>
-</Page>
+</Layout>

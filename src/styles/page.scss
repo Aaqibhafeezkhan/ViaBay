@@ -72,7 +72,7 @@ body {
   isolation: isolate;
   position: relative;
   &::after {
-    content: '© 2024 ' attr(site-title);
+    content: '© 2024' attr(current-year) ' ' attr(site-title);
     position: absolute;
     left: 50%;
     top: 50%;
