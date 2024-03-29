@@ -30,6 +30,7 @@ body {
   height: 100dvh;
   display: grid;
   grid-template-rows: var(--areas-h) var(--separ-h) 1fr var(--separ-h) var(--areas-h);
+  grid-template-columns: 1fr;
 }
 
 .separator {
