@@ -106,7 +106,7 @@ body {
 
 .input, .textarea, .select {
   position: relative;
-  --p-i: 1rem;
+  --p-i: 2rem;
   padding-inline: var(--p-i);
 
   width: 100%;
@@ -138,7 +138,7 @@ body {
 }
 
 .input-parent, .textarea-parent, .select-parent {
-  --p-i: 1rem;
+  --p-i: 2rem;
   --s-w: calc(100% - var(--p-i)*2 - 3px);
   --b-r: 10px;
   --b-w: 3px;
@@ -163,17 +163,24 @@ body {
   .label {
     --t-time: 0.5s;
     --skew: 10deg;
+
     position: absolute;
     top: 50%;
+
+    display: inline-block;   
     padding: calc(var(--p-i)/4) calc(var(--p-i)/2);
+
+    color: inherit;
     border: inherit;
     /* border-bottom: none; */
-    color: inherit;
-    display: inline-block;
+
     line-height: 1;
+
     user-select: none;
     -webkit-user-select: none;
+
     transform: skewX(calc(-1*var(--skew)));
+
     transition: 
       padding var(--t-time) ease-in-out, 
       border var(--t-time) ease-in-out, 
@@ -181,27 +188,33 @@ body {
       transform var(--t-time) ease-in-out, 
       font-size var(--t-time) ease-in-out
     ;
+
     & > span {
       display: inline-block;
       transform: skewX(var(--skew));
     }
   }
+
   &:is(:not([open], :has(:is(input, textarea, select):focus)), :has(.hasInput)) .label {
     translate: 0 -50%;
     font-size: inherit;
     border-color: transparent;
     cursor: text;
   }
+
   &:is([open], :has(:is(input, textarea, select):focus)) .label {
+    left: calc(var(--p-i)/2);
+    padding-inline: calc(var(--p-i)/2);
+      
+    background-color: inherit;
+    font-size: 1em;
+
     transform: 
       translateY(calc(-50% - 3.5rem))
       skewX(calc(-1*var(--skew)))
-      ;
-    font-size: 1em;
-    left: var(--p-i);
-    padding-inline: calc(var(--p-i)/2);
-    background-color: inherit;
+    ;
     z-index: 2;
+
     @media (prefers-reduced-motion) {
       & {
         display: none;
