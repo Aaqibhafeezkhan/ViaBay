@@ -186,6 +186,7 @@ body {
       border var(--t-time) ease-in-out, 
       background-color var(--t-time) ease-in-out, 
       transform var(--t-time) ease-in-out, 
+      translate var(--t-time) ease-in-out, 
       font-size var(--t-time) ease-in-out
     ;
 
@@ -203,16 +204,13 @@ body {
   }
 
   &:is([open], :has(:is(input, textarea, select):focus)) {
-    :is(input, textarea, select) {
-      padding-inline-start: var(--p-i);
-    }
     .label {
-      left: var(--p-i);
       padding-inline: var(--p-i);
         
       background-color: inherit;
       font-size: 1em;
 
+      translate: var(--p-i) 0;
       transform: translateY(calc(-125%)) skew(calc(-1 * var(--skew)));
       z-index: 2;
 
@@ -238,7 +236,7 @@ body {
     border-radius: calc(var(--b-r) - var(--b-w));
     width: calc(var(--s-w) + var(--b-w));
     height: calc(100% - var(--b-w)/2);
-    padding-inline: calc(2*var(--p-i)) var(--p-i);
+    padding-inline: var(--p-i);
     background-color: inherit;
     border: none;
     outline: none;
