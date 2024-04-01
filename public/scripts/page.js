@@ -1,6 +1,5 @@
 var queryString = window.location.search
 var urlParams = new URLSearchParams(queryString)
-var dest = urlParams.get('dest')
 
 window.addEventListener('DOMContentLoaded', function(e) {
   var title = document.title
