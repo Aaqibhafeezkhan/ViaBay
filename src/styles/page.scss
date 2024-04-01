@@ -165,7 +165,7 @@ body {
     --skew: 10deg;
     position: absolute;
     top: 50%;
-    padding: calc(var(--p-i)/4) calc(var(--p-i));
+    padding: calc(var(--p-i)/4) calc(var(--p-i)/2);
     border: inherit;
     /* border-bottom: none; */
     color: inherit;
