@@ -27,8 +27,8 @@ import Layout from '../layouts/Layout.astro'
   <script is:inline>
     var queryString = window.location.search; 
     var urlParms = new URLSearchParams(queryString); 
-    var page = !!urlParms.get('page') ? urlParms.get('page') : 'tracker';
+    var dest = !!urlParms.get('dest') ? urlParms.get('dest') : 'tracker';
     
-    function login() { goToPage(page) }
+    function login() { goToPage(dest) }
   </script>
 </Layout>
