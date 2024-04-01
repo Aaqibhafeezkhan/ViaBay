@@ -189,7 +189,7 @@ body {
       font-size var(--t-time) ease-in-out
     ;
 
-    & > span {
+    > span {
       display: inline-block;
       transform: skewX(var(--skew));
     }
@@ -202,23 +202,28 @@ body {
     cursor: text;
   }
 
-  &:is([open], :has(:is(input, textarea, select):focus)) .label {
-    left: var(--p-i);
-    padding-inline: var(--p-i);
-      
-    background-color: inherit;
-    font-size: 1em;
+  &:is([open], :has(:is(input, textarea, select):focus)) {
+    :is(input, textarea, select) {
+      padding-inline-start: var(--p-i);
+    }
+    .label {
+      left: var(--p-i);
+      padding-inline: var(--p-i);
+        
+      background-color: inherit;
+      font-size: 1em;
 
-    transform: translateY(calc(-125%)) skew(calc(-1 * var(--skew)));
-    z-index: 2;
+      transform: translateY(calc(-125%)) skew(calc(-1 * var(--skew)));
+      z-index: 2;
 
-    @media (prefers-reduced-motion) {
-      & {
-        display: none;
-        transition: none;
-        transform: none;
-        font-size: 0lh;
-        z-index: -1;
+      @media (prefers-reduced-motion) {
+        & {
+          display: none;
+          transition: none;
+          transform: none;
+          font-size: 0lh;
+          z-index: -1;
+        }
       }
     }
   }
@@ -229,11 +234,11 @@ body {
     font-size: 1lh;
     line-height: 4rem;
   }
-  & :is(input, textarea, select) {
+  :is(input, textarea, select) {
     border-radius: calc(var(--b-r) - var(--b-w));
     width: calc(var(--s-w) + var(--b-w));
     height: calc(100% - var(--b-w)/2);
-    padding-inline: var(--p-i);
+    padding-inline: calc(2*var(--p-i)) var(--p-i);
     background-color: inherit;
     border: none;
     outline: none;
@@ -247,10 +252,10 @@ body {
   position: relative;
   &:not(.open) {
     overflow: hidden;
-    & select-options {
+    select-options {
       top: 0 !important;
       translate: 0 calc((-100%)/var(--amt)*var(--num));
-      & select-option:first-child {
+      select-option:first-child {
         color: lightgray;
       }
     }
@@ -264,11 +269,11 @@ body {
     cursor: pointer;
   }
   &.open {
-    & select-options {
+    select-options {
       border: solid 3px white;
       translate: -3px 0;
       overflow: hidden;
-      & select-option {
+      select-option {
         &:first-child:hover {
           color: white;
         }
@@ -278,7 +283,7 @@ body {
       }
     }
   }
-  & select-options {
+  select-options {
     z-index: 2;
     border-radius: inherit;
     position: absolute;
@@ -289,7 +294,7 @@ body {
     color: inherit;
     display: grid;
     grid-template-rows: repeat(var(--amt), 1fr);
-    & select-option {
+    select-option {
       padding-inline: var(--p-i);
       user-select: none;
       -webkit-user-select: none;
