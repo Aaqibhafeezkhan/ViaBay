@@ -2,9 +2,6 @@ var queryString = window.location.search
 var urlParams = new URLSearchParams(queryString)
 var page = urlParams.get('page')
 
-var appEle = document.getElementById('app')
-appEle.src = `${appEle.src}?page=${page}`
-
 window.addEventListener('DOMContentLoaded', function(e) {
   var title = document.title
   if (title.includes(' | ')) {
