@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', function(e) {
     title = title.join(' | ')
   }
   document.querySelector('.header > .title').textContent = title
-  // document.title = `${title} | ${document.title}`
 
   if (!location.pathname.startsWith('/login')) {
     document.querySelectorAll('.nav').forEach(function(n, i) {
