@@ -106,7 +106,7 @@ body {
 
 .input, .textarea, .select {
   position: relative;
-  --p-i: 2vw;
+  --p-i: 5rem;
   padding-inline: var(--p-i);
 
   width: 100%;
@@ -123,9 +123,9 @@ body {
 
   .label {
     position: absolute;
-    top: 1.5vh;
-    left: 1vw;
-    font-size: 2.5vw;
+    top: 1rem;
+    left: 1rem;
+    font-size: 3;
     line-height: 0;
   }
   &[required] .label .star {
@@ -133,12 +133,12 @@ body {
   }
   &.normal {
     font-size: 1lh;
-    line-height: calc(1vh*8);
+    line-height: 4rem;
   }
 }
 
 .input-parent, .textarea-parent, .select-parent {
-  --p-i: 4vw;
+  --p-i: 5rem;
   --s-w: calc(100% - var(--p-i)*2 - 3px);
   --b-r: 10px;
   --b-w: 3px;
@@ -156,7 +156,7 @@ body {
   border: solid var(--b-w) white;
   outline: none;
 
-  font-size: 4vh;
+  font-size: 2rem;
   
   z-index: 1;
 
@@ -194,7 +194,7 @@ body {
   }
   &:is([open], :has(:is(input, textarea, select):focus)) .label {
     transform: 
-      translateY(calc(-50% - 6vh))
+      translateY(calc(-50% - 3.5rem))
       skewX(calc(-1*var(--skew)))
       ;
     font-size: 1em;
@@ -217,7 +217,7 @@ body {
   }
   &.normal {
     font-size: 1lh;
-    line-height: calc(1vh*8);
+    line-height: 4rem;
   }
   & :is(input, textarea, select) {
     border-radius: calc(var(--b-r) - var(--b-w));
@@ -272,7 +272,7 @@ body {
     z-index: 2;
     border-radius: inherit;
     position: absolute;
-    top: calc(100% + 1vh);
+    top: calc(100% + 0.5rem);
     left: 0;
     width: 100%;
     background-color: inherit;
