@@ -7,10 +7,6 @@
   gap: 4rem;
 }
 
-.main > * {
-  margin-inline: auto;
-}
-
 .logo {
   display: block;
   max-width: 450px;
@@ -27,7 +23,7 @@
 
 .btns {
   --gap: 2rem;
-  
+
   width: 100%;
   display: flex;
   justify-content: space-between;
