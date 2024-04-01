@@ -27,12 +27,11 @@ body {
 }
 
 .app {
-  --areas-h: 0.61in;
+  --areas-h: 3.5rem;
   --separ-h: var(--border-size);
   height: 100dvh;
-  display: grid;
-  grid-template-rows: var(--areas-h) var(--separ-h) 1fr var(--separ-h) var(--areas-h);
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
 }
 
 .separator {
@@ -106,13 +105,14 @@ body {
   --bg: #3d85c6ff;
   --p: 2rem;
 
+  flex: 1;
   box-sizing: border-box;
   &:not(.full) {
     padding: var(--p);
   }
 
   width: 100%;
-  height: 100%;
+  // height: 100%;
 
   z-index: 1;
 
