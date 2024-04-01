@@ -209,10 +209,7 @@ body {
     background-color: inherit;
     font-size: 1em;
 
-    transform: 
-      translateY(calc(-50% - 3.5rem))
-      skewX(calc(-1*var(--skew)))
-    ;
+    transform: translateY(calc(-125%)) skew(calc(-1 * var(--skew)));
     z-index: 2;
 
     @media (prefers-reduced-motion) {
