@@ -18,9 +18,11 @@
 
 .form {
   width: 100%;
-  max-width: 450px;
   display: grid;
   gap: 2rem;
+  &, & > * {
+    max-width: 450px;
+  }
 }
 
 .btns {
