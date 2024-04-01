@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
     title.pop()
     title = title.join(' | ')
   }
-  document.querySelector('.header > .text').textContent = title
+  document.querySelector('.header > .title').textContent = title
   document.title = `${title} | ${document.title}`
 
   if (!location.pathname.startsWith('/login')) {
