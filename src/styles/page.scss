@@ -55,18 +55,24 @@ body {
   height: 100%;
   display: flex;
   justify-content: space-evenly;
-}
 
-.nav .link {
-  flex: 1;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-}
+  &.mobile {
+    .link {
+      flex: 1;
+    }
+  }
 
-.nav .link .icon {
-  height: 25pt;
-  aspect-ratio: 1;
+  .link {
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+
+    .icon {
+      height: 25pt;
+      aspect-ratio: 1;
+    }
+  }
+  
 }
 
 .footer {
@@ -82,7 +88,7 @@ body {
     text-align: center;
     z-index: -1;
   }
-  &:not(:has([hidden]))::after {
+  &:not(:has(.nav.mobile[hidden]))::after {
     display: none;
   }
 }
