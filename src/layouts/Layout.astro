@@ -23,6 +23,7 @@ if (classItems.length < 0) {
   classItems = []
 }
 classItems.unshift('page')
+classItems.unshift('main')
 
 var classStr = ''
 classItems.forEach(function(c, i) {
@@ -70,7 +71,7 @@ else year = `-${year}`
         <span class="title">{title}</span>
         <nav class="nav" hidden set:html={navHTML}></nav>
       </header>
-      <main id="content" class="main">
+      <main id="content" class={classItems}>
         <slot />
       </main>
       <footer class="footer" site-title={sTitle} current-year={year}>
