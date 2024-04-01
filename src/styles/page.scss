@@ -1,4 +1,6 @@
 :root {
+  --border-size: 2px
+
   color: white;
   background-color: #3d85c6ff;
   font-family: 'Open Sans', sans-serif;
@@ -26,7 +28,7 @@ body {
 
 .app {
   --areas-h: 0.61in;
-  --separ-h: 2px;
+  --separ-h: var(--border-size);
   height: 100dvh;
   display: grid;
   grid-template-rows: var(--areas-h) var(--separ-h) 1fr var(--separ-h) var(--areas-h);
@@ -62,6 +64,9 @@ body {
     .link {
       flex: 1;
     }
+  }
+  &:not(.mobile) {
+    border-left: solid var(--border-size) white;
   }
 
   .link {
@@ -128,7 +133,7 @@ body {
   color: white;
 
   border-radius: 10px;
-  border: solid 3px white;
+  border: solid var(--border-size) white;
   outline: none;
 
   .label {
@@ -149,9 +154,9 @@ body {
 
 .input-parent, .textarea-parent, .select-parent {
   --p-i: 1rem;
-  --s-w: calc(100% - var(--p-i)*2 - 3px);
+  --s-w: calc(100% - var(--p-i)*2 - var(--border-size));
   --b-r: 10px;
-  --b-w: 3px;
+  --b-w: var(--border-size);
 
   position: relative;
   box-sizing: border-box;
@@ -278,8 +283,8 @@ body {
   }
   &.open {
     select-options {
-      border: solid 3px white;
-      translate: -3px 0;
+      border: solid var(--border-size) white;
+      translate: calc(-1*var(--border-size)) 0;
       overflow: hidden;
       select-option {
         &:first-child:hover {
