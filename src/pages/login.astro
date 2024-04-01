@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro'
 ---
 <Layout title="Login">
   <img class="logo" src="/assets/logo.svg">
-  <form class="form">
+  <div role="form" class="form">
     <div class="input-parent">
       <label for="email" class="label">
         <span>Email <span class="star">*</span></span>
@@ -23,11 +23,13 @@ import Layout from '../layouts/Layout.astro'
       <button class="btn">Login Help</button>
       <button class="btn" id="login" onclick="login()">Sign In</button>
     </div>
-  </form>
+  </div>
   <script is:inline>
     var queryString = window.location.search; 
     var urlParms = new URLSearchParams(queryString); 
-    var dest = !!urlParms.get('dest') ? urlParms.get('dest') : 'tracker';
+    var dest = urlParms.get('dest') || 'tracker';
+
+    // document.querySelector('.form').addEventListener('submit', function(e) {e.preventDefault()})
     
     function login() { goToPage(dest) }
   </script>
