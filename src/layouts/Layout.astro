@@ -70,11 +70,9 @@ else year = `-${year}`
         <span class="title">{title}</span>
         <nav class="nav" hidden set:html={navHTML}></nav>
       </header>
-      <span class="separator"></span>
       <main id="content" class="main">
         <slot />
       </main>
-      <span class="separator"></span>
       <footer class="footer" site-title={sTitle} current-year={year}>
         <nav class="nav mobile" hidden set:html={navHTML}></nav>
       </footer>
