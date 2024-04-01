@@ -5,18 +5,20 @@
   flex-direction: column;
   justify-content: center;
   gap: 4rem;
+  > * {
+    max-width: 450px;
+  }
 }
 
 .logo {
   display: block;
-  max-width: 450px;
 }
 
 .form {
   width: 100%;
   display: grid;
   gap: 2rem;
-  &, & > * {
+  & > * {
     max-width: 450px;
   }
 }
