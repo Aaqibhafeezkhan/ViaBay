@@ -50,6 +50,8 @@ body {
 }
 
 .nav {
+  --gap: 20px;
+
   z-index: 2;
   height: 100%;
   display: flex;
@@ -62,6 +64,8 @@ body {
   }
 
   .link {
+    padding: calc(var(--gap)/4) calc(var(--gap)/2);
+
     display: grid;
     place-items: center;
     border-radius: 10px;
