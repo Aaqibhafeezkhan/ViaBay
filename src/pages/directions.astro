@@ -4,8 +4,9 @@ import '../styles/pages/directions.scss'
 
 import Layout from '../layouts/Layout.astro'
 
+var classItems = ['full']
 ---
-<Layout title="Map / Directions">
+<Layout title="Map / Directions" classItems={classItems}>
   <section class="directions-container">
     <button style="margin-inline: auto; margin-block: 5px;" onclick="addDirections()">
       <b>Go</b>
