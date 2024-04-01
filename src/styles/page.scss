@@ -27,7 +27,6 @@ body {
 }
 
 .app {
-  --areas-h: 3.5rem;
   --separ-h: var(--border-size);
   height: 100dvh;
   display: flex;
@@ -37,6 +36,10 @@ body {
 .separator {
   height: var(--separ-h);
   background-color: white;
+}
+
+.header, .footer {
+  min-height: 3.5rem;
 }
 
 .header {
