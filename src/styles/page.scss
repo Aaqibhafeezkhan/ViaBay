@@ -106,7 +106,7 @@ body {
 
 .input, .textarea, .select {
   position: relative;
-  --p-i: 5rem;
+  --p-i: 1rem;
   padding-inline: var(--p-i);
 
   width: 100%;
@@ -138,7 +138,7 @@ body {
 }
 
 .input-parent, .textarea-parent, .select-parent {
-  --p-i: 5rem;
+  --p-i: 1rem;
   --s-w: calc(100% - var(--p-i)*2 - 3px);
   --b-r: 10px;
   --b-w: 3px;
