@@ -28,7 +28,6 @@ window.addEventListener('DOMContentLoaded', function(e) {
       if (c.endsWith('-parent')) element = c.slice(0, -7)
     })
   
-    console.log(e.querySelector(element))
     checkIfValue(e.querySelector(element))
     e.onkeyup = function(event) {
       checkIfValue(event.target)
