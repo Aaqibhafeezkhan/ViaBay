@@ -1,14 +1,14 @@
 .menu, .notifications {
   display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(10vw, 1fr));
-  gap: 2vh;
+  grid-template-rows: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
 }
 
 :is(.menu, .notifications) item {
-  --p-i: 4vw;
+  --p-i: 5rem;
   --s-w: calc(100% - var(--p-i)*2) - 3px;
 
-  height: 12vw;
+  height: 14rem;
   width: var(--s-w);
   
   padding-inline: var(--p-i);
