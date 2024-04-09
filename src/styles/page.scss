@@ -167,8 +167,8 @@ body {
     color: red;
   }
   &.normal {
-    font-size: 1lh;
-    line-height: 4rem;
+    font-size: 4rem;
+    line-height: 1;
   }
 }
 
@@ -243,7 +243,7 @@ body {
       padding-inline: var(--p-i);
         
       background-color: inherit;
-      font-size: 1em;
+      font-size: 1rem;
 
       translate: var(--p-i) 0;
       transform: translateY(calc(-125%)) skew(calc(-1 * var(--skew)));
@@ -254,7 +254,7 @@ body {
           display: none;
           transition: none;
           transform: none;
-          font-size: 0lh;
+          font-size: 0;
           z-index: -1;
         }
       }
@@ -264,8 +264,8 @@ body {
     color: red;
   }
   &.normal {
-    font-size: 1lh;
-    line-height: 4rem;
+    font-size: 4rem;
+    line-height: 1;
   }
   :is(input, textarea, select) {
     border-radius: calc(var(--b-r) - var(--b-w));
