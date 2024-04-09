@@ -6,7 +6,11 @@ var places = [
     'Fishermans Wharf', 
 ]
 
-window.addEventListener('DOMContentLoaded', addDirections)
+window.addEventListener('DOMContentLoaded', function(e) {
+    setTimeout(function() {
+        addDirections(e)
+    }, 1)
+})
 function addDirections() {
     //Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
