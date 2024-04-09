@@ -146,7 +146,7 @@ body {
 
   width: 100%;
   &:not(:is(.input-parent, .textarea-parent, .select-parent) > :is(.input, .textarea, .select)) {
-    aspect-ratio: 6 / 1;
+    aspect-ratio: 8 / 1;
   }
 
   background-color: black;
