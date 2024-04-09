@@ -7,9 +7,9 @@ var places = [
 ]
 
 window.addEventListener('DOMContentLoaded', function(e) {
-    setTimeout(function() {
+    // setTimeout(function() {
         addDirections()
-    }, 1000)
+    // }, 1000)
 })
 function addDirections() {
     // Load the directions module.
