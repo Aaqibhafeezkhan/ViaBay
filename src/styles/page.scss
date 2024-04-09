@@ -243,7 +243,7 @@ body {
       padding-inline: var(--p-i);
         
       background-color: inherit;
-      font-size: 1rem;
+      font-size: 1em;
 
       translate: var(--p-i) 0;
       transform: translateY(calc(-125%)) skew(calc(-1 * var(--skew)));
