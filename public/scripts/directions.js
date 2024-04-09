@@ -17,14 +17,14 @@ function addDirections() {
         //Create an instance of the directions manager.
         var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
         
-        //Calculate a date time that is 1 hour from now.
-        var departureTime  = new Date();
-        departureTime.setMinutes(departureTime.getHours() + 1);
+        // Calculate a date time that is 1 hour from now.
+        var date = new Date();
+        // date.setMinutes(date.getHours() + 1);
 
         //Set Route Mode to transit.
         directionsManager.setRequestOptions({
             routeMode: Microsoft.Maps.Directions.RouteMode.transit,
-            time: departureTime,
+            time: date,
             timeType: Microsoft.Maps.Directions.TimeTypes.departure,
         });
 
