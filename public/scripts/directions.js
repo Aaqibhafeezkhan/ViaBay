@@ -24,7 +24,7 @@ function addDirections() {
         // Set Route Mode to transit.
         directionsManager.setRequestOptions({
             routeMode: 'Transit',
-            time: date,
+            dateTime: date,
             timeType: 'Departure',
         });
 
