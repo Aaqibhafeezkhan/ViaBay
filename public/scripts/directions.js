@@ -8,36 +8,36 @@ var places = [
 
 window.addEventListener('DOMContentLoaded', function(e) {
     setTimeout(function() {
-        addDirections(e)
-    }, 1)
+        addDirections()
+    }, 1000)
 })
 function addDirections() {
-    //Load the directions module.
+    // Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
-        //Create an instance of the directions manager.
+        // Create an instance of the directions manager.
         var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
         
-        // Calculate a date time that is 1 hour from now.
+        // // Calculate a date time that is 1 hour from now.
         var date = new Date();
         // date.setMinutes(date.getHours() + 1);
 
-        //Set Route Mode to transit.
+        // Set Route Mode to transit.
         directionsManager.setRequestOptions({
-            routeMode: Microsoft.Maps.Directions.RouteMode.transit,
+            routeMode: 'Transit',
             time: date,
-            timeType: Microsoft.Maps.Directions.TimeTypes.departure,
+            timeType: 'Departure',
         });
 
-        //Add waypoints.
+        // Add waypoints.
         places.forEach(function(p, i) {
             var waypoint = new Microsoft.Maps.Directions.Waypoint({ address: p });
             directionsManager.addWaypoint(waypoint);
         })
 
-        //Set the element in which the itinerary will be rendered.
+        // Set the element in which the itinerary will be rendered.
         directionsManager.setRenderOptions({ itineraryContainer: directionsElement });
 
-        //Calculate directions.
+        // Calculate directions.
         directionsManager.calculateDirections();
     });
 }
