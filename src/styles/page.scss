@@ -70,7 +70,11 @@ body {
     }
   }
   &:not(.mobile) .link:first-child {
+    padding-inline-start: var(--gap);
     border-left: solid var(--border-size) white;
+  }
+  &:not(.mobile) .link:last-child {
+    padding-inline-end: var(--gap);
   }
 
   .link {
