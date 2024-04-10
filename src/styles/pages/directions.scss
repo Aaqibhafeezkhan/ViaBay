@@ -28,17 +28,37 @@
         display: grid;
         gap: var(--gap);
 
-        .stop-parent {
+        .stop-container {
           position: relative;
           isolation: isolate;
           z-index: 1;
 
-          .stop {
+          .stop-parent {
             position: absolute;
             inset: 0;
             z-index: -1;
 
-            &:not(:focus) + .options {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            outline: solid 1px lightgray;
+            border-radius: 5px;
+
+            &:has(:focus-visible) {
+              outline: solid black;
+            }
+
+            .stop {
+              flex: 1;
+              border: none;
+              outline: none;
+            }
+            .remove {
+              aspect-ratio: 1;
+            }
+
+            &:not(:has(:focus)) + .options {
               display: none;
             }
           }
@@ -56,7 +76,7 @@
           }
         }
       }
-      :is(.stops .stop-parent, .stop-toolbar) {
+      :is(.stops .stop-container, .stop-toolbar) {
         height: 25px;
         width: 100%;
       }

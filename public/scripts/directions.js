@@ -48,6 +48,9 @@ function addDirections() {
 document.querySelector('.add-stop').addEventListener('click', function(e) {
     var stopsAmt = stops.querySelectorAll('.stop').length
 
+    var stopContainer = document.createElement('div')
+    stopContainer.classList.add('stop-container')
+
     var stopParent = document.createElement('div')
     stopParent.classList.add('stop-parent')
 
@@ -57,11 +60,13 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     stop.title = `Stop #${stopsAmt+1}`
 
     stopParent.appendChild(stop)
+    stopContainer.appendChild(stopParent)
 
     var options = document.createElement('div')
     options.classList.add('options')
+    stopContainer.appendChild(options)
     
-    stops.appendChild(stopParent)
+    stops.appendChild(stopContainer)
 })
 
 document.querySelectorAll('.stop').onchange = stopChange
