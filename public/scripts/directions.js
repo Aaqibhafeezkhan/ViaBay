@@ -64,6 +64,7 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     closeIcon.src = '/icons/close.svg'
     closeIcon.classList.add('close')
     closeIcon.alt = 'X Icon'
+    stopParent.appendChild(closeIcon)
 
     stopContainer.appendChild(stopParent)
 
