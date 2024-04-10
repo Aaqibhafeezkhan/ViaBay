@@ -37,6 +37,10 @@
             position: absolute;
             inset: 0;
             z-index: -1;
+
+            &:not(:focus) + .options {
+              display: none;
+            }
           }
           .options {
             position: absolute;
