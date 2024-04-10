@@ -1,3 +1,6 @@
+var stopsArea = document.querySelector('.stops-area')
+var stops = stopsArea.querySelector('.stops')
+
 var directionsElement = document.querySelector('#directions')
 
 var places = [
@@ -40,4 +43,20 @@ function addDirections() {
         // Calculate directions.
         directionsManager.calculateDirections();
     });
+}
+
+document.querySelector('.add-stop').addEventListener('click', function(e) {
+    var stopsAmt = stops.querySelectorAll('.stop').length
+
+    var stopParent = document.createElement('div').classList.add('stop-parent')
+
+    var stop = document.createElement('input').classList.add('stop').title = `Stop #${stopsAmt+1}`
+    
+    stops.appendChild(stopParent)
+})
+
+document.querySelectorAll('.stop').onchange = stopChange
+
+function stopChange(e) {
+
 }
