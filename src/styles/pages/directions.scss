@@ -12,6 +12,23 @@
 
     overflow-y: auto;
 
+    .stops-area {
+      display: grid;
+
+      .stops {
+        width: 100%;
+      }
+      :is(.stops .stop, .stop-toolbar) {
+        height: 20px;
+        width: 100%;
+      }
+      .stop-toolbar {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 10px;
+      }
+    }
+
     #directions {
       flex: 1;
       width: fit-content;
