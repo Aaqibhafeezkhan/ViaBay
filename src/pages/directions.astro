@@ -8,9 +8,18 @@ var classItems = ['full']
 ---
 <Layout title="Map / Directions" classItems={classItems}>
   <section class="directions-container">
-    <button style="margin-inline: auto; margin-block: 5px;" onclick="addDirections()">
-      <b>Go</b>
-    </button>
+    <div class="stops-area">
+      <div class="stop-parent">
+        <input class="stop" title="Stop #1">
+      </div>
+      <div class="stop-parent">
+        <input class="stop" title="Stop #2">
+      </div>
+      <div class="stop-toolbar">
+        <button class="add-stop">Add Stop</button>
+        <button class="calc-route">Go</button>
+      </div>
+    </div>
     <div id="directions"></div>
   </section>
   <div id="myMap"></div>
