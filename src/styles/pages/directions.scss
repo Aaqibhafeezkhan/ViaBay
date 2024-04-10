@@ -35,15 +35,18 @@
 
           .stop-parent {
             position: absolute;
-            inset: 0;
-            z-index: -1;
 
+            height: 100%;
+            width: 100%;
+            
             display: flex;
             align-items: center;
             gap: 10px;
-
-            outline: solid 1px lightgray;
+            
             border-radius: 5px;
+            outline: solid 1px lightgray;
+
+            z-index: -1;
 
             &:has(:focus-visible) {
               outline: solid black;
