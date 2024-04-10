@@ -23,9 +23,9 @@ function addDirections() {
 
         // Set Route Mode to transit.
         directionsManager.setRequestOptions({
-            routeMode: 'Transit',
-            dateTime: date,
-            timeType: 'Departure',
+            routeMode: Microsoft.Maps.Directions.RouteMode.transit,
+            time: date,
+            timeType: Microsoft.Maps.Directions.TimeTypes.departure,
         });
 
         // Add waypoints.
