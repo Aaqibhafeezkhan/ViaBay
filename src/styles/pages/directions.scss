@@ -22,6 +22,8 @@
 
       .stops {
         width: 100%;
+        display: grid;
+        gap: 20px;
       }
       :is(.stops .stop, .stop-toolbar) {
         height: 40px;
@@ -31,7 +33,7 @@
 
         display: grid;
         grid-template-columns: 3fr 1fr;
-        gap: 10px;
+        gap: 20px;
       }
     }
 
