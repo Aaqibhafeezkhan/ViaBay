@@ -3,7 +3,8 @@
 }
 
 .main {
-  --columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
+
   .directions-container {
     #directions {
       height: 100%;
@@ -14,8 +15,9 @@
 
 @container (max-width: 915px) {
   .main {
-    --columns: 1fr;
-    --rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+
     .directions-container {
       grid-row: -2 / -1;
     }
