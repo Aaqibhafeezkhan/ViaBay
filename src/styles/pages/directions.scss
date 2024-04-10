@@ -16,9 +16,9 @@
 
     .stops-area {
       --gap: 20px;
-      
+
       box-sizing: border-box;
-      padding-inline: 20px;
+      padding: var(--gap) var(--gap) 0;
 
       display: grid;
       gap: var(--gap);
