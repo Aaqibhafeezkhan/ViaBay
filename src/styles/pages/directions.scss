@@ -15,15 +15,17 @@
     overflow-y: auto;
 
     .stops-area {
+      --gap: 20px;
       box-sizing: border-box;
       padding-inline: 20px;
 
       display: grid;
+      gap: var(--gap);
 
       .stops {
         width: 100%;
         display: grid;
-        gap: 20px;
+        gap: var(--gap);
       }
       :is(.stops .stop, .stop-toolbar) {
         height: 40px;
@@ -33,7 +35,7 @@
 
         display: grid;
         grid-template-columns: 3fr 1fr;
-        gap: 20px;
+        gap: var(--gap);
       }
     }
 
