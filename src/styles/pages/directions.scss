@@ -54,8 +54,11 @@
               border: none;
               outline: none;
             }
-            .remove {
+            .close {
               aspect-ratio: 1;
+
+              border-radius: 50%;
+              outline: solid 0.5px lightgray;
             }
 
             &:not(:has(:focus)) + .options {
