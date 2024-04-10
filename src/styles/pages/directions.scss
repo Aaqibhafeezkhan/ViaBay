@@ -29,13 +29,10 @@
         gap: var(--gap);
 
         .stop-container {
-          position: relative;
           isolation: isolate;
           z-index: 1;
 
           .stop-parent {
-            position: absolute;
-            inset: 0;
             z-index: -1;
 
             display: flex;
@@ -66,7 +63,7 @@
             }
           }
           .options {
-            position: absolute;
+            position: relative;
             top: 100%;
 
             background-color: white;
