@@ -27,13 +27,29 @@
         width: 100%;
         display: grid;
         gap: var(--gap);
+
+        .stop-parent {
+          position: relative;
+          isolation: isolate;
+          z-index: 1;
+          
+          .stop {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+          }
+          .options {
+            position: absolute;
+            top: 100%;
+            box-shadow: 0 0 10px;
+          }
+        }
       }
-      :is(.stops .stop, .stop-toolbar) {
+      :is(.stops .stop-parent, .stop-toolbar) {
         height: 25px;
+        width: 100%;
       }
       .stop-toolbar {
-        width: 100%;
-
         display: grid;
         grid-template-columns: 3fr 1fr;
         gap: var(--gap);
