@@ -3,23 +3,21 @@
 }
 
 .main {
-  grid-template-columns: 1fr 2fr;
-
   .directions-container {
+    width: fit-content;
     #directions {
-      height: 100%;
-      width: 100%;
+      width: fit-content;
+      // height: 100%;
+      // width: 100%;
     }
   }
 }
 
 @container (max-width: 915px) {
   .main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-
+    flex-direction: column-reverse;
     .directions-container {
-      grid-row: -2 / -1;
+      flex: 1;
     }
   }
 }
