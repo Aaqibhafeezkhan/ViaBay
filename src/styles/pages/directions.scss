@@ -32,7 +32,7 @@
           position: relative;
           isolation: isolate;
           z-index: 1;
-          
+
           .stop {
             position: absolute;
             inset: 0;
@@ -41,7 +41,14 @@
           .options {
             position: absolute;
             top: 100%;
+
+            background-color: white;
             box-shadow: 0 0 10px;
+
+            .option {
+              height: calc(100% / var(--options-amt, 1));
+              width: 100%;
+            }
           }
         }
       }
