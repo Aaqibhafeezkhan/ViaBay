@@ -61,7 +61,7 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     stopParent.appendChild(stop)
 
     var closeButton = document.createElement('button')
-    closeIcon.classList.add('close')
+    closeButton.classList.add('close')
 
     var closeIcon = document.createElement('img')
     closeIcon.src = '/icons/close.svg'
