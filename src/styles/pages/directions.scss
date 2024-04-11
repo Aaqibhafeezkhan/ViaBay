@@ -50,7 +50,7 @@
 
             z-index: -1;
 
-            &:has(:focus-visible) {
+            &:has(.stop:focus-visible) {
               outline: solid black;
             }
 
