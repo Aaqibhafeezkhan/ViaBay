@@ -105,5 +105,18 @@ stops.querySelectorAll('.stop').forEach(function(s, i) {
 })
 
 function stopChange(e) {
-
+    var searchText = e.target.value
+    Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+        var searchManager = new Microsoft.Maps.Search.SearchManager(map);
+        var requestOptions = {
+            bounds: map.getBounds(),
+            where: searchText,
+            callback: function (answer, userData) {
+                // map.setView({ bounds: answer.results[0].bestView });
+                // map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
+                alert(JSON.stringify(answer.results))
+            }
+        };
+        searchManager.geocode(requestOptions);
+    });
 }
