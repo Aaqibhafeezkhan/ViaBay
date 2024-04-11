@@ -131,7 +131,7 @@ function stopChange(e, i) {
                     })
     
                     adds.forEach(function(a) {
-                        var aEle = document.createElement('div')
+                        var aEle = document.createElement('button')
                         aEle.classList.add('option')
                         aEle.textContent = a
                         aEle.onclick = function(e) {
@@ -141,7 +141,7 @@ function stopChange(e, i) {
                     })
 
                     var aEle = document.createElement('div')
-                    aEle.classList.add('option')
+                    aEle.classList.add('button')
                     aEle.textContent = searchText
                     aEle.onclick = function(e) {
                         selectOption(e, i)
