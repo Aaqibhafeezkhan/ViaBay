@@ -64,7 +64,9 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
 
     var closeButton = document.createElement('button')
     closeButton.classList.add('close')
-    closeButton.onclick = onCloseClick
+    closeButton.onclick = function(e) {
+        onCloseClick(e, stopsAmt-1)
+    }
 
     var closeIcon = document.createElement('img')
     closeIcon.src = '/icons/close.svg'
@@ -82,11 +84,13 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
 })
 
 closeButtons.forEach(function(b, i) {
-    b.onclick = onCloseClick
+    b.onclick = function(e) {
+        onCloseClick(e, i)
+    }
 })
 
-function onCloseClick(e) {
-    e.target.parentNode.parentNode.remove();
+function onCloseClick(e, i) {
+    stops.querySelectorAll('.stop-container')[i].remove();
     reorderStops()
 }
 
