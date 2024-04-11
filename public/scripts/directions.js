@@ -144,6 +144,7 @@ function stopChange(e, i) {
 
                     var aEle = document.createElement('button')
                     aEle.classList.add('button')
+                    aEle.classList.add('lastLoc')
                     aEle.classList.add('removeStyles')
                     aEle.textContent = searchText
                     aEle.onclick = function(e) {

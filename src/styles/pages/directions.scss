@@ -111,6 +111,10 @@
               line-height: 1;
 
               cursor: pointer;
+
+              &.lastLoc {
+                border-top: solid 1px lightgray;
+              }
             }
           }
         }
