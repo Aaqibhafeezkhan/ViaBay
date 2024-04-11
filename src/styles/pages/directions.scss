@@ -58,6 +58,9 @@
               box-sizing: border-box;
               height: 100%;
               max-width: calc(100% - (10 + 25)*1px);
+
+              background-color: inherit;
+
               border: none;
               outline: none;
             }
