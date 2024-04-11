@@ -4,6 +4,7 @@ var closeButtons = document.querySelectorAll('.close')
 var goBtn = document.querySelector('.calc-route')
 
 var directionsElement = document.querySelector('#directions')
+var directionsManager = false
 
 function addDirections(e) {
     var places = []
@@ -17,8 +18,10 @@ function addDirections(e) {
     
     // Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+        if (directionsManager) directionsManager.clearAll()
+
         // Create an instance of the directions manager.
-        var directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+        directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
         
         // // Calculate a date time that is 1 hour from now.
         var date = new Date();
