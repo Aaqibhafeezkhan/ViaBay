@@ -1,5 +1,6 @@
 var stopsArea = document.querySelector('.stops-area')
 var stops = stopsArea.querySelector('.stops')
+var closeButtons = document.querySelectorAll('.close')
 
 var directionsElement = document.querySelector('#directions')
 
@@ -78,7 +79,22 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     stops.appendChild(stopContainer)
 })
 
-document.querySelectorAll('.stop').onchange = stopChange
+closeButtons.forEach(function(b, i) {
+    b.onclick = function(e) {
+        e.target.parentNode.parentNode.remove();
+        reorderStops()
+    }
+})
+
+function reorderStops() {
+    stops.querySelectorAll('.stop').forEach(function(s, i) {
+        s.placeholder = `Stop #${i+1}`
+    })
+}
+
+stops.querySelectorAll('.stop').forEach(function(s, i) {
+    s.onchange = stopChange
+})
 
 function stopChange(e) {
 
