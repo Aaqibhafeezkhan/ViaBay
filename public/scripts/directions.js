@@ -125,7 +125,7 @@ function stopChange(e, i) {
 
                 var optionsEle = stops.querySelectorAll('.options')[i]
 
-                optionsEle.querySelectorAll('.options').forEach(function(o) {
+                optionsEle.querySelectorAll('.option').forEach(function(o) {
                     e.remove()
                 })
 
