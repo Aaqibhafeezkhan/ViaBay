@@ -114,7 +114,10 @@ function stopChange(e) {
             callback: function (answer, userData) {
                 // map.setView({ bounds: answer.results[0].bestView });
                 // map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
-                alert(JSON.stringify(answer.results))
+                var adds = []
+                answer.results.forEach(function(r, i) {
+                    adds.push(r.address.formattedAddress)
+                })
             }
         };
         searchManager.geocode(requestOptions);
