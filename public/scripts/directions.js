@@ -59,7 +59,9 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     stop.classList.add('stop')
     stop.placeholder = `Stop #${stopsAmt+1}`
     stop.title = `Stop #${stopsAmt+1}`
-    stop.onchange = stopChange
+    stop.onchange = function(e) {
+        stopChange(e, stopsAmt-1)
+    }
     stopParent.appendChild(stop)
 
     var closeButton = document.createElement('button')
@@ -101,10 +103,12 @@ function reorderStops() {
 }
 
 stops.querySelectorAll('.stop').forEach(function(s, i) {
-    s.onchange = stopChange
+    s.onchange = function(e) {
+        stopChange(e, i)
+    }
 })
 
-function stopChange(e) {
+function stopChange(e, i) {
     var searchText = e.target.value
     Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
         var searchManager = new Microsoft.Maps.Search.SearchManager(map);
@@ -118,6 +122,8 @@ function stopChange(e) {
                 answer.results.forEach(function(r, i) {
                     adds.push(r.address.formattedAddress)
                 })
+
+                var optionsEle = stops
             }
         };
         searchManager.geocode(requestOptions);
