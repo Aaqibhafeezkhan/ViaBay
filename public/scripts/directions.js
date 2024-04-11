@@ -109,39 +109,42 @@ stops.querySelectorAll('.stop').forEach(function(s, i) {
 })
 
 function stopChange(e, i) {
+    var finalValue = e.target.getAttribute('final-value')
     var searchText = e.target.value
-    Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
-        var searchManager = new Microsoft.Maps.Search.SearchManager(map);
-        var requestOptions = {
-            bounds: map.getBounds(),
-            where: searchText,
-            callback: function (answer, userData) {
-                // map.setView({ bounds: answer.results[0].bestView });
-                // map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
-                var adds = []
-                answer.results.forEach(function(r, i) {
-                    adds.push(r.address.formattedAddress)
-                })
-
-                var optionsEle = stops.querySelectorAll('.options')[i]
-
-                optionsEle.querySelectorAll('.option').forEach(function(o) {
-                    e.remove()
-                })
-
-                adds.forEach(function(a) {
-                    var aEle = document.createElement('div')
-                    aEle.classList.add('option')
-                    aEle.textContent = a
-                    aEle.onclick = function(e) {
-                        selectOption(e, i)
-                    }
-                    optionsEle.appendChild(aEle)
-                })
-            }
-        };
-        searchManager.geocode(requestOptions);
-    });
+    if (finalValue !== searchText) {
+        Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+            var searchManager = new Microsoft.Maps.Search.SearchManager(map);
+            var requestOptions = {
+                bounds: map.getBounds(),
+                where: searchText,
+                callback: function (answer, userData) {
+                    // map.setView({ bounds: answer.results[0].bestView });
+                    // map.entities.push(new Microsoft.Maps.Pushpin(answer.results[0].location));
+                    var adds = []
+                    answer.results.forEach(function(r, i) {
+                        adds.push(r.address.formattedAddress)
+                    })
+    
+                    var optionsEle = stops.querySelectorAll('.options')[i]
+    
+                    optionsEle.querySelectorAll('.option').forEach(function(o) {
+                        e.remove()
+                    })
+    
+                    adds.forEach(function(a) {
+                        var aEle = document.createElement('div')
+                        aEle.classList.add('option')
+                        aEle.textContent = a
+                        aEle.onclick = function(e) {
+                            selectOption(e, i)
+                        }
+                        optionsEle.appendChild(aEle)
+                    })
+                }
+            };
+            searchManager.geocode(requestOptions);
+        });
+    }
 }
 
 function selectOption(e, i) {
@@ -152,9 +155,7 @@ function selectOption(e, i) {
         e.remove()
     })
 
-    stop.onchange = function(e) {}
-    stops.querySelectorAll('.stop')[i].value = place
-    stop.onchange = function(e) {
-        stopChange(e, i)
-    }
+    var stop = stops.querySelectorAll('.stop')[i]
+    stop.setAttribute('final-value', place)
+    stop.value = place
 }
