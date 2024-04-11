@@ -39,11 +39,11 @@
             height: 100%;
             width: 100%;
             
-            display: grid;
-            grid-template-rows: 1fr 20px;
+            // display: grid;
+            // grid-template-rows: 1fr 20px;
 
-            align-items: center;
-            gap: 10px;
+            // align-items: center;
+            // gap: 10px;
             
             border-radius: 5px;
             outline: solid 1px lightgray;
@@ -61,8 +61,12 @@
               outline: none;
             }
             .close {
+              margin-inline-start: 10px;
+
               max-height: 100%;
               aspect-ratio: 1;
+
+              float: right;
 
               border-radius: 50%;
               outline: solid 0.5px lightgray;
