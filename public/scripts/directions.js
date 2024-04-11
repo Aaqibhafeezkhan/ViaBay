@@ -14,8 +14,7 @@ function addDirections(e) {
         }
     })
 
-    console.log(places)
-
+    
     // Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
         // Create an instance of the directions manager.
@@ -24,25 +23,26 @@ function addDirections(e) {
         // // Calculate a date time that is 1 hour from now.
         var date = new Date();
         // date.setMinutes(date.getHours() + 1);
-
+        
         // Set Route Mode to transit.
         directionsManager.setRequestOptions({
             routeMode: Microsoft.Maps.Directions.RouteMode.transit,
             time: date,
             timeType: Microsoft.Maps.Directions.TimeTypes.departure,
         });
-
+        
         // Add waypoints.
         places.forEach(function(p, i) {
             var waypoint = new Microsoft.Maps.Directions.Waypoint({ address: p });
             directionsManager.addWaypoint(waypoint);
         })
-
+        
         // Set the element in which the itinerary will be rendered.
         directionsManager.setRenderOptions({ itineraryContainer: directionsElement });
-
+        
         // Calculate directions.
         directionsManager.calculateDirections();
+        console.log(directionsManager)
     });
 }
 
