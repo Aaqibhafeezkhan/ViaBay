@@ -137,13 +137,17 @@ function stopChange(e, i) {
                         createOption(a, i, optionsEle)
                     })
 
-                    createOption(searchText, i, optionsEle)
+                    createOption(searchText, i, optionsEle, true)
 
-                    function createOption(content, i, optionsEle) {
+                    function createOption(content, i, optionsEle, lastLoc=false) {
                         var aEle = document.createElement('button')
                         aEle.classList.add('option')
                         aEle.classList.add('removeStyles')
                         aEle.textContent = content
+                        if (lastLoc) {
+                            aEle.classList.add('lastLoc')
+                            aEle.disabled = true
+                        }
                         aEle.onclick = function(e) {
                             selectOption(e, i)
                         }
