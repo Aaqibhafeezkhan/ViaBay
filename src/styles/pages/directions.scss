@@ -32,6 +32,8 @@
           position: relative;
           z-index: 1;
 
+          border-radius: 5px;
+          outline: solid 1px lightgray;
           &:has(.stop:focus-visible) {
             outline: solid black;
           }
@@ -46,9 +48,6 @@
             // align-items: center;
             // gap: 10px;
             
-            border-radius: 5px;
-            outline: solid 1px lightgray;
-
             .stop {
               box-sizing: border-box;
               padding: 5px 0 5px 5px;
