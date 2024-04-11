@@ -5,11 +5,6 @@ var goBtn = document.querySelector('.calc-route')
 
 var directionsElement = document.querySelector('#directions')
 
-window.addEventListener('DOMContentLoaded', function(e) {
-    // setTimeout(function() {
-        addDirections()
-    // }, 1000)
-})
 function addDirections(e) {
     var places = []
 
