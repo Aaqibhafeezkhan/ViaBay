@@ -75,14 +75,6 @@
               height: calc(100% - 5px);
               aspect-ratio: 1;
 
-              background: none;
-              color: inherit;
-              border: none;
-              padding: 0;
-              font-family: inherit;
-              cursor: pointer;
-              outline: none;
-            
               border-radius: 50%;
 
               &:focus-visible {
@@ -116,7 +108,7 @@
 
               text-align: center;
               line-height: 1;
-              
+
               cursor: pointer;
             }
           }
