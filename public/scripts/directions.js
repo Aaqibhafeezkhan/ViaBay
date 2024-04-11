@@ -111,6 +111,13 @@ stops.querySelectorAll('.stop').forEach(function(s, i) {
 function stopChange(e, i) {
     var finalValue = e.target.getAttribute('final-value')
     var searchText = e.target.value
+
+    var optionsEle = stops.querySelectorAll('.options')[i]
+    
+    optionsEle.querySelectorAll('.option').forEach(function(o) {
+        e.remove()
+    })
+
     if (finalValue !== searchText) {
         Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
             var searchManager = new Microsoft.Maps.Search.SearchManager(map);
@@ -123,12 +130,6 @@ function stopChange(e, i) {
                     var adds = []
                     answer.results.forEach(function(r, i) {
                         adds.push(r.address.formattedAddress)
-                    })
-    
-                    var optionsEle = stops.querySelectorAll('.options')[i]
-    
-                    optionsEle.querySelectorAll('.option').forEach(function(o) {
-                        e.remove()
                     })
     
                     adds.forEach(function(a) {
@@ -144,6 +145,14 @@ function stopChange(e, i) {
             };
             searchManager.geocode(requestOptions);
         });
+
+        var aEle = document.createElement('div')
+        aEle.classList.add('option')
+        aEle.textContent = searchText
+        aEle.onclick = function(e) {
+            selectOption(e, i)
+        }
+        optionsEle.appendChild(aEle)
     }
 }
 
