@@ -94,12 +94,11 @@
                 aspect-ratio: 1;
               }
             }
-
-            &:not(:has(:focus)) + .options {
-              display: none;
-            }
           }
           .options {
+            &:empty {
+              display: none;
+            }
             &:not(:empty) {
               border-top: solid black;
             }
