@@ -8,7 +8,7 @@ var directionsElement = document.querySelector('#directions')
 function addDirections(e) {
     var places = []
 
-    stops.forEach(function(s, i) {
+    stops.querySelectorAll('.stop').forEach(function(s, i) {
         if (s.getAttribute('final-value')) {
             places.push(s.getAttribute('final-value'))
         }
