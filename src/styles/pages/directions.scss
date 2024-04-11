@@ -61,7 +61,10 @@
               outline: none;
             }
             .close {
+              box-sizing: border-box;
+
               margin-inline-start: 10px;
+              padding-block: 5px;
 
               max-height: 100%;
               aspect-ratio: 1;
