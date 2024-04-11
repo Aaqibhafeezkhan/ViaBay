@@ -88,14 +88,15 @@
             }
           }
           .options {
+            display: grid;
+            z-index: 100;
+
             &:empty {
               display: none;
             }
             &:not(:empty) {
               border-top: solid 1px lightgray;
             }
-
-            z-index: 100;
 
             .option {
               margin-inline: auto;
