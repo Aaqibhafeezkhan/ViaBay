@@ -59,7 +59,7 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     stop.classList.add('stop')
     stop.placeholder = `Stop #${stopsAmt+1}`
     stop.title = `Stop #${stopsAmt+1}`
-    stop.onchange = function(e) {
+    stop.onkeypress = function(e) {
         stopChange(e, stopsAmt-1)
     }
     stopParent.appendChild(stop)
