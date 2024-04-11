@@ -132,25 +132,21 @@ function stopChange(e, i) {
                     })
     
                     adds.forEach(function(a) {
+                        createOption(a, i, optionsEle)
+                    })
+
+                    createOption(searchText, i, optionsEle)
+
+                    function createOption(content, i, optionsEle) {
                         var aEle = document.createElement('button')
                         aEle.classList.add('option')
                         aEle.classList.add('removeStyles')
-                        aEle.textContent = a
+                        aEle.textContent = content
                         aEle.onclick = function(e) {
                             selectOption(e, i)
                         }
                         optionsEle.appendChild(aEle)
-                    })
-
-                    var aEle = document.createElement('button')
-                    aEle.classList.add('option')
-                    aEle.classList.add('lastLoc')
-                    aEle.classList.add('removeStyles')
-                    aEle.textContent = searchText
-                    aEle.onclick = function(e) {
-                        selectOption(e, i)
                     }
-                    optionsEle.appendChild(aEle)
                 }
             };
             searchManager.geocode(requestOptions);
