@@ -1,21 +1,24 @@
 var stopsArea = document.querySelector('.stops-area')
 var stops = stopsArea.querySelector('.stops')
 var closeButtons = document.querySelectorAll('.close')
+var goBtn = document.querySelector('.calc-route')
 
 var directionsElement = document.querySelector('#directions')
-
-var places = [
-    // '220 Demi Lane, Redwood City CA', 
-    'Milbrae BART', 
-    'Fishermans Wharf', 
-]
 
 window.addEventListener('DOMContentLoaded', function(e) {
     // setTimeout(function() {
         addDirections()
     // }, 1000)
 })
-function addDirections() {
+function addDirections(e) {
+    var places = []
+
+    stops.forEach(function(s, i) {
+        if (s.getAttribute('final-value')) {
+            places.push(s.getAttribute('final-value'))
+        }
+    })
+
     // Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
         // Create an instance of the directions manager.
@@ -168,3 +171,5 @@ function selectOption(e, i) {
     stop.setAttribute('final-value', place)
     stop.value = place
 }
+
+goBtn.addEventListener('click', addDirections)
