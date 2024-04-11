@@ -68,7 +68,7 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     closeIcon.alt = 'X Icon'
     closeButton.appendChild(closeIcon)
 
-    stopParent.appendChild(closeIcon)
+    stopParent.appendChild(closeButton)
     stopContainer.appendChild(stopParent)
 
     var options = document.createElement('div')
