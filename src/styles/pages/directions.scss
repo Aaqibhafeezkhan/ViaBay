@@ -98,11 +98,12 @@
             z-index: 100;
 
             .option {
+              margin-inline: auto;
               box-sizing: border-box;
               padding: 5px 0 5px 5px;
 
               // height: calc(100% / var(--options-amt, 1));
-              width: 100%;
+              width: fit-content;
 
               color: black;
 
