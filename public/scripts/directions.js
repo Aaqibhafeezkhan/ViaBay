@@ -142,7 +142,7 @@ function stopChange(e, i) {
                         optionsEle.appendChild(aEle)
                     })
 
-                    var aEle = document.createElement('div')
+                    var aEle = document.createElement('button')
                     aEle.classList.add('button')
                     aEle.classList.add('removeStyles')
                     aEle.textContent = searchText
