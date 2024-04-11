@@ -30,7 +30,6 @@
 
         .stop-container {
           position: relative;
-          isolation: isolate;
           z-index: 1;
 
           .stop-parent {
@@ -47,8 +46,6 @@
             
             border-radius: 5px;
             outline: solid 1px lightgray;
-
-            z-index: -1;
 
             &:has(.stop:focus-visible) {
               outline: solid black;
@@ -105,6 +102,8 @@
 
             background-color: white;
             box-shadow: 0 0 10px;
+
+            z-index: 100;
 
             .option {
               height: calc(100% / var(--options-amt, 1));
