@@ -95,9 +95,6 @@
               }
             }
           }
-          &:has(.stop:focus-visible) + .outline:not(:empty) {
-            border-top: solid black;
-          }
           .options {
             &:empty {
               display: none;
