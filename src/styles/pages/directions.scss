@@ -51,6 +51,8 @@
 
             .stop {
               box-sizing: border-box;
+              padding: 5px 0 5px 5px;
+
               height: auto;
               max-width: calc(100% - (10 + 25)*1px);
 
