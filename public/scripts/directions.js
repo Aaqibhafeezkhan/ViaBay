@@ -14,6 +14,8 @@ function addDirections(e) {
         }
     })
 
+    console.log(places)
+
     // Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
         // Create an instance of the directions manager.
