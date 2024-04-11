@@ -146,13 +146,15 @@ function stopChange(e, i) {
             searchManager.geocode(requestOptions);
         });
 
-        var aEle = document.createElement('div')
-        aEle.classList.add('option')
-        aEle.textContent = searchText
-        aEle.onclick = function(e) {
-            selectOption(e, i)
-        }
-        optionsEle.appendChild(aEle)
+        setTimeout(function() {
+            var aEle = document.createElement('div')
+            aEle.classList.add('option')
+            aEle.textContent = searchText
+            aEle.onclick = function(e) {
+                selectOption(e, i)
+            }
+            optionsEle.appendChild(aEle)
+        }, 1000)
     }
 }
 
