@@ -97,8 +97,11 @@
             }
           }
           .options {
-            border-top: solid black;
             background-color: white;
+
+            &:not(:empty) {
+              border-top: solid black;
+            }
 
             z-index: 100;
 
