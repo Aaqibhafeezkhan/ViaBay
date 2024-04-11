@@ -141,20 +141,18 @@ function stopChange(e, i) {
                         }
                         optionsEle.appendChild(aEle)
                     })
+
+                    var aEle = document.createElement('div')
+                    aEle.classList.add('option')
+                    aEle.textContent = searchText
+                    aEle.onclick = function(e) {
+                        selectOption(e, i)
+                    }
+                    optionsEle.appendChild(aEle)
                 }
             };
             searchManager.geocode(requestOptions);
         });
-
-        setTimeout(function() {
-            var aEle = document.createElement('div')
-            aEle.classList.add('option')
-            aEle.textContent = searchText
-            aEle.onclick = function(e) {
-                selectOption(e, i)
-            }
-            optionsEle.appendChild(aEle)
-        }, 1000)
     }
 }
 
