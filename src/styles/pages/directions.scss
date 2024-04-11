@@ -30,15 +30,17 @@
 
         .stop-container {
           position: relative;
-          z-index: 1;
+
+          min-height: 25px;
 
           border-radius: 5px;
           outline: solid 1px lightgray;
           &:has(.stop:focus-visible) {
             outline: solid black;
           }
+          z-index: 1;
 
-        .stop-parent {
+          .stop-parent {
             height: fit-content;
             width: 100%;
             
@@ -112,10 +114,10 @@
         }
       }
       :is(.stops .stop-container, .stop-toolbar) {
-        height: 25px;
         width: 100%;
       }
       .stop-toolbar {
+        height: 25px;
         display: grid;
         grid-template-columns: 3fr 1fr;
         gap: var(--gap);
