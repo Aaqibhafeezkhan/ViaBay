@@ -57,12 +57,13 @@
             .stop {
               height: 100%;
               max-width: calc(100% - (10 + 25)*1px);
+              float: left;
               border: none;
               outline: none;
             }
             .close {
-              position: absolute;
-              right: 0;
+              // position: absolute;
+              // right: 0;
 
               box-sizing: border-box;
 
@@ -72,6 +73,7 @@
               aspect-ratio: 1;
 
               float: right;
+              appearance: none;
 
               border-radius: 50%;
               outline: solid 0.5px lightgray;
