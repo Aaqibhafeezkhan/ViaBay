@@ -123,7 +123,17 @@ function stopChange(e, i) {
                     adds.push(r.address.formattedAddress)
                 })
 
-                var optionsEle = stops
+                var optionsEle = stops.querySelectorAll('.options')[i]
+
+                optionsEle.querySelectorAll('.options').forEach(function(o) {
+                    e.remove()
+                })
+
+                adds.forEach(function(a) {
+                    var aEle = document.createElement('div')
+                    aEle.classList.add('option')
+                    aEle.textContent = a
+                })
             }
         };
         searchManager.geocode(requestOptions);
