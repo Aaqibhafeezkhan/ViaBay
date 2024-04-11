@@ -124,6 +124,7 @@ function stopChange(e, i) {
                 })
 
                 var optionsEle = stops.querySelectorAll('.options')[i]
+                console.log(optionsEle)
 
                 optionsEle.querySelectorAll('.options').forEach(function(o) {
                     e.remove()
@@ -133,6 +134,7 @@ function stopChange(e, i) {
                     var aEle = document.createElement('div')
                     aEle.classList.add('option')
                     aEle.textContent = a
+                    optionsEle.appendChild(aEle)
                 })
             }
         };
