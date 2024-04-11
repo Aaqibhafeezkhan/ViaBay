@@ -115,7 +115,7 @@ function stopChange(e, i) {
     var optionsEle = stops.querySelectorAll('.options')[i]
     
     optionsEle.querySelectorAll('.option').forEach(function(o) {
-        e.remove()
+        o.remove()
     })
 
     if (finalValue !== searchText) {
@@ -161,7 +161,7 @@ function selectOption(e, i) {
     var optionsEle = stops.querySelectorAll('.options')[i]
 
     optionsEle.querySelectorAll('.option').forEach(function(o) {
-        e.remove()
+        o.remove()
     })
 
     var stop = stops.querySelectorAll('.stop')[i]
