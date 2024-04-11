@@ -32,7 +32,11 @@
           position: relative;
           z-index: 1;
 
-          .stop-parent {
+          &:has(.stop:focus-visible) {
+            outline: solid black;
+          }
+
+        .stop-parent {
             height: fit-content;
             width: 100%;
             
@@ -44,10 +48,6 @@
             
             border-radius: 5px;
             outline: solid 1px lightgray;
-
-            &:has(.stop:focus-visible) {
-              outline: solid black;
-            }
 
             .stop {
               box-sizing: border-box;
