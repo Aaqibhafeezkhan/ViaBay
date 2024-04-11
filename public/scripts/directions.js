@@ -165,6 +165,6 @@ function selectOption(e, i) {
     })
 
     var stop = stops.querySelectorAll('.stop')[i]
-    stop.setAttribute('final-value', place)
     stop.value = place
+    stop.setAttribute('final-value', place)
 }
