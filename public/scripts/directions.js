@@ -133,10 +133,28 @@ function stopChange(e, i) {
                     var aEle = document.createElement('div')
                     aEle.classList.add('option')
                     aEle.textContent = a
+                    aEle.onclick = function(e) {
+                        selectOption(e, i)
+                    }
                     optionsEle.appendChild(aEle)
                 })
             }
         };
         searchManager.geocode(requestOptions);
     });
+}
+
+function selectOption(e, i) {
+    var place = e.target.textContent
+    var optionsEle = stops.querySelectorAll('.options')[i]
+
+    optionsEle.querySelectorAll('.option').forEach(function(o) {
+        e.remove()
+    })
+
+    stop.onchange = function(e) {}
+    stops.querySelectorAll('.stop')[i].value = place
+    stop.onchange = function(e) {
+        stopChange(e, i)
+    }
 }
