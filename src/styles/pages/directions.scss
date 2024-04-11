@@ -56,7 +56,7 @@
 
             .stop {
               height: 100%;
-              max-width: 100%;
+              max-width: calc(100% - (10 + 25)*1px);
               border: none;
               outline: none;
             }
