@@ -100,8 +100,6 @@
             }
           }
           .options {
-            background-color: white;
-
             &:not(:empty) {
               border-top: solid black;
             }
@@ -112,8 +110,11 @@
               box-sizing: border-box;
               padding: 5px 0 5px 5px;
 
-              height: calc(100% / var(--options-amt, 1));
+              // height: calc(100% / var(--options-amt, 1));
               width: 100%;
+
+              color: black;
+              line-height: 1;
             }
           }
         }
