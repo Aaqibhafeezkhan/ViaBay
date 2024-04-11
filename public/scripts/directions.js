@@ -148,8 +148,10 @@ function stopChange(e, i) {
                             aEle.classList.add('lastLoc')
                             aEle.disabled = true
                         }
-                        aEle.onclick = function(e) {
-                            selectOption(e, i)
+                        else {
+                            aEle.onclick = function(e) {
+                                selectOption(e, i)
+                            }
                         }
                         optionsEle.appendChild(aEle)
                     }
