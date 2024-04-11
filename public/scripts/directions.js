@@ -60,12 +60,15 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
     stop.title = `Stop #${stopsAmt+1}`
     stopParent.appendChild(stop)
 
+    var closeButton = document.createElement('button')
+    closeIcon.classList.add('close')
+
     var closeIcon = document.createElement('img')
     closeIcon.src = '/icons/close.svg'
-    closeIcon.classList.add('close')
     closeIcon.alt = 'X Icon'
-    stopParent.appendChild(closeIcon)
+    closeButton.appendChild(closeIcon)
 
+    stopParent.appendChild(closeIcon)
     stopContainer.appendChild(stopParent)
 
     var options = document.createElement('div')

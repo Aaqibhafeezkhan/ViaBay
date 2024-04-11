@@ -76,6 +76,11 @@
 
               border-radius: 50%;
               outline: solid 0.5px lightgray;
+
+              img {
+                width: 100%;
+                aspect-ratio: 1;
+              }
             }
 
             &:not(:has(:focus)) + .options {
