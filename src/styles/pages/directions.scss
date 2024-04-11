@@ -95,12 +95,15 @@
               }
             }
           }
+          &:has(.stop:focus-visible) + .outline:not(:empty) {
+            border-top: solid black;
+          }
           .options {
             &:empty {
               display: none;
             }
             &:not(:empty) {
-              border-top: solid black;
+              border-top: solid 1px lightgray;
             }
 
             z-index: 100;
