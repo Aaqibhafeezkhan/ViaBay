@@ -24,16 +24,18 @@ makeRequest('gtfsoperators', [], function(res) {
 })
 
 function addVehicles(data) {
+    agencies.vehiclePins = []
     data.vehicles.forEach(function(vehicle, i) {
         var vehicleActivity = vehicle.MonitoredVehicleJourney
         vehicleLocation = vehicleActivity.VehicleLocation
 
         console.log(vehicleActivity)
 
-        var pin = new Microsoft.Maps.Pushpin(center, {
+        agencies.vehiclePins[i] = new Microsoft.Maps.Pushpin(center, {
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><rect x="0" y="0" width="40" height="30" fill="${color ? color : 'black'}" /><text x="50%" y="50%" dy="2" textLength="35" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${vehicleActivity.LineRef}</text></svg>`,
             // title: 'Microsoft',
             // subTitle: 'City Center',
-            text: vehicleActivity.LineRef
+            // text: vehicleActivity.LineRef
         });
 
     })
