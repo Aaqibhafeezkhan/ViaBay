@@ -1,3 +1,3 @@
-makeRequest('gtfsoperators', [], function() {
-    console.log(this.responseText)
+makeRequest('gtfsoperators', [], function(res) {
+    console.log(res)
 })
