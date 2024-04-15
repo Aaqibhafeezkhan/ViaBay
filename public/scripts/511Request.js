@@ -13,6 +13,10 @@ function makeRequest(moduleName, params=[], callback) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
+            if (
+                (data.startsWith('{') && data.endsWith('}')) || 
+                (data.startsWith('[') && data.endsWith(']'))
+            ) data = JSON.parse(data)
             callback(data)
         })
         .catch(console.error);
