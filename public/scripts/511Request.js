@@ -19,5 +19,7 @@ function makeRequest(moduleName, params=[], callback) {
             ) data = JSON.parse(data)
             callback(data)
         })
-        .catch(console.error);
+        .catch(err => {
+            console.error(err);
+        });
 }
