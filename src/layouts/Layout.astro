@@ -63,7 +63,7 @@ else year = `-${year}`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
-    { !!headItems ? '' : <div set:html={headItems}></div> }
+    { !!headItems ? <div set:html={headItems}></div> : '' }
     <script src="/scripts/index.js" is:inline></script>
     <script src="/scripts/511Request.js" is:inline></script>
     <script src="/scripts/notificationManager.js" is:inline></script>
