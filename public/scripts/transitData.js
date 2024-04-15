@@ -30,5 +30,11 @@ function addVehicles(data) {
 
         console.log(vehicleActivity)
 
+        var pin = new Microsoft.Maps.Pushpin(center, {
+            // title: 'Microsoft',
+            // subTitle: 'City Center',
+            text: vehicleActivity.LineRef
+        });
+
     })
 }
