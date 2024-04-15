@@ -64,6 +64,9 @@ else year = `-${year}`
     <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
     { !!headItems ? '' : <div set:html={headItems}></div> }
+    <script src="/scripts/index.js" is:inline></script>
+    <script src="/scripts/511Request.js" is:inline></script>
+    <script src="/scripts/notificationManager.js" is:inline></script>
   </head>
   <body sTitle={sTitle}>
     <div class="app">
@@ -85,11 +88,7 @@ else year = `-${year}`
         <button class="btn">OK</button>
       </content>
     </dialog>
-    <script src="/scripts/index.js" is:inline></script>
-    <script src="/scripts/page.js" is:inline></script>
     <script src="/scripts/modal.js" is:inline></script>
-    <script src="/scripts/511Request.js" is:inline></script>
-    <script src="/scripts/notificationManager.js" is:inline></script>
     <script src="/scripts/select.js" is:inline></script>
     <script src="/scripts/eruda.js" is:inline></script>
   </body>

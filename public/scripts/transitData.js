@@ -31,17 +31,17 @@ function addVehicles(data) {
 
         var color = ''
 
-        console.log(vehicleActivity)
-
+        
         pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
             icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><rect x="0" y="0" width="40" height="30" fill="${color ? color : 'black'}" /><text x="50%" y="50%" dy="2" textLength="35" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${vehicleActivity.LineRef}</text></svg>`,
             // title: 'Microsoft',
             // subTitle: 'City Center',
             // text: vehicleActivity.LineRef
         });
-
+        
         //Add the pushpin to the map
         map.entities.push(pin);
+        console.log(pin)
         agencies.vehiclePins[i] = pin
     })
 }
