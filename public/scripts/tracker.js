@@ -1,7 +1,3 @@
-var pagesWithDifferentGetMap = [
-    '/directions'
-]
-
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
 var watchID = null
 var map = null
@@ -11,12 +7,6 @@ function assertError(err, name) {
     alert(err)
     console.error(err)
 }
-
-
-var isOtherPage = false
-pagesWithDifferentGetMap.forEach(function(p, i) {
-    if (location.pathname === p) isOtherPage = true
-})
 
 GetMap()
 function GetMap() {
