@@ -12,13 +12,12 @@ function makeRequest(moduleName, params=[], callback) {
 
     var xhr = new XMLHttpRequest()
     xhr.open('GET', url)
+
+    xhr.responseType = "document";
+    xhr.overrideMimeType("text/xml");
+
     xhr.addEventListener('load', function() {
-        var res = this
-
-        var xmlDocument = new DOMParser().parseFromString(res.text, 'text/xml')
-
-        res.document = xmlDocument
-        callback(res)
+        callback(this.responseXML)
     })
     xhr.send()
 }
