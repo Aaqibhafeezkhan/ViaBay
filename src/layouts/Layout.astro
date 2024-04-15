@@ -25,11 +25,16 @@ if (classItems.length < 0) {
 classItems.unshift('page')
 classItems.unshift('main')
 
-var classStr = ''
-classItems.forEach(function(c, i) {
-  if (i !== 0) classStr += ' '
-  classStr += c
-})
+classItems = classItems.join(' ')
+
+if (!!headItems === false || headItems === null) {
+  headItems = []
+}
+if (headItems.length < 0) {
+  headItems = []
+}
+
+headItems = headItems.join('\n\t\t')
 
 var navHTML = `<a class="link" href="/tracker">
   <img class="icon" src="/icons/map.svg">
@@ -74,7 +79,7 @@ else year = `-${year}`
         <span class="title">{title}</span>
         <nav class="nav" hidden set:html={navHTML}></nav>
       </header>
-      <main id="content" class={classStr}>
+      <main id="content" class={classItems}>
         <slot />
       </main>
       <footer class="footer" site-title={sTitle} current-year={year}>
