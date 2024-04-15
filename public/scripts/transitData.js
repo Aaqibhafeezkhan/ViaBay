@@ -29,6 +29,8 @@ function addVehicles(data) {
         var vehicleActivity = vehicle.MonitoredVehicleJourney
         vehicleLocation = vehicleActivity.VehicleLocation
 
+        var color = ''
+
         console.log(vehicleActivity)
 
         agencies.vehiclePins[i] = new Microsoft.Maps.Pushpin(vehicleLocation, {
