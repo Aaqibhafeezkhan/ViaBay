@@ -25,7 +25,7 @@ makeRequest('gtfsoperators', [], function(res) {
 
 function addVehicles(data, i) {
     agencies[i].vehiclePins = []
-    data.vehicles.forEach(function(vehicle, vI) {
+    data.vehicles.forEach(function(vehicle) {
         var vehicleActivity = vehicle.MonitoredVehicleJourney
         vehicleLocation = vehicleActivity.VehicleLocation
 
@@ -42,6 +42,6 @@ function addVehicles(data, i) {
         //Add the pushpin to the map
         map.entities.push(pin);
         console.log(pin)
-        agencies[i].vehiclePins[vI] = pin
+        agencies[i].vehiclePins.push(pin)
     })
 }
