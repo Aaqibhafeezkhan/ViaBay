@@ -11,7 +11,7 @@ function makeRequest(moduleName, params=[], callback) {
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params}`
 
     var xhr = new XMLHttpRequest()
-    xhr.open('GET', `https://api.rss2json.com/v1/api.json?rss_url=${url}`)
+    xhr.open('GET', `https://api.factmaven.com/xml-to-json?xml=${url}`)
     xhr.addEventListener('load', callback)
     xhr.send()
 }
