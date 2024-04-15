@@ -12,7 +12,6 @@ function makeRequest(moduleName, params=[], callback) {
 
     var xhr = new XMLHttpRequest()
     xhr.open('GET', url)
-    xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.addEventListener('load', function() {
         var res = this
 
