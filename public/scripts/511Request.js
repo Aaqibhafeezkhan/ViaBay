@@ -10,7 +10,7 @@ function makeRequest(moduleName, params=[], callback) {
 
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params}`
 
-    fetch("https://codetogo.io/api/users.xml")
+    fetch(url)
         .then(response => response.text())
         .then(data => {
             callback(data)
