@@ -11,8 +11,15 @@ function makeRequest(moduleName, params=[], callback) {
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params}`
 
     var xhr = new XMLHttpRequest()
-    xhr.open('GET', `https://v1.nocodeapi.com/adarshrkumar/xml_to_json/hUjILRzzEgpKcZgI?url=${url}`)
+    xhr.open('GET', url)
     xhr.setRequestHeader('Content-Type', 'application/json')
-    xhr.addEventListener('load', callback)
+    xhr.addEventListener('load', function() {
+        var res = this
+
+        var xmlDocument = new DOMParser().parseFromString(res.text, 'text/xml')
+
+        res.document = xmlDocument
+        callback(res)
+    })
     xhr.send()
 }
