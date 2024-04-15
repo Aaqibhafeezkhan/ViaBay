@@ -9,10 +9,8 @@ makeRequest('gtfsoperators', [], function(res) {
             console.log(vehicleData)
 
             addVehicles({
-                agency: {
-                    id: agency.id, 
-                    name: agency.name, 
-                }, 
+                id: agency.id, 
+                name: agency.name, 
                 vehicles: vehicleData
             })
 
@@ -24,3 +22,9 @@ makeRequest('gtfsoperators', [], function(res) {
         })
     })
 })
+
+function addVehicles(data) {
+    data.vehicles.forEach(function(vehicle, i) {
+        console.log(vehicle)
+    })
+}
