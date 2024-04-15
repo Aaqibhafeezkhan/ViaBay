@@ -40,5 +40,7 @@ function addVehicles(data) {
             // text: vehicleActivity.LineRef
         });
 
+        //Add the pushpin to the map
+        map.entities.push(agencies.vehiclePins[i]);
     })
 }
