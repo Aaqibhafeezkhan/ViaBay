@@ -11,8 +11,8 @@ function makeRequest(moduleName, params=[], callback) {
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params}`
 
     var xhr = new XMLHttpRequest()
-    xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.open('GET', `https://v1.nocodeapi.com/adarshrkumar/xml_to_json/hUjILRzzEgpKcZgI?url=${url}`)
+    xhr.setRequestHeader('Content-Type', 'application/json')
     xhr.addEventListener('load', callback)
     xhr.send()
 }
