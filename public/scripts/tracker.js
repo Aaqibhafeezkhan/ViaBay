@@ -18,11 +18,16 @@ pagesWithDifferentGetMap.forEach(function(p, i) {
     if (location.pathname === p) isOtherPage = true
 })
 
+GetMap()
 function GetMap() {
-    map = new Microsoft.Maps.Map('#myMap');
+    if (document.getElementById('myMap')) {
+        map = new Microsoft.Maps.Map('#myMap');
+    }
+    else {
+        window.addEventListener('DOMContentLoaded', GetMap)
+    }
 }
 
-window.addEventListener('DOMContentLoaded', GetMap)
 
 // if ("geolocation" in navigator) {
 //     /* geolocation is available */
