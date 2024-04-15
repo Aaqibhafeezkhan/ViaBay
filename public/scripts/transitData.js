@@ -6,7 +6,7 @@ makeRequest('gtfsoperators', [], function(res) {
             vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
 
             if (!vehicleData) vehicleData = []
-            console.log(vehicleData)
+            console.log(vehicleData, i)
 
             addVehicles({
                 id: agency.id, 
@@ -23,9 +23,9 @@ makeRequest('gtfsoperators', [], function(res) {
     })
 })
 
-function addVehicles(data) {
-    agencies.vehiclePins = []
-    data.vehicles.forEach(function(vehicle, i) {
+function addVehicles(data, i) {
+    agencies[i].vehiclePins = []
+    data.vehicles.forEach(function(vehicle, vI) {
         var vehicleActivity = vehicle.MonitoredVehicleJourney
         vehicleLocation = vehicleActivity.VehicleLocation
 
@@ -42,6 +42,6 @@ function addVehicles(data) {
         //Add the pushpin to the map
         map.entities.push(pin);
         console.log(pin)
-        agencies.vehiclePins[i] = pin
+        agencies[i].vehiclePins[vI] = pin
     })
 }
