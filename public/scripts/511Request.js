@@ -10,14 +10,12 @@ function makeRequest(moduleName, params=[], callback) {
 
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params}`
 
-    var xhr = new XMLHttpRequest()
-    xhr.open('GET', url)
-
-    xhr.responseType = "document";
-    xhr.overrideMimeType("text/xml");
-
-    xhr.addEventListener('load', function() {
-        callback(this.responseXML)
-    })
-    xhr.send()
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(data, 'text/xml');
+            callback(xml)
+        })
+        .catch(console.error);
 }
