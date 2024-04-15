@@ -27,8 +27,6 @@ function GetMap() {
 //             var obj = {
 //                 latitude: position.coords.latitude + errorMargin, 
 //                 longitude: position.coords.longitude + errorMargin, 
-//                 altitude: 0, 
-//                 altitudeReference: -1
 //             }
 //             setMapPosition('user', obj);
 //         }, function(err) {
