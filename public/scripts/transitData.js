@@ -8,6 +8,14 @@ makeRequest('gtfsoperators', [], function(res) {
             if (!vehicleData) vehicleData = []
             console.log(vehicleData)
 
+            addVehicles({
+                agency: {
+                    id: agency.id, 
+                    name: agency.name, 
+                }, 
+                vehicles: vehicleData
+            })
+
             agencies[i] = {
                 id: agency.Id, 
                 name: agency.name, 
