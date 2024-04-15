@@ -25,6 +25,10 @@ makeRequest('gtfsoperators', [], function(res) {
 
 function addVehicles(data) {
     data.vehicles.forEach(function(vehicle, i) {
-        console.log(vehicle)
+        var vehicleActivity = vehicle.MonitoredVehicleJourney
+        vehicleLocation = vehicleActivity.VehicleLocation
+
+        console.log(vehicleActivity)
+
     })
 }
