@@ -14,11 +14,11 @@ makeRequest('gtfsoperators', [], function(res) {
                 vehicles: vehicleData
             })
 
-            agencies[i] = {
+            agencies.push({
                 id: agency.Id, 
                 name: agency.name, 
                 vehicles: vehicleData
-            }
+            })
         })
     })
 })
