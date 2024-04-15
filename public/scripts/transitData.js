@@ -17,14 +17,14 @@ makeRequest('gtfsoperators', [], function(res) {
             agencies.push({
                 id: agency.Id, 
                 name: agency.name, 
-                vehicles: vehicleData
+                vehicles: vehicleData, 
+                vehiclePins: [], 
             })
         })
     })
 })
 
 function addVehicles(data, i) {
-    agencies[i].vehiclePins = []
     data.vehicles.forEach(function(vehicle) {
         var vehicleActivity = vehicle.MonitoredVehicleJourney
         vehicleLocation = vehicleActivity.VehicleLocation
