@@ -4,6 +4,8 @@ var watchID = null
 var map = null
 var onMapLoad = null
 
+var agencies = []
+
 function assertError(err, name) {
     err = `${name} Error: ${err}`
     alert(err)
@@ -14,7 +16,29 @@ GetMap()
 function GetMap() {
     if (document.getElementById('myMap') && Microsoft) {
         map = new Microsoft.Maps.Map('#myMap');
-        if (onMapLoad) onMapLoad(map)
+        makeRequest('gtfsoperators', [], function(res) {
+            res.forEach(function(map, agency, i) {
+                // console.log(agency)
+                makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+                    var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
+        
+                    if (!vehicleData) vehicleData = []
+        
+                    var aObj = {
+                        id: agency.Id, 
+                        name: agency.name, 
+                        vehicles: {
+                            data: vehicleData, 
+                        }
+                    }
+        
+                    var pins = addVehicles(aObj)
+                    aObj.vehicles.pins = pins, 
+        
+                    agencies.push(aObj)
+                })
+            })
+        })
     }
     else {
         window.addEventListener('DOMContentLoaded', GetMap)
