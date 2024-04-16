@@ -71,10 +71,10 @@ function onMapLoad() {
 function monitorVehiclePositions() {
     positionInterval = setInterval(function() {
         makeRequest('gtfsoperators', [], function(res) {
-            var cI = i
-            if (cI >= colors.length) cI = cI - colors.length
             res.forEach(function(agency, i) {
-                makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+                var cI = i
+                if (cI >= colors.length) cI = cI - colors.length
+                    makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                     var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                     if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
         
