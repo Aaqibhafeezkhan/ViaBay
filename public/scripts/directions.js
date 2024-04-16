@@ -94,7 +94,7 @@ closeButtons.forEach(function(b, i) {
 })
 
 function onCloseClick(e) {
-    e.parentNode.parentNode.remove();
+    e.target.parentNode.parentNode.remove();
     reorderStops()
 }
 
