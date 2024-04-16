@@ -29,8 +29,12 @@ makeRequest('gtfsoperators', [], function(res) {
                 // console.log(vehicle)
                 var vehicleActivity = vehicle.MonitoredVehicleJourney
                 var vehicleLocation = vehicleActivity.VehicleLocation
-                vehicleLocation.longitude = vehicleLocation.Longitude
-                vehicleLocation.latitude = vehicleLocation.Latitude
+                vehicleLocation = {
+                    longitude: vehicleLocation.Longitude, 
+                    latitude: vehicleLocation.Latitude, 
+                    altitude: 0, 
+                    altitudeReference: -1,
+                }
 
                 var color = 'black'
                 var route = vehicleActivity.LineRef
