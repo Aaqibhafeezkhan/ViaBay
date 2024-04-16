@@ -11,6 +11,9 @@ var colors = ['Red', 'Blue', 'Orange', 'Brown', 'Pink', 'Yellow', 'Green', 'Purp
 function onMapLoad() {
     makeRequest('gtfsoperators', [], function(res) {
         res.forEach(function(agency, i) {
+            var cI = i
+            if (cI >= colors.length) cI = cI - colors.length
+            alert(cI)
             // console.log(agency)
             makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
@@ -36,17 +39,14 @@ function onMapLoad() {
                         // altitudeReference: -1,
                     }
     
-                    var cI = i
-                    if (cI >= colors.length) cI = cI - colors.length
-                    alert(cI)
-                    var color = colors[i]
+                    var color = colors[cI]
                     var route = vehicleActivity.LineRef
             
                     // console.log(vehicleLocation)
                     
                     // Add the pushpin to the map
                     var pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
-                        text: route,
+                        // text: route,
                         color: color, 
                         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><rect x="0" y="0" width="40" height="30" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="35" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
                         // title: 'Microsoft',
