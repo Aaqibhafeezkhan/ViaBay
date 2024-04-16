@@ -6,7 +6,7 @@ var map = null
 var agencies = []
 var allPins = []
 
-var colors = ['Red', 'Blue', 'Orange', 'Brown', 'Pink', 'Yellow', 'Green', 'Purple', 'Maroon', 'Turquoise', 'Cyan', 'Navy', 'Gold', 'Tomato', 'Teal', 'Lime', 'Cyan', 'Wheat', 'Salmon', 'Olive', 'Aqua', 'Violet', 'Chocolate', 'Azure', 'Sİlver', 'Bronze']
+var colors = ['Red', 'Blue', 'Orange', 'Brown', 'Pink', 'Yellow', 'Green', 'Purple', 'Maroon', 'Turquoise', 'Cyan', 'Navy', 'Tomato', 'Teal', 'Lime', 'Cyan', 'Wheat', 'Salmon', 'Olive', 'Aqua', 'Violet', 'Chocolate', 'Azure', 'Bronze']
 
 function onMapLoad() {
     makeRequest('gtfsoperators', [], function(res) {
