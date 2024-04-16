@@ -32,7 +32,31 @@ function GetMap() {
                         }
                     }
         
-                    var pins = addVehicles(aObj)
+                    var pins = []
+                    data.vehicles.data.forEach(function(vehicle) {
+                        // console.log(vehicle)
+                        var vehicleActivity = vehicle.MonitoredVehicleJourney
+                        var vehicleLocation = vehicleActivity.VehicleLocation
+                
+                        var color = 'black'
+                        var route = vehicleActivity.LineRef
+                
+                        console.log(vehicleLocation)
+                        pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
+                            text: route,
+                            color: color, 
+                            // icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><rect x="0" y="0" width="40" height="30" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="35" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
+                            // title: 'Microsoft',
+                            // subTitle: 'City Center',
+                        });
+                        
+                        // Add the pushpin to the map
+                        // console.log(map)
+                        map.entities.push(pin);
+                        // console.log(pin)
+                        pins.push(pin)
+                    })
+
                     aObj.vehicles.pins = pins, 
         
                     agencies.push(aObj)
