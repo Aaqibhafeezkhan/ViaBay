@@ -12,13 +12,16 @@ makeRequest('gtfsoperators', [], function(res) {
         // console.log(agency)
         console.log(agency.Id)
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            var vehicleData = vehicleData.Siri
-            if (vehicleData.ServiceDelivery) {
-                vehicleData = vehicleData.ServiceDelivery
-                if (vehicleData.VehicleMonitoringDelivery) {
-                    vehicleData = vehicleData.VehicleMonitoringDelivery
-                    if (vehicleData.VehicleActivity) {
-                        vehicleData = vehicleData.VehicleActivity
+            var vehicleData = vehicleData
+            if (vehicleData.Siri) {
+                vehicleData = vehicleData.Siri
+                if (vehicleData.ServiceDelivery) {
+                    vehicleData = vehicleData.ServiceDelivery
+                    if (vehicleData.VehicleMonitoringDelivery) {
+                        vehicleData = vehicleData.VehicleMonitoringDelivery
+                        if (vehicleData.VehicleActivity) {
+                            vehicleData = vehicleData.VehicleActivity
+                        }
                     }
                 }
             }
