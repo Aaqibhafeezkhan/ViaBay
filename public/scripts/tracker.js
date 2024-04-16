@@ -3,7 +3,7 @@ var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7
 var watchID = null
 var map = null
 
-var agencies = []
+var agencies = {}
 var allPins = []
 
 var colors = ['Red', 'Blue', 'Orange', 'Brown', 'Pink', 'Yellow', 'Green', 'Purple', 'Maroon', 'Turquoise', 'Cyan', 'Navy', 'Tomato', 'Teal', 'Lime', 'Cyan', 'Salmon', 'Olive', 'Aqua', 'Violet', 'Chocolate', 'Azure', 'Bronze']
@@ -13,7 +13,6 @@ function onMapLoad() {
         res.forEach(function(agency, i) {
             var cI = i
             if (cI >= colors.length) cI = cI - colors.length
-            alert(cI)
             // console.log(agency)
             makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
@@ -24,13 +23,13 @@ function onMapLoad() {
                     name: agency.name, 
                     vehicles: {
                         data: vehicleData, 
-                        pins: [], 
+                        pins: {}, 
                     }
                 }
     
-                var pins = []
                 vehicleData.forEach(function(vehicle) {
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
+                    var vehicleRef = vehicleActivity.VehicleRef
                     var vehicleLocation = vehicleActivity.VehicleLocation
                     vehicleLocation = {
                         longitude: vehicleLocation.Longitude, 
@@ -51,18 +50,101 @@ function onMapLoad() {
                         }
                     }
             
-                    // console.log(vehicleLocation)
-                    
                     // Add the pushpin to the map
                     var pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
                         text: route,
                         color: color, 
                         // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
-                        // title: 'Microsoft',
-                        // subTitle: 'City Center',
                     });
                     map.entities.push(pin);
-                    aObj.vehicles.pins.push(pin)
+                    aObj.vehicles.pins[vehicleRef] = (pin)
+                })
+    
+                agencies[agency.Id](aObj)
+            })
+        })
+    })
+
+    monitorVehiclePositions()
+}
+
+function monitorVehiclePositions() {
+    makeRequest('gtfsoperators', [], function(res) {
+        var cI = i
+        if (cI >= colors.length) cI = cI - colors.length
+        res.forEach(function(agency, i) {
+            makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+                var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
+                if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
+    
+                var aObj = agencies[agency.Id]
+                if (!aObj) {
+                    aObj = {
+                        id: agency.Id, 
+                        name: agency.name, 
+                        vehicles: {
+                            data: vehicleData, 
+                            pins: {}, 
+                        }
+                    }
+                }
+                else {
+                    aObj.vehicles.data = vehicleData
+                }
+
+                var goodPins = []
+
+                vehicleData.forEach(function(vehicle) {
+                    var vehicleRef = vehicle.MonitoredVehicleJourney.VehicleRef
+                    if (aObj.vehicles.pins[vehicleRef]) {
+                        goodPins.push({
+                            name: vehicleRef, 
+                            content: aObj.vehicles.pins[vehicleRef]
+                        })
+                    }
+                })
+                aObj.vehicles.pins = {}
+                goodPins.forEach(function(pin) {
+                    aObj.vehicles.pins[pin.name] = pin.content
+                })
+
+                vehicleData.forEach(function(vehicle) {
+                    var vehicleActivity = vehicle.MonitoredVehicleJourney
+                    var vehicleRef = vehicleActivity.VehicleRef
+                    var vehicleLocation = vehicleActivity.VehicleLocation
+                    vehicleLocation = {
+                        longitude: vehicleLocation.Longitude, 
+                        latitude: vehicleLocation.Latitude, 
+                        // altitude: 0, 
+                        // altitudeReference: -1,
+                    }
+    
+                    var color = colors[cI]
+                    var route = vehicleActivity.LineRef
+                    if (!route) route = '•'
+
+                    var width = 30
+                    if (route.length > 3) {
+                        var exces = route.length-3
+                        for (let i3 = 0; i3 < exces; i3++) {
+                            width += 5
+                        }
+                    }
+            
+                    // Add the pushpin to the map
+                    var pin = aObj.vehicles.pins[vehicleRef]
+                    if (pin) {
+                        myPushpin.setLocation(vehicleLocation);
+                    }
+                    else {
+                        pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
+                            text: route,
+                            color: color, 
+                            // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
+                        });
+                        map.entities.push(pin);
+                    }
+                    aObj.vehicles.pins[vehicleRef](pin)
                 })
     
                 agencies.push(aObj)
