@@ -31,7 +31,7 @@ function getData() {
 function addVehicles(data, i) {
     var pins = []
     data.vehicles.data.forEach(function(vehicle) {
-        console.log(vehicle)
+        // console.log(vehicle)
         var vehicleActivity = vehicle.MonitoredVehicleJourney
         var vehicleLocation = vehicleActivity.VehicleLocation
 
