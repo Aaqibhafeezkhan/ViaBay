@@ -74,7 +74,7 @@ function monitorVehiclePositions() {
             res.forEach(function(agency, i) {
                 var cI = i
                 if (cI >= colors.length) cI = cI - colors.length
-                    makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+                makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                     var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                     if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
         
