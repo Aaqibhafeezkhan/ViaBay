@@ -70,15 +70,15 @@
               aspect-ratio: 1;
 
               border-radius: 50%;
+              scale: 0.75;
 
               &:focus-visible {
-                outline: solid 2px black;
+                outline: solid 2.5px black;
               }
 
               img {
                 height: 100%;
                 aspect-ratio: 1;
-                scale: 0.75;
               }
             }
           }
