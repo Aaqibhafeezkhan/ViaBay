@@ -41,7 +41,7 @@ body {
 
   height: 100dvh;
   display: grid;
-  grid-template-columns: var(--hf-size) 1fr var(--hf-size);
+  grid-template-rows: var(--hf-size) 1fr var(--hf-size);
 
   --border: solid var(--border-size) white;
 }
