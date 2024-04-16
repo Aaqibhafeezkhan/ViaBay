@@ -2,65 +2,62 @@ var Microsoft = null
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
 var watchID = null
 var map = null
-var onMapLoad = null
 
 var agencies = []
 var allPins = []
 
-makeRequest('gtfsoperators', [], function(res) {
-    res.forEach(function(agency, i) {
-        // console.log(agency)
-        // console.log(agency.Id)
-        makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
-            if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
-
-            var aObj = {
-                id: agency.Id, 
-                name: agency.name, 
-                vehicles: {
-                    data: vehicleData, 
-                    pins: [], 
+function onMapLoad() {
+    makeRequest('gtfsoperators', [], function(res) {
+        res.forEach(function(agency, i) {
+            // console.log(agency)
+            // console.log(agency.Id)
+            makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+                var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
+                if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
+    
+                var aObj = {
+                    id: agency.Id, 
+                    name: agency.name, 
+                    vehicles: {
+                        data: vehicleData, 
+                        pins: [], 
+                    }
                 }
-            }
-
-            var pins = []
-            vehicleData.forEach(function(vehicle) {
-                // console.log(vehicle)
-                var vehicleActivity = vehicle.MonitoredVehicleJourney
-                var vehicleLocation = vehicleActivity.VehicleLocation
-                vehicleLocation = {
-                    longitude: vehicleLocation.Longitude, 
-                    latitude: vehicleLocation.Latitude, 
-                    altitude: 0, 
-                    altitudeReference: -1,
-                }
-
-                var color = 'black'
-                var route = vehicleActivity.LineRef
-        
-                console.log(vehicleLocation)
-                
-                pinData = {
-                    location: vehicleLocation, 
-                    route: route, 
-                    color: color, 
-                    i: i, 
-                }
-
-                // Add the pushpin to the map
-                // console.log(map)
-                // console.log(pin)
-                allPins.push(pinData)
+    
+                var pins = []
+                vehicleData.forEach(function(vehicle) {
+                    // console.log(vehicle)
+                    var vehicleActivity = vehicle.MonitoredVehicleJourney
+                    var vehicleLocation = vehicleActivity.VehicleLocation
+                    vehicleLocation = {
+                        longitude: vehicleLocation.Longitude, 
+                        latitude: vehicleLocation.Latitude, 
+                        altitude: 0, 
+                        altitudeReference: -1,
+                    }
+    
+                    var color = 'black'
+                    var route = vehicleActivity.LineRef
+            
+                    console.log(vehicleLocation)
+                    
+                    // Add the pushpin to the map
+                    var pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
+                        text: route,
+                        color: color, 
+                        // icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><rect x="0" y="0" width="40" height="30" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="35" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
+                        // title: 'Microsoft',
+                        // subTitle: 'City Center',
+                    });
+                    map.entities.push(pin);
+                    aObj.vehicles.pins.push(pin)
+                })
+    
+                agencies.push(aObj)
             })
-
-            aObj.vehicles.pins = pins
-
-            agencies.push(aObj)
         })
     })
-})
-
+}
 
 function assertError(err, name) {
     err = `${name} Error: ${err}`
@@ -72,17 +69,7 @@ GetMap()
 function GetMap() {
     if (document.getElementById('myMap') && Microsoft) {
         map = new Microsoft.Maps.Map('#myMap');
-        allPins.forEach(function(data, i) {
-            var pin = new Microsoft.Maps.Pushpin(data.location, {
-                text: data.route,
-                color: data.color, 
-                // icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><rect x="0" y="0" width="40" height="30" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="35" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
-                // title: 'Microsoft',
-                // subTitle: 'City Center',
-            });
-            map.entities.push(pin);
-            agencies[data.i].vehicles.pins.push(pin)
-        })
+        if (onMapLoad) onMapLoad()
     }
     else {
         window.addEventListener('DOMContentLoaded', GetMap)
