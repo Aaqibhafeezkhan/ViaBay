@@ -8,7 +8,7 @@ var agencies = []
 var allPins = []
 
 makeRequest('gtfsoperators', [], function(res) {
-    res.forEach(function(map, agency, i) {
+    res.forEach(function(agency, i) {
         console.log(agency)
         // console.log(agency.Id)
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
