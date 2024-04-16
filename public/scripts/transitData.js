@@ -48,7 +48,7 @@ function addVehicles(data, i) {
         });
         
         // Add the pushpin to the map
-        console.log(map)
+        // console.log(map)
         map.entities.push(pin);
         // console.log(pin)
         pins.push(pin)
