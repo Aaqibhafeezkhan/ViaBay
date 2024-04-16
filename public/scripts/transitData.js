@@ -25,7 +25,7 @@ function getData() {
                 agencies.push(aObj)
             })
         })
-    })    
+    })
 }
 
 function addVehicles(data, i) {
