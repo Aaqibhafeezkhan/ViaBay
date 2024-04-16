@@ -1,28 +1,32 @@
 var agencies = []
 
-makeRequest('gtfsoperators', [], function(res) {
-    res.forEach(function(agency, i) {
-        // console.log(agency)
-        makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
+setTimeout(getData, 1000)
 
-            if (!vehicleData) vehicleData = []
-
-            var aObj = {
-                id: agency.Id, 
-                name: agency.name, 
-                vehicles: {
-                    data: vehicleData, 
+function getData() {
+    makeRequest('gtfsoperators', [], function(res) {
+        res.forEach(function(agency, i) {
+            // console.log(agency)
+            makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+                var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
+    
+                if (!vehicleData) vehicleData = []
+    
+                var aObj = {
+                    id: agency.Id, 
+                    name: agency.name, 
+                    vehicles: {
+                        data: vehicleData, 
+                    }
                 }
-            }
-
-            var pins = addVehicles(aObj)
-            aObj.vehicles.pins = pins, 
-
-            agencies.push(aObj)
+    
+                var pins = addVehicles(aObj)
+                aObj.vehicles.pins = pins, 
+    
+                agencies.push(aObj)
+            })
         })
-    })
-})
+    })    
+}
 
 function addVehicles(data, i) {
     var pins = []
