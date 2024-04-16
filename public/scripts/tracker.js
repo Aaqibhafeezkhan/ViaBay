@@ -36,8 +36,9 @@ function onMapLoad() {
                         // altitudeReference: -1,
                     }
     
+                    if (i >= colors.length) i = i-colors.length
+                    alert(i)
                     var color = colors[i]
-                    if (!color) color = colors[i-colors.length]
                     var route = vehicleActivity.LineRef
             
                     // console.log(vehicleLocation)
