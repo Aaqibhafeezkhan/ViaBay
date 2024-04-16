@@ -58,7 +58,7 @@
             // Get your own Bing Maps key at https://www.microsoft.com/maps
             (async () => {
                 let script = document.createElement("script");
-                let bingKey = await fetch("https://samples.azuremaps.com/api/GetBingMapsKey").then(r => r.text()).then(key => { return key });
+                let bingKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
                 script.setAttribute("src", `https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=${bingKey}`);
                 document.body.appendChild(script);
             })();
