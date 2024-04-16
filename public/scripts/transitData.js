@@ -39,7 +39,7 @@ function addVehicles(data, i) {
             // text: vehicleActivity.LineRef
         });
         
-        //Add the pushpin to the map
+        // Add the pushpin to the map
         map.entities.push(pin);
         // console.log(pin)
         pins.push(pin)
