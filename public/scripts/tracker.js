@@ -41,9 +41,7 @@ function onMapLoad() {
     
                     var color = colors[cI]
                     var route = vehicleActivity.LineRef
-                    if (!route) {
-                        return
-                    }
+                    if (!route) route = '•'
 
                     var width = 30
 
