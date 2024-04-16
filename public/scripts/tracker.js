@@ -10,8 +10,8 @@ var allPins = []
 makeRequest('gtfsoperators', [], function(res) {
     res.forEach(function(map, agency, i) {
         // console.log(agency)
+        console.log(agency.Id)
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            console.log(vehicleData)
             var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
 
             if (!vehicleData) vehicleData = []
