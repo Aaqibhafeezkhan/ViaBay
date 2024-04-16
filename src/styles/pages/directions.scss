@@ -94,9 +94,9 @@
             }
 
             .option {
-              margin-inline: auto;
+              // margin-inline: auto;
               box-sizing: border-box;
-              padding: 5px 0 5px 5px;
+              padding: 5px;
 
               // height: calc(100% / var(--options-amt, 1));
               color: black;
