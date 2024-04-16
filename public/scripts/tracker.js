@@ -52,7 +52,7 @@ function onMapLoad() {
                     aObj.vehicles.pins.push(pin)
                     setTimeout(function() {
                         map.entities.push(pin);
-                    }, 10*i2)
+                    }, 10*i2+1)
                 })    
             })
             agencies.push(aObj)
