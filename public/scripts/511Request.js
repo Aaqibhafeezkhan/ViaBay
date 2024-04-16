@@ -25,6 +25,10 @@ function makeRequest(moduleName, params=[], callback) {
             callback(data)
         })
         .catch(err => {
+            keyI++
+            if (keyI < keyI.length) {
+                makeRequest(moduleName, params, callback)
+            }
             console.error(err);
         });
 }
