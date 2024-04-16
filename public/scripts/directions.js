@@ -90,13 +90,11 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
 })
 
 closeButtons.forEach(function(b, i) {
-    b.onclick = function(e) {
-        onCloseClick(e, i)
-    }
+    b.onclick = onCloseClick
 })
 
-function onCloseClick(e, i) {
-    stops.querySelectorAll('.stop-container')[i].remove();
+function onCloseClick(e) {
+    e.parentNode.parentNode.remove();
     reorderStops()
 }
 
