@@ -41,6 +41,15 @@ function onMapLoad() {
     
                     var color = colors[cI]
                     var route = vehicleActivity.LineRef
+
+                    var width = 40
+
+                    if (route.length > 3) {
+                        var exces = route.length-3
+                        for (let i3 = 0; i3 < exces; i3++) {
+                            width += 5
+                        }
+                    }
             
                     // console.log(vehicleLocation)
                     
@@ -48,7 +57,7 @@ function onMapLoad() {
                     var pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
                         // text: route,
                         color: color, 
-                        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30"><rect x="0" y="0" width="40" height="30" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="35" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
+                        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="30"><rect x="0" y="0" width="40" height="30" fill="${color}" /></svg>`,
                         // title: 'Microsoft',
                         // subTitle: 'City Center',
                     });
