@@ -48,7 +48,7 @@ makeRequest('gtfsoperators', [], function(res) {
                 allPins.push(pinData)
             })
 
-            aObj.vehicles.pins = pins, 
+            aObj.vehicles.pins = pins
 
             agencies.push(aObj)
         })
