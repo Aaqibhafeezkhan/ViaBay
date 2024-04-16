@@ -13,6 +13,11 @@ GetMap()
 function GetMap() {
     if (document.getElementById('myMap') && Microsoft) {
         map = new Microsoft.Maps.Map('#myMap');
+        pin = new Microsoft.Maps.Pushpin(map.getCenter(), {
+            text: 'ECR',
+            color: 'black', 
+        });
+        map.entities.push(pin);
     }
     else {
         window.addEventListener('DOMContentLoaded', GetMap)
