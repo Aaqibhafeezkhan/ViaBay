@@ -11,7 +11,7 @@ function makeRequest(moduleName, params=[], callback) {
         params = ''
     }
 
-    var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[1]}${params}`
+    var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[0]}${params}`
 
     fetch(url)
         .then(response => response.text())
