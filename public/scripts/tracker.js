@@ -12,7 +12,6 @@ function onMapLoad() {
     makeRequest('gtfsoperators', [], function(res) {
         res.forEach(function(agency, i) {
             // console.log(agency)
-            // console.log(agency.Id)
             makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
@@ -28,7 +27,6 @@ function onMapLoad() {
     
                 var pins = []
                 vehicleData.forEach(function(vehicle) {
-                    // console.log(vehicle)
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
                     var vehicleLocation = vehicleActivity.VehicleLocation
                     vehicleLocation = {
@@ -42,7 +40,7 @@ function onMapLoad() {
                     if (!color) color = colors[i-colors.length]
                     var route = vehicleActivity.LineRef
             
-                    console.log(vehicleLocation)
+                    // console.log(vehicleLocation)
                     
                     // Add the pushpin to the map
                     var pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
