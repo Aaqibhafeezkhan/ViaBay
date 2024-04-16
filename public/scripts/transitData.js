@@ -27,7 +27,7 @@ function addVehicles(data, i) {
     var pins = []
     data.vehicles.forEach(function(vehicle) {
         var vehicleActivity = vehicle.MonitoredVehicleJourney
-        vehicleLocation = vehicleActivity.VehicleLocation
+        var vehicleLocation = vehicleActivity.VehicleLocation
 
         var color = ''
 
