@@ -60,7 +60,7 @@ function onMapLoad() {
                     aObj.vehicles.pins[vehicleRef] = (pin)
                 })
     
-                agencies[agency.Id](aObj)
+                agencies[agency.Id] = aObj
             })
         })
     })
@@ -145,10 +145,10 @@ function monitorVehiclePositions() {
                             });
                             map.entities.push(pin);
                         }
-                        aObj.vehicles.pins[vehicleRef](pin)
+                        aObj.vehicles.pins[vehicleRef] = pin
                     })
         
-                    agencies.push(aObj)
+                    agencies[agency.Id] = aObj
                 })
             })
         })
