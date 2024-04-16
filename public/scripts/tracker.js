@@ -44,7 +44,6 @@ function onMapLoad() {
                     if (!route) route = '•'
 
                     var width = 30
-
                     if (route.length > 3) {
                         var exces = route.length-3
                         for (let i3 = 0; i3 < exces; i3++) {
