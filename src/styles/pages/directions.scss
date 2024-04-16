@@ -1,6 +1,3 @@
-.app {
-  container-type: size;
-}
 
 .main {
   .directions-container {
@@ -134,7 +131,7 @@
   }
 }
 
-@container (max-width: 915px) {
+@media (max-width: 915px) {
   .main {
     flex-direction: column-reverse;
     .directions-container {
