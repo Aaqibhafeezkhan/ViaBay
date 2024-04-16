@@ -135,7 +135,7 @@ function monitorVehiclePositions() {
                         // Add the pushpin to the map
                         var pin = aObj.vehicles.pins[vehicleRef]
                         if (pin) {
-                            myPushpin.setLocation(vehicleLocation);
+                            pin.setLocation(vehicleLocation);
                         }
                         else {
                             pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
