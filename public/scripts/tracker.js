@@ -2,6 +2,7 @@ var Microsoft = null
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
 var watchID = null
 var map = null
+var onMapLoad = null
 
 function assertError(err, name) {
     err = `${name} Error: ${err}`
@@ -13,11 +14,7 @@ GetMap()
 function GetMap() {
     if (document.getElementById('myMap') && Microsoft) {
         map = new Microsoft.Maps.Map('#myMap');
-        pin = new Microsoft.Maps.Pushpin(map.getCenter(), {
-            text: 'ECR',
-            color: 'black', 
-        });
-        map.entities.push(pin);
+        if (onMapLoad) onMapLoad()
     }
     else {
         window.addEventListener('DOMContentLoaded', GetMap)

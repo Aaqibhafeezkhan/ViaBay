@@ -1,8 +1,8 @@
 var agencies = []
 
-setTimeout(getData, 1000)
+setTimeout(onMapLoad, 1000)
 
-function getData() {
+onMapLoad = function() {
     makeRequest('gtfsoperators', [], function(res) {
         res.forEach(function(agency, i) {
             // console.log(agency)
