@@ -12,9 +12,17 @@ makeRequest('gtfsoperators', [], function(res) {
         // console.log(agency)
         console.log(agency.Id)
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
-
-            if (!vehicleData) vehicleData = []
+            var vehicleData = vehicleData.Siri
+            if (vehicleData.ServiceDelivery) {
+                vehicleData = vehicleData.ServiceDelivery
+                if (vehicleData.VehicleMonitoringDelivery) {
+                    vehicleData = vehicleData.VehicleMonitoringDelivery
+                    if (vehicleData.VehicleActivity) {
+                        vehicleData = vehicleData.VehicleActivity
+                    }
+                }
+            }
+            if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
 
             var aObj = {
                 id: agency.Id, 
