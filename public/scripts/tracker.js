@@ -1,3 +1,4 @@
+var Microsoft = null
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
 var watchID = null
 var map = null
