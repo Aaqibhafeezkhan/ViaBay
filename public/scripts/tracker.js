@@ -6,6 +6,8 @@ var map = null
 var agencies = []
 var allPins = []
 
+var colors = ['Red', 'Blue', 'Orange', 'Brown', 'Pink', 'Yellow', 'Green', 'Purple', 'Maroon', 'Turquoise', 'Cyan', 'Navy', 'Gold', 'Tomato', 'Teal', 'Lime', 'Cyan', 'Wheat', 'Salmon', 'Olive', 'Aqua', 'Violet', 'Chocolate', 'Azure', 'Sİlver', 'Bronze']
+
 function onMapLoad() {
     makeRequest('gtfsoperators', [], function(res) {
         res.forEach(function(agency, i) {
@@ -36,7 +38,7 @@ function onMapLoad() {
                         // altitudeReference: -1,
                     }
     
-                    var color = 'black'
+                    var color = colors[i]
                     var route = vehicleActivity.LineRef
             
                     console.log(vehicleLocation)
