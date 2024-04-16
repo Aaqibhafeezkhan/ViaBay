@@ -10,7 +10,7 @@ function assertError(err, name) {
 
 GetMap()
 function GetMap() {
-    if (document.getElementById('myMap')) {
+    if (document.getElementById('myMap') && Microsoft) {
         map = new Microsoft.Maps.Map('#myMap');
     }
     else {
