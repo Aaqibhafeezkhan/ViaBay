@@ -9,8 +9,8 @@ var allPins = []
 
 makeRequest('gtfsoperators', [], function(res) {
     res.forEach(function(map, agency, i) {
-        // console.log(agency)
-        console.log(agency.Id)
+        console.log(agency)
+        // console.log(agency.Id)
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
             var vehicleData = vehicleData
             if (vehicleData.Siri) {
@@ -37,7 +37,7 @@ makeRequest('gtfsoperators', [], function(res) {
             }
 
             var pins = []
-            data.vehicles.data.forEach(function(vehicle) {
+            vehicleData.forEach(function(vehicle) {
                 // console.log(vehicle)
                 var vehicleActivity = vehicle.MonitoredVehicleJourney
                 var vehicleLocation = vehicleActivity.VehicleLocation
