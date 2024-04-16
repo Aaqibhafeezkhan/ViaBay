@@ -55,7 +55,7 @@ function onMapLoad() {
                     
                     // Add the pushpin to the map
                     var pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
-                        // text: route,
+                        text: route,
                         color: color, 
                         icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="40" height="30" fill="${color}" /></svg>`,
                         // title: 'Microsoft',
