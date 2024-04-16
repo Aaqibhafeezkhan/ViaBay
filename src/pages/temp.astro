@@ -9,6 +9,17 @@
         <meta name="keywords" content="Microsoft maps, map, gis, API, SDK, Bing, Bing Maps" />
         <meta name="author" content="Microsoft Bing Maps" />
         <meta name="screenshot" content="screenshot.jpg" />
+        <script src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS" async defer is:inline></script>
+    </head>
+    <body>
+        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;background-color:gray"></div><br/>
+        <input type="button" value="Change Color" onclick="ChangeColor()"/>
+        <input type="button" value="Change Text" onclick="ChangeText()" />
+        <fieldset style="width:800px;margin-top:10px;">
+            <legend>Inline SVG Pushpin Template Sample</legend>
+            This sample shows how to use an inline SVG as a template for a pushpin. Pushpins have a color and text property. 
+            You can add placeholders for these properties in your inline SVG by using {'color'}\ and {'text'}.
+        </fieldset>
         <script>
             var map, pin;
 
@@ -42,26 +53,6 @@
                 var num = Math.round(Math.random() * 99);
                 pin.setOptions({text: num.toString() });
             }
-        </script>
-    </head>
-    <body>
-        <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;background-color:gray"></div><br/>
-        <input type="button" value="Change Color" onclick="ChangeColor()"/>
-        <input type="button" value="Change Text" onclick="ChangeText()" />
-        <fieldset style="width:800px;margin-top:10px;">
-            <legend>Inline SVG Pushpin Template Sample</legend>
-            This sample shows how to use an inline SVG as a template for a pushpin. Pushpins have a color and text property. 
-            You can add placeholders for these properties in your inline SVG by using {'color'}\ and {'text'}.
-        </fieldset>
-        <script>
-            // Dynamic load the Bing Maps Key and Script
-            // Get your own Bing Maps key at https://www.microsoft.com/maps
-            (async () => {
-                let script = document.createElement("script");
-                let bingKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
-                script.setAttribute("src", `https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=${bingKey}`);
-                document.body.appendChild(script);
-            })();
         </script>
     </body>
 </html>
