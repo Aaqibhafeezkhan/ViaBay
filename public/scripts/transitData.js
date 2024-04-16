@@ -4,19 +4,20 @@ makeRequest('gtfsoperators', [], function(res) {
     res.forEach(function(agency, i) {
         // console.log(agency)
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
+            var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
 
             if (!vehicleData) vehicleData = []
-            console.log(vehicleData, i)
 
             var aObj = {
                 id: agency.Id, 
                 name: agency.name, 
-                vehicles: vehicleData, 
+                vehicles: {
+                    data: vehicleData, 
+                }
             }
 
             var pins = addVehicles(aObj)
-            aObj.vehiclePins = pins, 
+            aObj.vehicles.pins = pins, 
 
             agencies.push(aObj)
         })
@@ -25,7 +26,8 @@ makeRequest('gtfsoperators', [], function(res) {
 
 function addVehicles(data, i) {
     var pins = []
-    data.vehicles.forEach(function(vehicle) {
+    data.vehicles.data.forEach(function(vehicle) {
+        console.log(vehicle)
         var vehicleActivity = vehicle.MonitoredVehicleJourney
         var vehicleLocation = vehicleActivity.VehicleLocation
 
