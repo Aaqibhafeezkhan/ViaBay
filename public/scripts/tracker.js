@@ -39,6 +39,7 @@ function onMapLoad() {
                     }
     
                     var color = colors[i]
+                    if (!color) color = colors[i-colors.length]
                     var route = vehicleActivity.LineRef
             
                     console.log(vehicleLocation)
