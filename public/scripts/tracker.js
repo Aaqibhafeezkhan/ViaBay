@@ -32,8 +32,8 @@ function onMapLoad() {
                     vehicleLocation = {
                         longitude: vehicleLocation.Longitude, 
                         latitude: vehicleLocation.Latitude, 
-                        altitude: 0, 
-                        altitudeReference: -1,
+                        // altitude: 0, 
+                        // altitudeReference: -1,
                     }
     
                     var color = 'black'
