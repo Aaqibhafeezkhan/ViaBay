@@ -14,7 +14,7 @@ GetMap()
 function GetMap() {
     if (document.getElementById('myMap') && Microsoft) {
         map = new Microsoft.Maps.Map('#myMap');
-        if (onMapLoad) onMapLoad()
+        if (onMapLoad) onMapLoad(map)
     }
     else {
         window.addEventListener('DOMContentLoaded', GetMap)

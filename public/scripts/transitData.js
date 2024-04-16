@@ -1,10 +1,10 @@
 var agencies = []
 
-setTimeout(onMapLoad, 1000)
+// setTimeout(onMapLoad, 1000)
 
-onMapLoad = function() {
+onMapLoad = function(map) {
     makeRequest('gtfsoperators', [], function(res) {
-        res.forEach(function(agency, i) {
+        res.forEach(function(map, agency, i) {
             // console.log(agency)
             makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
@@ -28,7 +28,7 @@ onMapLoad = function() {
     })
 }
 
-function addVehicles(data, i) {
+function addVehicles(map, data, i) {
     var pins = []
     data.vehicles.data.forEach(function(vehicle) {
         // console.log(vehicle)
