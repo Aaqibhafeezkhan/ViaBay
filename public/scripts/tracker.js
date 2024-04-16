@@ -24,7 +24,6 @@ function onMapLoad() {
                     }
                 }
     
-                var pins = []
                 vehicleData.forEach(function(vehicle, i2) {
                     // console.log(vehicle)
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
@@ -50,9 +49,7 @@ function onMapLoad() {
                         // subTitle: 'City Center',
                     });
                     aObj.vehicles.pins.push(pin)
-                    setTimeout(function() {
-                        map.entities.push(pin);
-                    }, 10*i2+1)
+                    map.entities.push(pin);
                 })    
             })
             agencies.push(aObj)
