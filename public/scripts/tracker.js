@@ -25,7 +25,7 @@ function onMapLoad() {
                 }
     
                 var pins = []
-                vehicleData.forEach(function(vehicle) {
+                vehicleData.forEach(function(vehicle, i2) {
                     // console.log(vehicle)
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
                     var vehicleLocation = vehicleActivity.VehicleLocation
@@ -49,12 +49,13 @@ function onMapLoad() {
                         // title: 'Microsoft',
                         // subTitle: 'City Center',
                     });
-                    map.entities.push(pin);
                     aObj.vehicles.pins.push(pin)
-                })
-    
-                agencies.push(aObj)
+                    setTimeout(function() {
+                        map.entities.push(pin);
+                    }, 10*i2)
+                })    
             })
+            agencies.push(aObj)
         })
     })
 }
