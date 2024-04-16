@@ -1,3 +1,26 @@
+var Microsoft = null
+var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
+var watchID = null
+var map = null
+var onMapLoad = null
+
+function assertError(err, name) {
+    err = `${name} Error: ${err}`
+    alert(err)
+    console.error(err)
+}
+
+GetMap()
+function GetMap() {
+    if (document.getElementById('myMap') && Microsoft) {
+        map = new Microsoft.Maps.Map('#myMap');
+        if (onMapLoad) onMapLoad(map)
+    }
+    else {
+        window.addEventListener('DOMContentLoaded', GetMap)
+    }
+}
+
 var stopsArea = document.querySelector('.stops-area')
 var stops = stopsArea.querySelector('.stops')
 var closeButtons = document.querySelectorAll('.close')
