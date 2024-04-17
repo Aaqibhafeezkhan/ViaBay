@@ -6,7 +6,7 @@ var allPins = []
 
 var colors = ['Red', 'Blue', 'Orange', 'Brown', 'Pink', 'Yellow', 'Green', 'Purple', 'Maroon', 'Turquoise', 'Cyan', 'Navy', 'Tomato', 'Teal', 'Lime', 'Cyan', 'Salmon', 'Olive', 'Aqua', 'Violet', 'Chocolate', 'Azure', 'Bronze']
 
-var positionInterval = setInterval(onMapLoad, 30000)
+var positionInterval = setInterval(onMapLoad, 60000)
 onMapLoad()
 function onMapLoad() {
     makeRequest('gtfsoperators', [], function(res) {
