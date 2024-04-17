@@ -48,9 +48,11 @@ function onMapLoad() {
                     aObj.vehicles.pins[pin.name] = pin.content
                 })
 
-                vehicleData.forEach(function(vehicle) {
+                vehicleData.forEach(function(vehicle, vI) {
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
                     vehicleActivity.agency = agency.Name
+                    vehicleActivity.aId = agency.Id
+                    vehicleActivity.i = vI
                     var vehicleRef = vehicleActivity.VehicleRef
                     var vehicleLocation = vehicleActivity.VehicleLocation
                     vehicleLocation = {
@@ -93,6 +95,7 @@ function onMapLoad() {
                             pin.setLocation(vehicleLocation);
                         }
                         else {
+                            vehicleActivity.infoboxOpen = false
                             pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
                                 text: route,
                                 color: Microsoft.Maps.Color.fromHex(color), 
@@ -139,29 +142,38 @@ function GetMap() {
 function showVehicleInfo(e) {
         //Make sure the infobox has metadata to display.
         if (e.target.metadata) {
-            //Set the infobox options with the metadata of the pushpin.
-            var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
-            if (isSmallScreen) {
+            makeRequest('gtfsoperators', [], function(res) {
+                res.forEach(function(agency, i) {
+                    agencies[agencies.Id].vehicles.pins.forEach(function(p, pI) {
+                        agencies[agencies.Id].vehicles.pins[pI].metadata.infoboxOpen = false
+                    })
+                })
+                agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
 
-            }
-
-            var data = e.target.metadata
-            var options = {
-                title: `${data.LineRef}: ${data.PublishedLineName}`, 
-                description: [
-                    `Agency: ${data.agency}`,
-                    `Origin: ${data.OriginName}`,
-                    `Destination: ${data.DestinationName}`,
-                    `Congestion: ${data.InCongestion ? true : false}`,
-                    `Occupancy: ${data.Occupancy ? data.Occupancy : 'unknown'}`,
-                ]
-            }
-            
-            infobox.setOptions({
-                location: e.target.getLocation(),
-                title: options.title,
-                htmlContent: `<div class="infobox"><span class="title">${options.title}</span><br><span>${options.description.join('</span><br><span>')}</span></div>`,
-                visible: true
-            });
+                //Set the infobox options with the metadata of the pushpin.
+                var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
+                if (isSmallScreen) {
+                    
+                }
+                
+                var data = e.target.metadata
+                var options = {
+                    title: `${data.LineRef}: ${data.PublishedLineName}`, 
+                    description: [
+                        `Agency: ${data.agency}`,
+                        `Origin: ${data.OriginName}`,
+                        `Destination: ${data.DestinationName}`,
+                        `Congestion: ${data.InCongestion ? true : false}`,
+                        `Occupancy: ${data.Occupancy ? data.Occupancy : 'unknown'}`,
+                    ]
+                }
+                
+                infobox.setOptions({
+                    location: e.target.getLocation(),
+                    title: options.title,
+                    htmlContent: `<div class="infobox"><span class="title">${options.title}</span><br><span>${options.description.join('</span><br><span>')}</span></div>`,
+                    visible: true
+                });
+            })
         }
 }
