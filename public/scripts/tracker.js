@@ -50,6 +50,7 @@ function onMapLoad() {
 
                 vehicleData.forEach(function(vehicle) {
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
+                    vehicleActivity.agency = agency.Name
                     var vehicleRef = vehicleActivity.VehicleRef
                     var vehicleLocation = vehicleActivity.VehicleLocation
                     vehicleLocation = {
@@ -58,10 +59,22 @@ function onMapLoad() {
                         // altitude: 0, 
                         // altitudeReference: -1,
                     }
+
+                    if (agency.Id = 'SF') {
+                        var publishedLineName = vehicleActivity.PublishedLineName
+                        if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
+                        else publishedLineName = [publishedLineName]
+                        
+                        publishedLineName.forEach(function(p, i) {
+                            publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
+                        })
+                        
+                        publishedLineName = publishedLineName.join(' ')
+                        vehicleActivity.PublishedLineName = publishedLineName
+                    }
     
                     var color = colors[cI]
                     var route = vehicleActivity.LineRef
-                    vehicleActivity.agency = agency.Name
                     if (route) {
                         var width = 30
                         if (route.length > 3) {
