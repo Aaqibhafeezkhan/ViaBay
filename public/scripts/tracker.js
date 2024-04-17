@@ -1,7 +1,5 @@
-var Microsoft = null
+var map, infobox, watchId, Microsoft = null
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
-var watchID = null
-var map = null
 
 var agencies = {}
 var allPins = []
@@ -51,6 +49,7 @@ function onMapLoad() {
                 })
 
                 vehicleData.forEach(function(vehicle) {
+                    console.log(vehicle)
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
                     var vehicleRef = vehicleActivity.VehicleRef
                     var vehicleLocation = vehicleActivity.VehicleLocation
@@ -84,6 +83,8 @@ function onMapLoad() {
                             color: color, 
                             // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
                         });
+                        pin.metadata = vehicleActivity;
+                        Microsoft.Maps.Events.addHandler(pin, 'click', showVehicleInfo);
                         map.entities.push(pin);
                     }
                     aObj.vehicles.pins[vehicleRef] = pin
@@ -105,6 +106,12 @@ GetMap()
 function GetMap() {
     if (document.getElementById('myMap') && Microsoft) {
         map = new Microsoft.Maps.Map('#myMap');
+        infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+            visible: false
+        });
+
+        //Assign the infobox to a map instance.
+        infobox.setMap(map);
         if (onMapLoad) onMapLoad()
     }
     else {
