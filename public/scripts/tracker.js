@@ -63,15 +63,17 @@ function onMapLoad() {
                     if (vehicleActivity.OperatorRef === 'SF') {
                         console.log(vehicleActivity)
                         var publishedLineName = vehicleActivity.PublishedLineName
-                        if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
-                        else publishedLineName = [publishedLineName]
-                        
-                        publishedLineName.forEach(function(p, i) {
-                            publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
-                        })
-                        
-                        publishedLineName = publishedLineName.join(' ')
-                        vehicleActivity.PublishedLineName = publishedLineName
+                        if (publishedLineName) {
+                            if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
+                            else publishedLineName = [publishedLineName]
+                            
+                            publishedLineName.forEach(function(p, i) {
+                                publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
+                            })
+                            
+                            publishedLineName = publishedLineName.join(' ')
+                            vehicleActivity.PublishedLineName = publishedLineName
+                        }
                     }
     
                     var color = colors[cI]
