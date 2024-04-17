@@ -136,7 +136,7 @@ function showVehicleInfo(e) {
                     `Destination: ${data.DestinationName}`,
                     `In Congestion: ${data.InCongestion ? true : false}`,
                     `Occupancy: ${data.Occupancy}`,
-                ].join('\n')
+                ].join(', \n')
             }
             
             infobox.setOptions({
