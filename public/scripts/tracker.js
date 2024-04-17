@@ -49,7 +49,6 @@ function onMapLoad() {
                 })
 
                 vehicleData.forEach(function(vehicle) {
-                    console.log(vehicle)
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
                     var vehicleRef = vehicleActivity.VehicleRef
                     var vehicleLocation = vehicleActivity.VehicleLocation
@@ -120,51 +119,31 @@ function GetMap() {
 }
 
 
-// if ("geolocation" in navigator) {
-//     /* geolocation is available */
-//     window.addEventListener('DOMContentLoaded', function(e) {
-//         watchID = navigator.geolocation.watchPosition((position) => {
-//             var errorMargin = 0;
-//             var obj = {
-//                 latitude: position.coords.latitude + errorMargin, 
-//                 longitude: position.coords.longitude + errorMargin, 
-//             }
-//             setMapPosition('user', obj);
-//         }, function(err) {
-//             assertError(err, 'Current Location')
-//         }, { enableHighAccuracy: true });
-//     })
-// }
+function showVehicleInfo(e) {
+        //Make sure the infobox has metadata to display.
+        if (e.target.metadata) {
+            //Set the infobox options with the metadata of the pushpin.
+            var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
+            if (isSmallScreen) {
 
-// function setMapPosition(entity, position) {
-//     var icon = ''
-//     switch(entity) {
-//         case 'user': 
-//             icon += `<svg class="map-icon user" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 864" width="64" height="64">
-//     <g class="outer-group" fill="#4a86e8" style="filter: url(#shadow)">
-//         <circle class="outer" cx="432" cy="432" r="340" />
-//     </g>
-//     <g fill="#ffffff">
-//         <circle cx="432" cy="432" r="332" />
-//     </g>
-//     <g fill="#4a86e8">
-//         <circle cx="432" cy="432" r="300" />
-//     </g>
-//     <g fill="#4a86e8">
-//         <circle cx="432" cy="432" r="296" />
-//     </g>
-//     <filter id='shadow' color-interpolation-filters="sRGB">
-//         <feDropShadow dx="0" dy="0" stdDeviation="40" flood-opacity="1" flood-color="#bcd2f7" />
-//     </filter>
-// </svg>`
-//     }
-//     console.log(position)
-//     var pSize = 17
-//     var pin = new Microsoft.Maps.Pushpin(position, {
-//         icon: icon,
-//         anchor: new Microsoft.Maps.Point(pSize, pSize)
-//     });
+            }
 
-//     //Add the pushpin to the map
-//     map.entities.push(pin);
-// }
+            var data = e.target.metadata
+            var options = {
+                title: `${data.LineRef}: ${data.PublishedLineName}`, 
+                description: [
+                    `Origin: ${data.OriginName}`,
+                    `Destination: ${data.DestinationName}`,
+                    `In Congestion: ${data.InCongestion ? true : false}`,
+                    `Occupancy: ${data.Occupancy}`,
+                ].join('\n')
+            }
+            
+            infobox.setOptions({
+                location: e.target.getLocation(),
+                title: options.title,
+                description: options.description,
+                visible: true
+            });
+        }
+}
