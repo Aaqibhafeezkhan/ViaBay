@@ -61,6 +61,7 @@ function onMapLoad() {
                     }
 
                     if (agency.Id = 'SF') {
+                        console.log(vehicleActivity)
                         var publishedLineName = vehicleActivity.PublishedLineName
                         if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
                         else publishedLineName = [publishedLineName]
