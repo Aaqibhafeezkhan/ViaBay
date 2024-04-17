@@ -61,32 +61,32 @@ function onMapLoad() {
     
                     var color = colors[cI]
                     var route = vehicleActivity.LineRef
-                    if (!route) route = '•'
-
-                    var width = 30
-                    if (route.length > 3) {
-                        var exces = route.length-3
-                        for (let i3 = 0; i3 < exces; i3++) {
-                            width += 5
+                    if (route) {
+                        var width = 30
+                        if (route.length > 3) {
+                            var exces = route.length-3
+                            for (let i3 = 0; i3 < exces; i3++) {
+                                width += 5
+                            }
                         }
+                
+                        // Add the pushpin to the map
+                        var pin = aObj.vehicles.pins[vehicleRef]
+                        if (pin) {
+                            pin.setLocation(vehicleLocation);
+                        }
+                        else {
+                            pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
+                                text: route,
+                                color: color, 
+                                // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
+                            });
+                            pin.metadata = vehicleActivity;
+                            Microsoft.Maps.Events.addHandler(pin, 'click', showVehicleInfo);
+                            map.entities.push(pin);
+                        }
+                        aObj.vehicles.pins[vehicleRef] = pin
                     }
-            
-                    // Add the pushpin to the map
-                    var pin = aObj.vehicles.pins[vehicleRef]
-                    if (pin) {
-                        pin.setLocation(vehicleLocation);
-                    }
-                    else {
-                        pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
-                            text: route,
-                            color: color, 
-                            // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
-                        });
-                        pin.metadata = vehicleActivity;
-                        Microsoft.Maps.Events.addHandler(pin, 'click', showVehicleInfo);
-                        map.entities.push(pin);
-                    }
-                    aObj.vehicles.pins[vehicleRef] = pin
                 })
     
                 agencies[agency.Id] = aObj
@@ -134,8 +134,8 @@ function showVehicleInfo(e) {
                 description: [
                     `Origin: ${data.OriginName}`,
                     `Destination: ${data.DestinationName}`,
-                    `In Congestion: ${data.InCongestion ? true : false}`,
-                    `Occupancy: ${data.Occupancy ? data.Occupancy : false}`,
+                    `Congestion: ${data.InCongestion ? true : false}`,
+                    `Occupancy: ${data.Occupancy ? data.Occupancy : 'unknown'}`,
                 ].join(', \n')
             }
             
