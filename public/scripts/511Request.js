@@ -1,4 +1,3 @@
-var keyI = 1
 var apiKeys = [
     '6e4e4158-72bd-424d-85a3-2678e0a9854e', 
     '1eb78f53-b000-42ea-8ff6-9bedb66e01cc', 
@@ -15,6 +14,7 @@ function makeRequest(moduleName, params=[], callback) {
         params = ''
     }
 
+    var keyI = Math.floor(Math.random() * max)
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[keyI]}${params}`
 
     fetch(url)
