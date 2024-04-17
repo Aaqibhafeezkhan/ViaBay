@@ -21,7 +21,7 @@ function onMapLoad() {
                 if (!aObj) {
                     aObj = {
                         id: agency.Id, 
-                        name: agency.name, 
+                        name: agency.Name, 
                         vehicles: {
                             data: vehicleData, 
                             pins: {}, 
@@ -61,6 +61,7 @@ function onMapLoad() {
     
                     var color = colors[cI]
                     var route = vehicleActivity.LineRef
+                    vehicleActivity.agency = agency.Name
                     if (route) {
                         var width = 30
                         if (route.length > 3) {
@@ -132,6 +133,7 @@ function showVehicleInfo(e) {
             var options = {
                 title: `${data.LineRef}: ${data.PublishedLineName}`, 
                 description: [
+                    `Agency: ${data.agency}`,
                     `Origin: ${data.OriginName}`,
                     `Destination: ${data.DestinationName}`,
                     `Congestion: ${data.InCongestion ? true : false}`,
