@@ -60,7 +60,7 @@ function onMapLoad() {
                         // altitudeReference: -1,
                     }
 
-                    if (agency.Id = 'SF') {
+                    if (vehicleActivity.OperatorRef === 'SF') {
                         console.log(vehicleActivity)
                         var publishedLineName = vehicleActivity.PublishedLineName
                         if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
