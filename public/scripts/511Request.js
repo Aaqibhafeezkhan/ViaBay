@@ -14,7 +14,7 @@ function makeRequest(moduleName, params=[], callback) {
         params = ''
     }
 
-    var keyI = Math.floor(Math.random() * max)
+    var keyI = Math.floor(Math.random() * apiKeys.length)
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[keyI]}${params}`
 
     fetch(url)
