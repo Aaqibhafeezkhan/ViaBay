@@ -157,7 +157,7 @@ function showVehicleInfo(e) {
             infobox.setOptions({
                 location: e.target.getLocation(),
                 title: options.title,
-                htmlContent: `<span>${options.description.join('</span><br><span>')}</span>`,
+                htmlContent: `<div class="infobox"><span>${options.description.join('</span><br><span>')}</span></div>`,
                 visible: true
             });
         }
