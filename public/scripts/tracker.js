@@ -151,13 +151,13 @@ function showVehicleInfo(e) {
                     `Destination: ${data.DestinationName}`,
                     `Congestion: ${data.InCongestion ? true : false}`,
                     `Occupancy: ${data.Occupancy ? data.Occupancy : 'unknown'}`,
-                ].join(', \n')
+                ]
             }
             
             infobox.setOptions({
                 location: e.target.getLocation(),
                 title: options.title,
-                description: options.description,
+                htmlContent: `<span>${options.description.join('</span><br><span>')}</span>`,
                 visible: true
             });
         }
