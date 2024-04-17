@@ -135,7 +135,7 @@ function showVehicleInfo(e) {
                     `Origin: ${data.OriginName}`,
                     `Destination: ${data.DestinationName}`,
                     `In Congestion: ${data.InCongestion ? true : false}`,
-                    `Occupancy: ${data.Occupancy}`,
+                    `Occupancy: ${data.Occupancy ? data.Occupancy : false}`,
                 ].join(', \n')
             }
             
