@@ -4,7 +4,7 @@ var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7
 var agencies = {}
 var allPins = []
 
-var colors = ['Red', 'Blue', 'Orange', 'Brown', 'Pink', 'Yellow', 'Green', 'Purple', 'Maroon', 'Turquoise', 'Cyan', 'Navy', 'Tomato', 'Teal', 'Lime', 'Cyan', 'Salmon', 'Olive', 'Aqua', 'Violet', 'Chocolate', 'Azure', 'Bronze']
+var colors = ['#FF0000', '#0000FF', '#FFA500', '#6A4A3A', '#FFC0CB', '#FFFF00', '#00FF00', '#800080', '#800000', '#40E0D0', '#00FFFF', '#FF00FF', '#000035', '#FF6347', '#B2D8D8', '#BFFF00', '#FA8072', '#808000', '#7F00FF', '#73BF00', '#007FFF', '#CD7F32']
 
 var positionInterval = setInterval(onMapLoad, 60000)
 onMapLoad()
@@ -92,7 +92,7 @@ function onMapLoad() {
                         else {
                             pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
                                 text: route,
-                                color: color, 
+                                color: Microsoft.Maps.Color.fromHex(color), 
                                 // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
                             });
                             pin.metadata = vehicleActivity;
