@@ -33,9 +33,8 @@ function onMapLoad() {
                 aObj.vehicles.data = vehicleData
             }
             
-            console.log(0)
             var goodPins = []
-
+            
             vehicleData.forEach(function(vehicle) {
                 var vehicleRef = vehicle.MonitoredVehicleJourney.VehicleRef
                 if (aObj.vehicles.pins[vehicleRef]) {
@@ -45,6 +44,7 @@ function onMapLoad() {
                     })
                 }
             })
+            console.log(1)
             aObj.vehicles.pins = {}
             goodPins.forEach(function(pin) {
                 aObj.vehicles.pins[pin.name] = pin.content
