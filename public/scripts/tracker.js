@@ -8,11 +8,11 @@ var allPins = []
 var colors = ['#FF0000', '#0000FF', '#FFA500', '#6A4A3A', '#FFC0CB', '#FFFF00', '#00FF00', '#800080', '#800000', '#40E0D0', '#00FFFF', '#FF00FF', '#000035', '#FF6347', '#B2D8D8', '#BFFF00', '#FA8072', '#808000', '#7F00FF', '#73BF00', '#007FFF', '#CD7F32']
 makeRequest('gtfsoperators', [], function(res) {
     operatorsObj = res
-    console.log(res)
 })
 
 function onMapLoad() {
     operatorsObj.forEach(function(agency, i) {
+        console.log(agency)
         var cI = i
         if (cI >= colors.length) cI = cI - colors.length
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
