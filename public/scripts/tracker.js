@@ -110,8 +110,8 @@ function onMapLoad() {
                             Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
                         })
                         
-                        console.log(4)
                         map.entities.push(pin);
+                        console.log(4)
                     }
                     aObj.vehicles.pins[vehicleRef] = pin
                 }
