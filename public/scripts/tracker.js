@@ -14,6 +14,7 @@ function onMapLoad() {
     operatorsObj.forEach(function(agency, i) {
         var cI = i
         if (cI >= colors.length) cI = cI - colors.length
+        var color = colors[cI]
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
             var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
             if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
@@ -50,7 +51,6 @@ function onMapLoad() {
             })
             
             vehicleData.forEach(function(vehicle, vI) {
-                console.log(2)
                 var vehicleActivity = vehicle.MonitoredVehicleJourney
                 vehicleActivity.agency = agency.Name
                 vehicleActivity.aId = agency.Id
@@ -63,23 +63,23 @@ function onMapLoad() {
                     // altitude: 0, 
                     // altitudeReference: -1,
                 }
-
+                
                 if (vehicleActivity.OperatorRef === 'SF') {
                     var publishedLineName = vehicleActivity.PublishedLineName
                     if (publishedLineName) {
                         if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
                         else publishedLineName = [publishedLineName]
-                        
-                        publishedLineName.forEach(function(p, i) {
-                            publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
-                        })
-                        
-                        publishedLineName = publishedLineName.join(' ')
-                        vehicleActivity.PublishedLineName = publishedLineName
-                    }
+                    
+                    publishedLineName.forEach(function(p, i) {
+                        publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
+                    })
+                    
+                    publishedLineName = publishedLineName.join(' ')
+                    vehicleActivity.PublishedLineName = publishedLineName
                 }
-
-                var color = colors[cI]
+            }
+            
+                console.log(vehicleActivity)
                 var route = vehicleActivity.LineRef
                 if (route) {
                     var width = 30
