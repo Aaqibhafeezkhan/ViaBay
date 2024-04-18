@@ -13,6 +13,7 @@ if (!isAuthenticated && !pathname.startsWith('/login')) location.href = '/login'
 else if (isAuthenticated && pathname === '/') location.href = '/tracker'
 
 function setCredentials(username, password) {
+    alert(JSON.stringify({username: username, password: password}))
     authentication = JSON.stringify({
         username: username,
         password: btoa(password),
