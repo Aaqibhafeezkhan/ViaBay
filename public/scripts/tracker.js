@@ -105,12 +105,12 @@ function onMapLoad() {
                         });
                         pin.metadata = vehicleActivity;
                         
-                        console.log(4)
                         var events = ['click']
                         events.forEach(function(ev) {
                             Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
                         })
                         
+                        console.log(4)
                         map.entities.push(pin);
                     }
                     aObj.vehicles.pins[vehicleRef] = pin
