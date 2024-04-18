@@ -1,123 +1,120 @@
 var map, infobox, watchId, Microsoft, positionInterval = null
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
 
-var operatorsObj = []
 var agencies = {}
 var allPins = []
 
 var colors = ['#FF0000', '#0000FF', '#FFA500', '#6A4A3A', '#FFC0CB', '#FFFF00', '#00FF00', '#800080', '#800000', '#40E0D0', '#00FFFF', '#FF00FF', '#000035', '#FF6347', '#B2D8D8', '#BFFF00', '#FA8072', '#808000', '#7F00FF', '#73BF00', '#007FFF', '#CD7F32']
-makeRequest('gtfsoperators', [], function(res) {
-    operatorsObj = res
-})
 
 function onMapLoad() {
-    operatorsObj.forEach(function(agency, i) {
-        var cI = i
-        if (cI >= colors.length) cI = cI - colors.length
-        var color = colors[cI]
-        makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
-            if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
-            
-            var aObj = agencies[agency.Id]
-            if (!aObj) {
-                aObj = {
-                    id: agency.Id, 
-                    name: agency.Name, 
-                    vehicles: {
-                        data: vehicleData, 
-                        pins: {}, 
-                    }
-                }
-            }
-            else {
-                aObj.vehicles.data = vehicleData
-            }
-            
-            var goodPins = []
-            
-            vehicleData.forEach(function(vehicle) {
-                var vehicleRef = vehicle.MonitoredVehicleJourney.VehicleRef
-                if (aObj.vehicles.pins[vehicleRef]) {
-                    goodPins.push({
-                        name: vehicleRef, 
-                        content: aObj.vehicles.pins[vehicleRef]
-                    })
-                }
-            })
-            aObj.vehicles.pins = {}
-            goodPins.forEach(function(pin) {
-                aObj.vehicles.pins[pin.name] = pin.content
-            })
-            
-            vehicleData.forEach(function(vehicle, vI) {
-                var vehicleActivity = vehicle.MonitoredVehicleJourney
-                vehicleActivity.agency = agency.Name
-                vehicleActivity.aId = agency.Id
-                vehicleActivity.i = vI
-                var vehicleRef = vehicleActivity.VehicleRef
-                var vehicleLocation = vehicleActivity.VehicleLocation
-                vehicleLocation = {
-                    longitude: vehicleLocation.Longitude, 
-                    latitude: vehicleLocation.Latitude, 
-                    // altitude: 0, 
-                    // altitudeReference: -1,
-                }
+    makeRequest('gtfsoperators', [], function(res) {
+        res.forEach(function(agency, i) {
+            var cI = i
+            if (cI >= colors.length) cI = cI - colors.length
+            var color = colors[cI]
+            makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+                var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
+                if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
                 
-                if (vehicleActivity.OperatorRef === 'SF') {
-                    var publishedLineName = vehicleActivity.PublishedLineName
-                    if (publishedLineName) {
-                        if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
-                        else publishedLineName = [publishedLineName]
-                    
-                        publishedLineName.forEach(function(p, i) {
-                            publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
-                        })
-                        
-                        publishedLineName = publishedLineName.join(' ')
-                        vehicleActivity.PublishedLineName = publishedLineName
-                    }
-                }
-            
-                var route = vehicleActivity.LineRef
-                if (route) {
-                    var width = 30
-                    if (route.length > 3) {
-                        var exces = route.length-3
-                        for (let i3 = 0; i3 < exces; i3++) {
-                            width += 5
+                var aObj = agencies[agency.Id]
+                if (!aObj) {
+                    aObj = {
+                        id: agency.Id, 
+                        name: agency.Name, 
+                        vehicles: {
+                            data: vehicleData, 
+                            pins: {}, 
                         }
                     }
-                    
-                    if (Microsoft.Maps.Color) color = Microsoft.Maps.Color.fromHex(color)
-                    else color = 'red'
-                    // Add the pushpin to the map
-                    var pin = aObj.vehicles.pins[vehicleRef]
-                    if (pin) {
-                        pin.setLocation(vehicleLocation);
-                    }
-                    else {
-                        vehicleActivity.infoboxOpen = false
-                        pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
-                            text: route,
-                            color: color, 
-                            // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
-                        });
-                        pin.metadata = vehicleActivity;
-                        
-                        var events = ['click']
-                        events.forEach(function(ev) {
-                            Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
-                        })
-                        
-                        map.entities.push(pin);
-                        console.log(4)
-                    }
-                    aObj.vehicles.pins[vehicleRef] = pin
                 }
-            })
+                else {
+                    aObj.vehicles.data = vehicleData
+                }
+                
+                var goodPins = []
+                
+                vehicleData.forEach(function(vehicle) {
+                    var vehicleRef = vehicle.MonitoredVehicleJourney.VehicleRef
+                    if (aObj.vehicles.pins[vehicleRef]) {
+                        goodPins.push({
+                            name: vehicleRef, 
+                            content: aObj.vehicles.pins[vehicleRef]
+                        })
+                    }
+                })
+                aObj.vehicles.pins = {}
+                goodPins.forEach(function(pin) {
+                    aObj.vehicles.pins[pin.name] = pin.content
+                })
+                
+                vehicleData.forEach(function(vehicle, vI) {
+                    var vehicleActivity = vehicle.MonitoredVehicleJourney
+                    vehicleActivity.agency = agency.Name
+                    vehicleActivity.aId = agency.Id
+                    vehicleActivity.i = vI
+                    var vehicleRef = vehicleActivity.VehicleRef
+                    var vehicleLocation = vehicleActivity.VehicleLocation
+                    vehicleLocation = {
+                        longitude: vehicleLocation.Longitude, 
+                        latitude: vehicleLocation.Latitude, 
+                        // altitude: 0, 
+                        // altitudeReference: -1,
+                    }
+                    
+                    if (vehicleActivity.OperatorRef === 'SF') {
+                        var publishedLineName = vehicleActivity.PublishedLineName
+                        if (publishedLineName) {
+                            if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
+                            else publishedLineName = [publishedLineName]
+                        
+                            publishedLineName.forEach(function(p, i) {
+                                publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
+                            })
+                            
+                            publishedLineName = publishedLineName.join(' ')
+                            vehicleActivity.PublishedLineName = publishedLineName
+                        }
+                    }
+                
+                    var route = vehicleActivity.LineRef
+                    if (route) {
+                        var width = 30
+                        if (route.length > 3) {
+                            var exces = route.length-3
+                            for (let i3 = 0; i3 < exces; i3++) {
+                                width += 5
+                            }
+                        }
+                        
+                        if (Microsoft.Maps.Color) color = Microsoft.Maps.Color.fromHex(color)
+                        else color = 'red'
+                        // Add the pushpin to the map
+                        var pin = aObj.vehicles.pins[vehicleRef]
+                        if (pin) {
+                            pin.setLocation(vehicleLocation);
+                        }
+                        else {
+                            vehicleActivity.infoboxOpen = false
+                            pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
+                                text: route,
+                                color: color, 
+                                // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
+                            });
+                            pin.metadata = vehicleActivity;
+                            
+                            var events = ['click']
+                            events.forEach(function(ev) {
+                                Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
+                            })
+                            
+                            map.entities.push(pin);
+                        }
+                        aObj.vehicles.pins[vehicleRef] = pin
+                    }
+                })
 
-            agencies[agency.Id] = aObj
+                agencies[agency.Id] = aObj
+            })
         })
     })
 }
@@ -150,10 +147,12 @@ function GetMap() {
 function showVehicleInfo(e) {
         //Make sure the infobox has metadata to display.
         if (e.target.metadata) {
-            operatorsObj.forEach(function(agency, i) {
-                console.log(agencies[agency.Id])
-                agencies[agency.Id].vehicles.pins.forEach(function(p, pI) {
-                    agencies[agency.Id].vehicles.pins[pI].metadata.infoboxOpen = false
+            makeRequest('gtfsoperators', [], function(res) {
+                res.forEach(function(agency, i) {
+                    console.log(agencies[agency.Id])
+                    agencies[agency.Id].vehicles.pins.forEach(function(p, pI) {
+                        agencies[agency.Id].vehicles.pins[pI].metadata.infoboxOpen = false
+                    })
                 })
             })
             agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
