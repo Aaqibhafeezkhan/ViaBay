@@ -91,6 +91,7 @@ function onMapLoad() {
                     
                     if (Microsoft.Maps.Color) color = Microsoft.Maps.Color.fromHex(color)
                     else color = 'red'
+                    console.log(color)
                 // Add the pushpin to the map
                 var pin = aObj.vehicles.pins[vehicleRef]
                 if (pin) {
@@ -105,14 +106,13 @@ function onMapLoad() {
                     });
                     pin.metadata = vehicleActivity;
                     
-                    var events = ['click']
+                    var events = ['mouseup']
                     events.forEach(function(ev) {
                         Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
                     })
                     
                     map.entities.push(pin);
                 }
-                console.log(3)
                 aObj.vehicles.pins[vehicleRef] = pin
                 }
             })
