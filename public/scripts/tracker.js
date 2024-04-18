@@ -70,16 +70,15 @@ function onMapLoad() {
                         if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
                         else publishedLineName = [publishedLineName]
                     
-                    publishedLineName.forEach(function(p, i) {
-                        publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
-                    })
-                    
-                    publishedLineName = publishedLineName.join(' ')
-                    vehicleActivity.PublishedLineName = publishedLineName
+                        publishedLineName.forEach(function(p, i) {
+                            publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
+                        })
+                        
+                        publishedLineName = publishedLineName.join(' ')
+                        vehicleActivity.PublishedLineName = publishedLineName
+                    }
                 }
-            }
             
-                console.log(vehicleActivity)
                 var route = vehicleActivity.LineRef
                 if (route) {
                     var width = 30
@@ -89,31 +88,32 @@ function onMapLoad() {
                             width += 5
                         }
                     }
-            
+                    
                     if (Microsoft.Maps.Color) color = Microsoft.Maps.Color.fromHex(color)
                     else color = 'red'
-                    // Add the pushpin to the map
-                    var pin = aObj.vehicles.pins[vehicleRef]
-                    if (pin) {
-                        pin.setLocation(vehicleLocation);
-                    }
-                    else {
-                        vehicleActivity.infoboxOpen = false
-                        pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
-                            text: route,
-                            color: color, 
-                            // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
-                        });
-                        pin.metadata = vehicleActivity;
-
-                        var events = ['click', 'touchend']
-                        events.forEach(function(ev) {
-                            Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
-                        })
-
-                        map.entities.push(pin);
-                    }
-                    aObj.vehicles.pins[vehicleRef] = pin
+                // Add the pushpin to the map
+                var pin = aObj.vehicles.pins[vehicleRef]
+                if (pin) {
+                    pin.setLocation(vehicleLocation);
+                }
+                else {
+                    vehicleActivity.infoboxOpen = false
+                    pin = new Microsoft.Maps.Pushpin(vehicleLocation, {
+                        text: route,
+                        color: color, 
+                        // icon: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="20"><rect x="0" y="0" width="100%" height="100%" fill="${color}" /><text x="50%" y="50%" dy="2" textLength="${width-5}" lengthAdjust="spacing" font-family="sans-serif" dominant-baseline="middle" text-anchor="middle">${route}</text></svg>`,
+                    });
+                    pin.metadata = vehicleActivity;
+                    
+                    var events = ['click', 'touchend']
+                    events.forEach(function(ev) {
+                        Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
+                    })
+                    
+                    map.entities.push(pin);
+                }
+                console.log(3)
+                aObj.vehicles.pins[vehicleRef] = pin
                 }
             })
 
