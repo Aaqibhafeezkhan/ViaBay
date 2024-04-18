@@ -9,7 +9,7 @@ var isAuthenticated = false
 if (username && password) isAuthenticated = true
 
 var pathname = location.pathname
-if (!isAuthenticated) location.href = '/login'
+if (!isAuthenticated && !pathname.startsWith('/login')) location.href = '/login'
 else if (isAuthenticated && pathname === '/') location.href = '/tracker'
 
 function setCredentials(username, password) {
