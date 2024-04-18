@@ -1,11 +1,4 @@
 ---
-var defaultUrl = '/login'
+import Layout from '../layouts/Layout.astro'
 ---
-<script src="/scripts/eruda.js" is:inline></script>
-<script defaultUrl={defaultUrl}>
-  var queryString = location.search
-  var urlParams = new URLSearchParams(queryString)
-  var page = urlParams.get('page') ? urlParams.get('page') : document.currentScript.getAttribute('defaultUrl')
-
-  location.href = page
-</script>
+<Layout title="Home"></Layout>
