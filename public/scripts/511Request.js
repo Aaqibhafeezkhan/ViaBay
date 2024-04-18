@@ -4,6 +4,7 @@ var apiKeys = [
     '1bd488ee-e387-49a9-af4f-6a15d1636bff', 
     'fac23cdd-333b-41fc-b6d2-fc3628fbfb1d', 
     'b9269045-ce6b-48e3-9ef2-bdb1332499ad', 
+    '26c601e1-1221-4690-9b03-1d597f5ccc96', 
 ]
 
 function makeRequest(moduleName, params=[], callback) {
