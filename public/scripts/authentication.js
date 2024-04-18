@@ -1,4 +1,4 @@
-var authentication = getCookie('auth')
+var authentication = localStorage.getItem('auth')
 
 authentication = authentication ? JSON.parse(authentication) : {}
 
@@ -19,6 +19,6 @@ function setCredentials(username, password, dest) {
         username: username,
         password: btoa(password),
     })
-    setCookie('auth', authentication, 30)
+    localStorage.setItem('auth', authentication)
     location.href = dest
 }
