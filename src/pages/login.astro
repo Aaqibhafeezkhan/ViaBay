@@ -29,8 +29,15 @@ import Layout from '../layouts/Layout.astro'
     var urlParms = new URLSearchParams(queryString); 
     var dest = !!urlParms.get('dest') ? urlParms.get('dest') : 'tracker';
 
+    var form = document.querySelector('[role="form"]')
+
     // document.querySelector('.form').addEventListener('submit', function(e) {e.preventDefault()})
     
-    function login() { goToPage(dest) }
+    function login() {
+      var username = form.getElementById('email')
+      var password = form.getElementById('password')
+      setCredentials(username, password)
+      goToPage(dest)
+    }
   </script>
 </Layout>

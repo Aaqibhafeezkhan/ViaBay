@@ -1,7 +1,11 @@
 ---
-var url = '/login'
+var defaultUrl = '/login'
 ---
 <script src="/scripts/eruda.js" is:inline></script>
-<script url={url}>
-  location.href = document.currentScript.getAttribute('url')
+<script defaultUrl={defaultUrl}>
+  var queryString = location.search
+  var urlParams = new URLSearchParams(queryString)
+  var page = urlParams.get('page') ? urlParams.get('page') : document.currentScript.getAttribute('defaultUrl')
+
+  location.href = page
 </script>
