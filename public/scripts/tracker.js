@@ -15,10 +15,9 @@ function onMapLoad() {
         var cI = i
         if (cI >= colors.length) cI = cI - colors.length
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
-            console.log(vehicleData)
             var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
             if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
-
+            
             var aObj = agencies[agency.Id]
             if (!aObj) {
                 aObj = {
@@ -33,7 +32,8 @@ function onMapLoad() {
             else {
                 aObj.vehicles.data = vehicleData
             }
-
+            
+            console.log(0)
             var goodPins = []
 
             vehicleData.forEach(function(vehicle) {
