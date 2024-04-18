@@ -36,8 +36,7 @@ import Layout from '../layouts/Layout.astro'
     function login() {
       var username = form.querySelector('#email').value
       var password = form.querySelector('#password').value
-      setCredentials(username, password)
-      goToPage(dest)
+      setCredentials(username, password, dest)
     }
   </script>
 </Layout>
