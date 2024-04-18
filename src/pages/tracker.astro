@@ -4,8 +4,8 @@ import '../styles/pages/tracker.scss'
 import Layout from '../layouts/Layout.astro'
 
 var classItems = ['full']
+var scripts = ['tracker']
 ---
-<Layout title="Map / Live Tracker" classItems={classItems}>
+<Layout title="Map / Live Tracker" classItems={classItems} scripts={scripts}>
   <div id="myMap"></div>
-  <script src="/scripts/tracker.js" is:inline></script>
 </Layout>

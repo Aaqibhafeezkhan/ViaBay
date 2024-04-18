@@ -3,7 +3,7 @@ import '../styles/modal.scss'
 import '../styles/index.scss'
 
 var sTitle = 'TransTrack'
-var { title, classItems, headItems } = Astro.props
+var { title, classItems, headItems, scripts } = Astro.props
 
 var docTitle = ''
 if (
@@ -35,6 +35,13 @@ if (headItems.length < 0) {
 }
 
 headItems = headItems.join('')
+
+if (!!scripts === false || scripts === null) {
+  scripts = []
+}
+if (scripts.length < 0) {
+  scripts = []
+}
 
 var navHTML = `<a class="link" href="/tracker">
   <img class="icon" src="/icons/map.svg">
@@ -98,6 +105,11 @@ else year = `-${year}`
     </dialog>
     <script src="/scripts/modal.js" is:inline></script>
     <script src="/scripts/select.js" is:inline></script>
+    {
+      scripts.map(function(s, i) {
+        <script src={`/scripts/${s}.js`}></script>
+      })
+    }
     <script src="/scripts/eruda.js" is:inline></script>
   </body>
 </html>

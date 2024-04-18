@@ -5,8 +5,10 @@ import '../styles/pages/directions.scss'
 import Layout from '../layouts/Layout.astro'
 
 var classItems = ['full']
+var scripts = ['directions']
+
 ---
-<Layout title="Map / Directions" classItems={classItems}>
+<Layout title="Map / Directions" classItems={classItems} scripts={scripts}>
   <section class="directions-container">
     <div class="stops-area">
       <div class="stops">
@@ -37,5 +39,4 @@ var classItems = ['full']
     <div id="directions"></div>
   </section>
   <div id="myMap"></div>
-  <script src="/scripts/directions.js" is:inline></script>
 </Layout>
