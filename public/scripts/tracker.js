@@ -63,7 +63,6 @@ function onMapLoad() {
                     }
 
                     if (vehicleActivity.OperatorRef === 'SF') {
-                        console.log(vehicleActivity)
                         var publishedLineName = vehicleActivity.PublishedLineName
                         if (publishedLineName) {
                             if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
