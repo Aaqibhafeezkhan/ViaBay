@@ -151,7 +151,7 @@ function showVehicleInfo(e) {
         //Make sure the infobox has metadata to display.
         if (e.target.metadata) {
             operatorsObj.forEach(function(agency, i) {
-                console.log(agency.Id)
+                console.log(agencies[agency.Id])
                 agencies[agency.Id].vehicles.pins.forEach(function(p, pI) {
                     agencies[agency.Id].vehicles.pins[pI].metadata.infoboxOpen = false
                 })
