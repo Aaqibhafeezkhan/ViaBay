@@ -4,7 +4,11 @@ import '../styles/pages/tracker.scss'
 import Layout from '../layouts/Layout.astro'
 
 var classItems = ['full']
-var scripts = ['tracker']
+var scripts = [
+  {
+    name: 'tracker'
+  }
+]
 ---
 <Layout title="Map / Live Tracker" classItems={classItems} scripts={scripts}>
   <div id="myMap"></div>

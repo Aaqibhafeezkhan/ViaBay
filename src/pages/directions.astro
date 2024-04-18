@@ -5,8 +5,11 @@ import '../styles/pages/directions.scss'
 import Layout from '../layouts/Layout.astro'
 
 var classItems = ['full']
-var scripts = ['directions']
-
+var scripts = [
+  {
+    name: 'directions'
+  }
+  ]
 ---
 <Layout title="Map / Directions" classItems={classItems} scripts={scripts}>
   <section class="directions-container">

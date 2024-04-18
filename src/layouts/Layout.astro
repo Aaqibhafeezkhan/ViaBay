@@ -81,6 +81,13 @@ else year = `-${year}`
     <script src="/scripts/authentication.js" is:inline></script>
     <script src="/scripts/511Request.js" is:inline></script>
     <script src="/scripts/notificationManager.js" is:inline></script>
+    {
+      scripts.map(function(s, i) {
+        if (s.location === 'head') {
+          return <script src={`/scripts/${s.name}.js`}></script>
+        }
+      })
+    }
     <script src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS" async defer is:inline></script>
   </head>
   <body sTitle={sTitle}>
@@ -107,7 +114,9 @@ else year = `-${year}`
     <script src="/scripts/select.js" is:inline></script>
     {
       scripts.map(function(s, i) {
-        <script src={`/scripts/${s}.js`}></script>
+        if (s.location !== 'head') {
+          return <script src={`/scripts/${s.name}.js`}></script>
+        }
       })
     }
     <script src="/scripts/eruda.js" is:inline></script>

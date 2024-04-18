@@ -3,7 +3,11 @@ import '../styles/pages/login.scss'
 
 import Layout from '../layouts/Layout.astro'
 
-var scripts = ['login']
+var scripts = [
+  {
+    name: 'login'
+  }
+]
 ---
 <Layout title="Login" scripts={scripts}>
   <img class="logo" src="/assets/logo.svg">
