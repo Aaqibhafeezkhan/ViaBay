@@ -11,8 +11,8 @@ makeRequest('gtfsoperators', [], function(res) {
 })
 
 function onMapLoad() {
+    console.log('hi')
     operatorsObj.forEach(function(agency, i) {
-        console.log(agency)
         var cI = i
         if (cI >= colors.length) cI = cI - colors.length
         makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
