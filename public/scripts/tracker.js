@@ -88,7 +88,7 @@ function onMapLoad() {
                             }
                         }
                 
-                        if (Microsoft.Maps.Color.fromHex) color = Microsoft.Maps.Color.fromHex(color)
+                        if (Microsoft.Maps.Color) color = Microsoft.Maps.Color.fromHex(color)
                         else color = 'red'
                         // Add the pushpin to the map
                         var pin = aObj.vehicles.pins[vehicleRef]
