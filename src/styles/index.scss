@@ -39,6 +39,7 @@ body {
 .app {
   --hf-size: 3.5rem;
 
+  position: relative;
   height: 100dvh;
   display: grid;
   grid-template-rows: var(--hf-size) 1fr var(--hf-size);
