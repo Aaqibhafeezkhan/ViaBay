@@ -88,6 +88,7 @@ function onMapLoad() {
                             }
                         }
                 
+                        console.log(color)
                         // Add the pushpin to the map
                         var pin = aObj.vehicles.pins[vehicleRef]
                         if (pin) {
