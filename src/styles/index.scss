@@ -71,19 +71,6 @@ body {
 
   z-index: 2;
 
-  &.mobile {
-    justify-content: space-evenly;
-    .link {
-      flex: 1;
-    }
-  }
-  &:not(.mobile) .link:first-child {
-    padding-inline-start: var(--gap);
-    border-left: solid var(--border-size) white;
-  }
-  &:not(.mobile) .link:last-child {
-    padding-inline-end: var(--gap);
-  }
 
   .link {
     aspect-ratio: 1;
@@ -99,35 +86,44 @@ body {
   }
   
   @media (min-width: 750px) {
-    &.mobile {
-      display: none;
+    & {
+      position: absolute;
+      right: 0;
+      width: fit-content;
+
+      .link {
+        &:first-child {
+          padding-inline-start: var(--gap);
+          border-left: solid var(--border-size) white;
+        }
+        &:last-child {
+          padding-inline-end: var(--gap);
+        }
+      }
     }
   }
   @media (max-width: 751px) {
-    &:not(.mobile) {
-      display: none;
+    & {
+      justify-content: space-evenly;
+
+      .link {
+        flex: 1;
+      }
     }
   }
 }
 
-.footer {
-  position: relative;
-  isolation: isolate;
-
+.footer {  
   border-top: var(--border);
-
+  
+  display: grid;
+  place-items: center;
+  isolation: isolate;
   &::after {
     content: '© 2024' attr(current-year) ' ' attr(site-title);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    width: 100%;
+    display: inline;
     text-align: center;
     z-index: -1;
-  }
-  &:not(:has(.nav.mobile[hidden]))::after {
-    display: none;
   }
 }
 
