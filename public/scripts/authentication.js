@@ -2,8 +2,6 @@ var authentication = localStorage.getItem('auth')
 
 authentication = authentication ? JSON.parse(authentication) : {}
 
-alert(JSON.stringify(authentication))
-
 var username = authentication.username ? authentication.username : ''
 var password = authentication.password ? atob(authentication.password) : ''
 
