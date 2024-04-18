@@ -44,13 +44,13 @@ function onMapLoad() {
                     })
                 }
             })
-            console.log(1)
             aObj.vehicles.pins = {}
             goodPins.forEach(function(pin) {
                 aObj.vehicles.pins[pin.name] = pin.content
             })
-
+            
             vehicleData.forEach(function(vehicle, vI) {
+                console.log(2)
                 var vehicleActivity = vehicle.MonitoredVehicleJourney
                 vehicleActivity.agency = agency.Name
                 vehicleActivity.aId = agency.Id
