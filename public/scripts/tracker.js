@@ -105,7 +105,7 @@ function onMapLoad() {
                     });
                     pin.metadata = vehicleActivity;
                     
-                    var events = ['click', 'touchend']
+                    var events = ['click']
                     events.forEach(function(ev) {
                         Microsoft.Maps.Events.addHandler(pin, ev, showVehicleInfo);
                     })
