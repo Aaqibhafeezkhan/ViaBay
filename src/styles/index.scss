@@ -119,7 +119,7 @@ body {
   
   display: grid;
   place-items: center;
-  isolation: isolate;
+  // isolation: isolate;
   &::after {
     content: '© 2024' attr(current-year) ' ' attr(site-title);
     display: inline;
