@@ -151,7 +151,7 @@ function showVehicleInfo(e) {
         if (e.target.metadata) {
             makeRequest('gtfsoperators', [], function(res) {
                 res.forEach(function(agency, i) {
-                    console.log(agencies[agency.Id])
+                    console.log(agency.Id)
                     agencies[agency.Id].vehicles.pins.forEach(function(p, pI) {
                         agencies[agency.Id].vehicles.pins[pI].metadata.infoboxOpen = false
                     })
