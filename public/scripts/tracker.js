@@ -86,7 +86,9 @@ function onMapLoad() {
                             }
                         }
                         
-                        if (Microsoft.Maps.Color) color = Microsoft.Maps.Color.fromHex(color)
+                        if (Microsoft.Maps.Color) {
+                            if (Microsoft.Maps.Color.fromHex) color = Microsoft.Maps.Color.fromHex(color)
+                        }
                         else color = 'red'
                         // Add the pushpin to the map
                         var pin = aObj.vehicles.pins[vehicleRef]
@@ -155,8 +157,7 @@ function showVehicleInfo(e) {
                     })
                 })
             })
-            agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
-
+            
             //Set the infobox options with the metadata of the pushpin.
             var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
             if (isSmallScreen) {
@@ -164,6 +165,7 @@ function showVehicleInfo(e) {
             }
             
             var data = e.target.metadata
+            agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
             var options = {
                 title: `${data.LineRef}: ${data.PublishedLineName}`, 
                 description: [
