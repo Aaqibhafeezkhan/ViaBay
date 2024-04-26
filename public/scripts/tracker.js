@@ -150,14 +150,14 @@ function GetMap() {
 function showVehicleInfo(e) {
         //Make sure the infobox has metadata to display.
         if (e.target.metadata) {
-            makeRequest('gtfsoperators', [], function(res) {
-                res.forEach(function(agency, i) {
-                    console.log(agency.Id)
-                    agencies[agency.Id].vehicles.pins.forEach(function(p, pI) {
-                        agencies[agency.Id].vehicles.pins[pI].metadata.infoboxOpen = false
-                    })
-                })
-            })
+            // makeRequest('gtfsoperators', [], function(res) {
+            //     res.forEach(function(agency, i) {
+            //         console.log(agency.Id)
+            //         agencies[agency.Id].vehicles.pins.forEach(function(p, pI) {
+            //             agencies[agency.Id].vehicles.pins[pI].metadata.infoboxOpen = false
+            //         })
+            //     })
+            // })
             
             //Set the infobox options with the metadata of the pushpin.
             var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
@@ -166,7 +166,7 @@ function showVehicleInfo(e) {
             }
             
             var data = e.target.metadata
-            agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
+            // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
             var options = {
                 title: `${data.LineRef}: ${data.PublishedLineName}`, 
                 description: [
