@@ -12,6 +12,7 @@ function onMapLoad() {
             var cI = i
             if (cI >= colors.length) cI = cI - colors.length
             var color = colors[cI]
+            console.log(color)
             makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
@@ -86,10 +87,10 @@ function onMapLoad() {
                             }
                         }
                         
-                        if (Microsoft.Maps.Color) {
+                        if (color.startsWith('#') && Microsoft.Maps.Color) {
                             if (Microsoft.Maps.Color.fromHex) color = Microsoft.Maps.Color.fromHex(color)
+                            else color = 'red'
                         }
-                        else color = 'red'
                         // Add the pushpin to the map
                         var pin = aObj.vehicles.pins[vehicleRef]
                         if (pin) {
