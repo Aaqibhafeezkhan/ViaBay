@@ -87,7 +87,7 @@ function onMapLoad() {
                             }
                         }
                         
-                        if (color.startsWith('#') && Microsoft.Maps.Color) {
+                        if (color.toString().startsWith('#') && Microsoft.Maps.Color) {
                             if (Microsoft.Maps.Color.fromHex) color = Microsoft.Maps.Color.fromHex(color)
                             else color = 'red'
                         }
