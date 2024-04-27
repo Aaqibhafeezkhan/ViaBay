@@ -88,8 +88,9 @@ body {
   @media (min-width: 750px) {
     & {
       position: absolute;
+      top: 0;
       right: 0;
-      height: fit-content;
+      height: 56px;
 
       .link {
         &:first-child {
