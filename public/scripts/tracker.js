@@ -4,7 +4,7 @@ var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7
 var agencies = {}
 var allPins = []
 
-var colors = ['#0000FF','#FFA500','#6A4A3A','#FFC0CB','#00FF00','#800080','#800000','#40E0D0','#FF00FF','#000035','#FF6347','#B2D8D8','#BFFF00','#FA8072','#808000','#7F00FF','#73BF00','#CD7F32','#8A2BE2','#3CB371','#2E8B57','#7FFFD4','#D2691E','#4682B4','#FF4500','#8B008B','#556B2F']
+var colors = ['#0000FF','#FFA500','#6A4A3A','#FFC0CB','#800080','#800000','#40E0D0','#FF00FF','#000035','#FF6347','#B2D8D8','#FA8072','#808000','#7F00FF','#73BF00','#CD7F32','#8A2BE2','#3CB371','#2E8B57','#D2691E','#4682B4','#FF4500','#8B008B','#556B2F']
 
 
 function onMapLoad() {
@@ -177,7 +177,7 @@ function showVehicleInfo(e) {
             if (route.includes('/')) route = route.split('/').join(' / ')
             if (route.includes('  ')) route = route.split('  ').join(' ')
 
-            var closeHTML = `<a class="infobox-close" href="javascript:void(0)" data-tag="SDK.Infobox.CloseBtn" style=""><img class="infobox-close-img" src="/assets/icons/cloe.svg" alt="close infobox"></a>`
+            var closeHTML = `<a class="infobox-close" href="javascript:void(0)" data-tag="SDK.Infobox.CloseBtn" style=""><img class="infobox-close-img" src="/assets/icons/close.svg" alt="close infobox"></a>`
 
             var options = {
                 title: [
