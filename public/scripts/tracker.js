@@ -187,7 +187,7 @@ function showVehicleInfo(e) {
                     `Destination: ${data.DestinationName}`,
                     `Congestion: ${data.InCongestion ? 'Congested' : 'Not Congested or Unknown'}`,
                     `Occupancy: ${data.Occupancy ? data.Occupancy : 'unknown'}`,
-                    `Vehicle ID: ${date.vehicleRef}`
+                    `Vehicle ID: ${data.vehicleRef}`
                 ]
             }
             
