@@ -1,22 +1,30 @@
 .main {
-  display: flex;
+    display: flex;
 }
 
 #myMap {
-  flex: 1;
-  width: 100%;
-  height: 100%;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+:has( > .InfoboxCustom > .infobox-body > * > .infobox) {
+    position: static;
 }
 
 .infobox {
-  padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 
-  background-color: #fff7;
-  color: black;
+    padding: 10px;
 
-  border-radius: 10px;
-  
-  .title {
-    font-weight: bold;
-  }
+    background-color: #fff7;
+    color: black;
+
+    border-radius: 10px;
+    
+    .title {
+        font-weight: bold;
+    }
 }
