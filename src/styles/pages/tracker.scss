@@ -9,7 +9,7 @@
 }
 
 :has( > .InfoboxCustom > .infobox-body > * > .infobox) {
-    position: static;
+    position: static !important;
 }
 
 .infobox {
