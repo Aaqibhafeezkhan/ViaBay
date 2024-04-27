@@ -13,7 +13,6 @@ function onMapLoad() {
             var cI = i
             if (cI >= colors.length) cI = cI - colors.length
             var color = colors[cI]
-            console.log(color)
             makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
