@@ -177,6 +177,8 @@ function showVehicleInfo(e) {
             if (route.includes('/')) route = route.split('/').join(' / ')
             if (route.includes('  ')) route = route.split('  ').join(' ')
 
+            var closeHTML = `<a class="infobox-close" href="javascript:void(0)" data-tag="SDK.Infobox.CloseBtn" style=""><img class="infobox-close-img" src="/assets/icons/cloe.svg" alt="close infobox"></a>`
+
             var options = {
                 title: [
                     `${data.agency}`, 
@@ -195,7 +197,7 @@ function showVehicleInfo(e) {
             infobox.setOptions({
                 location: e.target.getLocation(),
                 title: options.title,
-                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span></div>`,
+                htmlContent: `<div class="infobox">${closeHTML}<span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span></div>`,
                 visible: true
             });
         }
