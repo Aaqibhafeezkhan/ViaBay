@@ -161,7 +161,7 @@ function showVehicleInfo(e) {
             //     })
             // })
             
-            //Set the infobox options with the metadata of the pushpin.
+            // Set the infobox options with the metadata of the pushpin.
             var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
             if (isSmallScreen) {
                 
