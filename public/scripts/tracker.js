@@ -62,21 +62,22 @@ function onMapLoad() {
                         // altitudeReference: -1,
                     }
                     
-                    if (vehicleActivity.OperatorRef === 'SF') {
-                        var publishedLineName = vehicleActivity.PublishedLineName
-                        if (publishedLineName) {
-                            if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
-                            else publishedLineName = [publishedLineName]
-                        
-                            publishedLineName.forEach(function(p, i) {
-                                publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
-                            })
+                    switch (vehicleActivity.OperatorRef) {
+                        case 'SF': 
+                            var publishedLineName = vehicleActivity.PublishedLineName
+                            if (publishedLineName) {
+                                if (publishedLineName.includes(' ')) publishedLineName = publishedLineName.split(' ')
+                                else publishedLineName = [publishedLineName]
                             
-                            publishedLineName = publishedLineName.join(' ')
-                            vehicleActivity.PublishedLineName = publishedLineName
-                        }
+                                publishedLineName.forEach(function(p, i) {
+                                    publishedLineName[i] = `${p[0]}${p.substring(1).toLowerCase()}`
+                                })
+                                
+                                publishedLineName = publishedLineName.join(' ')
+                                vehicleActivity.PublishedLineName = publishedLineName
+                            }
                     }
-                
+
                     var route = vehicleActivity.LineRef
                     if (route) {
                         var width = 30
