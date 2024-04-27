@@ -173,7 +173,7 @@ function showVehicleInfo(e) {
             var route = data.PublishedLineName
             if (route.includes('\\')) route = route.split('\\').join('/')
             if (route.includes('/')) route = route.split('/').join(' / ')
-            if (route.includes('  ')) route = soute.split('  ').join(' ')
+            if (route.includes('  ')) route = route.split('  ').join(' ')
 
             var options = {
                 title: [
