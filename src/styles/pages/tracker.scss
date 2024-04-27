@@ -13,6 +13,12 @@
     left: unset !important;
     bottom: 10px !important;
     right: 10px !important;
+
+    .Infobox.no-title {
+        display: block !important;
+        border: none;
+        height: 0;
+    }
 }
 
 .infobox {
