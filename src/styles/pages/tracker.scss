@@ -9,6 +9,8 @@
 }
 
 :has( > .InfoboxCustom > .infobox-body > * > .infobox) {
+    top: unset !important;
+    left: unset !important;
     bottom: 10px !important;
     right: 10px !important;
 }
