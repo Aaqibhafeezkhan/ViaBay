@@ -171,6 +171,7 @@ function showVehicleInfo(e) {
             // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
 
             var route = data.PublishedLineName
+            if (route.includes(' - ')) route = route.split(' - ').join(' / ')
             if (route.includes('\\')) route = route.split('\\').join('/')
             if (route.includes('/')) route = route.split('/').join(' / ')
             if (route.includes('  ')) route = route.split('  ').join(' ')
