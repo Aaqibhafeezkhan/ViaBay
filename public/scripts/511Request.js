@@ -8,11 +8,13 @@ var apiKeys = [
 ]
 
 function makeRequest(moduleName, params=[], callback, i=0) {
-    if (params.length > 0) {
-        params = `&${params.join('&')}`
-    }
-    else {
-        params = ''
+    if (Array.isArray(params)) {
+        if (params.length > 0) {
+            params = `&${params.join('&')}`
+        }
+        else {
+            params = ''
+        }
     }
 
     var keyI = Math.floor(Math.random() * apiKeys.length)
