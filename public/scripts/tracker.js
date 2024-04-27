@@ -169,10 +169,16 @@ function showVehicleInfo(e) {
             
             var data = e.target.metadata
             // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
+
+            var route = data.PublishedLineName
+            if (route.includes('\\')) route = route.split('\\').join('/')
+            if (route.includes('/')) route = route.split('/').join(' / ')
+            if (route.includes('  ')) route = soute.split('  ').join(' ')
+
             var options = {
                 title: [
                     `${data.agency}`, 
-                    `${data.LineRef}: ${data.PublishedLineName}`
+                    `${data.LineRef}: ${route}`
                 ], 
                 description: [
                     // `Agency: ${data.agency}`,
