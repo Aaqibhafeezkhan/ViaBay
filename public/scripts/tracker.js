@@ -170,9 +170,12 @@ function showVehicleInfo(e) {
             var data = e.target.metadata
             // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
             var options = {
-                title: `${data.LineRef}: ${data.PublishedLineName}`, 
+                title: [
+                    `${data.agency}`, 
+                    `${data.LineRef}: ${data.PublishedLineName}`
+                ], 
                 description: [
-                    `Agency: ${data.agency}`,
+                    // `Agency: ${data.agency}`,
                     `Origin: ${data.OriginName}`,
                     `Destination: ${data.DestinationName}`,
                     `Congestion: ${data.InCongestion ? 'Congested' : 'Not Congested or Unknown'}`,
@@ -184,7 +187,7 @@ function showVehicleInfo(e) {
             infobox.setOptions({
                 location: e.target.getLocation(),
                 title: options.title,
-                htmlContent: `<div class="infobox"><span class="title">${options.title}</span><br><span>${options.description.join('</span><br><span>')}</span></div>`,
+                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span></div>`,
                 visible: true
             });
         }
