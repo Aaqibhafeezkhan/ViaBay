@@ -1,6 +1,7 @@
 var map, infobox, watchId, Microsoft, positionInterval = null
 var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7-jS'
 
+var agencyIds = []
 var agencies = {}
 var allPins = []
 
@@ -13,6 +14,9 @@ function onMapLoad() {
             var cI = i
             if (cI >= colors.length) cI = cI - colors.length
             var color = colors[cI]
+
+            agencyIds.push(agency)
+
             makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
@@ -123,12 +127,6 @@ function onMapLoad() {
     })
 }
 
-function assertError(err, name) {
-    err = `${name} Error: ${err}`
-    alert(err)
-    console.error(err)
-}
-
 GetMap()
 function GetMap() {
     if (document.getElementById('myMap') && Microsoft) {
@@ -150,16 +148,14 @@ function GetMap() {
 
 function showVehicleInfo(e) {
         //Make sure the infobox has metadata to display.
-        if (e.target.metadata) {
-            // makeRequest('gtfsoperators', [], function(res) {
-            //     res.forEach(function(agency, i) {
-            //         console.log(agency.Id)
-            //         if (agencies[agency.Id]) {
-            //             agencies[agency.Id].vehicles.pins.forEach(function(p, pI) {
-            //                 agencies[agency.Id].vehicles.pins[pI].metadata.infoboxOpen = false
-            //             })
-            //         }
-            //     })
+        var data = e.target.metadata
+        if (data) {
+            // agencyIds.forEach(function(id, i) {
+            //     if (agencies[id]) {
+            //         agencies[id].vehicles.pins.forEach(function(p, pI) {
+            //             agencies[id].vehicles.pins[pI].metadata.infoboxOpen = false
+            //         })
+            //     }
             // })
             
             // Set the infobox options with the metadata of the pushpin.
@@ -168,19 +164,20 @@ function showVehicleInfo(e) {
                 
             }
             
-            var data = e.target.metadata
             // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
 
-            var route = data.PublishedLineName
-            if (route.includes(' - ')) route = route.split(' - ').join(' / ')
-            if (route.includes('\\')) route = route.split('\\').join('/')
-            if (route.includes('/')) route = route.split('/').join(' / ')
-            if (route.includes('  ')) route = route.split('  ').join(' ')
+            console.log(data)
+
+            data.LineName = data.PublishedLineName
+            if (data.LineName.includes(' - ')) data.LineName = data.LineName.split(' - ').join(' / ')
+            if (data.LineName.includes('\\')) data.LineName = data.LineName.split('\\').join('/')
+            if (data.LineName.includes('/')) data.LineName = data.LineName.split('/').join(' / ')
+            if (data.LineName.includes('  ')) data.LineName = data.LineName.split('  ').join(' ')
 
             var options = {
                 title: [
                     `${data.agency}`, 
-                    `${data.LineRef}: ${route}`
+                    `${data.LineRef}: ${data.LineName}`
                 ], 
                 description: [
                     // `Agency: ${data.agency}`,

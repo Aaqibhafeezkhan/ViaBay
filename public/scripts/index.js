@@ -42,3 +42,10 @@ function checkIfValue(element) {
 function goToPage(name) {
   location.href = `/${name}`
 }
+
+function assertError(err, name) {
+  var aErr = `${name} Error: ${err}`
+  var cErr = `Error with ${name}: ${err}`
+  alert(aErr)
+  console.error(cErr)
+}
