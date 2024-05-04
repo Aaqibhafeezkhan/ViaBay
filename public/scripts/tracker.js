@@ -184,7 +184,7 @@ function showVehicleInfo(e) {
                     `Origin: ${data.OriginName}`,
                     `Destination: ${data.DestinationName}`,
                     `Congestion: ${data.InCongestion ? 'Congested' : 'Not Congested or Unknown'}`,
-                    `Occupancy: ${data.Occupancy ? data.Occupancy : 'unknown'}`,
+                    `Occupancy: ${data.Occupancy ? data.Occupancy : 'Unknown'}`,
                     `Vehicle ID: ${data.VehicleRef}`
                 ]
             }
