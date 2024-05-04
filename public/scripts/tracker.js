@@ -181,11 +181,11 @@ function showVehicleInfo(e) {
                 ], 
                 description: [
                     // `Agency: ${data.agency}`,
-                    `Origin: ${data.OriginName}`,
-                    `Destination: ${data.DestinationName}`,
+                    `Origin: ${data.OriginName ? data.OriginName : 'No Origin or Unknown'}`,
+                    `Destination: ${data.DestinationName ? data.DestinationName : 'No Destination or Unknown'}`,
                     `Congestion: ${data.InCongestion ? 'Congested' : 'Not Congested or Unknown'}`,
                     `Occupancy: ${data.Occupancy ? data.Occupancy : 'Unknown'}`,
-                    `Vehicle ID: ${data.VehicleRef}`
+                    `Vehicle ID: ${data.VehicleRef ? data.VehicleRef : 'Unknown'}`
                 ]
             }
             
