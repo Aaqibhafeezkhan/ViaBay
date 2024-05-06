@@ -18,6 +18,12 @@
         display: block !important;
         border: none !important;
         height: 0;
+
+        .infobox-stalk {
+            display: none;
+            top: unset;
+            left: unset;
+        }
     }
 }
 
