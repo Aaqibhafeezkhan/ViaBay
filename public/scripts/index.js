@@ -3,7 +3,8 @@ var urlParams = new URLSearchParams(queryString)
 
 var ratio = urlParams.get('ratio')
 if (ratio) {
-  document.querySelector('.app').classList.add(ratio)
+  if (ratio.includes('/')) ratio = ratio.split('/').join('')
+  document.querySelector('.app').classList.add(`r${ratio}`)
 }
 
 window.addEventListener('DOMContentLoaded', function(e) {
