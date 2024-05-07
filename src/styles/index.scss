@@ -48,7 +48,13 @@ body {
 }
 
 .app {
-  &
+  margin-inline: auto;
+  &.r34 {
+    aspect-ratio: 3 / 4;
+  }
+  &.r43 {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 .header {
