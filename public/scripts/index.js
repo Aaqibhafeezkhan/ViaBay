@@ -1,12 +1,3 @@
-var queryString = window.location.search
-var urlParams = new URLSearchParams(queryString)
-
-var ratio = urlParams.get('ratio')
-if (ratio) {
-  if (ratio.includes('/')) ratio = ratio.split('/').join('')
-  document.querySelector('.app').classList.add(`r${ratio}`)
-}
-
 window.addEventListener('DOMContentLoaded', function(e) {
   var title = document.title
   if (title.includes(' | ')) {
