@@ -8,7 +8,7 @@ if (ratio) {
 
   var parts = ratio.split('/')
 
-  var value = document.body.height*parts[0]/parts[1]
+  var value = document.body.clientHeight*parts[0]/parts[1]
 
   document.body.style.width = value
 }
