@@ -5,6 +5,7 @@ var apiKeys = [
     'fac23cdd-333b-41fc-b6d2-fc3628fbfb1d', 
     'b9269045-ce6b-48e3-9ef2-bdb1332499ad', 
     '26c601e1-1221-4690-9b03-1d597f5ccc96', 
+    '7a7f827d-6d7d-451e-a9a6-bcc517c951b9', 
 ]
 
 function makeRequest(moduleName, params=[], callback, i=0) {
@@ -29,7 +30,7 @@ function makeRequest(moduleName, params=[], callback, i=0) {
             callback(data)
         })
         .catch(err => {
-            if (i < 5) {
+            if (i < apiKeys.length) {
                 makeRequest(moduleName, params, callback, i++)
             }
             console.error(err);
