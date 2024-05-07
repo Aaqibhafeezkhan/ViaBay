@@ -3,9 +3,14 @@ var urlParams = new URLSearchParams(queryString)
 
 var ratio = urlParams.get('ratio')
 if (ratio) {
-  if (ratio.includes('/')) ratio = ratio.split('/').join(' / ')
-  if (ratio.includes('  ')) ratio = ratio.split('  ').join(' ')
-  document.body.style.aspectRatio = ratio
+  if (ratio.includes(' / ')) ratio = ratio.split(' / ').join('/')
+  if (ratio.includes(' ')) ratio = ratio.split(' ').join('')
+
+  var parts = ratio.split('/')
+
+  var value = document.body.height*parts[0]/parts[1]
+
+  document.body.style.width = value
 }
 
 window.addEventListener('DOMContentLoaded', function(e) {
