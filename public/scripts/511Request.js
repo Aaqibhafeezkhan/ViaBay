@@ -8,7 +8,10 @@ var apiKeys = [
     '26c601e1-1221-4690-9b03-1d597f5ccc96', 
 ]
 
-function makeRequest(moduleName, params=[], callback, i=0) {
+var firstErr = true
+var i = 0
+
+function makeRequest(moduleName, params=[], callback) {
     if (Array.isArray(params)) {
         if (params.length > 0) {
             params = `&${params.join('&')}`
@@ -28,10 +31,13 @@ function makeRequest(moduleName, params=[], callback, i=0) {
                 (data.startsWith('[') && data.endsWith(']'))
             ) data = JSON.parse(data)
             callback(data)
+            firstErr = false
+            workingI = i
         })
         .catch(err => {
-            if (i < apiKeys.length) {
-                makeRequest(moduleName, params, callback, i++)
+            if (i < apiKeys.length && firstCall === true) {
+                i++
+                makeRequest(moduleName, params, callback)
             }
             console.error(err);
         });
