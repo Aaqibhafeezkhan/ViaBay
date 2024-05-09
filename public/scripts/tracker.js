@@ -193,7 +193,7 @@ function showVehicleInfo(e) {
             if (data.OnwardCalls) {
                 stops = data.OnwardCalls.OnwardCall
                 stops.forEach(function(stop, sI) {
-                    var isEarlyLate = stop.ExpectedArrivalTime !== AimedArrivalTime ? true : false
+                    var isEarlyLate = stop.ExpectedArrivalTime !== stop.AimedArrivalTime ? true : false
                     var isLate = false
                     var isEarly = false
     
