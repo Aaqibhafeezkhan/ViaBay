@@ -197,10 +197,10 @@ function showVehicleInfo(e) {
                     var isLate = false
                     var isEarly = false
     
-                    var eDate = new Date(stop.ExpectedArrivalTime)
-                    var aDate = new Date(stop.AimedArrivalTime)
-                    console.log(eDate)
-                    console.log(aDate)
+                    var eDate = Date(stop.ExpectedArrivalTime)
+                    var aDate = Date(stop.AimedArrivalTime)
+                    console.log(eDate.now())
+                    console.log(aDate.now())
     
                     if (isEarlyLate) {
                         
