@@ -199,8 +199,8 @@ function showVehicleInfo(e) {
     
                     var eDate = Date(stop.ExpectedArrivalTime)
                     var aDate = Date(stop.AimedArrivalTime)
-                    console.log(eDate.now())
-                    console.log(aDate.now())
+                    // console.log(eDate.now())
+                    // console.log(aDate.now())
     
                     if (isEarlyLate) {
                         
@@ -210,7 +210,7 @@ function showVehicleInfo(e) {
     
                 })    
             }
-            var stopsHTML = `<div class="stops"><ul><li>${stops.join('</li><li>')}</li></ul></div>`
+            var stopsHTML = ''//`<div class="stops"><ul><li>${stops.join('</li><li>')}</li></ul></div>`
 
             infobox.setOptions({
                 location: e.target.getLocation(),
