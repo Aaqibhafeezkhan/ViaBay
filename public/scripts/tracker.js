@@ -210,7 +210,7 @@ function showVehicleInfo(e) {
     
                 })    
             }
-            var stopsHTML = `<div class="stops"><ul><li>${stops.join('</li></li>')}</li></ul></div>`
+            var stopsHTML = `<div class="stops"><ul><li>${stops.join('</li><li>')}</li></ul></div>`
 
             infobox.setOptions({
                 location: e.target.getLocation(),
