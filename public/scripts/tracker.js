@@ -189,31 +189,33 @@ function showVehicleInfo(e) {
                 ]
             }
             
-            var stops = data.OnwardCalls.OnwardCall
-            stops.forEach(function(stop, sI) {
-                var isEarlyLate = stop.ExpectedArrivalTime !== AimedArrivalTime ? true : false
-                var isLate = false
-                var isEarly = false
-
-                var eDate = new Date(stop.ExpectedArrivalTime)
-                var aDate = new Date(stop.AimedArrivalTime)
-                console.log(eDate)
-                console.log(aDate)
-
-                if (isEarlyLate) {
-                    
-                }
-
-                var color = isEarlyLate ? (isEarly ? 'green' : (isLate ? 'red' : 'black')) : 'black'
-
-            })
-
+            var stops = []
+            if (data.OnwardCalls) {
+                stops = data.OnwardCalls.OnwardCall
+                stops.forEach(function(stop, sI) {
+                    var isEarlyLate = stop.ExpectedArrivalTime !== AimedArrivalTime ? true : false
+                    var isLate = false
+                    var isEarly = false
+    
+                    var eDate = new Date(stop.ExpectedArrivalTime)
+                    var aDate = new Date(stop.AimedArrivalTime)
+                    console.log(eDate)
+                    console.log(aDate)
+    
+                    if (isEarlyLate) {
+                        
+                    }
+    
+                    var color = isEarlyLate ? (isEarly ? 'green' : (isLate ? 'red' : 'black')) : 'black'
+    
+                })    
+            }
             var stopsHTML = `<div class="stops"><ul><li>${stops.join('</li></li>')}</li></ul></div>`
 
             infobox.setOptions({
                 location: e.target.getLocation(),
                 title: options.title,
-                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${stopsHTML}</div>`,
+                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${data.OnwardCalls ? stopsHTML : ''}</div>`,
                 visible: true
             });
         }
