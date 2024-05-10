@@ -26,15 +26,16 @@ function makeRequest(moduleName, params=[], callback) {
     fetch(url)
         .then(response => response.json())
         .finally(data => {
+            workingI = i
             if (typeof data === 'string') {
                 if (
                     (data.startsWith('{') && data.endsWith('}')) || 
                     (data.startsWith('[') && data.endsWith(']'))
                 ) data = JSON.parse(data)
             }
+            console.log(data)
             callback(data)
             firstErr = false
-            workingI = i
         })
         .catch(err => {
             console.log(firstErr)
