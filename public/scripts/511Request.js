@@ -40,7 +40,6 @@ function makeRequest(moduleName, params=[], callback) {
             console.log(firstErr)
             if (i < apiKeys.length && firstErr === true) {
                 i++
-                workingI++
                 makeRequest(moduleName, params, callback)
             }
             console.log(i, workingI)
