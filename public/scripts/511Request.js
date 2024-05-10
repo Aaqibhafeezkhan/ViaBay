@@ -26,14 +26,15 @@ function makeRequest(moduleName, params=[], callback) {
     fetch(url)
         .then(response => response.json())
         .finally(data => {
-            if (
-                typeof data === 'string' && 
-                (data.startsWith('{') && data.endsWith('}')) || 
-                (data.startsWith('[') && data.endsWith(']'))
-            ) data = JSON.parse(data)
-                callback(data)
-                firstErr = false
-                workingI = i
+            if (typeof data === 'string') {
+                if (
+                    (data.startsWith('{') && data.endsWith('}')) || 
+                    (data.startsWith('[') && data.endsWith(']'))
+                ) data = JSON.parse(data)
+            }
+            callback(data)
+            firstErr = false
+            workingI = i
         })
         .catch(err => {
             console.log(firstErr)
@@ -42,6 +43,7 @@ function makeRequest(moduleName, params=[], callback) {
                 workingI++
                 makeRequest(moduleName, params, callback)
             }
+            console.log(i, workingI)
             console.error(err);
         });
 }
