@@ -9,8 +9,7 @@ var apiKeys = [
 ]
 
 var firstErr = true
-var i = 0
-var workingI = 0
+var i, workingI = 0
 
 function makeRequest(moduleName, params=[], callback) {
     if (Array.isArray(params)) {
@@ -25,17 +24,19 @@ function makeRequest(moduleName, params=[], callback) {
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[workingI]}${params}`
 
     fetch(url)
-        .then(response => response.text())
-        .then(data => {
+        .then(response => response.json())
+        .finally(data => {
             if (
+                typeof data === 'string' && 
                 (data.startsWith('{') && data.endsWith('}')) || 
                 (data.startsWith('[') && data.endsWith(']'))
             ) data = JSON.parse(data)
-            callback(data)
-            firstErr = false
-            workingI = i
+                callback(data)
+                firstErr = false
+                workingI = i
         })
         .catch(err => {
+            console.log(firstErr)
             if (i < apiKeys.length && firstErr === true) {
                 i++
                 workingI++

@@ -197,16 +197,18 @@ function showVehicleInfo(e) {
                     var isLate = false
                     var isEarly = false
     
-                    var eDate = Date(stop.ExpectedArrivalTime)
-                    var aDate = Date(stop.AimedArrivalTime)
-                    console.log(eDate)
-                    console.log(aDate)
+                    var eDate = new Date(stop.ExpectedArrivalTime)
+                    var aDate = new Date(stop.AimedArrivalTime)
+                    var eTime = eDate.getHours()*60*60+eDate.getMinutes()*60+eDate.getSeconds()
+                    var aTime = aDate.getHours()*60*60+aDate.getMinutes()*60+aDate.getSeconds()
+                    console.log(eTime)
+                    console.log(aTime)
     
                     if (isEarlyLate) {
                         
                     }
     
-                    var color = isEarlyLate ? (isEarly ? 'green' : (isLate ? 'red' : 'black')) : 'black'
+                    var color = isEarlyLate ? (isEarly ? 'green' : (isLate ? 'red' : 'yellow')) : 'black'
     
                 })    
             }
