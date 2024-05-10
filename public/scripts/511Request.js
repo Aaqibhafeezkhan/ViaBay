@@ -38,8 +38,7 @@ function makeRequest(moduleName, params=[], callback) {
             firstErr = false
         })
         .catch(err => {
-            console.log(firstErr)
-            if (i < apiKeys.length && firstErr === true) {
+            if (i < apiKeys.length-1 && firstErr === true) {
                 i++
                 makeRequest(moduleName, params, callback)
             }
