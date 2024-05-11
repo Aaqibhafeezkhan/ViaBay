@@ -190,6 +190,7 @@ function showVehicleInfo(e) {
             }
             
             var stops = []
+            var stopHTMLs = []
             console.log(data.OnwardCalls)
             if (data.OnwardCalls) {
                 stops = data.OnwardCalls.OnwardCall
@@ -207,11 +208,10 @@ function showVehicleInfo(e) {
 
                     var color = isLate ? 'red' : isEarly ? 'green' : isOnTime ? 'blue' : 'black'
 
-                    var stopHTML = `<li style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): stopTime</li>`
-                    stops[i] = stopHTML
+                    stopHTMLs.push(`<li style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): ${stopTime}</li>`)
                 })    
             }
-            var stopsHTML = `<ol class="stops">${stops.join('')}</ol>`
+            var stopsHTML = `<ol class="stops">${stopHTMLs.join('')}</ol>`
 
             infobox.setOptions({
                 location: e.target.getLocation(),
