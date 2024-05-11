@@ -64,7 +64,7 @@ else year = `-${year}`
     <script src="/scripts/notificationManager.js" is:inline></script>
     {
       scripts.map(function(s, i) {
-        if (s.location === 'head') {
+        if (s.location === 'head' && s.name) {
           return <script src={`/scripts/${s.name}.js`}></script>
         }
       })
@@ -102,7 +102,7 @@ else year = `-${year}`
     <script src="/scripts/select.js" is:inline></script>
     {
       scripts.map(function(s, i) {
-        if (s.location !== 'head') {
+        if (s.location !== 'head' && s.name) {
           return <script src={`/scripts/${s.name}.js`}></script>
         }
       })
