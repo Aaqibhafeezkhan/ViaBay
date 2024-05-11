@@ -34,7 +34,6 @@ function makeRequest(moduleName, params=[], callback) {
                     (data.startsWith('[') && data.endsWith(']'))
                 ) data = JSON.parse(data)
             }
-            console.log(data)
             callback(data)
             firstErr = false
         })

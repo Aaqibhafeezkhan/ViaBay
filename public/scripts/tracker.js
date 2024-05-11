@@ -190,6 +190,7 @@ function showVehicleInfo(e) {
             }
             
             var stops = []
+            console.log(data.OnwardCalls)
             if (data.OnwardCalls) {
                 stops = data.OnwardCalls.OnwardCall
                 stops.forEach(function(stop, sI) {
