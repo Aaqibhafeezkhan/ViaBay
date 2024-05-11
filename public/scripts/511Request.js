@@ -12,6 +12,7 @@ var firstErr = true
 var i, workingI = 0
 
 function makeRequest(moduleName, params=[], callback) {
+    workingI = i
     if (Array.isArray(params)) {
         if (params.length > 0) {
             params = `&${params.join('&')}`
@@ -26,7 +27,6 @@ function makeRequest(moduleName, params=[], callback) {
     fetch(url)
         .then(response => response.json())
         .finally(data => {
-            workingI = i
             if (typeof data === 'string') {
                 if (
                     (data.startsWith('{') && data.endsWith('}')) || 
