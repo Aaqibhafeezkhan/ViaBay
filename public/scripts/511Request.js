@@ -23,11 +23,13 @@ function makeRequest(moduleName, params=[], callback) {
     }
 
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[workingI]}${params}`
+    // console.log(url)
 
     fetch(url)
         .then(response => response.json())
-        .finally(data => {
+        .then(data => {
             console.log(data)
+            // var data = response.json()
             if (typeof data === 'string') {
                 if (
                     (data.startsWith('{') && data.endsWith('}')) || 
@@ -43,7 +45,7 @@ function makeRequest(moduleName, params=[], callback) {
                 i++
                 makeRequest(moduleName, params, callback)
             }
-            console.log(i, workingI)
+            // console.log(i, workingI)
             console.error(err);
         });
 }
