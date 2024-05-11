@@ -199,14 +199,18 @@ function showVehicleInfo(e) {
                     var eTime = eDate.getHours()*60*60+eDate.getMinutes()*60+eDate.getSeconds()
                     var aTime = aDate.getHours()*60*60+aDate.getMinutes()*60+aDate.getSeconds()
                     
+                    var stopTime = `${eDate.getHours()}:${eDate.getMinutes().toString().length < 2 ? `0${eDate.getMinutes()}` : eDate.getMinutes()}`
+                    
                     var isLate = eTime > aTime ? true : false
                     var isEarly = eTime < aTime ? true : false
                     var isOnTime = eTime === aTime ? true : false
 
                     var color = isLate ? 'red' : isEarly ? 'green' : isOnTime ? 'blue' : 'black'
+
+                    var stopHTML = `<li style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): stopTime</li>`
                 })    
             }
-            var stopsHTML = ''//`<div class="stops"><ul><li>${stops.join('</li><li>')}</li></ul></div>`
+            var stopsHTML = ''//`<div class="stops"><ul>${stops.join('')}</ul></div>`
 
             infobox.setOptions({
                 location: e.target.getLocation(),
