@@ -166,7 +166,7 @@ function showVehicleInfo(e) {
             
             // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
 
-            console.log(data)
+            // console.log(data)
 
             data.LineName = data.PublishedLineName
             if (data.LineName.includes('\\')) data.LineName = data.LineName.split('\\').join('/')
