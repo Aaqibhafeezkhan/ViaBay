@@ -27,6 +27,7 @@ function makeRequest(moduleName, params=[], callback) {
     fetch(url)
         .then(response => response.json())
         .finally(data => {
+            console.log(data)
             if (typeof data === 'string') {
                 if (
                     (data.startsWith('{') && data.endsWith('}')) || 
