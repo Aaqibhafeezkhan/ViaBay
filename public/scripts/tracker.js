@@ -208,6 +208,7 @@ function showVehicleInfo(e) {
                     var color = isLate ? 'red' : isEarly ? 'green' : isOnTime ? 'blue' : 'black'
 
                     var stopHTML = `<li style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): stopTime</li>`
+                    stops[i] = stopHTML
                 })    
             }
             var stopsHTML = `<ol class="stops">${stops.join('')}</ol>`
