@@ -21,7 +21,7 @@ function makeRequest(moduleName, params=[], callback) {
         }
     }
 
-    var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[workiingI]}${params}`
+    var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[i]}${params}`
     // console.log(url)
 
     fetch(url)
