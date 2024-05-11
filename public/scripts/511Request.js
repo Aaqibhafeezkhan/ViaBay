@@ -9,7 +9,7 @@ var apiKeys = [
 ]
 
 var firstErr = true
-var i, workingI = 0
+var i = 0, workingI = 0
 
 function makeRequest(moduleName, params=[], callback) {
     workingI = i
