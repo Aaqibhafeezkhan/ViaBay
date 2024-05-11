@@ -194,23 +194,16 @@ function showVehicleInfo(e) {
             if (data.OnwardCalls) {
                 stops = data.OnwardCalls.OnwardCall
                 stops.forEach(function(stop, sI) {
-                    var isEarlyLate = stop.ExpectedArrivalTime !== stop.AimedArrivalTime ? true : false
-                    var isLate = false
-                    var isEarly = false
-    
                     var eDate = new Date(stop.ExpectedArrivalTime)
                     var aDate = new Date(stop.AimedArrivalTime)
                     var eTime = eDate.getHours()*60*60+eDate.getMinutes()*60+eDate.getSeconds()
                     var aTime = aDate.getHours()*60*60+aDate.getMinutes()*60+aDate.getSeconds()
-                    console.log(eTime)
-                    console.log(aTime)
-    
-                    if (isEarlyLate) {
-                        
-                    }
-    
-                    var color = isEarlyLate ? (isEarly ? 'green' : (isLate ? 'red' : 'yellow')) : 'black'
-    
+                    
+                    var isLate = eTime > aTime ? true : false
+                    var isEarly = eTime < aTime ? true : false
+                    var isOnTime = eTime === aTime ? true : false
+
+                    var color = isLate ? 'red' : isEarly ? 'green' : isOnTime ? 'blue' : 'black'
                 })    
             }
             var stopsHTML = ''//`<div class="stops"><ul><li>${stops.join('</li><li>')}</li></ul></div>`
