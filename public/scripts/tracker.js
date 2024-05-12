@@ -17,7 +17,7 @@ function onMapLoad() {
 
             agencyIds.push(agency)
 
-            makeRequest('VehicleMonitoring', [`agency=${agency.Id}`], function(vehicleData) {
+            makeRequest('VehicleMonitoring', [['agency', agency.Id]], function(vehicleData) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
                 
@@ -87,6 +87,8 @@ function onMapLoad() {
 
                     var route = vehicleActivity.LineRef
                     if (route) {
+                        makeRequest('patterns?api_key=b9269045-ce6b-48e3-9ef2-bdb1332499ad&operator_id=SM&line_id=260')
+
                         var width = 30
                         if (route.length > 3) {
                             var exces = route.length-3

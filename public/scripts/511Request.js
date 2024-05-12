@@ -14,6 +14,9 @@ var i = 0
 function makeRequest(moduleName, params=[], callback) {
     if (Array.isArray(params)) {
         if (params.length > 0) {
+            params.forEach(function(param, i) {
+                params[i] = param.join('=')
+            })
             params = `&${params.join('&')}`
         }
         else {
