@@ -1,3 +1,5 @@
+$padding: 10px;
+
 .main {
     display: flex;
 }
@@ -24,16 +26,20 @@
             top: unset;
             left: unset;
         }
+        .infobox-close {
+            right: $padding;
+            top: $padding;
+        }
     }
 }
 
 .infobox {
-    padding: 10px;
+    padding: $padding;
 
     background-color: #fff9;
     color: black;
 
-    border-radius: 10px;
+    border-radius: $padding;
     
     .title {
         font-weight: bold;
@@ -45,6 +51,10 @@
         .stop {
             max-width: 25rem;
             word-wrap: break-word;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }
