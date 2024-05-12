@@ -11,10 +11,15 @@ $padding: 10px;
 }
 
 :has( > .InfoboxCustom > .infobox-body > * > .infobox) {
+    $_max: 100% - #{$padding}*2;
+
     top: unset !important;
     left: unset !important;
     bottom: $padding !important;
     right: $padding !important;
+
+    max-height: $_max;
+    max-width: $_max;
 
     .Infobox.no-title {
         display: block !important;
@@ -34,16 +39,14 @@ $padding: 10px;
 }
 
 .infobox {
-    $_max: 100% - #{$padding}*2;
     padding: $padding;
-
-    max-height: $_max;
-    max-width: $_max;
 
     background-color: #fff9;
     color: black;
 
     border-radius: $padding;
+
+    overflow: auto;
     
     .title {
         font-weight: bold;
