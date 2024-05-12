@@ -32,6 +32,9 @@ function onMapLoad() {
                         vehicles: {
                             data: vehicleData, 
                             pins: {}, 
+                        }, 
+                        routes: {
+
                         }
                     }
                 }
@@ -87,7 +90,12 @@ function onMapLoad() {
 
                     var route = vehicleActivity.LineRef
                     if (route) {
-                        makeRequest('patterns?api_key=b9269045-ce6b-48e3-9ef2-bdb1332499ad&operator_id=SM&line_id=260')
+                        makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
+                            if (!aObj.routes[route]) {
+                                aObj.routes[route] = res
+                                console.log(res)
+                            }
+                        })
 
                         var width = 30
                         if (route.length > 3) {
