@@ -38,4 +38,10 @@
     .title {
         font-weight: bold;
     }
+
+    .stops {
+        .stop {
+            word-wrap: break-word;
+        }
+    }
 }
