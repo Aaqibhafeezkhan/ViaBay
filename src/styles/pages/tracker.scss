@@ -34,7 +34,7 @@ $padding: 10px;
 }
 
 .infobox {
-    $_max: 100% - $padding*2;
+    $_max: 100% - #{$padding}*2;
     padding: $padding;
 
     max-height: $_max;
