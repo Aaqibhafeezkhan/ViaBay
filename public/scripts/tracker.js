@@ -206,6 +206,11 @@ function showVehicleInfo(e) {
                     var isEarly = eTime < aTime ? true : false
                     var isOnTime = eTime === aTime ? true : false
 
+                    var earlyLateText = ''
+                    if (isLate) earlyLateText = `${Math.ceil((eTime-aTime)/60)} Minutes Late`
+                    if (isEarly) earlyLateText = `${Math.ceil((aTime-eTime)/60)} Minutes Early`
+                    if (isOnTime) earlyLateText = `On Time`
+
                     var color = isLate ? 'red' : isEarly ? 'green' : isOnTime ? 'blue' : 'black'
 
                     stopHTMLs.push(`<li style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): ${stopTime}</li>`)
