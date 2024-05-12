@@ -12,8 +12,6 @@
     flex-direction: column;
     gap: var(--gap);
 
-    overflow-y: auto;
-
     .stops-area {
       box-sizing: border-box;
       padding: var(--gap) var(--gap) 0;
@@ -126,6 +124,7 @@
     #directions {
       flex: 1;
       width: fit-content;
+      overflow-y: auto;
       // height: 100%;
       // width: 100%;
     }
