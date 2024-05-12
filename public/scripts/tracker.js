@@ -22,7 +22,7 @@ function onMapLoad() {
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
                 
                 var aName = agency.Name
-                if (aName = 'VTA') aName = 'Valley Transportation Authority (VTA)'
+                if (aName === 'VTA') aName = 'Valley Transportation Authority (VTA)'
 
                 var aObj = agencies[agency.Id]
                 if (!aObj) {
