@@ -192,11 +192,15 @@ function showVehicleInfo(e) {
                 ]
             }
             
+            var hasCalls = data.OnwardCalls ? (data.OnwardCalls.OnwardCall ? (data.OnwardCalls.OnwardCall.length > 0 ? true : false) : false) : false
+
             var stops = []
             var stopHTMLs = []
-            console.log(data.OnwardCalls)
-            if (data.OnwardCalls) {
+
+            if (hasCalls) {
+                console.log(data.OnwardCalls)
                 stops = data.OnwardCalls.OnwardCall
+                
                 stops.forEach(function(stop, sI) {
                     var eDate = new Date(stop.ExpectedArrivalTime)
                     var aDate = new Date(stop.AimedArrivalTime)
@@ -224,7 +228,7 @@ function showVehicleInfo(e) {
             infobox.setOptions({
                 location: e.target.getLocation(),
                 title: options.title,
-                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${data.OnwardCalls ? stopsHTML : ''}</div>`,
+                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${hasCalls ? stopsHTML : ''}</div>`,
                 visible: true
             });
         }
