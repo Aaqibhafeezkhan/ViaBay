@@ -21,11 +21,14 @@ function onMapLoad() {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
                 
+                var aName = agency.Name
+                if (aName = 'VTA') aName = 'Valley Transportation Authority (VTA)'
+
                 var aObj = agencies[agency.Id]
                 if (!aObj) {
                     aObj = {
                         id: agency.Id, 
-                        name: agency.Name, 
+                        name: aName, 
                         vehicles: {
                             data: vehicleData, 
                             pins: {}, 
@@ -54,7 +57,7 @@ function onMapLoad() {
                 
                 vehicleData.forEach(function(vehicle, vI) {
                     var vehicleActivity = vehicle.MonitoredVehicleJourney
-                    vehicleActivity.agency = agency.Name
+                    vehicleActivity.agency = aName
                     vehicleActivity.aId = agency.Id
                     vehicleActivity.i = vI
                     var vehicleRef = vehicleActivity.VehicleRef
