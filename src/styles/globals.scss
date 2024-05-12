@@ -42,7 +42,7 @@ body {
   position: relative;
   height: 100dvh;
   display: grid;
-  grid-template-rows: var(--hf-size) 1fr var(--hf-size);
+  grid-template-rows: var(--hf-size) calc(100% - var(--hf-size)*2) var(--hf-size);
 
   --border: solid var(--border-size) white;
 }
