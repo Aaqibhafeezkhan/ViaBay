@@ -17,7 +17,7 @@ function onMapLoad() {
 
             agencyIds.push(agency)
 
-            makeRequest('VehicleMonitoring', [['agency', agency.Id]], function(vehicleData) {
+            makeRequest('VehicleMonitoring', [['agency', agency.Id]], function(vehicleData, i2) {
                 var vehicleData = vehicleData.Siri.ServiceDelivery.VehicleMonitoringDelivery.VehicleActivity
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
                 
@@ -90,12 +90,6 @@ function onMapLoad() {
 
                     var route = vehicleActivity.LineRef
                     if (route) {
-                        makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
-                            if (!aObj.routes[route]) {
-                                aObj.routes[route] = res
-                                console.log(res)
-                            }
-                        })
 
                         var width = 30
                         if (route.length > 3) {
@@ -135,6 +129,23 @@ function onMapLoad() {
                 })
 
                 agencies[agency.Id] = aObj
+
+                if (i2 >= res.length) {
+                    makeRequest('gtfsoperators', [], function(agencies) {
+                        agencies.forEach(function(agency) {
+                            agencies[agency.Id].routes = {}
+                            makeRequest('lines', [['operator_id', agency.Id]], function(routes) {
+                                routes.forEach(function(route) {
+                                    aObj.routes[route] = {}
+                                    makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
+                                        aObj.routes[route] = res
+                                        console.log(res)
+                                    })
+                                })
+                            })
+                        })
+                    })
+                }
             })
         })
     })
