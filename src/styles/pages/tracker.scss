@@ -40,7 +40,10 @@
     }
 
     .stops {
+        display: grid;
+        gap: 0.25rem;
         .stop {
+            max-width: 25rem;
             word-wrap: break-word;
         }
     }
