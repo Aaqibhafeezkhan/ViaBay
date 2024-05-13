@@ -48,12 +48,15 @@ function addDirections(e) {
         
         // // Calculate a date time that is 1 hour from now.
         var date = new Date();
-        // date.setMinutes(date.getHours() + 1);
-        
+
+        var month = date.getMonth().toString().length === 1 ? day = `0${date.getMonth()}` : date.getMonth().toString()
+        var day = date.getDate().toString().length === 1 ? day = `0${date.getDate()}` : date.getDate().toString()
+        var year = date.getFullYear()
+
         // Set Route Mode to transit.
         directionsManager.setRequestOptions({
             routeMode: Microsoft.Maps.Directions.RouteMode.transit,
-            time: date,
+            dateTime: `${month}/${day}/${year}`,
             timeType: Microsoft.Maps.Directions.TimeTypes.departure,
         });
         
