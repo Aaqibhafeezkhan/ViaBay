@@ -71,7 +71,6 @@ function addDirections(e) {
         
         // Calculate directions.
         directionsManager.calculateDirections();
-        console.log(directionsManager)
     });
 }
 

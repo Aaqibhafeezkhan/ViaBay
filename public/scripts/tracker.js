@@ -7,6 +7,9 @@ var allPins = []
 
 var colors = ['#0000FF','#FFA500','#6A4A3A','#800080','#800000','#40E0D0','#FF00FF','#000035','#FF6347','#FA8072','#808000','#7F00FF','#73BF00','#CD7F32','#8A2BE2','#3CB371','#2E8B57','#D2691E','#4682B4','#FF4500','#8B008B','#556B2F', '#8B4513', '#00CED1', '#483D8B', '#8B0000', '#9932CC', '#556B2F', '#2E8B57', '#6B8E23', '#9932CC', '#FF6347', '#20B2AA']
 
+var directionsElement = document.querySelector('#hiddenDirections')
+var directionsManager = false
+
 
 function onMapLoad() {
     makeRequest('gtfsoperators', [], function(res) {
@@ -253,4 +256,33 @@ function showVehicleInfo(e) {
                 visible: true
             });
         }
+}
+
+function showRoutePath(stops) {
+    // Load the directions module.
+    Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+        if (directionsManager) directionsManager.clearAll()
+
+        // Create an instance of the directions manager.
+        directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+        
+        // // Calculate a date time that is 1 hour from now.
+        // Set Route Mode to transit.
+        directionsManager.setRequestOptions({
+            routeMode: Microsoft.Maps.Directions.RouteMode.driving,
+        });
+        
+        // Add waypoints.
+        stops.forEach(function(s, i) {
+            var waypoint = new Microsoft.Maps.Directions.Waypoint({ address: s });
+            directionsManager.addWaypoint(waypoint);
+        })
+        
+        // Set the element in which the itinerary will be rendered.
+        directionsManager.setRenderOptions({ itineraryContainer: directionsElement });
+        
+        // Calculate directions.
+        directionsManager.calculateDirections();
+        console.log(directionsManager)
+    });
 }
