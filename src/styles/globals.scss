@@ -2,6 +2,11 @@ $border-size: 2px;
 $border: solid #{$border-size} white;
 $hf-size: 3.5rem;
 
+// Inputs
+$p-i: 1rem;
+$s-w: calc(100% - #{$p-i*2} - $border-size);
+$b-r: 10px;
+
 // Input Labels
 $t-time: 0.5s;
 $skew: 10deg;
@@ -187,10 +192,6 @@ body {
 }
 
 .input-parent, .textarea-parent, .select-parent {
-  $p-i: 1rem;
-  $s-w: calc(100% - #{$p-i*2} - $border-size);
-  $b-r: 10px;
-
   position: relative;
   box-sizing: border-box;
 
