@@ -3,147 +3,158 @@
         "id": "3D", 
 	    "name": "Tri Delta Transit", 
         "routes": {
-            "default": ""
+            "200*": "2.50", 
+            "201*": "2.50", 
+            "202*": "2.50", 
+            "300*": "2.50", 
+            "default": "2.00"
         }
     }, 
     "AC": {
         "id": "AC", 
 	    "name": "AC Transit", 
         "routes": {
-            "default": ""
+            "default": "2.50"
         }
 	}, 
     "AF": {
         "id": "AF", 
 	    "name": "Angel Island Tiburon Ferry", 
         "routes": {
-            "default": ""
+            "default": "18.00"
         }
     }, 
     "AM": {
         "id": "AM", 
 	    "name": "Capitol Corridor Joint Powers Authority", 
         "routes": {
-            "default": ""
+            "default": "6+"
         }
     }, 
     "BA": {
         "id": "BA", 
 	    "name": "Bay Area Rapid Transit", 
         "routes": {
-            "default": ""
+            "default": "2.30+"
         }
     }, 
     "CC": {
         "id": "CC", 
 	    "name": "County Connection", 
         "routes": {
-            "default": ""
+            "default": "2.00"
         }
 	}, 
     "CE": {
         "id": "CE", 
 	    "name": "Altamont Corridor Express", 
         "routes": {
-            "default": ""
+            "default": "4.75+"
         }
     }, 
     "CM": {
         "id": "CM", 
 	    "name": "Commute.org Shuttles", 
         "routes": {
-            "default": ""
+            "default": "0.00"
         }
     }, 
     "CT": {
         "id": "CT", 
 	    "name": "Caltrain", 
         "routes": {
-            "default": ""
+            "1": "3.75", 
+            "2": "6.00", 
+            "3": "8.25", 
+            "4": "10.50", 
+            "5": "12.75", 
+            "6": "15.00", 
+            "default": "3.75+"
         }
     }, 
     "DE": {
         "id": "DE", 
 	    "name": "Dumbarton Express Consortium", 
         "routes": {
-            "default": ""
+            "default": "2.50"
         }
     }, 
     "EM": {
         "id": "EM", 
 	    "name": "Emery Go-Round", 
         "routes": {
-            "default": ""
+            "default": "0.00"
         }
 	}, 
     "FS": {
         "id": "FS", 
-	    "name": "FAST", 
+	    "name": "City of Fairfield Transit", 
         "routes": {
-            "default": ""
+            "default": "2.00"
         }
 	}, 
     "GF": {
         "id": "GF", 
 	    "name": "Golden Gate Ferry", 
         "routes": {
-            "default": ""
+            "Angel Island": "15.00", 
+            "default": "14.00"
         }
     }, 
     "GG": {
         "id": "GG", 
 	    "name": "Golden Gate Transit", 
         "routes": {
-            "default": ""
+            "default": "5.25+"
         }
 	}, 
     "MA": {
         "id": "MA", 
 	    "name": "Marin Transit", 
         "routes": {
-            "default": ""
+            "default": "2.00"
         }
     }, 
     "MB": {
         "id": "MB", 
 	    "name": "Mission Bay TMA", 
         "routes": {
-            "default": ""
+            "default": "0.00"
         }
     }, 
     "MV": {
         "id": "MV", 
 	    "name": "MVgo", 
         "routes": {
-            "default": ""
+            "default": "0.00"
         }
 	}, 
     "PE": {
         "id": "PE", 
 	    "name": "Petaluma Transit", 
         "routes": {
-            "default": ""
+            "default": "1.50"
         }
     }, 
     "PG": {
         "id": "PG", 
 	    "name": "PresidiGo", 
         "routes": {
-            "default": ""
+            "default": "0.00"
         }
     }, 
     "RG": {
         "id": "RG", 
 	    "name": "Regional GTFS", 
         "routes": {
-            "default": ""
+            "default": null
         }
     }, 
     "RV": {
         "id": "RV", 
 	    "name": "Rio Vista Delta Breeze", 
         "routes": {
-            "default": ""
+            "default": "2.00+"
         }
     }, 
     "SA": {
@@ -157,105 +168,114 @@
         "id": "SB", 
 	    "name": "San Francisco Bay Ferry", 
         "routes": {
-            "default": ""
+            "1": "1.50", 
+            "2": "3.00", 
+            "3": "4.50", 
+            "4": "6.00", 
+            "5": "7.50", 
+            "default": "1.50"
         }
     }, 
     "SC": {
         "id": "SC", 
 	    "name": "VTA (Valley Transportation Authority)", 
         "routes": {
-            "default": ""
+            "default": "2.50"
         }
     }, 
     "SF": {
         "id": "SF", 
-	    "name": "San Francisco Municipal Transportation Agency", 
+	    "name": "SF Muni", 
         "routes": {
-            "default": ""
+            "CC": "8.00", 
+            "default": "3.00+"
         }
     }, 
     "SI": {
         "id": "SI", 
 	    "name": "San Francisco International Airport", 
         "routes": {
-            "default": ""
+            "default": "0.00"
         }
 	}, 
     "SM": {
         "id": "SM", 
 	    "name": "SamTrans", 
         "routes": {
-            "default": ""
+            "default": "2.25"
         }
 	}, 
     "SO": {
         "id": "SO", 
 	    "name": "Sonoma County Transit", 
         "routes": {
-            "default": ""
+            "default": "1.50+"
         }
     }, 
     "SR": {
         "id": "SR", 
 	    "name": "Santa Rosa Transit", 
         "routes": {
-            "default": ""
+            "default": "1.50"
         }
 	}, 
     "SS": {
         "id": "SS", 
 	    "name": "City of South San Francisco", 
         "routes": {
-            "default": ""
+            "default": "0.00"
         }
     }, 
     "ST": {
         "id": "ST", 
 	    "name": "SolTrans", 
         "routes": {
-            "default": ""
+            "default": "2.00+"
         }
     }, 
     "TF": {
         "id": "TF", 
 	    "name": "Treasure Island Ferry", 
         "routes": {
-            "default": ""
+            "default": "5.00"
         }
     }, 
     "UC": {
         "id": "UC", 
 	    "name": "Union City Transit", 
         "routes": {
-            "default": ""
+            "default": "2.00"
         }
     }, 
     "VC": {
         "id": "VC", 
 	    "name": "Vacaville City Coach", 
         "routes": {
-            "default": ""
+            "default": "1.50"
         }
     }, 
     "VN": {
         "id": "VN", 
-	    "name": "VINE Transit", 
+	    "name": "Vine Transit", 
         "routes": {
-            "default": ""
+            "11X": "3.00", 
+            "21": "3.00", 
+            "29": "5.50", 
+            "default": "1.60"
         }
 	}, 
     "WC": {
         "id": "WC", 
 	    "name": "WestCat (Western Contra Costa)", 
         "routes": {
-            "default": ""
+            "default": "1.75"
         }
     }, 
     "WH": {
         "id": "WH", 
-	    "name": "Livermore Amador Valley Transit Authority", 
+	    "name": "Wheels Bus", 
         "routes": {
-            "default": ""
+            "default": "2.00"
         }
     }
 }

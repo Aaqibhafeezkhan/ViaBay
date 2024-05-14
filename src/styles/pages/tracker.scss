@@ -20,6 +20,10 @@ $padding: 10px;
 
     max-height: $_max;
     max-width: $_max;
+    
+    *:not(.infobox, .infobox *) {
+        height: 100%;
+    }
 
     .Infobox.no-title {
         display: block !important;
