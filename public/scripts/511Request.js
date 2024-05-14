@@ -8,7 +8,9 @@ var apiKeys = [
     'fac23cdd-333b-41fc-b6d2-fc3628fbfb1d', 
 ]
 
-function makeRequest(moduleName, params=[], callback, i=0) {
+var i = 0
+
+function makeRequest(moduleName, params=[], callback) {
     if (Array.isArray(params)) {
         if (params.length > 0) {
             params.forEach(function(param, i) {
@@ -38,7 +40,9 @@ function makeRequest(moduleName, params=[], callback, i=0) {
             firstErr = false
         })
         .catch(err => {
+            console.log(i)
             if (i < apiKeys.length) {
+                i++
                 makeRequest(moduleName, params, callback, i++)
             }
             console.error(err);
