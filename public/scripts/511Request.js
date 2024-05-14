@@ -8,10 +8,7 @@ var apiKeys = [
     'fac23cdd-333b-41fc-b6d2-fc3628fbfb1d', 
 ]
 
-var firstErr = true
-var i = 0
-
-function makeRequest(moduleName, params=[], callback) {
+function makeRequest(moduleName, params=[], callback, i=0) {
     if (Array.isArray(params)) {
         if (params.length > 0) {
             params.forEach(function(param, i) {
@@ -41,9 +38,8 @@ function makeRequest(moduleName, params=[], callback) {
             firstErr = false
         })
         .catch(err => {
-            if (i < apiKeys.length-1 && firstErr === true) {
-                i++
-                makeRequest(moduleName, params, callback)
+            if (i < apiKeys.length) {
+                makeRequest(moduleName, params, callback, i++)
             }
             console.error(err);
         });

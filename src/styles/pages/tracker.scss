@@ -24,7 +24,7 @@ $hf-size: 3.5rem;
     max-width: $_max;
     
     *:not(.infobox *) {
-        max-height: calc(100dvh - #{$hf-size*2 - 20px})
+        max-height: calc(100dvh - #{$hf-size*2} - 20px)
     }
 
     .Infobox.no-title {
