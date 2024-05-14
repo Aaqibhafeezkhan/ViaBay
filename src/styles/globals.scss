@@ -184,7 +184,7 @@ body {
 
 .input-parent, .textarea-parent, .select-parent {
   $p-i: 1rem;
-  $s-w: calc(100% - #{$p-i*2 - $border-size});
+  $s-w: calc(100% - #{$p-i*2} - $border-size);
   $b-r: 10px;
 
   position: relative;
