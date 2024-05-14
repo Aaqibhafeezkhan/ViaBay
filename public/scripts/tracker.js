@@ -194,10 +194,12 @@ function showVehicleInfo(e) {
             // console.log(data)
 
             data.LineName = data.PublishedLineName
-            if (data.LineName.includes('\\')) data.LineName = data.LineName.split('\\').join('/')
-            if (data.LineName.includes(' / ')) data.LineName = data.LineName.split(' / ').join('/')
-            if (data.LineName.includes('/')) data.LineName = data.LineName.split('/').join(' - ')
-            if (data.LineName.includes('  ')) data.LineName = data.LineName.split('  ').join(' ')
+            if (data.PublishedLineName) {
+                if (data.LineName.includes('\\')) data.LineName = data.LineName.split('\\').join('/')
+                    if (data.LineName.includes(' / ')) data.LineName = data.LineName.split(' / ').join('/')
+                    if (data.LineName.includes('/')) data.LineName = data.LineName.split('/').join(' - ')
+                    if (data.LineName.includes('  ')) data.LineName = data.LineName.split('  ').join(' ')
+                }
 
             var options = {
                 title: [
