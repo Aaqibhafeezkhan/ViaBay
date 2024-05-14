@@ -44,17 +44,13 @@ function onMapLoad() {
                         }
                     }
                     if (i2 >= res.length) {
-                        makeRequest('gtfsoperators', [], function(agencies) {
-                            agencies.forEach(function(agency) {
-                                agencies[agency.Id].routes = {}
-                                makeRequest('lines', [['operator_id', agency.Id]], function(routes) {
-                                    routes.forEach(function(route) {
-                                        aObj.routes[route] = {}
-                                        makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
-                                            aObj.routes[route] = res
-                                            console.log(res)
-                                        })
-                                    })
+                        makeRequest('lines', [['operator_id', agency.Id]], function(routes) {
+                            routes.forEach(function(route) {
+                                console.log(route)
+                                aObj.routes[route] = {}
+                                makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
+                                    aObj.routes[route] = res
+                                    console.log(res)
                                 })
                             })
                         })
