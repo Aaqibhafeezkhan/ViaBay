@@ -1,0 +1,113 @@
+{
+    "3D": {
+	    "Name": "Tri Delta Transit"
+    }, 
+    "AC": {
+	    "Name": "AC TRANSIT"
+	}, 
+    "AF": {
+	    "Name": "Angel Island Tiburon Ferry"
+    }, 
+    "AM": {
+	    "Name": "Capitol Corridor Joint Powers Authority"
+    }, 
+    "BA": {
+	    "Name": "Bay Area Rapid Transit"
+    }, 
+    "CC": {
+	    "Name": "County Connection"
+	}, 
+    "CE": {
+	    "Name": "Altamont Corridor Express"
+    }, 
+    "CM": {
+	    "Name": "Commute.org Shuttles"
+    }, 
+    "CT": {
+	    "Name": "Caltrain"
+    }, 
+    "DE": {
+	    "Name": "Dumbarton Express Consortium"
+    }, 
+    "EM": {
+	    "Name": "Emery Go-Round"
+	}, 
+    "FS": {
+	    "Name": "FAST"
+	}, 
+    "GF": {
+	    "Name": "Golden Gate Ferry"
+    }, 
+    "GG": {
+	    "Name": "Golden Gate Transit"
+	}, 
+    "MA": {
+	    "Name": "Marin Transit"
+    }, 
+    "MB": {
+	    "Name": "Mission Bay TMA"
+    }, 
+    "MV": {
+	    "Name": "MVgo"
+	}, 
+    "PE": {
+	    "Name": "PETALUMA"
+    }, 
+    "PG": {
+	    "Name": "PresidiGo"
+    }, 
+    "RG": {
+	    "Name": "Regional GTFS"
+    }, 
+    "RV": {
+	    "Name": "Rio Vista Delta Breeze"
+    }, 
+    "SA": {
+	    "Name": "Sonoma Marin Area Rail Transit"
+	}, 
+    "SB": {
+	    "Name": "San Francisco Bay Ferry"
+    }, 
+    "SC": {
+	    "Name": "VTA (Valley Transportation Authority)"
+    }, 
+    "SF": {
+	    "Name": "San Francisco Municipal Transportation Agency"
+    }, 
+    "SI": {
+	    "Name": "San Francisco International Airport"
+	}, 
+    "SM": {
+	    "Name": "SamTrans"
+	}, 
+    "SO": {
+	    "Name": "Sonoma County Transit"
+    }, 
+    "SR": {
+	    "Name": "SANTAROSA"
+	}, 
+    "SS": {
+	    "Name": "City of South San Francisco"
+    }, 
+    "ST": {
+	    "Name": "SolTrans"
+    }, 
+    "TF": {
+	    "Name": "Treasure Island Ferry"
+    }, 
+    "UC": {
+	    "Name": "Union City Transit"
+    }, 
+    "VC": {
+	    "Name": "Vacaville City Coach"
+    }, 
+    "VN": {
+	    "Name": "VINE Transit"
+	}, 
+    "WC": {
+	    "Name": "WestCat (Western Contra Costa)"
+    }, 
+    "WH": {
+	    "Name": "Livermore Amador Valley Transit Authority"
+    }
+}
