@@ -1,113 +1,261 @@
 {
     "3D": {
-	    "Name": "Tri Delta Transit"
+        "id": "3D", 
+	    "name": "Tri Delta Transit", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "AC": {
-	    "Name": "AC TRANSIT"
+        "id": "AC", 
+	    "name": "AC Transit", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "AF": {
-	    "Name": "Angel Island Tiburon Ferry"
+        "id": "AF", 
+	    "name": "Angel Island Tiburon Ferry", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "AM": {
-	    "Name": "Capitol Corridor Joint Powers Authority"
+        "id": "AM", 
+	    "name": "Capitol Corridor Joint Powers Authority", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "BA": {
-	    "Name": "Bay Area Rapid Transit"
+        "id": "BA", 
+	    "name": "Bay Area Rapid Transit", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "CC": {
-	    "Name": "County Connection"
+        "id": "CC", 
+	    "name": "County Connection", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "CE": {
-	    "Name": "Altamont Corridor Express"
+        "id": "CE", 
+	    "name": "Altamont Corridor Express", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "CM": {
-	    "Name": "Commute.org Shuttles"
+        "id": "CM", 
+	    "name": "Commute.org Shuttles", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "CT": {
-	    "Name": "Caltrain"
+        "id": "CT", 
+	    "name": "Caltrain", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "DE": {
-	    "Name": "Dumbarton Express Consortium"
+        "id": "DE", 
+	    "name": "Dumbarton Express Consortium", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "EM": {
-	    "Name": "Emery Go-Round"
+        "id": "EM", 
+	    "name": "Emery Go-Round", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "FS": {
-	    "Name": "FAST"
+        "id": "FS", 
+	    "name": "FAST", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "GF": {
-	    "Name": "Golden Gate Ferry"
+        "id": "GF", 
+	    "name": "Golden Gate Ferry", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "GG": {
-	    "Name": "Golden Gate Transit"
+        "id": "GG", 
+	    "name": "Golden Gate Transit", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "MA": {
-	    "Name": "Marin Transit"
+        "id": "MA", 
+	    "name": "Marin Transit", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "MB": {
-	    "Name": "Mission Bay TMA"
+        "id": "MB", 
+	    "name": "Mission Bay TMA", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "MV": {
-	    "Name": "MVgo"
+        "id": "MV", 
+	    "name": "MVgo", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "PE": {
-	    "Name": "PETALUMA"
+        "id": "PE", 
+	    "name": "Petaluma Transit", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "PG": {
-	    "Name": "PresidiGo"
+        "id": "PG", 
+	    "name": "PresidiGo", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "RG": {
-	    "Name": "Regional GTFS"
+        "id": "RG", 
+	    "name": "Regional GTFS", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "RV": {
-	    "Name": "Rio Vista Delta Breeze"
+        "id": "RV", 
+	    "name": "Rio Vista Delta Breeze", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "SA": {
-	    "Name": "Sonoma Marin Area Rail Transit"
+        "id": "SA", 
+	    "name": "Sonoma Marin Area Rail Transit", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "SB": {
-	    "Name": "San Francisco Bay Ferry"
+        "id": "SB", 
+	    "name": "San Francisco Bay Ferry", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "SC": {
-	    "Name": "VTA (Valley Transportation Authority)"
+        "id": "SC", 
+	    "name": "VTA (Valley Transportation Authority)", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "SF": {
-	    "Name": "San Francisco Municipal Transportation Agency"
+        "id": "SF", 
+	    "name": "San Francisco Municipal Transportation Agency", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "SI": {
-	    "Name": "San Francisco International Airport"
+        "id": "SI", 
+	    "name": "San Francisco International Airport", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "SM": {
-	    "Name": "SamTrans"
+        "id": "SM", 
+	    "name": "SamTrans", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "SO": {
-	    "Name": "Sonoma County Transit"
+        "id": "SO", 
+	    "name": "Sonoma County Transit", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "SR": {
-	    "Name": "SANTAROSA"
+        "id": "SR", 
+	    "name": "Santa Rosa Transit", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "SS": {
-	    "Name": "City of South San Francisco"
+        "id": "SS", 
+	    "name": "City of South San Francisco", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "ST": {
-	    "Name": "SolTrans"
+        "id": "ST", 
+	    "name": "SolTrans", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "TF": {
-	    "Name": "Treasure Island Ferry"
+        "id": "TF", 
+	    "name": "Treasure Island Ferry", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "UC": {
-	    "Name": "Union City Transit"
+        "id": "UC", 
+	    "name": "Union City Transit", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "VC": {
-	    "Name": "Vacaville City Coach"
+        "id": "VC", 
+	    "name": "Vacaville City Coach", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "VN": {
-	    "Name": "VINE Transit"
+        "id": "VN", 
+	    "name": "VINE Transit", 
+        "routes": {
+            "default": ""
+        }
 	}, 
     "WC": {
-	    "Name": "WestCat (Western Contra Costa)"
+        "id": "WC", 
+	    "name": "WestCat (Western Contra Costa)", 
+        "routes": {
+            "default": ""
+        }
     }, 
     "WH": {
-	    "Name": "Livermore Amador Valley Transit Authority"
+        "id": "WH", 
+	    "name": "Livermore Amador Valley Transit Authority", 
+        "routes": {
+            "default": ""
+        }
     }
 }
