@@ -43,6 +43,22 @@ function onMapLoad() {
 
                         }
                     }
+                    if (i2 >= res.length) {
+                        makeRequest('gtfsoperators', [], function(agencies) {
+                            agencies.forEach(function(agency) {
+                                agencies[agency.Id].routes = {}
+                                makeRequest('lines', [['operator_id', agency.Id]], function(routes) {
+                                    routes.forEach(function(route) {
+                                        aObj.routes[route] = {}
+                                        makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
+                                            aObj.routes[route] = res
+                                            console.log(res)
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    }
                 }
                 else {
                     aObj.vehicles.data = vehicleData
@@ -133,23 +149,6 @@ function onMapLoad() {
                         aObj.vehicles.pins[vehicleRef] = pin
                     }
                 })
-
-                if (i2 >= res.length) {
-                    makeRequest('gtfsoperators', [], function(agencies) {
-                        agencies.forEach(function(agency) {
-                            agencies[agency.Id].routes = {}
-                            makeRequest('lines', [['operator_id', agency.Id]], function(routes) {
-                                routes.forEach(function(route) {
-                                    aObj.routes[route] = {}
-                                    makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
-                                        aObj.routes[route] = res
-                                        console.log(res)
-                                    })
-                                })
-                            })
-                        })
-                    })
-                }
 
                 agencies[agency.Id] = aObj
             })
