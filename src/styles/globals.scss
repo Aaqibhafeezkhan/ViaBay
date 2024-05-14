@@ -50,7 +50,7 @@ body {
 .header {
   padding-inline-start: 15pt;
 
-  border-bottom: var($border);
+  border-bottom: $border;
 
   display: flex;
   justify-content: space-between;
@@ -116,7 +116,7 @@ body {
 }
 
 .footer {  
-  border-top: var($border);
+  border-top: $border;
   
   display: grid;
   place-items: center;
