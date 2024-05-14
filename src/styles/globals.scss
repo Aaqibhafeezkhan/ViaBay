@@ -1,4 +1,5 @@
 $border-size: 2px;
+$border: solid #{$border-size} white;
 $hf-size: 3.5rem;
 
 :root {
@@ -43,8 +44,6 @@ body {
   height: 100dvh;
   display: grid;
   grid-template-rows: $hf-size calc(100% - $hf-size*2) $hf-size;
-  
-  $border: solid #{$border-size} white;
 }
 
 .header {
