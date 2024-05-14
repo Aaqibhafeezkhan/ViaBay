@@ -131,8 +131,6 @@ function onMapLoad() {
                     }
                 })
 
-                agencies[agency.Id] = aObj
-
                 if (i2 >= res.length) {
                     makeRequest('gtfsoperators', [], function(agencies) {
                         agencies.forEach(function(agency) {
@@ -149,6 +147,8 @@ function onMapLoad() {
                         })
                     })
                 }
+
+                agencies[agency.Id] = aObj
             })
         })
     })
