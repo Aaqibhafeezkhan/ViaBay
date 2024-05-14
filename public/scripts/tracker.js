@@ -45,8 +45,8 @@ function onMapLoad() {
                     }
                     if (i2 >= res.length) {
                         makeRequest('lines', [['operator_id', agency.Id]], function(routes) {
+                            console.log(routes)
                             routes.forEach(function(route) {
-                                console.log(route)
                                 aObj.routes[route] = {}
                                 makeRequest('patterns', [['operator_id', agency.Id], ['line_id', route]], function(res) {
                                     aObj.routes[route] = res
