@@ -1,4 +1,6 @@
 $padding: 10px;
+$hf-size: 3.5rem;
+
 
 .main {
     display: flex;
@@ -21,8 +23,8 @@ $padding: 10px;
     max-height: $_max;
     max-width: $_max;
     
-    *:not(.infobox, .infobox *) {
-        height: 100%;
+    *:not(.infobox *) {
+        max-height: calc(100dvh - #{$hf-size*2 - 20px})
     }
 
     .Infobox.no-title {
@@ -43,6 +45,7 @@ $padding: 10px;
 }
 
 .infobox {
+    box-sizing: border-box;
     padding: $padding;
 
     background-color: #fff9;

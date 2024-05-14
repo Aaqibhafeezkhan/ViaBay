@@ -1,5 +1,7 @@
+$border-size: 2px;
+$hf-size: 3.5rem;
+
 :root {
-  --border-size: 2px;
 
   color: white;
   background-color: #3d85c6ff;
@@ -37,23 +39,18 @@ body {
 }
 
 .app {
-  --hf-size: 3.5rem;
-
   position: relative;
   height: 100dvh;
   display: grid;
-  grid-template-rows: var(--hf-size) calc(100% - var(--hf-size)*2) var(--hf-size);
-
-  --border: solid var(--border-size) white;
+  grid-template-rows: $hf-size calc(100% - $hf-size*2) $hf-size;
+  
+  $border: solid #{$border-size} white;
 }
-
-// .app {
-// }
 
 .header {
   padding-inline-start: 15pt;
 
-  border-bottom: var(--border);
+  border-bottom: var($border);
 
   display: flex;
   justify-content: space-between;
@@ -64,13 +61,13 @@ body {
 }
 
 .nav {
-  --gap: 0;
+  $gap: 0;
   flex: 1;
 
 
   display: flex;
   justify-content: right;
-  gap: var(--gap);
+  gap: $gap;
 
   z-index: 2;
 
@@ -97,11 +94,11 @@ body {
 
       .link {
         &:first-child {
-          padding-inline-start: var(--gap);
-          border-left: solid var(--border-size) white;
+          padding-inline-start: $gap;
+          border-left: solid $border-size white;
         }
         &:last-child {
-          padding-inline-end: var(--gap);
+          padding-inline-end: $gap;
         }
       }
     }
@@ -119,7 +116,7 @@ body {
 }
 
 .footer {  
-  border-top: var(--border);
+  border-top: var($border);
   
   display: grid;
   place-items: center;
@@ -133,14 +130,14 @@ body {
 }
 
 .main {
-  --bg: #3d85c6ff;
-  --p: 2rem;
+  $bg: #3d85c6ff;
+  $p: 2rem;
 
   max-height: 100%;
   
   box-sizing: border-box;
   &:not(.full) {
-    padding: var(--p);
+    padding: $p;
   }
 
   width: 100%;
@@ -155,8 +152,8 @@ body {
 
 .input, .textarea, .select {
   position: relative;
-  --p-i: 1rem;
-  padding-inline: var(--p-i);
+  $p-i: 1rem;
+  padding-inline: $p-i;
 
   width: 100%;
   &:not(:is(.input-parent, .textarea-parent, .select-parent) > :is(.input, .textarea, .select)) {
@@ -167,7 +164,7 @@ body {
   color: white;
 
   border-radius: 10px;
-  border: solid var(--border-size) white;
+  border: solid $border-size white;
   outline: none;
 
   .label {
@@ -187,10 +184,9 @@ body {
 }
 
 .input-parent, .textarea-parent, .select-parent {
-  --p-i: 1rem;
-  --s-w: calc(100% - var(--p-i)*2 - var(--border-size));
-  --b-r: 10px;
-  --b-w: var(--border-size);
+  $p-i: 1rem;
+  $s-w: calc(100% - #{$p-i*2 - $border-size});
+  $b-r: 10px;
 
   position: relative;
   box-sizing: border-box;
@@ -201,8 +197,8 @@ body {
   background-color: black;
   color: white;
 
-  border-radius: var(--b-r);
-  border: solid var(--b-w) white;
+  border-radius: $b-r;
+  border: solid $border-size white;
   outline: none;
 
   font-size: 2rem;
@@ -210,14 +206,14 @@ body {
   z-index: 1;
 
   .label {
-    --t-time: 0.5s;
-    --skew: 10deg;
+    $t-time: 0.5s;
+    $skew: 10deg;
 
     position: absolute;
     top: 50%;
 
     display: inline-block;   
-    padding: calc(var(--p-i)/2) var(--p-i);
+    padding: calc($p-i/2) $p-i;
 
     color: inherit;
     border: inherit;
@@ -228,20 +224,20 @@ body {
     user-select: none;
     -webkit-user-select: none;
 
-    transform: skewX(calc(-1*var(--skew)));
+    transform: skewX(#{-1*$skew});
 
     transition: 
-      padding var(--t-time) ease-in-out, 
-      border var(--t-time) ease-in-out, 
-      background-color var(--t-time) ease-in-out, 
-      transform var(--t-time) ease-in-out, 
-      translate var(--t-time) ease-in-out, 
-      font-size var(--t-time) ease-in-out
+      padding $t-time ease-in-out, 
+      border $t-time ease-in-out, 
+      background-color $t-time ease-in-out, 
+      transform $t-time ease-in-out, 
+      translate $t-time ease-in-out, 
+      font-size $t-time ease-in-out
     ;
 
     > span {
       display: inline-block;
-      transform: skewX(var(--skew));
+      transform: skewX($skew);
     }
   }
 
@@ -254,13 +250,13 @@ body {
 
   &:is([open], :has(:is(input, textarea, select):focus)) {
     .label {
-      padding-inline: var(--p-i);
+      padding-inline: $p-i;
         
       background-color: inherit;
       font-size: 1em;
 
-      translate: var(--p-i) 0;
-      transform: translateY(calc(-125%)) skew(calc(-1 * var(--skew)));
+      translate: $p-i 0;
+      transform: translateY(calc(-125%)) skew(#{-1*$skew});
       z-index: 2;
 
       @media (prefers-reduced-motion) {
@@ -282,10 +278,10 @@ body {
     line-height: 1;
   }
   :is(input, textarea, select) {
-    border-radius: calc(var(--b-r) - var(--b-w));
-    width: calc(var(--s-w) + var(--b-w));
-    height: calc(100% - var(--b-w)/2);
-    padding-inline: var(--p-i);
+    border-radius: calc($b-r - $border-size);
+    width: calc($s-w + $border-size);
+    height: calc(100% - $border-size/2);
+    padding-inline: $p-i;
     background-color: inherit;
     border: none;
     outline: none;
@@ -301,7 +297,7 @@ body {
     overflow: hidden;
     select-options {
       top: 0 !important;
-      translate: 0 calc((-100%)/var(--amt)*var(--num));
+      translate: 0 calc((-100%)/var(--amt, 0)*var(--num, 0));
       select-option:first-child {
         color: lightgray;
       }
@@ -311,14 +307,14 @@ body {
     padding-inline: 0;
   }
   &:has(select-options) {
-    width: var(--s-w);
+    width: $s-w;
     padding-inline: 0;
     cursor: pointer;
   }
   &.open {
     select-options {
-      border: solid var(--border-size) white;
-      translate: calc(-1*var(--border-size)) 0;
+      border: solid $border-size white;
+      translate: #{-1*$border-size} 0;
       overflow: hidden;
       select-option {
         &:first-child:hover {
@@ -340,9 +336,9 @@ body {
     background-color: inherit;
     color: inherit;
     display: grid;
-    grid-template-rows: repeat(var(--amt), 1fr);
+    grid-template-rows: repeat(var(--amt, 0), 1fr);
     select-option {
-      padding-inline: var(--p-i);
+      padding-inline: $p-i;
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
