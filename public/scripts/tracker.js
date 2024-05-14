@@ -25,7 +25,10 @@ function onMapLoad() {
                 if (!vehicleData || typeof vehicleData !== 'object') vehicleData = []
                 
                 var aName = agency.Name
-                if (aName === 'VTA') aName = 'Valley Transportation Authority (VTA)'
+                switch (aName) {
+                    case 'VTA': aName = 'Valley Transportation Authority (VTA)'
+                    case 'AC TRANSIT': aName = 'AC Transit'
+                }
 
                 var aObj = agencies[agency.Id]
                 if (!aObj) {
