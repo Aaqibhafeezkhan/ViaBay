@@ -218,6 +218,7 @@ function showVehicleInfo(e) {
                     var journeyPatterns = routePatterns.journeyPatterns
                     if (journeyPatterns) {
                         var journeyPattern = findUsingValueofKey(journeyPatterns, 'DirectionRef', data.DirectionRef)
+                        console.log(journeyPattern)
                     }
                 }
             }
