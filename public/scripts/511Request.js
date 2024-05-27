@@ -44,6 +44,8 @@ function makeRequest(moduleName, params=[], callback) {
                 i++
                 makeRequest(moduleName, params, callback)
             }
-            console.error(err);
+            else {
+                console.error(err);
+            }
         });
 }
