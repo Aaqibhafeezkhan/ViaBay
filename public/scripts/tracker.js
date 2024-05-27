@@ -137,6 +137,7 @@ function onMapLoad() {
 
             patterns[agency.Id] = {}
             makeRequest('lines', [['operator_id', agency.Id]], function(lines) {
+                console.log(lines)
                 if (lines.Siri) {
                     if (lines.Siri.ServiceDelivery) {
                         if (lines.Siri.ServiceDelivery.DataObjectDelivery) {
@@ -154,8 +155,6 @@ function onMapLoad() {
             })
         })
     })
-
-    console.log(patterns)
 }
 
 GetMap()
