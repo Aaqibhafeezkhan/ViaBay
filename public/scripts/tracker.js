@@ -145,10 +145,10 @@ function onMapLoad() {
                         }
                     }
                 }
-                patterens[agency.Id][line]
-                makeRequest('lines', [['operator_id', agency.Id]], function(pattern) {
-                    patterens = res
-                })
+                // patterens[agency.Id][line]
+                // makeRequest('lines', [['operator_id', agency.Id]], function(pattern) {
+                //     patterens = res
+                // })
             })
         
         })
