@@ -213,8 +213,13 @@ function showVehicleInfo(e) {
             
             var agePatterns = patterns[data.aId]
             if (agePatterns) {
-                console.log(agePatterns)
-                // var routePatterns = agePatterns[data.LineRef]
+                var routePatterns = agePatterns[data.LineRef]
+                if (routePatterns) {
+                    var journeyPatterns = routePatterns.journeyPatterns
+                    if (journeyPatterns) {
+                        var journeyPattern = findUsingValueofKey(journeyPatterns, 'DirectionRef', data.DirectionRef)
+                    }
+                }
             }
             
 
@@ -297,4 +302,8 @@ function showRoutePath(stops) {
         directionsManager.calculateDirections();
         console.log(directionsManager)
     });
+}
+
+function findUsingValueofKey(arr, key, val) {
+    return arr.filter(item => item[key] === val)[0]
 }
