@@ -4,7 +4,7 @@ var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7
 var agencyIds = []
 var agencies = {}
 var allPins = []
-var patterens = []
+var patterns = []
 
 var colors = ['#0000FF','#FFA500','#6A4A3A','#800080','#800000','#40E0D0','#FF00FF','#000035','#FF6347','#FA8072','#808000','#7F00FF','#73BF00','#CD7F32','#8A2BE2','#3CB371','#2E8B57','#D2691E','#4682B4','#FF4500','#8B008B','#556B2F', '#8B4513', '#00CED1', '#483D8B', '#8B0000', '#9932CC', '#556B2F', '#2E8B57', '#6B8E23', '#9932CC', '#FF6347', '#20B2AA']
 
@@ -135,24 +135,23 @@ function onMapLoad() {
                 agencies[agency.Id] = aObj
             })
 
-            patterens[agency.Id] = {}
-            makeRequest('lines', [['operator_id', agency.Id]], function(line) {
-                console.log(line)
-                if (line.ServiceDelivery) {
-                    if (line.ServiceDelivery.DataObjectDelivery) {
-                        if (line.ServiceDelivery.DataObjectDelivery.dataObjects) {
-                            console.log(line.ServiceDelivery.DataObjectDelivery.dataObjects)
-                        }
+            patterns[agency.Id] = {}
+            makeRequest('lines', [['operator_id', agency.Id]], function(lines) {
+                if (lines.ServiceDelivery.DataObjectDelivery) {
+                    if (lines.ServiceDelivery.DataObjectDelivery.dataObjects) {
+                        lines = lines.ServiceDelivery.DataObjectDelivery.dataObjects
+                        lines.forEach(function(line, lI) {
+                            makeRequest('patterns', [['operator_id', agency.Id], ['line_id', line.id]], function(pattern) {
+                                patterns[agency.Id][line.id] = pattern
+                            })
+                        })
                     }
                 }
-                // patterens[agency.Id][line]
-                // makeRequest('lines', [['operator_id', agency.Id]], function(pattern) {
-                //     patterens = res
-                // })
             })
-        
         })
     })
+
+    console.log(patterns)
 }
 
 GetMap()
