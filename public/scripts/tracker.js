@@ -306,5 +306,6 @@ function showRoutePath(stops) {
 }
 
 function findUsingValueofKey(arr, key, val) {
-    return arr.filter(item => item[key] === val)[0]
+    var res = arr.filter(item => item[key] === val)
+    return res
 }
