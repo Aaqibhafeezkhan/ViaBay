@@ -211,6 +211,13 @@ function showVehicleInfo(e) {
                 ]
             }
             
+            var agePatterns = patterns[data.aId]
+            if (agePatterns) {
+                var routePatterns = agePatterns[data.LineRef]
+                console.log(routePatterns)
+            }
+            
+
             var hasMCall = data.MonitoredCall ? true : false
             var hasCalls = data.OnwardCalls ? (data.OnwardCalls.OnwardCall ? (data.OnwardCalls.OnwardCall.length > 0 ? true : false) : false) : false
 
