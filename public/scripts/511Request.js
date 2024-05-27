@@ -42,7 +42,7 @@ function makeRequest(moduleName, params=[], callback) {
         .catch(err => {
             if (i < apiKeys.length) {
                 i++
-                makeRequest(moduleName, params, callback, i++)
+                makeRequest(moduleName, params, callback)
             }
             console.error(err);
         });
