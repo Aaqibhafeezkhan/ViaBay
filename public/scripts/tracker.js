@@ -216,37 +216,47 @@ function showVehicleInfo(e) {
                 ]
             }
             
+            var hasMCall = data.MonitoredCall ? true : false
             var hasCalls = data.OnwardCalls ? (data.OnwardCalls.OnwardCall ? (data.OnwardCalls.OnwardCall.length > 0 ? true : false) : false) : false
 
             var stops = []
             var stopHTMLs = []
 
+            if (hasMCall) {
+                var stop = data.MonitoredCall
+                callActions(stop)
+            }
+
             if (hasCalls) {
-                console.log(data.OnwardCalls)
                 stops = data.OnwardCalls.OnwardCall
                 
                 stops.forEach(function(stop, sI) {
-                    var eDate = new Date(stop.ExpectedArrivalTime)
-                    var aDate = new Date(stop.AimedArrivalTime)
-                    var eTime = eDate.getHours()*60*60+eDate.getMinutes()*60+eDate.getSeconds()
-                    var aTime = aDate.getHours()*60*60+aDate.getMinutes()*60+aDate.getSeconds()
-                    
-                    var stopTime = `${eDate.getHours()}:${eDate.getMinutes().toString().length < 2 ? `0${eDate.getMinutes()}` : eDate.getMinutes()}`
-                    
-                    var isLate = eTime > aTime ? true : false
-                    var isEarly = eTime < aTime ? true : false
-                    var isOnTime = eTime === aTime ? true : false
-
-                    var earlyLateText = ''
-                    if (isLate) earlyLateText = `${Math.ceil((eTime-aTime)/60)} Minutes Late`
-                    if (isEarly) earlyLateText = `${Math.ceil((aTime-eTime)/60)} Minutes Early`
-                    if (isOnTime) earlyLateText = `On Time`
-
-                    var color = isLate ? 'red' : isEarly ? 'green' : isOnTime ? 'blue' : 'black'
-
-                    stopHTMLs.push(`<li class="stop" style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): ${stopTime} (${earlyLateText})</li>`)
-                })    
+                    callActions(stop)
+                })
             }
+
+            function callActions(stop) {
+                var eDate = new Date(stop.ExpectedArrivalTime)
+                var aDate = new Date(stop.AimedArrivalTime)
+                var eTime = eDate.getHours()*60*60+eDate.getMinutes()*60+eDate.getSeconds()
+                var aTime = aDate.getHours()*60*60+aDate.getMinutes()*60+aDate.getSeconds()
+                
+                var stopTime = `${eDate.getHours()}:${eDate.getMinutes().toString().length < 2 ? `0${eDate.getMinutes()}` : eDate.getMinutes()}`
+                
+                var isLate = eTime > aTime ? true : false
+                var isEarly = eTime < aTime ? true : false
+                var isOnTime = eTime === aTime ? true : false
+
+                var earlyLateText = ''
+                if (isLate) earlyLateText = `${Math.ceil((eTime-aTime)/60)} Minutes Late`
+                if (isEarly) earlyLateText = `${Math.ceil((aTime-eTime)/60)} Minutes Early`
+                if (isOnTime) earlyLateText = `On Time`
+
+                var color = isLate ? 'red' : (isEarly ? 'green' : (isOnTime ? 'blue' : 'black'))
+
+                stopHTMLs.push(`<li class="stop" style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): ${stopTime} (${earlyLateText})</li>`)
+            }
+
             var stopsHTML = `<ol class="stops">${stopHTMLs.join('')}</ol>`
 
             infobox.setOptions({
