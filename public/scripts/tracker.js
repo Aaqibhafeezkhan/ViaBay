@@ -264,7 +264,7 @@ function showVehicleInfo(e) {
             infobox.setOptions({
                 location: e.target.getLocation(),
                 title: options.title,
-                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${(hasMcall || hasCalls) ? stopsHTML : ''}</div>`,
+                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${(hasMCall || hasCalls) ? stopsHTML : ''}</div>`,
                 visible: true
             });
         }
