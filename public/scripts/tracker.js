@@ -137,12 +137,12 @@ function onMapLoad() {
 
             patterns[agency.Id] = {}
             makeRequest('lines', [['operator_id', agency.Id]], function(lines) {
-                // console.log(lines)
-                lines.forEach(function(line, lI) {
-                    makeRequest('patterns', [['operator_id', agency.Id], ['line_id', line.id]], function(pattern) {
-                        patterns[agency.Id][line.id] = pattern
-                    })
-                })
+                console.log(lines)
+                // lines.forEach(function(line, lI) {
+                    // makeRequest('patterns', [['operator_id', agency.Id], ['line_id', line.id]], function(pattern) {
+                        // patterns[agency.Id][line.id] = pattern
+                    // })
+                // })
             })
         })
     })
