@@ -134,11 +134,24 @@ function onMapLoad() {
 
                 agencies[agency.Id] = aObj
             })
-        })
-    })
 
-    makeRequest('patterns', [], function(res) {
-        patterens = res
+            patterens[agency.Id] = {}
+            makeRequest('lines', [['operator_id', agency.Id]], function(line) {
+                console.log(line)
+                if (line.ServiceDelivery) {
+                    if (line.ServiceDelivery.DataObjectDelivery) {
+                        if (line.ServiceDelivery.DataObjectDelivery.dataObjects) {
+                            console.log(line.ServiceDelivery.DataObjectDelivery.dataObjects)
+                        }
+                    }
+                }
+                patterens[agency.Id][line]
+                makeRequest('lines', [['operator_id', agency.Id]], function(pattern) {
+                    patterens = res
+                })
+            })
+        
+        })
     })
 }
 
