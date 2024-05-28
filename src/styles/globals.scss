@@ -1,5 +1,5 @@
 $border-size: 2px;
-$border: solid #{$border-size} var(--clr);
+$border: solid #{$border-size} var(--color);
 $hf-size: 3.5rem;
 
 // Inputs
@@ -144,7 +144,7 @@ body {
       .link {
         &:first-child {
           padding-inline-start: $gap;
-          border-left: solid $border-size var(--clr);
+          border-left: solid $border-size var(--color);
         }
         &:last-child {
           padding-inline-end: $gap;
@@ -209,10 +209,10 @@ body {
   }
 
   background-color: var(--accent);
-  color: var(--clr);
+  color: var(--color);
 
   border-radius: 10px;
-  border: solid $border-size var(--clr);
+  border: solid $border-size var(--color);
   outline: none;
 
   .label {
@@ -239,10 +239,10 @@ body {
   aspect-ratio: 8 / 1;
 
   background-color: var(--accent);
-  color: var(--clr);
+  color: var(--color);
 
   border-radius: $b-r;
-  border: solid $border-size var(--clr);
+  border: solid $border-size var(--color);
   outline: none;
 
   font-size: 2rem;
@@ -326,7 +326,7 @@ body {
     background-color: inherit;
     border: none;
     outline: none;
-    color: var(--clr);
+    color: var(--color);
     font-size: inherit;
     font-family: inherit;
   }
@@ -354,12 +354,12 @@ body {
   }
   &.open {
     select-options {
-      border: solid $border-size var(--clr);
+      border: solid $border-size var(--color);
       translate: #{-1*$border-size} 0;
       overflow: hidden;
       select-option {
         &:first-child:hover {
-          color: var(--clr);
+          color: var(--color);
         }
         &:hover {
           background-color: gray;
