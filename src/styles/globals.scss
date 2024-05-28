@@ -22,6 +22,7 @@ $skew: 10deg;
 
   --bg: var(--lbg);
   --color: var(--lclr);
+  --accent: var(--lacc);
   
   color: var(--clr);
   background-color: var(--bg);
@@ -32,6 +33,7 @@ $skew: 10deg;
   :root {
     --bg: var(--lbg);
     --color: var(--lclr);
+    --accent: var(--lacc);
   }
 }
 
@@ -39,6 +41,7 @@ $skew: 10deg;
   :root {
     --bg: var(--dbg);
     --color: var(--dclr);
+    --accent: var(--dacc);
   }
 }
 
@@ -50,11 +53,13 @@ html {
 [data-theme="light"] {
   --bg: var(--lbg);
   --color: var(--lclr);
+  --accent: var(--lacc);
   color-scheme: light;
 }
 [data-theme="dark"] {
   --bg: var(--dbg);
   --color: var(--dclr);
+  --accent: var(--dacc);
   color-scheme: dark;
 }
 
