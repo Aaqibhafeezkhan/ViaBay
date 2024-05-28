@@ -202,7 +202,7 @@ function showVehicleInfo(e) {
                     `${data.LineRef}: ${data.LineName}`
                 ], 
                 description: [
-                    // `Agency: ${data.agency}`,
+                    `Direction: ${data.DirectionRef ? data.DirectionRef : 'Unknown Direction'}`,
                     `Origin: ${data.OriginName ? data.OriginName : 'No Origin or Unknown'}`,
                     `Destination: ${data.DestinationName ? data.DestinationName : 'No Destination or Unknown'}`,
                     `Congestion: ${data.InCongestion ? 'Congested' : 'Not Congested or Unknown'}`,
