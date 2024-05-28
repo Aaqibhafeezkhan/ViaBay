@@ -220,6 +220,10 @@ function showVehicleInfo(e) {
                         var journeyPattern = findUsingValueofKey(journeyPatterns, 'DirectionRef', data.DirectionRef)
                         journeyPattern = findUsingValueofKey(journeyPattern, 'Name', data.LineName)
                         console.log(journeyPattern)
+                        if (journeyPattern.PointsInSequence) {
+                            var PointsInSequence = journeyPattern.PointsInSequence
+                            console.log(PointsInSequence)
+                        }
                     }
                 }
             }
