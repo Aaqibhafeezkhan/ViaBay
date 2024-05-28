@@ -5,7 +5,6 @@ addEventListener('DOMContentLoaded', function() {
     if (location.pathname.startsWith('/settings')) {
         settingEles.forEach(function(s, i) {
             s.querySelector('select').onchange = function(e) {
-                alert('eventFired')
                 setSetting(s.getAttribute('module-name'), e.target.value)
             }
         })    
@@ -25,13 +24,13 @@ var settingFunctions = {
 applySettings()
 
 function getSettings() {
-    var settings = localStorage.getItem(settingsKey)
-    settings = !!settings ? settings : '[]'
+    var settings = localStorage.getItem(settingsKey) || '[]'
     settings = JSON.parse(settings)
     return settings
 }
 
 function applySettings() {
+    alert('functionCalled')
     var settings = getSettings()
     settings.forEach(function(s, i) {
         var sName = s.name
