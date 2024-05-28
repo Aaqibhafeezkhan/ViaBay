@@ -12,11 +12,13 @@ $t-time: 0.5s;
 $skew: 10deg;
 
 :root {
-  --lbg: #3d85c6ff;
+  --lbg: #3d85c6;
   --lclr: white;
+  --lacc: black;
 
   --dbg: #333;
   --dclr: white;
+  --dacc: #3d85c6;
 
   --bg: var(--lbg);
   --color: var(--lclr);
@@ -201,7 +203,7 @@ body {
     aspect-ratio: 8 / 1;
   }
 
-  background-color: black;
+  background-color: var(--accent);
   color: var(--clr);
 
   border-radius: 10px;
@@ -231,7 +233,7 @@ body {
   width: 100%;
   aspect-ratio: 8 / 1;
 
-  background-color: black;
+  background-color: var(--accent);
   color: var(--clr);
 
   border-radius: $b-r;
