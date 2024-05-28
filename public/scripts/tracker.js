@@ -218,8 +218,8 @@ function showVehicleInfo(e) {
                     var journeyPatterns = routePatterns.journeyPatterns
                     if (journeyPatterns) {
                         var journeyPattern = journeyPatterns
-                            .filter(item => item['DirectionRef'] === data.DirectionRef)
                             .filter(item => item['Name'] === data.LineName)
+                            // .filter(item => item['DirectionRef'] === data.DirectionRef)
                         console.log(journeyPattern)
                         if (journeyPattern.PointsInSequence) {
                             var PointsInSequence = journeyPattern.PointsInSequence
