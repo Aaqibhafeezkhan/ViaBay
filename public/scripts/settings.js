@@ -24,8 +24,8 @@ var settingFunctions = {
 applySettings()
 
 function getSettings() {
-    alert('getSettingsCalled')
     var settings = localStorage.getItem(settingsKey) || '[]'
+    alert(`settings: \`\`\`${settings}\`\`\``)
     settings = JSON.parse(settings)
     return settings
 }
