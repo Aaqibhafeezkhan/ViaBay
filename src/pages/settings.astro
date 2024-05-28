@@ -8,8 +8,11 @@ var scripts = [
     name: 'settings'
   }
 ]
+
+var classItems = ['settings']
+
 ---
-<Layout title="Settings" scripts={scripts}>
+<Layout title="Settings" scripts={scripts} classItems={classItems}>
   <section class="main">
     <nav class="menu">
       <setting-option module-name="theme">
