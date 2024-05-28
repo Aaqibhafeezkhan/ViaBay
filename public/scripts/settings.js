@@ -60,7 +60,7 @@ function setSetting(name, value, type, key) {
         index = settingsLength
     }
 
-    var setting = settings[sIndex]
+    var setting = settings[index]
     var content = setting.content
     if (!!content === false) {
         switch(type) {
