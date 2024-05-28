@@ -1,10 +1,12 @@
 .settings {
-    max-width: 500px
+    margin-inline: auto;
+    max-width: 500px;
 }
 
 setting-option {
     display: flex;
     flex-direction: column;
+    gap: 1em;
 
     label {
         font-size: 2em;
