@@ -26,6 +26,13 @@ $skew: 10deg;
   font-family: 'Open Sans', sans-serif;
 }
 
+@media (preferes-color-scheme: light) {
+  :root {
+    --bg: var(--lbg);
+    --color: var(--lclr);
+  }
+}
+
 @media (preferes-color-scheme: dark) {
   :root {
     --bg: var(--dbg);
