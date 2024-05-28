@@ -14,10 +14,10 @@
   padding-inline: var(--p-i);
   
   background-color: black;
-  color: white;
+  color: var(--clr);
 
   border-radius: 10px;
-  border: solid 3px white;
+  border: solid 3px var(--clr);
   outline: none;
   
   display: flex;
