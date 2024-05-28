@@ -37,7 +37,7 @@ function makeRequest(moduleName, params=[], callback) {
                 ) data = JSON.parse(data)
             }
             callback(data)
-            firstErr = false
+            i >= apiKeys.length-1 ? i = 0 : i++
         })
         .catch(err => {
             if (i < apiKeys.length) {
