@@ -5,6 +5,7 @@ addEventListener('DOMContentLoaded', function() {
     if (location.pathname.startsWith('/settings')) {
         settingEles.forEach(function(s, i) {
             s.querySelector('select').onchange = function(e) {
+                alert('eventFired')
                 setSetting(s.getAttribute('module-name'), e.target.value)
             }
         })    
