@@ -1,9 +1,13 @@
 var settingEles = document.querySelectorAll('setting-option')
 var selectEles = document.querySelectorAll('setting-option select')
 
-selectEles.forEach(function(s, i) {
-    s.onchange = function(e) {
-        setSetting(settingEles[i].getAttribute('module-name'), e.target.value)
+addEventListener('DOMContentLoaded', function() {
+    if (location.pathname.startsWith('/settings')) {
+        settingEles.forEach(function(s, i) {
+            s.querySelector('select').onchange = function(e) {
+                setSetting(s.getAttribute('module-name'), e.target.value)
+            }
+        })    
     }
 })
 
@@ -33,16 +37,19 @@ function applySettings() {
         var sContent = s.content
         settingFunctions[sName](sContent)
     })
+
+    if (location.pathname.startsWith('/settings')) {
+        settingEles.forEach(function(s, i) {
+            var setting = settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0].content
+            s.querySelector('select').value = setting
+        })    
+    }
 }
 
 function setSetting(name, value, type, key) {
     var settings = getSettings()
 
-    var sIndex = 'nothing'
-    settings.forEach(function(s, i) {
-        var sName = s.name
-        if (sName === name) sIndex = i
-    })
+    var setting = settings.indexOf(settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0])
 
     if (isNaN(sIndex)) {
         var settingsLength = settings.length
