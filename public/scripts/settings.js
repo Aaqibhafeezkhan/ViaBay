@@ -25,7 +25,6 @@ applySettings()
 
 function getSettings() {
     var settings = localStorage.getItem(settingsKey) || '[]'
-    alert(`settings: \`\`\`${settings}\`\`\``)
     settings = JSON.parse(settings)
     return settings
 }
@@ -47,10 +46,10 @@ function applySettings() {
 }
 
 function setSetting(name, value, type, key) {
-    alert('setSettingCalled')
     var settings = getSettings()
-
+    
     var index = settings.indexOf(settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0])
+    alert(`index: ${index}`)
 
     if (index < 0) {
         var settingsLength = settings.length
