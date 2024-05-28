@@ -54,7 +54,7 @@ function setSetting(name, value, type, key) {
     if (index < 0) {
         var settingsLength = settings.length
         settings.push({name: name})
-        sIndex = settingsLength
+        index = settingsLength
     }
 
     var setting = settings[sIndex]
