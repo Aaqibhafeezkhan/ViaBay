@@ -5,4 +5,8 @@
 setting-option {
     display: flex;
     flex-direction: column;
+
+    label {
+        font-size: 2em;
+    }
 }
