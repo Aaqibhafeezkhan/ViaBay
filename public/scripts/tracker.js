@@ -217,8 +217,9 @@ function showVehicleInfo(e) {
                 if (routePatterns) {
                     var journeyPatterns = routePatterns.journeyPatterns
                     if (journeyPatterns) {
-                        var journeyPattern = findUsingValueofKey(journeyPatterns, 'DirectionRef', data.DirectionRef)
-                        journeyPattern = findUsingValueofKey(journeyPattern, 'Name', data.LineName)
+                        var journeyPattern = journeyPatterns
+                            .filter(item => item['DirectionRef'] === data.DirectionRef)
+                            .filter(item => item['Name'] === data.LineName)
                         console.log(journeyPattern)
                         if (journeyPattern.PointsInSequence) {
                             var PointsInSequence = journeyPattern.PointsInSequence
