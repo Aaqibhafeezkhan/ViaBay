@@ -3,16 +3,32 @@ import '../styles/menu.scss'
 import '../styles/pages/settings.scss'
 
 import Layout from '../layouts/Layout.astro'
+var scripts = [
+  {
+    name: 'settings'
+  }
+]
 ---
-<Layout title="Settings">
+<Layout title="Settings" scripts={scripts}>
   <section class="main">
     <nav class="menu">
-      <item>Change Language</item>
+      <setting-option module-name="theme">
+        <label for="theme">Color Theme: </label>
+        <select-parent>
+          <select id="theme">
+            <option selected disabled>Chose mode</option>
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </select-parent>
+      </setting-option>
+      <!-- <item>Change Language</item>
       <item>Account Info</item>
       <item>Payment Info</item>
       <item>Notification Settings</item>
       <item>Privacy Info</item>
-      <item>Your Data</item>
+      <item>Your Data</item> -->
     </nav>
   </section>
 </Layout>
