@@ -48,8 +48,8 @@ function applySettings() {
 function setSetting(name, value, type, key) {
     var settings = getSettings()
     
+    alert(`index: settings.indexOf(${settings.fiter(setting => setting.name === s.getAttribute('module-name'))})`)
     var index = settings.indexOf(settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0])
-    alert(`index: ${index}`)
 
     if (index < 0) {
         var settingsLength = settings.length
