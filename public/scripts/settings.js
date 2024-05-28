@@ -30,7 +30,6 @@ function getSettings() {
 }
 
 function applySettings() {
-    alert('functionCalled')
     var settings = getSettings()
     settings.forEach(function(s, i) {
         var sName = s.name
@@ -47,6 +46,7 @@ function applySettings() {
 }
 
 function setSetting(name, value, type, key) {
+    alert('functionCalled')
     var settings = getSettings()
 
     var setting = settings.indexOf(settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0])
