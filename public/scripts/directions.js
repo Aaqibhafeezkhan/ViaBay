@@ -163,7 +163,7 @@ function stopChange(e, i) {
                         createOption(a, i, optionsEle)
                     })
 
-                    createOption(searchText, i, optionsEle, true)
+                    // createOption(searchText, i, optionsEle, true)
 
                     function createOption(content, i, optionsEle, lastLoc=false) {
                         var aEle = document.createElement('button')
