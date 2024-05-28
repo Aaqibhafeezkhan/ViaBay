@@ -24,6 +24,7 @@ var settingFunctions = {
 applySettings()
 
 function getSettings() {
+    alert('getSettingsCalled')
     var settings = localStorage.getItem(settingsKey) || '[]'
     settings = JSON.parse(settings)
     return settings
@@ -46,12 +47,12 @@ function applySettings() {
 }
 
 function setSetting(name, value, type, key) {
-    alert('functionCalled')
+    alert('setSettingCalled')
     var settings = getSettings()
 
-    var setting = settings.indexOf(settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0])
+    var index = settings.indexOf(settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0])
 
-    if (isNaN(sIndex)) {
+    if (index < 0) {
         var settingsLength = settings.length
         settings.push({name: name})
         sIndex = settingsLength
