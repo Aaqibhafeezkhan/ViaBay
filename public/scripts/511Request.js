@@ -8,6 +8,7 @@ var apiKeys = [
     '26c601e1-1221-4690-9b03-1d597f5ccc96', 
 ]
 
+var errorModules = []
 var i = 0
 
 function makeRequest(moduleName, params=[], callback) {
@@ -26,26 +27,30 @@ function makeRequest(moduleName, params=[], callback) {
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[i]}${params}`
     // console.log(url)
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            // var data = response.json()
-            if (typeof data === 'string') {
-                if (
-                    (data.startsWith('{') && data.endsWith('}')) || 
-                    (data.startsWith('[') && data.endsWith(']'))
-                ) data = JSON.parse(data)
-            }
-            callback(data)
-            i >= apiKeys.length-1 ? i = 0 : i++
-        })
-        .catch(err => {
-            if (i < apiKeys.length) {
-                i++
-                makeRequest(moduleName, params, callback)
-            }
-            else {
-                console.error(err);
-            }
-        });
+    if (!errorModules.includes(moduleName)) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // var data = response.json()
+                if (typeof data === 'string') {
+                    if (
+                        (data.startsWith('{') && data.endsWith('}')) || 
+                        (data.startsWith('[') && data.endsWith(']'))
+                    ) data = JSON.parse(data)
+                }
+                callback(data)
+                i >= apiKeys.length-1 ? i = 0 : i++
+            })
+            .catch(err => {
+                errorModules.push(moduleName)
+                if (i < apiKeys.length) {
+                    i++
+                    makeRequest(moduleName, params, callback)
+                }
+                else {
+                    console.error(err);
+                }
+            });
+    }
+
 }
