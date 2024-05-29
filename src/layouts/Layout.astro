@@ -61,7 +61,7 @@ else year = `-${year}`
     <link rel="icon" href="/assets/favicon.png" />
     { !!headItems ? <div set:html={headItems}></div> : '' }
     {
-      mainScripts.map(function (script, i) {
+      mainScripts.map(function(script, i) {
         return <script src={`/scripts/${script}.js`} is:inline></script>
       })
     }
