@@ -55,7 +55,7 @@ function setSetting(name, value, type, key) {
 
     var item = ''
     if (settings.length > 0) {
-        item = settings.filter(checkAdult)[0]
+        item = settings.filter(filterCheck)[0]
     }
 
     var index = settings.indexOf(item)
