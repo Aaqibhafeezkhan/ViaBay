@@ -32,7 +32,7 @@ function getSettings() {
 function applySettings() {
     var settings = getSettings()
     settings.forEach(function(s, i) {
-        settingFunctions[s.name](s.content)
+        settingFunctions[s.name](s.content)()
     })
 
     if (location.pathname.startsWith('/settings') && settings.length > 0) {
