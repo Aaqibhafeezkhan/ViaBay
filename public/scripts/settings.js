@@ -49,12 +49,15 @@ function setSetting(name, value, type, key) {
     var settings = getSettings()
     console.log(settings)
 
-    var item = settings.filter ? settings.fiter(setting => setting.name === s.getAttribute('module-name')) : ''
+    var item = ''
+    if (settings.length > 0) {
+        item = settings.fiter(setting => setting.name === s.getAttribute('module-name'))
+    }
     if (Array.isArray(item)) item = item[0]
 
     var index = settings.indexOf(item)
 
-    if (index < 0 || settings.length > 0) {
+    if (index < 0 || settings.length < 1) {
         var settingsLength = settings.length
         settings.push({name: name})
         index = settingsLength
