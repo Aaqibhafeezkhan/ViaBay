@@ -62,7 +62,7 @@ else year = `-${year}`
     { !!headItems ? <div set:html={headItems}></div> : '' }
     {
       mainScripts.map(function (script, i) {
-        <script src={`/scripts/${script}.js`} is:inline></script>
+        return <script src={`/scripts/${script}.js`} is:inline></script>
       })
     }
     {
