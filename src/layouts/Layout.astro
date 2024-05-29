@@ -2,7 +2,11 @@
 import '../styles/globals.scss'
 import '../styles/modal.scss'
 
+
 var sTitle = 'TransTrack'
+var mainScripts = ["cookies.js", "index.js", "authentication.js", "511Request.js", "notificationManager.js"
+]
+
 var { title, classItems, headItems, scripts } = Astro.props
 
 var docTitle = ''
@@ -57,11 +61,11 @@ else year = `-${year}`
     <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
     { !!headItems ? <div set:html={headItems}></div> : '' }
-    <script src="/scripts/cookies.js" is:inline></script>
-    <script src="/scripts/index.js" is:inline></script>
-    <script src="/scripts/authentication.js" is:inline></script>
-    <script src="/scripts/511Request.js" is:inline></script>
-    <script src="/scripts/notificationManager.js" is:inline></script>
+    {
+      mainScripts.map(function (script, i) {
+        <script src={`/scripts/${script}.js`} is:inline></script>
+      })
+    }
     {
       scripts.map(function(s, i) {
         if (s.location === 'head' && s.name) {
