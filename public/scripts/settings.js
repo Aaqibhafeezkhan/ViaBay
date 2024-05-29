@@ -100,4 +100,6 @@ function setSetting(name, value, type, key) {
     settings[index] = setting
     settings = JSON.stringify(settings)
     localStorage.setItem(settingsKey, settings)
+
+    settingFunctions[setting.name](setting.content)
 }
