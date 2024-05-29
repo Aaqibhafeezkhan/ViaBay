@@ -37,7 +37,7 @@ function applySettings() {
         settingFunctions[sName](sContent)
     })
 
-    if (location.pathname.startsWith('/settings')) {
+    if (location.pathname.startsWith('/settings') && settings.length > 0) {
         settingEles.forEach(function(s, i) {
             var setting = settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0].content
             s.querySelector('select').value = setting
@@ -48,7 +48,6 @@ function applySettings() {
 function setSetting(name, value, type, key) {
     var settings = getSettings()
     
-    alert(`index: settings.indexOf(${settings.fiter(setting => setting.name === s.getAttribute('module-name'))})`)
     var item = settings.fiter(setting => setting.name === s.getAttribute('module-name'))
     if (Array.isArray(item)) item = item[0]
 
