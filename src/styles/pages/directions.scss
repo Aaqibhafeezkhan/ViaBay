@@ -42,6 +42,9 @@
             height: fit-content;
             width: 100%;
             
+            background-color: var(--color);
+            color: var(--accent);
+
             display: grid;
             grid-template-columns: 1fr 1.390624rem;
             gap: 5px;
@@ -54,9 +57,14 @@
               max-width: 100%;
 
               background-color: inherit;
+              color: inherit;
 
               border: none;
               outline: none;
+
+              &::placeholder {
+                color: inherit;
+              }
             }
             .close {
               box-sizing: border-box;
