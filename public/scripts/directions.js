@@ -99,9 +99,14 @@ document.querySelector('.add-stop').addEventListener('click', function(e) {
         onCloseClick(e, stopsAmt-1)
     }
 
-    var closeIcon = document.createElement('img')
-    closeIcon.src = '/icons/close.svg'
-    closeIcon.alt = 'X Icon'
+    var closeIcon = document.createElement('svg')
+    closeIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    closeIcon.setAttribute('viewBox', '0 -960 960 960')
+
+    var closePath = document.createElement('path')
+    closePath.setAttribute('d', 'm256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z')
+    closeIcon.appendChild(closePath)
+
     closeButton.appendChild(closeIcon)
 
     stopParent.appendChild(closeButton)
