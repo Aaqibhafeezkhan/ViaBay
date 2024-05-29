@@ -1,28 +1,9 @@
-$border-size: 2px;
-$border: solid #{$border-size} var(--color);
-$hf-size: 3.5rem;
-
-// Inputs
-$p-i: 1rem;
-$s-w: calc(100% - #{$p-i*2} - $border-size);
-$b-r: 10px;
-
-// Input Labels
-$t-time: 0.5s;
-$skew: 10deg;
+@import "variables.scss";
 
 :root {
-  --lbg: #3d85c6;
-  --lclr: white;
-  --lacc: black;
-
-  --dbg: #333;
-  --dclr: white;
-  --dacc: #3d85c6;
-
-  --bg: var(--lbg);
-  --color: var(--lclr);
-  --accent: var(--lacc);
+  --bg: #{$lbg};
+  --color: #{$lclr};
+  --accent: #{$lacc};
   
   color: var(--color);
   background-color: var(--bg);
@@ -31,17 +12,17 @@ $skew: 10deg;
 
 @media (preferes-color-scheme: light) {
   :root {
-    --bg: var(--lbg);
-    --color: var(--lclr);
-    --accent: var(--lacc);
+    --bg: #{$lbg};
+    --color: #{$lclr};
+    --accent: #{$lacc};
   }
 }
 
 @media (preferes-color-scheme: dark) {
   :root {
-    --bg: var(--dbg);
-    --color: var(--dclr);
-    --accent: var(--dacc);
+    --bg: #{$dbg};
+    --color: #{$dclr};
+    --accent: #{$dacc};
   }
 }
 
@@ -51,15 +32,15 @@ html {
 }
 
 [data-theme="light"] {
-  --bg: var(--lbg);
-  --color: var(--lclr);
-  --accent: var(--lacc);
+  --bg: #{$lbg};
+  --color: #{$lclr};
+  --accent: #{$lacc};
   color-scheme: light;
 }
 [data-theme="dark"] {
-  --bg: var(--dbg);
-  --color: var(--dclr);
-  --accent: var(--dacc);
+  --bg: #{$dbg};
+  --color: #{$dclr};
+  --accent: #{$dacc};
   color-scheme: dark;
 }
 

@@ -1,3 +1,4 @@
+@import "variables.scss";
 
 .main {
   .directions-container {
@@ -14,17 +15,15 @@
 
     .stops-area {
       [data-theme="dark"] & {
-        --oColor: var(--color);
-        --color: var(--accent);
-        --accent: var(--oColor);
+        --color: #{$lacc};
+        --accent: #{$dclr};
       }
 
       @media (preferes-color-scheme: dark) {
-        @media (preferes-color-scheme: dark) {
-          --oColor: var(--color);
-          --color: var(--accent);
-          --accent: var(--oColor);
-          }
+        & {
+          --color: #{$lacc};
+          --accent: #{$dclr};
+        }
       }
       
       box-sizing: border-box;
