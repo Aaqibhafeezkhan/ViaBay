@@ -96,9 +96,11 @@
                 outline: solid 2.5px black;
               }
 
-              img {
+              svg {
                 height: 100%;
                 aspect-ratio: 1;
+
+                fill: var(--color);
               }
             }
           }
