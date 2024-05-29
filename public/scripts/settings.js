@@ -1,6 +1,11 @@
 var settingEles = document.querySelectorAll('setting-option')
 var selectEles = document.querySelectorAll('setting-option select')
 
+window.addEventListener('DOMContentLoaded', function(e) {
+    settingEles = document.querySelectorAll('setting-option')
+    selectEles = document.querySelectorAll('setting-option select')
+})
+
 if (location.pathname.startsWith('/settings')) {
     settingEles.forEach(function(s, i) {
         s.querySelector('select').onchange = function(e) {
