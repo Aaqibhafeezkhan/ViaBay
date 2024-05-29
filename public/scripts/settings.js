@@ -4,15 +4,15 @@ var selectEles = document.querySelectorAll('setting-option select')
 window.addEventListener('DOMContentLoaded', function(e) {
     settingEles = document.querySelectorAll('setting-option')
     selectEles = document.querySelectorAll('setting-option select')
-})
 
-if (location.pathname.startsWith('/settings')) {
-    settingEles.forEach(function(s, i) {
-        s.querySelector('select').onchange = function(e) {
-            setSetting(s.getAttribute('module-name'), e.target.value)
-        }
-    })    
-}
+    if (location.pathname.startsWith('/settings')) {
+        settingEles.forEach(function(s, i) {
+            s.querySelector('select').onchange = function(e) {
+                setSetting(s.getAttribute('module-name'), e.target.value)
+            }
+        })    
+    }
+})
 
 var setTheme = function(t) {
     document.documentElement.setAttribute('data-theme', (t || 'system'))
