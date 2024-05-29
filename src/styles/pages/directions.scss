@@ -9,6 +9,8 @@
     width: fit-content;
     background-color: var(--bg);
 
+    border-left: $border;
+
     display: flex;
     flex-direction: column;
     gap: var(--gap);
