@@ -4,7 +4,7 @@ $hf-size: 3.5rem;
 
 // Inputs
 $p-i: 1rem;
-$s-w: calc(100% - #{$p-i*2} - $border-size);
+$s-w: calc(100% - #{$p-i} - $border-size);
 $b-r: 10px;
 
 // Input Labels

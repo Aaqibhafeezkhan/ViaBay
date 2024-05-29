@@ -301,7 +301,7 @@ body {
   }
   :is(input, textarea, select) {
     border-radius: calc($b-r - $border-size);
-    width: calc($s-w + $border-size);
+    width: calc(calc(100% - $border-size) + $border-size);
     height: calc(100% - $border-size/2);
     padding-inline: $p-i;
     background-color: inherit;
@@ -310,6 +310,11 @@ body {
     color: var(--color);
     font-size: inherit;
     font-family: inherit;
+
+    &:is(select) {
+      padding-right: 0;
+      width: calc($s-w + $border-size);
+    }
   }
 }
 
