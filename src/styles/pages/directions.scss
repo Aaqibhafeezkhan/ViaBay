@@ -15,13 +15,13 @@
 
     .stops-area {
       [data-theme="dark"] & {
-        --color: #{$lacc};
+        --color: #{$dacc};
         --accent: #{$dclr};
       }
 
       @media (preferes-color-scheme: dark) {
         & {
-          --color: #{$lacc};
+          --color: #{$dacc};
           --accent: #{$dclr};
         }
       }
