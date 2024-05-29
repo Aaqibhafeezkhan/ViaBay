@@ -39,10 +39,14 @@ function applySettings() {
 
     if (location.pathname.startsWith('/settings') && settings.length > 0) {
         settingEles.forEach(function(s, i) {
-            var setting = settings.fiter(setting => setting.name === s.getAttribute('module-name'))[0].content
+            var setting = settings.filter(filterCheck)[0].content
             s.querySelector('select').value = setting
         })    
     }
+}
+
+function filterCheck(setting) {
+    return setting.name === 'theme'
 }
 
 function setSetting(name, value, type, key) {
@@ -51,9 +55,8 @@ function setSetting(name, value, type, key) {
 
     var item = ''
     if (settings.length > 0) {
-        item = settings.fiter(setting => setting.name === s.getAttribute('module-name'))
+        item = settings.filter(checkAdult)[0]
     }
-    if (Array.isArray(item)) item = item[0]
 
     var index = settings.indexOf(item)
 
