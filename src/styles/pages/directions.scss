@@ -45,6 +45,9 @@
             background-color: var(--color);
             color: var(--accent);
 
+            border-radius: inherit;
+            overflow: hidden;
+
             display: grid;
             grid-template-columns: 1fr 1.390624rem;
             gap: 5px;
