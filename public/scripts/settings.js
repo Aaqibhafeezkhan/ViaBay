@@ -8,7 +8,6 @@ window.addEventListener('DOMContentLoaded', function(e) {
 
 if (location.pathname.startsWith('/settings')) {
     settingEles.forEach(function(s, i) {
-        s.querySelector('select').value = ' '
         s.querySelector('select').onchange = function(e) {
             setSetting(s.getAttribute('module-name'), e.target.value)
         }
