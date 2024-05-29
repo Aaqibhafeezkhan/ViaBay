@@ -5,12 +5,13 @@ window.addEventListener('DOMContentLoaded', function(e) {
     settingEles = document.querySelectorAll('setting-option')
     selectEles = document.querySelectorAll('setting-option select')
 
+    applySettings()
     if (location.pathname.startsWith('/settings')) {
         settingEles.forEach(function(s, i) {
             s.querySelector('select').onchange = function(e) {
                 setSetting(s.getAttribute('module-name'), e.target.value)
             }
-        })    
+        })
     }
 })
 
