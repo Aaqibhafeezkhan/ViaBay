@@ -47,7 +47,8 @@ function applySettings() {
 
 function setSetting(name, value, type, key) {
     var settings = getSettings()
-    
+    console.log(settings)
+
     var item = settings.fiter(setting => setting.name === s.getAttribute('module-name'))
     if (Array.isArray(item)) item = item[0]
 
