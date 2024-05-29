@@ -6,7 +6,7 @@
     box-sizing: border-box;
 
     width: fit-content;
-    background-color: var(--color);
+    background-color: var(--bg);
 
     display: flex;
     flex-direction: column;
@@ -30,9 +30,9 @@
           min-height: 25px;
 
           border-radius: 5px;
-          outline: solid 1px lightgray;
+          outline: solid 1px var(--accent);
           &:has(.stop:focus-visible) {
-            outline: solid black;
+            outline: solid var(--accent);
           }
           z-index: 1;
 
@@ -118,6 +118,10 @@
         display: grid;
         grid-template-columns: 3fr 1fr;
         gap: var(--gap);
+
+        > button {
+          border: solid 1px var(--accent);
+        }
       }
     }
 
