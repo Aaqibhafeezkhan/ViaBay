@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
 })
 
 function checkIfValue(element) {
-  if (element.value) event.target.parentNode.setAttribute('open', '')
+  if (element.value) parentNode.setAttribute('open', '')
   else element.parentNode.removeAttribute('open')
 }
 
