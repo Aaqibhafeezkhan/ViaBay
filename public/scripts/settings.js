@@ -92,7 +92,7 @@ function setSetting(name, value, type, key) {
     }
 
     setting.content = content
-    settings[sIndex] = setting
+    settings[index] = setting
     settings = JSON.stringify(settings)
     localStorage.setItem(settingsKey, settings)
 }
