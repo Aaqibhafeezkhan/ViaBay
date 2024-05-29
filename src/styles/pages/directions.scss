@@ -130,7 +130,10 @@
         > button {
           border: solid 1px var(--accent);
           border-radius: 5px;
-        }
+
+          background-color: var(--color);
+          color: var(--accent);
+      }
       }
     }
 
