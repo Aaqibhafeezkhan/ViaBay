@@ -1,15 +1,13 @@
 var settingEles = document.querySelectorAll('setting-option')
 var selectEles = document.querySelectorAll('setting-option select')
 
-addEventListener('DOMContentLoaded', function() {
-    if (location.pathname.startsWith('/settings')) {
-        settingEles.forEach(function(s, i) {
-            s.querySelector('select').onchange = function(e) {
-                setSetting(s.getAttribute('module-name'), e.target.value)
-            }
-        })    
-    }
-})
+if (location.pathname.startsWith('/settings')) {
+    settingEles.forEach(function(s, i) {
+        s.querySelector('select').onchange = function(e) {
+            setSetting(s.getAttribute('module-name'), e.target.value)
+        }
+    })    
+}
 
 var setTheme = function(t) {
     document.documentElement.setAttribute('data-theme', (t || 'system'))
@@ -66,7 +64,7 @@ function setSetting(name, value, type, key) {
 
     var setting = settings[index]
     var content = setting.content
-    if (!!content === false) {
+    if (!content) {
         switch(type) {
             case 'object': 
                 content = {}
