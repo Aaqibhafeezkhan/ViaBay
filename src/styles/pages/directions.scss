@@ -13,7 +13,21 @@
     gap: var(--gap);
 
     .stops-area {
-      box-sizing: border-box;
+      [data-theme="dark"] & {
+        --oColor: var(--color);
+        --color: var(--accent);
+        --accent: var(--oColor);
+      }
+
+      @media (preferes-color-scheme: dark) {
+        @media (preferes-color-scheme: dark) {
+          --oColor: var(--color);
+          --color: var(--accent);
+          --accent: var(--oColor);
+          }
+      }
+      
+            box-sizing: border-box;
       padding: var(--gap) var(--gap) 0;
 
       display: grid;
