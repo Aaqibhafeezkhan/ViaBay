@@ -4,6 +4,7 @@ var BingMapsKey = 'AkMdzF1Q7JCJCXj3415UZvH4JYRCJihZ_W7JEOnpx6eH5Hwtt1qie1LQqIrJ7
 var agencyIds = []
 var agencies = {}
 var allPins = []
+var lines = []
 var patterns = []
 
 var colors = ['#0000FF','#FFA500','#6A4A3A','#800080','#800000','#40E0D0','#FF00FF','#000035','#FF6347','#FA8072','#808000','#7F00FF','#73BF00','#CD7F32','#8A2BE2','#3CB371','#2E8B57','#D2691E','#4682B4','#FF4500','#8B008B','#556B2F', '#8B4513', '#00CED1', '#483D8B', '#8B0000', '#9932CC', '#556B2F', '#2E8B57', '#6B8E23', '#9932CC', '#FF6347', '#20B2AA']
@@ -135,8 +136,9 @@ function onMapLoad() {
                 agencies[agency.Id] = aObj
             })
 
-            makeRequest('lines', [['operator_id', agency.Id]], function(lines) {
-                patterns[agency.Id] = {}
+            patterns[agency.Id] = {}
+            makeRequest('lines', [['operator_id', agency.Id]], function(l) {
+                lines = l
                 lines.forEach(function(line, lI) {
                     makeRequest('patterns', [['operator_id', agency.Id], ['line_id', line.Id]], function(pattern) {
                         patterns[agency.Id][line.Id] = pattern
