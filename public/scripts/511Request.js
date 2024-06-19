@@ -29,7 +29,6 @@ function makeRequest(moduleName, params=[], callback, i=0) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            // var data = response.json()
             if (typeof data === 'string') {
                 if (
                     (data.startsWith('{') && data.endsWith('}')) || 
