@@ -136,10 +136,10 @@ function onMapLoad() {
                 agencies[agency.Id] = aObj
             })
 
-            patterns[agency.Id] = {}
-            makeRequest('lines', [['operator_id', agency.Id]], function(l) {
-                lines = l
-                lines.forEach(function(line, lI) {
+            makeRequest('lines', [['operator_id', agency.Id]], function(lS) {
+                lines[agency.Id] = lS
+                patterns[agency.Id] = {}
+                lS.forEach(function(line, lI) {
                     makeRequest('patterns', [['operator_id', agency.Id], ['line_id', line.Id]], function(pattern) {
                         patterns[agency.Id][line.Id] = pattern
                     })
