@@ -48,7 +48,7 @@ function makeRequest(moduleName, params=[], callback, i=0) {
         makeRequest(moduleName, params, callback, i+1)
         return
     }
-    var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[i]}${params}`
+    var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[i].key}${params}`
     // console.log(url)
 
     fetch(url)
