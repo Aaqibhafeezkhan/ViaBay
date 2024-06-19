@@ -286,7 +286,7 @@ function showVehicleInfo(e) {
         }
 }
 
-function showRoutePath(stops) {
+function showRoutePath(aId, rId) {
     // Load the directions module.
     Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
         if (directionsManager) directionsManager.clearAll()
@@ -297,14 +297,18 @@ function showRoutePath(stops) {
         // // Calculate a date time that is 1 hour from now.
         // Set Route Mode to transit.
         directionsManager.setRequestOptions({
-            routeMode: Microsoft.Maps.Directions.RouteMode.driving,
+            routeMode: Microsoft.Maps.Directions.RouteMode.tranit,
         });
         
         // Add waypoints.
-        stops.forEach(function(s, i) {
-            var waypoint = new Microsoft.Maps.Directions.Waypoint({ address: s });
-            directionsManager.addWaypoint(waypoint);
-        })
+        if (patterns[aId]) {
+            if (patterns[aId][rId]) {
+                patterns[aId][rId].forEach(function(s, i) {
+                    var waypoint = new Microsoft.Maps.Directions.Waypoint({ address: s });
+                    directionsManager.addWaypoint(waypoint);
+                })
+            }
+        }
         
         // Set the element in which the itinerary will be rendered.
         directionsManager.setRenderOptions({ itineraryContainer: directionsElement });
