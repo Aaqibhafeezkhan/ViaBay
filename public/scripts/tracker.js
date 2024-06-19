@@ -213,7 +213,9 @@ function showVehicleInfo(e) {
                 ]
             }
             
+            console.log(data.aId)
             var agePatterns = patterns[data.aId]
+            console.log(agePatterns)
             if (agePatterns) {
                 var routePatterns = agePatterns[data.LineRef]
                 if (routePatterns) {
