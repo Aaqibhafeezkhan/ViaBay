@@ -7,7 +7,6 @@ var apiKeys = [
     'b9269045-ce6b-48e3-9ef2-bdb1332499ad', 
     '26c601e1-1221-4690-9b03-1d597f5ccc96', 
 ]
-var apiKeys = []
 apiKeys.forEach((k, i) => apiKeys[i] = {usage: 0, key: k})
 
 function makeRequest(moduleName, params=[], callback, i=0) {
@@ -24,10 +23,6 @@ function makeRequest(moduleName, params=[], callback, i=0) {
     }
 
     console.log(i, apiKeys[i])
-    if (apiKeys[i].usage < 100) {
-        makeRequest(moduleName, params, callback, i+1)
-        return
-    }
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[i].key}${params}`
     // console.log(url)
 
@@ -44,7 +39,7 @@ function makeRequest(moduleName, params=[], callback, i=0) {
             callback(data)
         })
         .catch(err => {
-            if (i < apiKeys.length-1) {
+            if (apiKeys[i].usage < 100 && i < apiKeys.length-1) {
                 makeRequest(moduleName, params, callback, i+1)
             }
             else {
