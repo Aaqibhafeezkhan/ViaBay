@@ -22,7 +22,7 @@ function makeRequest(moduleName, params=[], callback, i=0) {
         }
     }
 
-    console.log(i, apiKeys[i])
+    // console.log(i, apiKeys[i])
     var url = `https://api.511.org/transit/${moduleName}?api_key=${apiKeys[i].key}${params}`
     // console.log(url)
 
