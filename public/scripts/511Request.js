@@ -23,6 +23,7 @@ function makeRequest(moduleName, params=[], callback, i=0) {
         }
     }
 
+    console.log(i, apiKeys[i])
     if (apiKeys[i].usage < 100) {
         makeRequest(moduleName, params, callback, i+1)
         return
@@ -39,7 +40,6 @@ function makeRequest(moduleName, params=[], callback, i=0) {
                     (data.startsWith('[') && data.endsWith(']'))
                 ) data = JSON.parse(data)
             }
-            console.log(i, apiKeys[i])
             apiKeys[i].usage++
             callback(data)
         })
@@ -50,7 +50,6 @@ function makeRequest(moduleName, params=[], callback, i=0) {
             else {
                 console.error(err);
             }
-            console.log(i, apiKeys[i])
             apiKeys[i].usage++
         });
 
