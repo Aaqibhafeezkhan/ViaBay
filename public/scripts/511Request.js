@@ -50,6 +50,7 @@ function makeRequest(moduleName, params=[], callback, i=0) {
             else {
                 console.error(err);
             }
+            console.log(i, apiKeys[i])
             apiKeys[i].usage++
         });
 
