@@ -1,4 +1,4 @@
-var api_keys = [
+var apiKeys = [
     '7a7f827d-6d7d-451e-a9a6-bcc517c951b9', 
     '6e4e4158-72bd-424d-85a3-2678e0a9854e', 
     '1eb78f53-b000-42ea-8ff6-9bedb66e01cc', 
@@ -8,7 +8,7 @@ var api_keys = [
     '26c601e1-1221-4690-9b03-1d597f5ccc96', 
 ]
 var apiKeys = []
-api_keys.forEach(k => apiKeys.push({usage: 0, key: k}))
+api_keys.forEach((k, i) => apiKeys[i] = {usage: 0, key: k})
 
 function makeRequest(moduleName, params=[], callback, i=0) {
     if (Array.isArray(params)) {
