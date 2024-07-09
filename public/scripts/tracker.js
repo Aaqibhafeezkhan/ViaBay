@@ -8,6 +8,23 @@ var lines = []
 var patterns = []
 
 var colors = ['#0000FF','#FFA500','#6A4A3A','#800080','#800000','#40E0D0','#FF00FF','#000035','#FF6347','#FA8072','#808000','#7F00FF','#73BF00','#CD7F32','#8A2BE2','#3CB371','#2E8B57','#D2691E','#4682B4','#FF4500','#8B008B','#556B2F', '#8B4513', '#00CED1', '#483D8B', '#8B0000', '#9932CC', '#556B2F', '#2E8B57', '#6B8E23', '#9932CC', '#FF6347', '#20B2AA']
+var customColors = {
+    SF: {
+        E: 'beige', 
+        F: 'pink', 
+        J: 'orange', 
+        K: 'lightblue', 
+        L: 'purple', 
+        M: 'green', 
+        N: 'blue', 
+        S: 'yellow', 
+        T: 'red', 
+        C: 'brown', 
+        CA: 'brown', 
+        PM: 'brown', 
+        PH: 'brown', 
+    }
+}
 
 var directionsElement = document.querySelector('#hiddenDirections')
 var directionsManager = false
