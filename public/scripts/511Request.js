@@ -60,6 +60,7 @@ function makeRequest(moduleName, params=[], callback, i=0) {
                     (data.startsWith('[') && data.endsWith(']'))
                 ) data = JSON.parse(data)
             }
+            console.log(i, apiKeys[i])
             apiKeys[i].usage++
             callback(data)
         })

@@ -169,121 +169,121 @@ function GetMap() {
 
 
 function showVehicleInfo(e) {
-        //Make sure the infobox has metadata to display.
-        var data = e.target.metadata
-        if (data) {
-            // agencyIds.forEach(function(id, i) {
-            //     if (agencies[id]) {
-            //         agencies[id].vehicles.pins.forEach(function(p, pI) {
-            //             agencies[id].vehicles.pins[pI].metadata.infoboxOpen = false
-            //         })
-            //     }
-            // })
+    //Make sure the infobox has metadata to display.
+    var data = e.target.metadata
+    if (data) {
+        // agencyIds.forEach(function(id, i) {
+        //     if (agencies[id]) {
+        //         agencies[id].vehicles.pins.forEach(function(p, pI) {
+        //             agencies[id].vehicles.pins[pI].metadata.infoboxOpen = false
+        //         })
+        //     }
+        // })
+        
+        // Set the infobox options with the metadata of the pushpin.
+        var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
+        if (isSmallScreen) {
             
-            // Set the infobox options with the metadata of the pushpin.
-            var isSmallScreen = window.matchMedia('(max-width: 915px)').matches
-            if (isSmallScreen) {
-                
+        }
+        
+        // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
+
+        // console.log(data)
+
+        data.LineName = data.PublishedLineName
+        if (data.PublishedLineName) {
+            if (data.LineName.includes('\\')) data.LineName = data.LineName.split('\\').join('/')
+                if (data.LineName.includes(' / ')) data.LineName = data.LineName.split(' / ').join('/')
+                if (data.LineName.includes('/')) data.LineName = data.LineName.split('/').join(' - ')
+                if (data.LineName.includes('  ')) data.LineName = data.LineName.split('  ').join(' ')
             }
-            
-            // agencies[data.aId].vehicles.pins[data.i].metadata.infoboxOpen = true
 
-            // console.log(data)
-
-            data.LineName = data.PublishedLineName
-            if (data.PublishedLineName) {
-                if (data.LineName.includes('\\')) data.LineName = data.LineName.split('\\').join('/')
-                    if (data.LineName.includes(' / ')) data.LineName = data.LineName.split(' / ').join('/')
-                    if (data.LineName.includes('/')) data.LineName = data.LineName.split('/').join(' - ')
-                    if (data.LineName.includes('  ')) data.LineName = data.LineName.split('  ').join(' ')
-                }
-
-            var options = {
-                title: [
-                    `${data.agency}`, 
-                    `${data.LineRef}: ${data.LineName}`
-                ], 
-                description: [
-                    `Direction: ${data.DirectionRef ? data.DirectionRef : 'Unknown Direction'}`,
-                    `Origin: ${data.OriginName ? data.OriginName : 'No Origin or Unknown'}`,
-                    `Destination: ${data.DestinationName ? data.DestinationName : 'No Destination or Unknown'}`,
-                    `Congestion: ${data.InCongestion ? 'Congested' : 'Not Congested or Unknown'}`,
-                    `Occupancy: ${data.Occupancy ? data.Occupancy : 'Unknown'}`,
-                    `Vehicle ID: ${data.VehicleRef ? data.VehicleRef : 'Unknown'}`
-                ]
-            }
-            
-            console.log(data.aId)
-            var agePatterns = patterns[data.aId]
-            console.log(agePatterns)
-            if (agePatterns) {
-                var routePatterns = agePatterns[data.LineRef]
-                if (routePatterns) {
-                    var journeyPatterns = routePatterns.journeyPatterns
-                    if (journeyPatterns) {
-                        var journeyPattern = journeyPatterns
-                            .filter(item => item['Name'] === data.PublishedLineName)
-                            // .filter(item => item['DirectionRef'] === data.DirectionRef)
-                        console.log(journeyPattern)
-                        if (journeyPattern.PointsInSequence) {
-                            var PointsInSequence = journeyPattern.PointsInSequence
-                            console.log(PointsInSequence)
-                        }
+        var options = {
+            title: [
+                `${data.agency}`, 
+                `${data.LineRef}: ${data.LineName}`
+            ], 
+            description: [
+                `Direction: ${data.DirectionRef ? data.DirectionRef : 'Unknown Direction'}`,
+                `Origin: ${data.OriginName ? data.OriginName : 'No Origin or Unknown'}`,
+                `Destination: ${data.DestinationName ? data.DestinationName : 'No Destination or Unknown'}`,
+                `Congestion: ${data.InCongestion ? 'Congested' : 'Not Congested or Unknown'}`,
+                `Occupancy: ${data.Occupancy ? data.Occupancy : 'Unknown'}`,
+                `Vehicle ID: ${data.VehicleRef ? data.VehicleRef : 'Unknown'}`
+            ]
+        }
+        
+        console.log(data.aId)
+        var agePatterns = patterns[data.aId]
+        console.log(agePatterns)
+        if (agePatterns) {
+            var routePatterns = agePatterns[data.LineRef]
+            if (routePatterns) {
+                var journeyPatterns = routePatterns.journeyPatterns
+                if (journeyPatterns) {
+                    var journeyPattern = journeyPatterns
+                        .filter(item => item['Name'] === data.PublishedLineName)
+                        // .filter(item => item['DirectionRef'] === data.DirectionRef)
+                    console.log(journeyPattern)
+                    if (journeyPattern.PointsInSequence) {
+                        var PointsInSequence = journeyPattern.PointsInSequence
+                        console.log(PointsInSequence)
                     }
                 }
             }
-            
-
-            var hasMCall = data.MonitoredCall ? true : false
-            var hasCalls = data.OnwardCalls ? (data.OnwardCalls.OnwardCall ? (data.OnwardCalls.OnwardCall.length > 0 ? true : false) : false) : false
-
-            var stops = []
-            var stopHTMLs = []
-
-            if (hasMCall) {
-                var stop = data.MonitoredCall
-                callActions(stop)
-            }
-
-            if (hasCalls) {
-                stops = data.OnwardCalls.OnwardCall
-                
-                stops.forEach(function(stop, sI) {
-                    callActions(stop)
-                })
-            }
-
-            function callActions(stop) {
-                var eDate = new Date(stop.ExpectedArrivalTime)
-                var aDate = new Date(stop.AimedArrivalTime)
-                var eTime = eDate.getHours()*60*60+eDate.getMinutes()*60+eDate.getSeconds()
-                var aTime = aDate.getHours()*60*60+aDate.getMinutes()*60+aDate.getSeconds()
-                
-                var stopTime = `${eDate.getHours()}:${eDate.getMinutes().toString().length < 2 ? `0${eDate.getMinutes()}` : eDate.getMinutes()}`
-                
-                var isLate = eTime > aTime ? true : false
-                var isEarly = eTime < aTime ? true : false
-                var isOnTime = eTime === aTime ? true : false
-
-                var earlyLateText = ''
-                if (isLate) earlyLateText = `${Math.ceil((eTime-aTime)/60)} Minutes Late`
-                if (isEarly) earlyLateText = `${Math.ceil((aTime-eTime)/60)} Minutes Early`
-                if (isOnTime) earlyLateText = `On Time`
-
-                var color = isLate ? 'red' : (isEarly ? 'green' : (isOnTime ? 'blue' : 'black'))
-
-                stopHTMLs.push(`<li class="stop" style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): ${stopTime} (${earlyLateText})</li>`)
-            }
-
-            var stopsHTML = `<ol class="stops">${stopHTMLs.join('')}</ol>`
-
-            infobox.setOptions({
-                location: e.target.getLocation(),
-                title: options.title,
-                htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${(hasMCall || hasCalls) ? stopsHTML : ''}</div>`,
-                visible: true
-            });
         }
+        
+
+        var hasMCall = data.MonitoredCall ? true : false
+        var hasCalls = data.OnwardCalls ? (data.OnwardCalls.OnwardCall ? (data.OnwardCalls.OnwardCall.length > 0 ? true : false) : false) : false
+
+        var stops = []
+        var stopHTMLs = []
+
+        if (hasMCall) {
+            var stop = data.MonitoredCall
+            callActions(stop)
+        }
+
+        if (hasCalls) {
+            stops = data.OnwardCalls.OnwardCall
+            
+            stops.forEach(function(stop, sI) {
+                callActions(stop)
+            })
+        }
+
+        function callActions(stop) {
+            var eDate = new Date(stop.ExpectedArrivalTime)
+            var aDate = new Date(stop.AimedArrivalTime)
+            var eTime = eDate.getHours()*60*60+eDate.getMinutes()*60+eDate.getSeconds()
+            var aTime = aDate.getHours()*60*60+aDate.getMinutes()*60+aDate.getSeconds()
+            
+            var stopTime = `${eDate.getHours()}:${eDate.getMinutes().toString().length < 2 ? `0${eDate.getMinutes()}` : eDate.getMinutes()}`
+            
+            var isLate = eTime > aTime ? true : false
+            var isEarly = eTime < aTime ? true : false
+            var isOnTime = eTime === aTime ? true : false
+
+            var earlyLateText = ''
+            if (isLate) earlyLateText = `${Math.ceil((eTime-aTime)/60)} Minutes Late`
+            if (isEarly) earlyLateText = `${Math.ceil((aTime-eTime)/60)} Minutes Early`
+            if (isOnTime) earlyLateText = `On Time`
+
+            var color = isLate ? 'red' : (isEarly ? 'green' : (isOnTime ? 'blue' : 'black'))
+
+            stopHTMLs.push(`<li class="stop" style="color: ${color};">${stop.StopPointName} (${stop.StopPointRef}): ${stopTime} (${earlyLateText})</li>`)
+        }
+
+        var stopsHTML = `<ol class="stops">${stopHTMLs.join('')}</ol>`
+
+        infobox.setOptions({
+            location: e.target.getLocation(),
+            title: options.title,
+            htmlContent: `<div class="infobox"><span class="title">${options.title.join('<br>')}</span><br><span>${options.description.join('</span><br><span>')}</span>${(hasMCall || hasCalls) ? stopsHTML : ''}</div>`,
+            visible: true
+        });
+    }
 }
 
 function showRoutePath(aId, rId) {
