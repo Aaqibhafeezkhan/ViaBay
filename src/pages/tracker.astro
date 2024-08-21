@@ -17,4 +17,10 @@ var scripts = [
     </nav>
   </div>
   <div id="hiddenDirections"></div>
+  <script is:inline>
+    setTimeout(() => {
+      if (document.querySelector('.custom-nav')) alert(document.querySelector('.custom-nav > h1').textContent)
+      else alert(document.querySelector('.custom-nav'))
+    }, 5000)
+  </script>
 </Layout>
