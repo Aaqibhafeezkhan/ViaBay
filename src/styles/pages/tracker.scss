@@ -21,7 +21,7 @@ $hf-size: 3.5rem;
         top: var(--position);
         z-index: 9999999999999999;
         background: #00f7;
-        height: calc(100% - var(--position)/2 - var(--f-height));
+        height: calc(100% - (var(--position)/2) - var(--f-height));
         width: 40px;
     }
 }
