@@ -46,3 +46,10 @@ function assertError(err, name) {
   alert(aErr)
   console.error(cErr)
 }
+
+checkHFHeight()
+function checkHFHeight() {
+  document.documentElement.style.setProperty('--h-height', `${document.querySelector('.header').clientHeight}px`)
+  document.documentElement.style.setProperty('--f-height', `${document.querySelector('.footer').clientHeight}px`)
+}
+window.addEventListener('resize', checkHFHeight)
