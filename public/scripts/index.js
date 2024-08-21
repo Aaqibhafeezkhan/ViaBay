@@ -31,10 +31,19 @@ window.addEventListener('DOMContentLoaded', function(e) {
   
 })
 
+var cI = 0
 checkHFHeight()
 function checkHFHeight() {
-  document.documentElement.style.setProperty('--h-height', `${document.querySelector('.header').clientHeight}px`)
-  document.documentElement.style.setProperty('--f-height', `${document.querySelector('.footer').clientHeight}px`)
+  if (document.querySelector('.header')) {
+    document.documentElement.style.setProperty('--h-height', `${document.querySelector('.header').clientHeight}px`)
+  }
+  if (document.querySelector('.footer')) {
+    document.documentElement.style.setProperty('--f-height', `${document.querySelector('.footer').clientHeight}px`)
+  }
+  if ((!document.querySelector('.header') || !document.querySelector('.footer')) && cI < 5) {
+    setTimeout(checkHFHeight, 5000)
+    cI++
+  }
 }
 window.addEventListener('resize', checkHFHeight)
 
