@@ -14,14 +14,15 @@ $hf-size: 3.5rem;
     position: relative;
 
     .custom-nav {
+        --position: 30px;
+
         position: absolute;
-        left: 30px;
-        top: 30px;
+        left: var(--position);
+        top: var(--position);
         z-index: 9999999999999999;
         background: #00f7;
-        height: 100px;
+        height: calc(100% - var(--position)/2);
         width: 40px;
-        
     }
 }
 
