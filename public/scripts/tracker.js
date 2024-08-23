@@ -207,7 +207,9 @@ function showVehicleInfo(e) {
 
         // console.log(data)
 
-        makeRequest('stops', [['operator_id', data.aId], ['line_id', data.LineRef]], function(res) {
+        makeRequest('patterns', [['operator_id', data.aId], ['line_id', data.LineRef]], function(res) {
+            // var Contents = res.Contents
+            // var dataObjects = Contents.dataObjects
             console.log(res)
         })
 
