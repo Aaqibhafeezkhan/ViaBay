@@ -208,7 +208,7 @@ function showVehicleInfo(e) {
         // console.log(data)
 
         makeRequest('stops', [['operator_id', data.aId], ['line_id', data.LineRef]], function(res) {
-
+            console.log(res)
         })
 
         data.LineName = data.PublishedLineName
