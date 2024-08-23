@@ -208,9 +208,15 @@ function showVehicleInfo(e) {
         // console.log(data)
 
         makeRequest('patterns', [['operator_id', data.aId], ['line_id', data.LineRef]], function(res) {
-            // var Contents = res.Contents
-            // var dataObjects = Contents.dataObjects
-            console.log(res)
+            var journeyPatterns = res.journeyPatterns
+            var patterns = journeyPatterns.filter(p => p.DirectionRef === data.DirectionRef)
+            if (Array.isArray(patterns) || typeof patterns === 'object') {
+                if (patterns.length > 0) {
+                    patterns = patterns[0]
+                }
+            }
+            else patterns = []
+            console.log(patterns)
         })
 
         data.LineName = data.PublishedLineName
