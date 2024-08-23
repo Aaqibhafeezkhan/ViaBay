@@ -235,24 +235,24 @@ function showVehicleInfo(e) {
         }
         
         console.log(data.aId)
-        var agePatterns = patterns[data.aId]
-        if (agePatterns) {
-            var routePatterns = agePatterns[data.LineRef]
-            console.log(routePatterns)
-            if (routePatterns) {
-                var journeyPatterns = routePatterns.journeyPatterns
-                if (journeyPatterns) {
-                    var journeyPattern = journeyPatterns
-                        .filter(item => item['Name'] === data.PublishedLineName)
-                        // .filter(item => item['DirectionRef'] === data.DirectionRef)
-                    console.log(journeyPattern)
-                    if (journeyPattern.PointsInSequence) {
-                        var PointsInSequence = journeyPattern.PointsInSequence
-                        console.log(PointsInSequence)
-                    }
-                }
-            }
-        }
+        // var agePatterns = patterns[data.aId]
+        // if (agePatterns) {
+        //     var routePatterns = agePatterns[data.LineRef]
+        //     console.log(routePatterns)
+        //     if (routePatterns) {
+        //         var journeyPatterns = routePatterns.journeyPatterns
+        //         if (journeyPatterns) {
+        //             var journeyPattern = journeyPatterns
+        //                 .filter(item => item['Name'] === data.PublishedLineName)
+        //                 // .filter(item => item['DirectionRef'] === data.DirectionRef)
+        //             console.log(journeyPattern)
+        //             if (journeyPattern.PointsInSequence) {
+        //                 var PointsInSequence = journeyPattern.PointsInSequence
+        //                 console.log(PointsInSequence)
+        //             }
+        //         }
+        //     }
+        // }
         
 
         var hasMCall = data.MonitoredCall ? true : false
