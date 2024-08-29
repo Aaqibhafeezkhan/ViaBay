@@ -231,7 +231,6 @@ function showVehicleInfo(e) {
     
             if (hasMCall) {
                 stops.push(data.MonitoredCall)
-                console.log(data.MonitoredCall)
             }
             if (hasCalls) {
                 data.OnwardCalls.OnwardCall.forEach(function(stop, sI) {
@@ -254,6 +253,7 @@ function showVehicleInfo(e) {
                     }
                 }
             })
+            console.log(TimingPointInJourneyPattern)
 
             var liS = []
             stops.forEach(function(stop, sI) {
