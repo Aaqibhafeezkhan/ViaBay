@@ -231,18 +231,19 @@ function showVehicleInfo(e) {
             var stops = []
     
             if (hasMCall) {
-                var stop = data.MonitoredCall
-                callActions(stop)
+                stops.push(data.MonitoredCall)
+                console.log(data.MonitoredCall)
             }
-    
             if (hasCalls) {
-                stops = data.OnwardCalls.OnwardCall
-                
-                stops.forEach(function(stop, sI) {
-                    callActions(stop)
+                data.OnwardCalls.OnwardCall.forEach(function(stop, sI) {
+                    stops.push(stop)
                 })
             }
-    
+
+            stops.forEach(function(stop, sI) {
+                callActions(stop)
+            })
+
             function callActions(stop) {
                 var eDate = new Date(stop.ExpectedArrivalTime)
                 var aDate = new Date(stop.AimedArrivalTime)
