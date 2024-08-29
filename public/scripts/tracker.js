@@ -219,7 +219,7 @@ function showVehicleInfo(e) {
 
             var PointsInSequence = pattern.PointsInSequence
             var StopPointInJourneyPattern = PointsInSequence.StopPointInJourneyPattern
-            console.log(StopPointInJourneyPattern)
+            console.log(PointsInSequence)
 
             var hasMCall = data.MonitoredCall ? true : false
             var hasCalls = data.OnwardCalls ? (data.OnwardCalls.OnwardCall ? (data.OnwardCalls.OnwardCall.length > 0 ? true : false) : false) : false
