@@ -239,6 +239,23 @@ function showVehicleInfo(e) {
                 })
             }
 
+            stops.forEach(stop => {
+                var items = TimingPointInJourneyPattern.filter(t => t.Name === stop.StopPointName)
+                if (items) {
+                    if (items.length > 0) {
+                        if (items.length > 1) {
+                            items.forEach(i => {
+                                TimingPointInJourneyPattern.splice(TimingPointInJourneyPattern.indexOf(i), 1)
+                            })
+                        }
+                        else {
+                            TimingPointInJourneyPattern.splice(TimingPointInJourneyPattern.indexOf(items[0]), 1)
+                        }
+                    }
+                }
+            })
+
+            var liS = []
             stops.forEach(function(stop, sI) {
                 callActions(stop)
             })
@@ -267,7 +284,7 @@ function showVehicleInfo(e) {
                 li.style.color = color
                 li.textContent = `${stop.StopPointName} (${stop.StopPointRef}): ${stopTime} (${earlyLateText})`
 
-                document.querySelector('.stops').appendChild(li)
+                liS.publishedLineName(li)
             }
     
         })
