@@ -225,7 +225,6 @@ function showVehicleInfo(e) {
             var hasCalls = data.OnwardCalls ? (data.OnwardCalls.OnwardCall ? (data.OnwardCalls.OnwardCall.length > 0 ? true : false) : false) : false
     
             var stops = []
-            var stopHTMLs = []
     
             if (hasMCall) {
                 var stop = data.MonitoredCall
