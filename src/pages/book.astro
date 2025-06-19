@@ -20,14 +20,14 @@ return Astro.redirect('/landing')
       <select-option type="bus">Golden Gate Transit</select-option>
     </select-options>
   </div>
-  <div class="select normal" type="fare" for="bus" onclick="openSelection(this)" hidden>
+  <div class="select normal" data-type="fare" data-for="bus" onclick="openSelection(this)" hidden>
     <select-options>
       <select-option disabled selected>Choose an fare</select-option>
       <select-option>Student Fare: $1.50</select-option>
       <select-option>Regular Fare: $2.50</select-option>
     </select-options>
   </div>
-  <div class="select normal" type="fare" for="train"onclick="openSelection(this)" hidden>
+  <div class="select normal" data-type="fare" data-for="train"onclick="openSelection(this)" hidden>
     <select-options>
       <select-option disabled selected>Choose an fare</select-option>
       <select-option>Student Fare: $5.00</select-option>

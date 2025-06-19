@@ -18,12 +18,12 @@ if (!!document.querySelector('.select')) {
     o.onclick = function(e) {
       if (!!e.target.getAttribute('disabled') === false) {
         e.target.parentNode.style.setProperty('--num', i)
-        var type = e.target.getAttribute('type')
+        var type = e.target.dataset.type
         if (!!type) {
-          document.querySelectorAll(`.select[type="fare"]`).forEach(function(s) {
+          document.querySelectorAll(`.select[data-type="fare"]`).forEach(function(s) {
             s.setAttribute('hidden', '')
           })
-          var selector = document.querySelector(`.select[type="fare"][for="${type}"]`)
+          var selector = document.querySelector(`.select[data-type="fare"][data-for="${type}"]`)
           selector.removeAttribute('hidden')
         }
       }
