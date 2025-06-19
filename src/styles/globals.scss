@@ -88,6 +88,11 @@ body {
   gap: 25px;
 
   font-size: 20pt;
+
+  .title {
+    font-size: 1em;
+    font-weight: 400;
+  }
 }
 
 .nav {
@@ -176,6 +181,17 @@ body {
 
   > * {
     margin-inline: auto;
+  }
+
+  :first-child {
+    margin-top: 0;
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  *:has(+ small) {
+    margin-bottom: 0;
   }
 }
 
