@@ -49,8 +49,7 @@ if (scripts.length < 0) {
 var d = new Date()
 var year = d.getFullYear()
 var startingYear = 2024
-if (year == startingYear) year = ''
-else year = `-${year}`
+var yearStr = year == startingYear ? '' : `-${year}`
 ---
 <!DOCTYPE html>
 <html>
@@ -59,7 +58,7 @@ else year = `-${year}`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
-    { !!headItems ? <div set:html={headItems}></div> : '' }
+    { (!!headItems && headItems.length > 0) ? <div set:html={headItems}></div> : '' }
     {
       mainScripts.map(function(script, i) {
         return <script src={`/scripts/${script}.js`} is:inline></script>
@@ -82,7 +81,7 @@ else year = `-${year}`
       <main id="content" class={classItems}>
         <slot />
       </main>
-      <footer class="footer" site-title={sTitle} current-year={year}>
+      <footer class="footer" site-title={sTitle} current-year={yearStr}>
         <nav class="nav" hidden>
           <a class="link" href="/tracker">
             <img class="icon" src="/icons/map.svg">
