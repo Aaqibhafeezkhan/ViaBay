@@ -36,7 +36,7 @@ npx astro check
 - **API Routes**: `src/pages/api/*.ts` - Server-side endpoints (`prerender: false`)
 - **Layout**: `src/layouts/Layout.astro` - Single shared layout component
 - **Styling**: SCSS in `src/styles/` with `globals.scss` as the base
-- **Client Scripts**: `src/scripts/*.astro` - Components containing a plain `<script>` block (TypeScript, processed and bundled by Astro)
+- **Client Scripts**: `src/scripts/*.astro` - `<script>` components
 - **Type declarations**: `src/env.d.ts` - Global `Window` interface augmentations
 - **Deployment**: Configured for Vercel (`output: 'server'` in `astro.config.mjs`)
 
@@ -73,8 +73,7 @@ npx astro check
 
 - **Main scripts** listed in `mainScriptNames`, dynamically imported and rendered on every page: `cookies`, `index`, `authentication`, `511-request`, `notification-manager`, `settings`, `modal`, `select`
 - **Page-specific scripts** are imported statically at the top of each page `.astro` file and rendered as `<ComponentName />` after the `<Layout>` block (see `tracker.astro` / `directions.astro`)
-- All scripts use plain `<script>` blocks — Astro processes them (TypeScript, bundling, deduplication) and emits them as module scripts, so top-level declarations are module-scoped and must be put on `window` to be shared
-- Only the external Leaflet CDN `<script>` tags in Layout use `is:inline`
+- All scripts are plain `<script>` blocks processed by Astro
 
 **Global Functions / Window Augmentation**:
 
@@ -106,7 +105,7 @@ npx astro check
 1. Create `src/pages/pagename.astro`
 2. Import `Layout` and any page-specific script component from `src/scripts/`
 3. Add page-specific styles to `src/styles/pages/pagename.scss`
-4. Create the client script at `src/scripts/pagename.astro` using a plain `<script>` block (TypeScript)
+4. Create the client script at `src/scripts/pagename.astro` using a `<script>` block
 5. Assign any functions that need to be globally accessible to `window` and declare them in `src/env.d.ts`
 6. Add navigation link to the `<footer>` nav in `Layout.astro`
 
