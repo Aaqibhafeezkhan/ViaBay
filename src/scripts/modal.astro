@@ -1,12 +1,16 @@
 <script>
     var modal = document.querySelector<HTMLDialogElement>('.modal')!
+    var opener: HTMLElement | null = null
 
     function showModal(title: string, content: string) {
         modal.querySelector('.title')!.textContent = title
         modal.querySelector<HTMLElement>('.message')!.textContent = content
+        opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
         modal.showModal();
     }
     window.showModal = showModal
+
+    modal.addEventListener('close', () => opener?.focus())
 
     modal.addEventListener('click', (e: MouseEvent) => {
         var isOutside = checkIfOuterModal(e)
