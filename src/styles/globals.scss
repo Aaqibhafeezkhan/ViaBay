@@ -337,7 +337,7 @@ body {
         }
     }
 
-    &:is(:not([open], :has(:is(input, textarea, select):focus)), :has(.has-input)) .label {
+    &:not([open], :has(:is(input, textarea, select):focus)) .label {
         translate: 0 -50%;
         font-size: inherit;
         border-color: transparent;
