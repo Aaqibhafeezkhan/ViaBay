@@ -36,7 +36,7 @@ npx astro check
 - **API Routes**: `src/pages/api/*.ts` - Server-side endpoints (`prerender: false`)
 - **Layout**: `src/layouts/Layout.astro` - Single shared layout component
 - **Styling**: SCSS in `src/styles/` with `globals.scss` as the base
-- **Client Scripts**: `src/scripts/*.astro` - All `<script is:inline>` components
+- **Client Scripts**: `src/scripts/*.astro` - `<script>` components
 - **Type declarations**: `src/env.d.ts` - Global `Window` interface augmentations
 - **Deployment**: Configured for Vercel (`output: 'server'` in `astro.config.mjs`)
 
@@ -71,10 +71,9 @@ npx astro check
 
 **Script Loading Pattern** (`src/layouts/Layout.astro`):
 
-- **Main scripts** dynamically imported and rendered on every page: `cookies`, `index`, `authentication`, `511-request`, `notification-manager`, `settings`
+- **Main scripts** listed in `mainScriptNames`, dynamically imported and rendered on every page: `cookies`, `index`, `authentication`, `511-request`, `notification-manager`, `settings`, `modal`, `select`
 - **Page-specific scripts** are imported statically at the top of each page `.astro` file and rendered as `<ComponentName />` after the `<Layout>` block (see `tracker.astro` / `directions.astro`)
-- All scripts use `<script is:inline>` — Astro does not process or bundle them
-- `modal.astro` and `select.astro` are additionally imported directly in Layout
+- All scripts are plain `<script>` blocks processed by Astro
 
 **Global Functions / Window Augmentation**:
 
@@ -106,7 +105,7 @@ npx astro check
 1. Create `src/pages/pagename.astro`
 2. Import `Layout` and any page-specific script component from `src/scripts/`
 3. Add page-specific styles to `src/styles/pages/pagename.scss`
-4. Create the client script at `src/scripts/pagename.astro` using `<script is:inline>`
+4. Create the client script at `src/scripts/pagename.astro` using a `<script>` block
 5. Assign any functions that need to be globally accessible to `window` and declare them in `src/env.d.ts`
 6. Add navigation link to the `<footer>` nav in `Layout.astro`
 
