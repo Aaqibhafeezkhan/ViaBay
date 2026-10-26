@@ -19,9 +19,8 @@ async function make511Request(
     moduleName: string,
     params: string[][] = []
 ) {
-    const startedAt = Date.now()
     const response = await fetch(`https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params.map(([name, value]) => `&${encodeURIComponent(name)}=${encodeURIComponent(value)}`).join('')}`)
-    console.log(`[511 API] ${moduleName} ${response.status} ${Date.now() - startedAt}ms`)
+    console.log(`[511 API] ${moduleName} ${response.status}`)
 
     // Pass upstream rate limits through so the client can back off, keeping Retry-After when sent
     if (response.status === 429) {
