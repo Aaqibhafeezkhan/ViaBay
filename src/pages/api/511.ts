@@ -19,13 +19,8 @@ async function make511Request(
     moduleName: string,
     params: string[][] = []
 ) {
-    console.log(`[511 API] Starting ${moduleName} request`)
-
-    const url = `https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params.map(([name, value]) => `&${encodeURIComponent(name)}=${encodeURIComponent(value)}`).join('')}`
-    console.log('[511 API] Fetching URL:', url.replace(apiKey, 'KEY_REDACTED'))
-
-    const response = await fetch(url)
-    console.log('[511 API] Response status:', response.status, response.statusText)
+    const response = await fetch(`https://api.511.org/transit/${moduleName}?api_key=${apiKey}${params.map(([name, value]) => `&${encodeURIComponent(name)}=${encodeURIComponent(value)}`).join('')}`)
+    console.log(`[511 API] ${moduleName} ${response.status}`)
 
     // Pass upstream rate limits through so the client can back off, keeping Retry-After when sent
     if (response.status === 429) {
@@ -61,11 +56,7 @@ async function make511Request(
     return data
 }
 
-export const GET: APIRoute = async ({ url, request, clientAddress }) => {
-    console.log('[511 API Route] Received request:', url.toString())
-    console.log('[511 API Route] Request URL:', request.url)
-    console.log('[511 API Route] SearchParams keys:', Array.from(url.searchParams.keys()))
-
+export const GET: APIRoute = async ({ url, clientAddress }) => {
     if (requestCounts.size > 10_000) {
         requestCounts.forEach((entry, ip) => {
             if (entry.resetAt <= Date.now()) requestCounts.delete(ip)
@@ -87,7 +78,7 @@ export const GET: APIRoute = async ({ url, request, clientAddress }) => {
     const paramsString = url.searchParams.get('params')
 
     if (!moduleName || !Object.hasOwn(modules, moduleName)) {
-        console.error('[511 API Route] Missing or unsupported module:', moduleName?.slice(0, 64))
+        console.error('[511 API Route] Missing or unsupported module')
         return new Response(
             JSON.stringify({ error: 'Unsupported module' }),
             { status: 400, headers: { 'Content-Type': 'application/json' } }
@@ -105,7 +96,7 @@ export const GET: APIRoute = async ({ url, request, clientAddress }) => {
             !Array.isArray(params) || params.length > 10 ||
             !params.every(p => Array.isArray(p) && p.length === 2 && modules[moduleName].params.includes(p[0]) && typeof p[1] === 'string' && p[1].length <= 100)
         ) {
-            console.error('[511 API Route] Invalid params format:', paramsString.slice(0, 200))
+            console.error(`[511 API Route] Invalid params for ${moduleName}`)
             return new Response(
                 JSON.stringify({ error: 'Invalid params format' }),
                 { status: 400, headers: { 'Content-Type': 'application/json' } }
