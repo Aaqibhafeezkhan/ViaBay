@@ -8,7 +8,7 @@ interface Window {
     getCookie: (cname: string) => string
     assertError: (err: Error | string, name: string) => void
     goToPage: (name: string) => void
-    showModal: (title: string, content: string, actions?: { label: string, primary?: boolean, onClick?: () => void }[]) => void
+    showModal: (title: string, content: string) => void
     addNotification: (module: string, name: string, icon: string, content: string, attachmentInfo?: string) => void
     getNotificationKeys: () => string[]
     getNotifications: () => void

@@ -2,21 +2,9 @@
     var modal = document.querySelector<HTMLDialogElement>('.modal')!
     var opener: HTMLElement | null = null
 
-    function showModal(title: string, content: string, actions: { label: string, primary?: boolean, onClick?: () => void }[] = []) {
+    function showModal(title: string, content: string) {
         modal.querySelector('.title')!.textContent = title
         modal.querySelector<HTMLElement>('.message')!.textContent = content
-
-        modal.querySelector('.modal-actions')!.replaceChildren(...(actions.length > 0 ? actions : [{ label: 'OK', primary: true }]).map(action => {
-            var button = document.createElement('button')
-            button.className = `btn ${action.primary ? 'primary' : 'secondary'}`
-            button.textContent = action.label
-            button.addEventListener('click', () => {
-                action.onClick?.()
-                modal.close()
-            })
-            return button
-        }))
-
         opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
         modal.showModal();
     }
@@ -28,6 +16,7 @@
         var isOutside = checkIfOuterModal(e)
         if (isOutside) modal.close()
     })
+    modal.querySelector('.btn')!.addEventListener('click', () => modal.close())
 
     function checkIfOuterModal(e: MouseEvent) {
         const dimensions = modal.getBoundingClientRect()
