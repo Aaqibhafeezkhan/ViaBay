@@ -29,7 +29,7 @@
         backdrop-filter: $_backdrop-filter;
     }
 
-    & content {
+    .modal-content {
         height: 100%;
         padding: $spacing-xxlarge;
         display: flex;
