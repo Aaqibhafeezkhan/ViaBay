@@ -2,12 +2,11 @@
     var modal = document.querySelector<HTMLDialogElement>('.modal')!
     var opener: HTMLElement | null = null
 
-    function showModal(title: string, content: string, actions: { label: string, primary?: boolean, onClick?: () => void }[] = [{ label: 'OK', primary: true }]) {
+    function showModal(title: string, content: string, actions: { label: string, primary?: boolean, onClick?: () => void }[] = []) {
         modal.querySelector('.title')!.textContent = title
         modal.querySelector<HTMLElement>('.message')!.textContent = content
 
-        var actionsEle = modal.querySelector<HTMLElement>('.modal-actions')!
-        actionsEle.replaceChildren(...actions.map(action => {
+        modal.querySelector('.modal-actions')!.replaceChildren(...(actions.length > 0 ? actions : [{ label: 'OK', primary: true }]).map(action => {
             var button = document.createElement('button')
             button.className = `btn ${action.primary ? 'primary' : 'secondary'}`
             button.textContent = action.label
@@ -17,7 +16,6 @@
             })
             return button
         }))
-        actionsEle.hidden = actions.length === 0
 
         opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
         modal.showModal();
