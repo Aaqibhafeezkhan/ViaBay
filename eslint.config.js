@@ -62,6 +62,15 @@ export default [
         }
     },
     {
+        files: ['tests/**/*.ts'],
+        languageOptions: {
+            globals: {
+                window: 'readonly',
+                document: 'readonly'
+            }
+        }
+    },
+    {
         files: ['public/sw.js'],
         languageOptions: {
             globals: {
