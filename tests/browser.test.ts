@@ -1,10 +1,3 @@
-import { test } from '@playwright/test'
-import 'dotenv/config'
+import { registerBrowserTests } from './browser-test-cases'
 
-const base = 'http://localhost:4321';
-const path = process.env.BROWSER_TEST_PATH || '';
-
-test('test browser', async ({ page }) => {
-    await page.goto(`${base}${path.startsWith('/') ? path : `/${path}`}`)
-    await page.pause()
-})
+registerBrowserTests()
