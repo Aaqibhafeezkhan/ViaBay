@@ -29,9 +29,7 @@ test('modal stays open for clicks inside and closes on backdrop after scroll and
             }, { zoom })
             await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0)
 
-            await page.evaluate(() => {
-                window.showModal('Test modal', 'Clicking this message must not close the modal.')
-            })
+            await page.evaluate(() => window.showModal('Test modal', 'Clicking this message must not close the modal.'))
 
             const dialog = page.locator('dialog.modal')
             await expect(dialog).toBeVisible()
@@ -52,7 +50,7 @@ test('modal stays open for clicks inside and closes on backdrop after scroll and
     }
 })
 
-test('modal click handling survives a mobile pinch zoom', async ({ page, browserName }) => {
+test('modal click handling survives mobile pinch zoom', async ({ page, browserName }) => {
     test.skip(browserName !== 'chromium')
 
     await page.setViewportSize({ width: 390, height: 844 })
@@ -71,19 +69,11 @@ test('modal click handling survives a mobile pinch zoom', async ({ page, browser
         deviceScaleFactor: 1,
         mobile: true,
     })
-    await session.send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 1 })
-    await session.send('Input.synthesizePinchGesture', {
-        x: 195,
-        y: 422,
-        scaleFactor: 1.5,
-        relativeSpeed: 800,
-        gestureSourceType: 'touch',
-    })
+    await session.send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 2 })
+    await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1.5 })
     await expect.poll(() => page.evaluate(() => window.visualViewport?.scale ?? 1)).toBeGreaterThan(1)
 
-    await page.evaluate(() => {
-        window.showModal('Test modal', 'Pinch zoom must not make an inside click dismiss this modal.')
-    })
+    await page.evaluate(() => window.showModal('Test modal', 'Pinch zoom must not make an inside click dismiss this modal.'))
 
     const dialog = page.locator('dialog.modal')
     await expect(dialog).toBeVisible()
@@ -94,5 +84,6 @@ test('modal click handling survives a mobile pinch zoom', async ({ page, browser
     await page.mouse.click(1, 1)
     await expect(dialog).not.toBeVisible()
     await expect(dialog).not.toHaveAttribute('open')
+    await session.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 })
     await session.detach()
 })
