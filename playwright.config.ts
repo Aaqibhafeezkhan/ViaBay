@@ -1,5 +1,8 @@
 import { defineConfig } from '@playwright/test'
 
 export default defineConfig({
-    testMatch: ['**/browser.test.ts', '**/browser.test.nopause.ts'],
+    testMatch: [
+        '**/*.@(spec|test).?(c|m)[jt]s?(x)',
+        '**/browser.test.nopause.ts',
+    ],
 })
