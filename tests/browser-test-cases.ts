@@ -9,7 +9,7 @@ export function registerBrowserTests() {
                 configurable: true,
                 value: {
                     getCurrentPosition: (
-                        _success: PositionCallback,
+                        _success: () => void,
                         error: (reason: { code: number, message: string }) => void,
                     ) => error({ code: 1, message: 'Permission denied' }),
                 },
